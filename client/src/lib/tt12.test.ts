@@ -23,6 +23,26 @@ describe("validateTable", () => {
     expect(structural.length).toBeGreaterThan(0);
     expect(structural.every((item) => item.row === null)).toBe(true);
   });
+  it("gắn cảnh báo văn bản, tiền tệ, ngày và độ dài theo schema của từng cột", () => {
+    const row: DataRow = {
+      rowNumber: 2,
+      cells: {
+        STT: { value: 1 },
+        MA_THUOC: { value: "  T  01\n" },
+        TEN_THUOC: { value: "Thuốc mẫu" },
+        DON_VI_TINH: { value: "Viên" },
+        DON_GIA: { value: "1,200,000", formula: "A1*2" },
+        TU_NGAY: { value: "20261340" },
+        MA_CSKCB: { value: "123456" },
+      },
+    };
+    const issues = validateTable(TEMPLATES[2], TEMPLATES[2].headers, [row]);
+    expect(issues.some((item) => item.column === "MA_THUOC" && item.category === "Văn bản")).toBe(true);
+    expect(issues.some((item) => item.column === "DON_GIA" && item.category === "Công thức")).toBe(true);
+    expect(issues.some((item) => item.column === "DON_GIA" && item.category === "Tiền tệ")).toBe(true);
+    expect(issues.some((item) => item.column === "TU_NGAY" && item.category === "Ngày tháng")).toBe(true);
+    expect(issues.some((item) => item.column === "MA_CSKCB" && item.category === "Độ dài")).toBe(true);
+  });
 });
 
 describe("detectTemplate", () => {
