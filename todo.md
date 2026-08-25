@@ -16,3 +16,9 @@
 - [x] Tạo bản HTML offline, smoke test bằng HTTP cục bộ và đóng gói EXE portable Windows.
 - [x] Tạo repository GitHub private mới, commit rõ ràng và push bản phát hành.
 - [x] Xác minh lại artifact, link GitHub, version, changelog và README.
+
+## Tối ưu khả năng đọc giao diện
+
+- [x] Rà soát contrast và kích thước chữ ở header, sidebar, bảng dữ liệu và trạng thái lỗi.
+- [x] Tăng typography, tương phản màu và vùng bấm trên giao diện desktop/mobile.
+- [x] Kiểm tra trực quan, build và lưu checkpoint cho phiên bản giao diện dễ đọc hơn.
