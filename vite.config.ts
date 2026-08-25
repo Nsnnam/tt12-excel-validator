@@ -5,6 +5,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { defineConfig, type Plugin, type ViteDevServer } from "vite";
 import { vitePluginManusRuntime } from "vite-plugin-manus-runtime";
+import { viteSingleFile } from "vite-plugin-singlefile";
 
 // =============================================================================
 // Manus Debug Collector - Vite Plugin
@@ -203,9 +204,11 @@ function vitePluginStorageProxy(): Plugin {
   };
 }
 
-const plugins = [react(), tailwindcss(), jsxLocPlugin(), vitePluginManusRuntime(), vitePluginManusDebugCollector(), vitePluginStorageProxy()];
+const isOfflineBuild = process.env.NSN_OFFLINE === "1";
+const plugins = [react(), tailwindcss(), jsxLocPlugin(), vitePluginManusRuntime(), vitePluginManusDebugCollector(), vitePluginStorageProxy(), ...(isOfflineBuild ? [viteSingleFile()] : [])];
 
 export default defineConfig({
+  base: isOfflineBuild ? "./" : "/",
   plugins,
   resolve: {
     alias: {
@@ -217,7 +220,7 @@ export default defineConfig({
   envDir: path.resolve(import.meta.dirname),
   root: path.resolve(import.meta.dirname, "client"),
   build: {
-    outDir: path.resolve(import.meta.dirname, "dist/public"),
+    outDir: isOfflineBuild ? path.resolve(import.meta.dirname, "releases/.offline-stage") : path.resolve(import.meta.dirname, "dist/public"),
     emptyOutDir: true,
   },
   server: {

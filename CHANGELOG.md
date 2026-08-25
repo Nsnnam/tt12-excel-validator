@@ -6,6 +6,17 @@ Mọi thay đổi đáng chú ý của **TT12 Excel Validator** được ghi t�
 
 Chưa có thay đổi ngoài phiên bản phát hành đầu tiên.
 
+## [1.2.0] — 2026-08-25
+
+### Thêm mới
+
+- Thêm metadata trung tâm, dải thông tin phát hành với version, lịch sử, tác giả, GitHub và thông tin mời cà phê.
+- Thêm script tạo HTML tự chứa để sử dụng offline và script đóng gói EXE portable cho Windows 64-bit.
+
+### Thay đổi
+
+- Đồng bộ version phát hành `1.2.0` giữa package, metadata, giao diện, README và changelog.
+
 ## [1.1.0] — 2026-08-25
 
 ### Thêm mới

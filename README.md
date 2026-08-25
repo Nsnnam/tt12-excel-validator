@@ -4,7 +4,7 @@
 
 | | |
 |---|---|
-| **Phiên bản** | `1.0.0` |
+| **Phiên bản** | `1.2.0` |
 | **Ngày** | 2026-08-25 |
 | **Tác giả** | [Nguyễn Sơn Nam (Nsnnam)](https://github.com/Nsnnam) |
 | **Múi giờ** | GMT+7 (`Asia/Ho_Chi_Minh`) |
@@ -43,6 +43,8 @@ pnpm dev
 | `pnpm check` | Kiểm tra kiểu TypeScript. |
 | `pnpm vitest run client/src/lib/tt12.test.ts` | Chạy kiểm thử lõi kiểm định. |
 | `pnpm build` | Đóng gói bản web tĩnh. |
+| `pnpm build:offline` | Tạo một file HTML tự chứa tại `releases/`. |
+| `pnpm build:exe` | Tạo EXE portable Windows 64-bit tại `releases/`. |
 
 ## Hướng dẫn sử dụng nhanh
 
@@ -56,7 +58,11 @@ Người dùng nên xử lý toàn bộ **Lỗi** trước khi rà soát **Cản
 |---|---|
 | `client/src/lib/tt12.ts` | Schema sáu mẫu, nhận diện file, bộ quy tắc kiểm định và xuất báo cáo. |
 | `client/src/lib/tt12.test.ts` | Kiểm thử quy tắc logic/ô công thức trọng yếu. |
-| `client/src/pages/Home.tsx` | Giao diện tra cứu, import và báo cáo. |
+| `client/src/pages/HomeExpanded.tsx` | Giao diện tra cứu, import, preview và đối chiếu. |
+| `client/src/lib/meta.ts` | Nguồn sự thật cho version, tác giả, lịch sử và thông tin hỗ trợ. |
+| `scripts/build-offline.mjs` | Tạo bản HTML tự chứa để chạy không cần web server. |
+| `scripts/build-exe.mjs` | Đóng gói EXE portable Windows 64-bit. |
+| `releases/` | Đường dẫn artifact phát hành, không commit binary lớn. |
 | `client/src/index.css` | Hệ thống thiết kế Hồ sơ điều hành. |
 | `ideas.md` | Quyết định phong cách và nhận diện giao diện. |
 | `docs/HUONG-DAN.md` | Phạm vi kiểm tra, quy tắc và giới hạn. |
@@ -64,7 +70,7 @@ Người dùng nên xử lý toàn bộ **Lỗi** trước khi rà soát **Cản
 
 ## Lưu ý nghiệp vụ và an toàn
 
-> **Công cụ hỗ trợ kiểm định sơ bộ, không thay thế tài liệu pháp lý hoặc việc đối chiếu với danh mục dùng chung đang hiệu lực.** Phiên bản `1.0.0` chưa đóng gói cơ sở dữ liệu mã dùng chung; các mã cần được xác nhận tiếp với nguồn danh mục chính thức.
+> **Công cụ hỗ trợ kiểm định sơ bộ, không thay thế tài liệu pháp lý hoặc việc đối chiếu với danh mục dùng chung đang hiệu lực.** Phiên bản `1.2.0` có thể đối chiếu cục bộ với danh mục mã do người dùng nạp; kết quả vẫn cần được xác nhận theo danh mục chính thức đang hiệu lực.
 
 Ứng dụng chỉ đọc file và xuất báo cáo, không tự sửa file gốc. Các ô có công thức được cảnh báo để người dùng chủ động chuyển về giá trị tĩnh khi quy trình nộp danh mục yêu cầu. Dữ liệu có tính nhạy cảm không được đưa vào issue tracker, commit hoặc kho công khai.
 
@@ -75,6 +81,8 @@ Chi tiết thay đổi xem tại [CHANGELOG.md](./CHANGELOG.md).
 | Ngày | Phiên bản | Nội dung |
 |---|---|---|
 | 2026-08-25 | `1.0.0` | Khởi tạo tra cứu TT12 và kiểm định Excel chạy cục bộ. |
+| 2026-08-25 | `1.1.0` | Tích hợp dữ liệu nguồn, preview Excel, chuẩn hóa an toàn và đối chiếu danh mục. |
+| 2026-08-25 | `1.2.0` | Chuẩn hóa NSN App Standard, thêm artifact HTML offline và EXE portable. |
 
 ## Ủng hộ
 

@@ -12,8 +12,8 @@ function Router() {
     <Switch>
       <Route path={"/"} component={Home} />
       <Route path={"/404"} component={NotFound} />
-      {/* Final fallback route */}
-      <Route component={NotFound} />
+      {/* Bản single HTML có pathname file://; mở app chính thay vì 404. */}
+      <Route component={Home} />
     </Switch>
   );
 }

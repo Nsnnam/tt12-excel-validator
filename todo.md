@@ -8,3 +8,11 @@
 - [x] Cho phép nạp danh mục mã khoa, mã khám bệnh và tự nhận diện cột mã/tên để đối chiếu chính xác.
 - [x] Kiểm thử với file mẫu tham chiếu, build, rà soát giao diện và cập nhật tài liệu/changelog.
 - [x] Bảo đảm hàng tiêu đề dữ liệu không sinh cảnh báo và không được tô màu như lỗi trong bảng xem trước.
+
+## Phát hành NSN App Standard
+
+- [ ] Đọc checklist phát hành, kiểm tra metadata hiện có, artifact và dữ liệu nhạy cảm.
+- [ ] Bổ sung metadata trung tâm, trang Phiên bản/Lịch sử/Tác giả/Mời cà phê và tài liệu repo hoàn chỉnh.
+- [ ] Tạo bản HTML offline, smoke test bằng HTTP cục bộ và đóng gói EXE portable Windows.
+- [ ] Tạo repository GitHub private mới, commit rõ ràng và push bản phát hành.
+- [ ] Xác minh lại artifact, link GitHub, version, changelog và README.
