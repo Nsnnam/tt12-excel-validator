@@ -36,3 +36,7 @@ Nguồn khảo sát chính là [Tra cứu Hướng Dẫn Ghi Danh Mục BHYT](ht
 ## Kết quả kiểm thử giao diện mở rộng
 
 Bản ứng dụng đã hiển thị được bảng validate đầy đủ của Mẫu 01/DM với cờ **Bắt buộc**, diễn giải và ghi chú bổ sung từ dữ liệu gốc. Thư viện hiển thị đủ 13 liên kết tài liệu/file mẫu. Màn hình **Kiểm định & preview** có các điểm vào cho import Excel và nạp danh mục mã khoa/mã khám bệnh, kèm trạng thái rõ ràng khi chưa có file.
+
+## Đối chiếu cờ nghiệp vụ — 2026-08-25
+
+Nguồn trích xuất `tt12-reference.json` có ba trường nghiệp vụ theo mỗi chỉ tiêu: `batBuoc`, `trung` và `ghiChuBS`. Trường `batBuoc` không chỉ là ký hiệu `x`; một số chỉ tiêu có điều kiện mô tả. Ví dụ, `BAN_KHAM` ở Mẫu 01/DM được ghi là không bắt buộc đối với Khoa Dược/Dinh dưỡng/Chống nhiễm khuẩn hoặc khoa lâm sàng không có bàn khám chuyên khoa. Trường `trung = x` là cờ nguồn để hiển thị cột **Trùng** và đưa vào kiểm tra khóa nghiệp vụ.

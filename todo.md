@@ -48,3 +48,17 @@
 - [x] Rà soát luồng preview, export và các quy tắc logic hiện có của sáu mẫu TT12.
 - [x] Bổ sung bộ lọc theo mức độ/nhóm lỗi trong preview Excel và xuất Excel có màu ô lỗi.
 - [x] Mở rộng quy tắc liên cột theo phụ lục từng mẫu, kiểm thử hồi quy và đóng gói bản cập nhật.
+
+## Cờ nghiệp vụ, lọc theo cột và quy tắc cơ sở KCB
+
+- [x] Đối chiếu dữ liệu nguồn về Bắt buộc, Trùng và các điều kiện “bắt buộc đối với…” của sáu mẫu.
+- [x] Bổ sung cột Bắt buộc/Trùng có mô tả đầy đủ và áp dụng cờ trùng vào kiểm định khóa nghiệp vụ.
+- [x] Thêm lọc preview theo cột có lỗi, kết hợp với bộ lọc mức độ và nhóm lỗi.
+- [x] Tạo khu vực quản lý/lưu quy tắc riêng theo mã cơ sở KCB trong trình duyệt.
+- [x] Kiểm thử dữ liệu, giao diện và đóng gói bản cập nhật.
+
+## Artifact và GitHub bản cập nhật
+
+- [x] Hoàn thiện cờ nghiệp vụ, lọc cột và quản lý quy tắc cơ sở KCB.
+- [x] Kiểm thử, tạo lại single HTML và EXE portable từ mã mới.
+- [x] Commit, push repository GitHub private và xác minh artifact phát hành.

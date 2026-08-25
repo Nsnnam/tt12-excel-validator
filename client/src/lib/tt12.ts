@@ -1,5 +1,5 @@
 import * as XLSX from "xlsx";
-import { getReferenceFields, isRequired } from "./reference";
+import { getReferenceFields, hasDuplicateRule, isRequired, readableRequirement } from "./reference";
 
 export type Severity = "error" | "warning" | "info";
 
@@ -240,6 +240,7 @@ export function fieldsForTemplate(template: TemplateSchema) {
       size: field.kichThuoc || "—",
       note: field.dienGiai || fieldNotes[field.chiTieu] || `Trường dữ liệu thuộc ${template.label}.`,
       required: isRequired(field),
+      requirementText: readableRequirement(field),
       duplicate: field.trung.trim().toLowerCase() === "x",
       additionalNote: field.ghiChuBS,
     }));
@@ -251,6 +252,7 @@ export function fieldsForTemplate(template: TemplateSchema) {
     size: maxLengths[header] ?? "—",
     note: fieldNotes[header] ?? `Trường dữ liệu thuộc ${template.label}.`,
     required: template.requiredFields.includes(header),
+    requirementText: template.requiredFields.includes(header) ? "Bắt buộc" : "Không bắt buộc",
     duplicate: false,
     additionalNote: "",
   }));
@@ -273,6 +275,7 @@ export function validateTable(template: TemplateSchema, headers: string[], rows:
   const sourceFields = getReferenceFields(template.id);
   const sourceByName = new Map(sourceFields.map((field) => [field.chiTieu, field]));
   const requiredFields = Array.from(new Set([...template.requiredFields, ...sourceFields.filter(isRequired).map((field) => field.chiTieu)]));
+  const duplicateFields = sourceFields.filter(hasDuplicateRule).map((field) => field.chiTieu);
   const normalizedHeaders = headers.map(normalize);
   const expected = new Set(template.headers.map(normalize));
 
@@ -364,11 +367,12 @@ export function validateTable(template: TemplateSchema, headers: string[], rows:
         issues.push(issue("error", row.rowNumber, `${start} / ${end}`, "Logic thời gian", `${start} không được muộn hơn ${end}.`, "Điều chỉnh lại khoảng thời gian hiệu lực."));
       }
     });
-    const key = template.keyFields.map((field) => text(row.cells[field]?.value).trim()).join("|");
+    const uniquenessFields = duplicateFields.length ? duplicateFields : template.keyFields;
+    const key = uniquenessFields.map((field) => text(row.cells[field]?.value).trim()).join("|");
     if (key && !key.includes("||") && key.split("|").every(Boolean)) {
       const firstRow = seen.get(key);
       if (firstRow) {
-        issues.push(issue("error", row.rowNumber, template.keyFields.join(" + "), "Trùng dữ liệu", `Trùng khóa nghiệp vụ với dòng ${firstRow}.`, "Kiểm tra bản ghi lặp hoặc dùng TU_NGAY/DEN_NGAY đúng quy tắc cập nhật hai dòng."));
+        issues.push(issue("error", row.rowNumber, uniquenessFields.join(" + "), "Trùng dữ liệu", `Trùng khóa nghiệp vụ theo cột có cờ Trùng với dòng ${firstRow}.`, "Kiểm tra bản ghi lặp hoặc dùng TU_NGAY/DEN_NGAY đúng quy tắc cập nhật hai dòng."));
       } else {
         seen.set(key, row.rowNumber);
       }

@@ -6,6 +6,19 @@ Mọi thay đổi đáng chú ý của **TT12 Excel Validator** được ghi t�
 
 Chưa có thay đổi ngoài phiên bản phát hành đầu tiên.
 
+## [1.3.0] — 2026-08-25
+
+### Thêm mới
+
+- Hiển thị cột **Bắt buộc** và **Trùng** theo dữ liệu gốc của sáu mẫu TT12, kể cả các điều kiện “bắt buộc đối với…”.
+- Bổ sung lọc preview Excel theo mức độ, nhóm lỗi và từng cột dữ liệu.
+- Bổ sung màn hình quản lý quy tắc cục bộ theo mã cơ sở KCB; hỗ trợ bắt buộc dữ liệu, giới hạn ký tự và cấm công thức.
+- Xuất Excel tô màu ô lỗi/cảnh báo, thêm comment gợi ý tại ô và sheet `Danh_sach_loi`.
+
+### Thay đổi
+
+- Kiểm tra trùng dùng các chỉ tiêu có cờ **Trùng** trong dữ liệu tham chiếu để tạo khóa nghiệp vụ.
+
 ## [1.2.0] — 2026-08-25
 
 ### Thêm mới

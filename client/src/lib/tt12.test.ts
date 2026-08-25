@@ -55,6 +55,14 @@ describe("validateTable", () => {
     expect(mau05.some((item) => item.category === "Logic dịch vụ")).toBe(true);
     expect(mau06.some((item) => item.category === "Logic hiệu lực")).toBe(true);
   });
+  it("dùng cột có cờ Trùng từ nguồn để phát hiện bản ghi lặp", () => {
+    const rows: DataRow[] = [
+      { rowNumber: 2, cells: { STT: { value: 1 }, MA_KHOA: { value: "K01" }, TEN_KHOA: { value: "Nội" }, TU_NGAY: { value: "20260101" }, MA_CSKCB: { value: "12345" } } },
+      { rowNumber: 3, cells: { STT: { value: 2 }, MA_KHOA: { value: "K01" }, TEN_KHOA: { value: "Nội" }, TU_NGAY: { value: "20260201" }, MA_CSKCB: { value: "12345" } } },
+    ];
+    const issues = validateTable(TEMPLATES[0], TEMPLATES[0].headers, rows);
+    expect(issues.some((item) => item.category === "Trùng dữ liệu" && item.row === 3)).toBe(true);
+  });
 });
 
 describe("detectTemplate", () => {

@@ -3,7 +3,7 @@
  */
 export const APP_META = {
   name: "TT12 Excel Validator",
-  version: "1.2.0",
+  version: "1.3.0",
   date: "2026-08-25",
   author: "Nguyễn Sơn Nam (Nsnnam)",
   authorShort: "NSN",
@@ -11,6 +11,7 @@ export const APP_META = {
   github: "https://github.com/Nsnnam/tt12-excel-validator",
   timezone: "Asia/Ho_Chi_Minh",
   changelog: [
+    { version: "1.3.0", date: "2026-08-25", changes: ["Bổ sung cột Bắt buộc/Trùng với điều kiện nguồn, lọc preview theo cột và quy tắc cục bộ theo cơ sở KCB.", "Thêm xuất Excel tô màu lỗi kèm danh sách phát hiện để xử lý offline."] },
     { version: "1.2.0", date: "2026-08-25", changes: ["Chuẩn hóa metadata và thông tin phát hành NSN.", "Bổ sung bản HTML offline và EXE portable Windows."] },
     { version: "1.1.0", date: "2026-08-25", changes: ["Tích hợp dữ liệu TT12 nguồn, preview Excel và đối chiếu mã dùng chung."] },
     { version: "1.0.0", date: "2026-08-25", changes: ["Khởi tạo tra cứu và kiểm định Excel tại trình duyệt."] },
