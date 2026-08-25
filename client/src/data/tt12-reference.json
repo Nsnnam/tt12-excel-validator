@@ -1,0 +1,2489 @@
+{
+  "d": [
+    {
+      "stt": "1",
+      "chiTieu": "STT",
+      "dinhDang": "Số",
+      "kichThuoc": "3",
+      "dienGiai": "Số thứ tự",
+      "batBuoc": "x",
+      "trung": "",
+      "ghiChuBS": ""
+    },
+    {
+      "stt": "2",
+      "chiTieu": "MA_KHOA",
+      "dinhDang": "Chuỗi",
+      "kichThuoc": "50",
+      "dienGiai": "Mã khám bệnh, mã khoa theo danh mục dùng chung do Bộ Y tế ban hành.\n- Bàn khám bệnh ngoại trú: ghi theo mã khám bệnh.\n- Khoa lâm sàng, cận lâm sàng, dược, dinh dưỡng, chống nhiễm khuẩn: ghi theo mã khoa.\n- Khoa gồm nhiều chuyên khoa: ghi ký tự “K” và lần lượt hai ký tự số của mã các khoa, ví dụ: Khoa Nội tiết – Dị ứng ghi “K0809”.\n- Đơn nguyên thuộc Khoa: ghi mã khoa, ký tự “.D” và hai ký tự số của mã khoa tương ứng với đơn nguyên, ví dụ: khoa Hồi sức cấp cứu có đơn nguyên Thận nhân tạo thì ghi \"K02.D35\".",
+      "batBuoc": "x",
+      "trung": "x",
+      "ghiChuBS": "- Mã bàn khám chuyên khoa: ghi mã khám bệnh theo Phụ lục 2 Quyết định số 2010/QĐ-BYT.\n- Mã khoa lâm sàng, cận lâm sàng, dược, dinh dưỡng, chống nhiễm khuẩn: ghi theo Phụ lục 6 Quyết định số 2010/QĐ-BYT."
+    },
+    {
+      "stt": "3",
+      "chiTieu": "TEN_KHOA",
+      "dinhDang": "Chuỗi",
+      "kichThuoc": "n",
+      "dienGiai": "- Bàn khám bệnh ngoại trú: ghi tên chuyên khoa tương ứng với mã bàn khám theo danh mục dùng chung do Bộ Y tế ban hành.\n- Khoa lâm sàng, khoa cận lâm sàng/dược/dinh dưỡng/chống nhiễm khuẩn: ghi tên khoa theo quyết định được cấp có thẩm quyền phê duyệt.",
+      "batBuoc": "x",
+      "trung": "",
+      "ghiChuBS": ""
+    },
+    {
+      "stt": "4",
+      "chiTieu": "BAN_KHAM",
+      "dinhDang": "Số",
+      "kichThuoc": "3",
+      "dienGiai": "Số lượng bàn khám từng chuyên khoa hoặc khoa lâm sàng.",
+      "batBuoc": "Không bắt buộc đối với Khoa Dược/Dinh dưỡng/Chống nhiễm khuẩn hoặc khoa lâm sàng không có bàn khám chuyên khoa",
+      "trung": "",
+      "ghiChuBS": ""
+    },
+    {
+      "stt": "5",
+      "chiTieu": "GIUONG_PD",
+      "dinhDang": "Số",
+      "kichThuoc": "5",
+      "dienGiai": "- Số giường bệnh nội trú tại từng bộ phận chuyên môn được cấp thẩm quyền phê duyệt tại thời điểm cấp giấy phép hoạt động hoặc văn bản điều chỉnh giấy phép hoạt động khi thay đổi quy mô giường bệnh.\n- Số giường lưu tại nhà hộ sinh, trạm y tế xã, phòng khám đa khoa theo quy định tại khoản 2 Điều 77 Luật Khám bệnh, chữa bệnh.",
+      "batBuoc": "Không bắt buộc đối với Khoa khám bệnh, Khoa Dược/Dinh dưỡng/Chống nhiễm khuẩn",
+      "trung": "",
+      "ghiChuBS": "- Trường hợp khai báo thông tin số giường lưu của Trạm y tế, điểm trạm thì MA_KHOA ghi \"TYT\", TEN_KHOA ghi \"Trạm y tế\", GIUONG_PD, GIUONG_TK ghi số giường phê duyệt của cấp có thẩm quyền và giường thực kê, các chỉ tiêu khác để trống.\n- Trường hợp khai báo thông tin số giường lưu, giường nội trú của Phòng khám đa khoa khu vực thì MA_KHOA ghi lần lượt \"LKV\", “GKV”;\nGIUONG_PD, GIUONG_TK ghi số giường phê duyệt của cấp có thẩm quyền và giường thực kê, các chỉ tiêu khác để trống."
+    },
+    {
+      "stt": "6",
+      "chiTieu": "GIUONG_TK",
+      "dinhDang": "Số",
+      "kichThuoc": "5",
+      "dienGiai": "Tổng số giường bệnh thực tế tại từng khoa.",
+      "batBuoc": "Không bắt buộc đối với Khoa khám bệnh, Khoa Dược/Dinh dưỡng/Chống nhiễm khuẩn",
+      "trung": "",
+      "ghiChuBS": "GIUONG_TK đúng với số giường bệnh được phê duyệt hoặc số giường thay đổi quy mô theo đúng quy định tại khoản 3 Điều 67 Nghị định số 96/2023/NĐ-CP (tổng số giường thực kê thay đổi so với tổng giường phê duyệt dưới 10% và không vượt quá 30 giường)."
+    },
+    {
+      "stt": "7",
+      "chiTieu": "GIUONG_HSTC",
+      "dinhDang": "Số",
+      "kichThuoc": "3",
+      "dienGiai": "Số giường hồi sức tích cực đủ điều kiện theo quy định của Bộ Y tế",
+      "batBuoc": "Không bắt buộc đối với khoa lâm sàng không có giường HSTC đủ điều kiện theo quy định của Bộ Y tế",
+      "trung": "",
+      "ghiChuBS": ""
+    },
+    {
+      "stt": "8",
+      "chiTieu": "GIUONG_HSCC",
+      "dinhDang": "Số",
+      "kichThuoc": "3",
+      "dienGiai": "Số giường hồi sức cấp cứu đủ điều kiện theo quy định của Bộ Y tế",
+      "batBuoc": "Không bắt buộc đối với khoa lâm sàng không có giường HSCC đủ điều kiện theo quy định của Bộ Y tế",
+      "trung": "",
+      "ghiChuBS": ""
+    },
+    {
+      "stt": "9",
+      "chiTieu": "TU_NGAY",
+      "dinhDang": "Chuỗi",
+      "kichThuoc": "8",
+      "dienGiai": "- Trường hợp tạo lập danh mục sau khi ký hợp đồng lần đầu: ghi ngày hợp đồng có hiệu lực.\n- Trường hợp cập nhật, điều chỉnh trong quá trình thực hiện hợp đồng: ghi thời điểm gửi văn bản thông báo đến cơ quan bảo hiểm xã hội hoặc ngày cơ sở khám bệnh, chữa bệnh đề nghị trên văn bản thông báo nếu thời điểm đề nghị áp dụng sau ngày nhận được văn bản, định dạng gồm 8 ký tự (4 ký tự năm + 2 ký tự tháng + 2 ký tự ngày).",
+      "batBuoc": "x",
+      "trung": "",
+      "ghiChuBS": ""
+    },
+    {
+      "stt": "10",
+      "chiTieu": "DEN_NGAY",
+      "dinhDang": "Chuỗi",
+      "kichThuoc": "8",
+      "dienGiai": "Chỉ ghi khi cập nhật, điều chỉnh bàn khám, giường bệnh trong khoa hoặc khoa dừng hoạt động: ghi thời điểm ngừng áp dụng, định dạng gồm 8 ký tự (4 ký tự năm + 2 ký tự tháng + 2 ký tự ngày)",
+      "batBuoc": "",
+      "trung": "",
+      "ghiChuBS": "- Trường hợp có thay đổi thông tin danh mục: cơ sở KCB gửi bảng cập nhật gồm 02 dòng dữ liệu, trong đó dòng thứ nhất ghi thông tin cũ và DEN_NGAY là ngày ngừng áp dụng, dòng thứ 2 ghi thông tin thay đổi và TU_NGAY là ngày bắt đầu áp dụng, để trống chỉ tiêu DEN_NGAY.\n- Trường hợp ngừng hiệu lực: cơ sở KCB cập nhật DEN_NGAY của danh mục=> đồng bộ trạng thái sang PM Giám định; cơ sở KCB không được hiệu chỉnh thông tin đối với danh mục đã hết hiệu lực."
+    },
+    {
+      "stt": "11",
+      "chiTieu": "MA_CSKCB",
+      "dinhDang": "Chuỗi",
+      "kichThuoc": "5",
+      "dienGiai": "Mã cơ sở khám bệnh, chữa bệnh",
+      "batBuoc": "x",
+      "trung": "x",
+      "ghiChuBS": ""
+    }
+  ],
+  "f": [
+    {
+      "stt": "1",
+      "chiTieu": "STT",
+      "dinhDang": "Số",
+      "kichThuoc": "10",
+      "dienGiai": "Số thứ tự",
+      "batBuoc": "x",
+      "trung": "",
+      "ghiChuBS": ""
+    },
+    {
+      "stt": "2",
+      "chiTieu": "MA_KHOA",
+      "dinhDang": "Chuỗi",
+      "kichThuoc": "100",
+      "dienGiai": "- Người được phân công khám bệnh tại Khoa khám bệnh: ghi mã khám bệnh theo danh mục dùng chung do Bộ Y tế ban hành.\n- Người được phân công làm việc tại khoa lâm sàng, cận lâm sàng, dinh dưỡng, dược, chống nhiễm khuẩn: ghi mã khoa theo danh mục dùng chung do Bộ Y tế ban hành. Trường hợp được phân công làm việc tại nhiều khoa: ghi lần lượt mã từng khoa, cách nhau bằng dấu chấm phẩy “;”, trong đó mã khoa đầu tiên là khoa quản lý người làm việc.\n- Trường hợp được phân công làm việc tại khoa lâm sàng hoặc cận lâm sàng và khám bệnh luân phiên tại Khoa khám bệnh: ghi lần lượt mã khoa lâm sàng hoặc cận lâm sàng và mã bàn khám, cách nhau bằng dấu chấm phẩy “;”.\n- Người hành nghề làm việc tại các phòng, bộ phận khác (phòng Kế hoạch tổng hợp, Tổ chức cán bộ…) đồng thời được phân công khám bệnh tại Khoa khám bệnh hoặc làm việc tại khoa lâm sàng, cận lâm sàng, dược, dinh dưỡng, chống nhiễm khuẩn: ghi mã khoa theo nơi được phân công khám bệnh hoặc làm việc.\n- Người làm việc khác tại Khoa khám bệnh (điều dưỡng, kỹ thuật y…): ghi “K01”.",
+      "batBuoc": "Không bắt buộc đối với VI_TRI = 4",
+      "trung": "",
+      "ghiChuBS": "- Mã bàn khám chuyên khoa: ghi mã khám bệnh theo Phụ lục 2 Quyết định số 2010/QĐ-BYT.\n- Mã khoa lâm sàng, cận lâm sàng, dược, dinh dưỡng, chống nhiễm khuẩn: ghi theo Phụ lục 6 Quyết định số 2010/QĐ-BYT."
+    },
+    {
+      "stt": "3",
+      "chiTieu": "TEN_KHOA",
+      "dinhDang": "Chuỗi",
+      "kichThuoc": "n",
+      "dienGiai": "- Người được phân công khám bệnh tại Khoa khám bệnh: ghi tên chuyên khoa khám bệnh tương ứng với mã bàn khám theo danh mục dùng chung do Bộ Y tế ban hành.\n- Người được phân công làm việc tại khoa lâm cận lâm sàng, dinh dưỡng, dược, chống nhiễm khuẩn: ghi tên khoa theo quyết định được cấp có thẩm quyền phê duyệt.\nTrường hợp được phân công làm việc tại nhiều khoa: ghi lần lượt tên từng khoa, cách nhau bằng dấu chấm phẩy “;”, trong đó tên khoa đầu tiên là khoa quản lý người làm việc.\n- Trường hợp được phân công làm việc tại khoa lâm sàng hoặc cận lâm sàng và khám bệnh luân phiên tại Khoa khám bệnh: ghi lần lượt tên khoa lâm sàng hoặc cận lâm sàng và tên bàn khám, cách nhau bằng dấu chấm phẩy “;”.\n- Người hành nghề làm việc tại các phòng, bộ phận khác (phòng Kế hoạch tổng hợp, Tổ chức cán bộ…) đồng thời được phân công khám bệnh tại Khoa khám bệnh hoặc làm việc tại khoa lâm sàng, cận lâm sàng, dược, dinh dưỡng, chống nhiễm khuẩn: ghi tên khoa theo nơi được phân công khám bệnh hoặc làm việc.\n- Người làm việc khác tại Khoa khám bệnh (điều dưỡng, kỹ thuật viên…): ghi “Khoa khám bệnh”.",
+      "batBuoc": "Không bắt buộc đối với VI_TRI = 4",
+      "trung": "",
+      "ghiChuBS": "- Tên bàn khám chuyên khoa: ghi tên khám bệnh tương ứng với mã bàn khám theo Phụ lục 2 Quyết định số 2010/QĐ-BYT.\n- Trùng khớp với thông tin đăng tải trên cổng thông tin điện tử hoặc trang tin điện tử của cơ quan cấp giấy phép hoạt động."
+    },
+    {
+      "stt": "4",
+      "chiTieu": "HO_TEN",
+      "dinhDang": "Chuỗi",
+      "kichThuoc": "250",
+      "dienGiai": "Họ và tên",
+      "batBuoc": "x",
+      "trung": "",
+      "ghiChuBS": "Trùng khớp với thông tin đăng tải trên cổng thông tin điện tử hoặc trang tin điện tử của cơ quan cấp giấy phép hoạt động."
+    },
+    {
+      "stt": "5",
+      "chiTieu": "GIOI_TINH",
+      "dinhDang": "Số",
+      "kichThuoc": "1",
+      "dienGiai": "Giới tính (1: Nam; 2: Nữ; 3: Chưa xác định)",
+      "batBuoc": "x",
+      "trung": "",
+      "ghiChuBS": ""
+    },
+    {
+      "stt": "6",
+      "chiTieu": "SO_DINH_DANH",
+      "dinhDang": "Chuỗi",
+      "kichThuoc": "15",
+      "dienGiai": "Số căn cước công dân hoặc số định danh cá nhân trên thẻ căn cước",
+      "batBuoc": "x",
+      "trung": "x",
+      "ghiChuBS": "Trường hợp là người nước ngoài: ghi số hộ chiếu"
+    },
+    {
+      "stt": "7",
+      "chiTieu": "CHUCDANH_NN",
+      "dinhDang": "Chuỗi",
+      "kichThuoc": "2",
+      "dienGiai": "Cách ghi “1”: Bác sỹ, “2”: Y sỹ, “3”: Điều dưỡng, “4”: Hộ sinh, “5”: Kỹ thuật y, “6”: Cử nhân tâm lý lâm sàng, “7”: Lương y, “8”: Dược sỹ, “9”: người tham gia vào quá trình khám bệnh, chữa bệnh nhưng không cần phải cấp giấy phép hành nghề,",
+      "batBuoc": "Không bắt buộc với VI_TRI=4",
+      "trung": "",
+      "ghiChuBS": "Trùng khớp với thông tin đăng tải trên cổng thông tin điện tử hoặc trang tin điện tử của cơ quan cấp giấy phép hoạt động."
+    },
+    {
+      "stt": "8",
+      "chiTieu": "VI_TRI",
+      "dinhDang": "Chuỗi",
+      "kichThuoc": "5",
+      "dienGiai": "Cách ghi “1”: người chịu trách nhiệm chuyên môn;\n“2”: Trưởng khoa/ Trưởng đơn nguyên/người phụ trách phòng khám chuyên khoa đối với cơ sở khám bệnh, chữa bệnh có hình thức tổ chức là phòng khám liên chuyên khoa;\n“3”: người chịu trách nhiệm chuyên môn kiêm Trưởng khoa;\n“4”: Người đứng đầu cơ sở khám bệnh, chữa bệnh hoặc người được người đứng đầu cơ sở khám bệnh, chữa bệnh ủy quyền ký giấy chuyển tuyến khám bệnh, chữa bệnh, giấy ra viện, giấy hẹn khám lại;\n“5”: Người hành nghề được giao phụ trách khoa trong trường hợp không có trưởng khoa;\n“6”: Người được ủy quyền chịu trách nhiệm chuyên môn kỹ thuật theo khoản 11 Điều 27 Nghị định số 96/2023/NĐ-CP",
+      "batBuoc": "x",
+      "trung": "",
+      "ghiChuBS": "Trùng khớp với thông tin đăng tải trên cổng thông tin điện tử hoặc trang tin điện tử của cơ quan cấp giấy phép hoạt động."
+    },
+    {
+      "stt": "9",
+      "chiTieu": "MACCHN",
+      "dinhDang": "Chuỗi",
+      "kichThuoc": "250",
+      "dienGiai": "Số, ký hiệu của giấy phép hành nghề, ghi đối với các chức danh chuyên môn phải có giấy phép hành nghề",
+      "batBuoc": "Không bắt buộc đối với CHUCDANH_NN = 8 hoặc 9 hoặc VI_TRI=4",
+      "trung": "",
+      "ghiChuBS": "Trùng khớp với thông tin đăng tải trên cổng thông tin điện tử hoặc trang tin điện tử của cơ quan cấp giấy phép hoạt động."
+    },
+    {
+      "stt": "10",
+      "chiTieu": "NGAYCAP_CCHN",
+      "dinhDang": "Chuỗi",
+      "kichThuoc": "8",
+      "dienGiai": "Thời điểm cấp giấy phép hành nghề, ghi theo định dạng 8 ký tự (4 ký tự năm + 2 ký tự tháng + 2 ký tự ngày), ghi đối với các chức danh chuyên môn phải có giấy phép hành nghề",
+      "batBuoc": "Không bắt buộc đối với CHUCDANH_NN = 8 hoặc 9 hoặc VI_TRI=4",
+      "trung": "",
+      "ghiChuBS": ""
+    },
+    {
+      "stt": "11",
+      "chiTieu": "NOICAP_CCHN",
+      "dinhDang": "Chuỗi",
+      "kichThuoc": "250",
+      "dienGiai": "Tên cơ quan cấp giấy phép hành nghề, ghi đối với các chức danh chuyên môn phải có giấy phép hành nghề",
+      "batBuoc": "Không bắt buộc đối với CHUCDANH_NN = 8 hoặc 9 hoặc VI_TRI=4",
+      "trung": "",
+      "ghiChuBS": ""
+    },
+    {
+      "stt": "12",
+      "chiTieu": "PHAMVI_CM",
+      "dinhDang": "Chuỗi",
+      "kichThuoc": "15",
+      "dienGiai": "Phạm vi hành nghề theo giấy phép hành nghề và các quyết định điều chỉnh phạm vi hành nghề (nếu có), trường hợp phạm vi hành nghề gồm nhiều chuyên khoa thì ghi đầy đủ các chuyên khoa cách nhau bằng dấu chấm phẩy \";\"....Lưu ý: vẫn mã hóa theo phụ lục Cv 2148, ví dụ: BS phạm vi KBCB Nội khoa thì ghi 102",
+      "batBuoc": "Không bắt buộc đối với CHUCDANH_NN = 8 hoặc 9 hoặc VI_TRI=4",
+      "trung": "",
+      "ghiChuBS": "- Mã phạm vi hành nghề đối chiếu bảng mã Danh mục mã phạm vi hành nghề.\n- Trùng khớp với thông tin đăng tải trên cổng thông tin điện tử hoặc trang tin điện tử của cơ quan cấp giấy phép hoạt động."
+    },
+    {
+      "stt": "13",
+      "chiTieu": "PHAMVI_CMBS",
+      "dinhDang": "Chuỗi",
+      "kichThuoc": "50",
+      "dienGiai": "Ngày và số, ký hiệu của các quyết định điều chỉnh phạm vi hành nghề, ghi theo định dạng YYYYMMDD_Z (trong đó YYYYMMDD là 4 ký tự năm + 2 ký tự tháng + 2 ký tự ngày, Z là số, ký hiệu của quyết định).\nTrường hợp có nhiều quyết định bổ sung ghi cách nhau bằng dấu chấm phẩy \";\"",
+      "batBuoc": "",
+      "trung": "",
+      "ghiChuBS": "Trùng khớp với thông tin đăng tải trên cổng thông tin điện tử hoặc trang tin điện tử của cơ quan cấp giấy phép hoạt động."
+    },
+    {
+      "stt": "14",
+      "chiTieu": "DVKT_KHAC",
+      "dinhDang": "Chuỗi",
+      "kichThuoc": "n",
+      "dienGiai": "Mã dịch vụ kỹ thuật được người chịu trách nhiệm chuyên môn kỹ thuật phân công thực hiện ngoài phạm vi hoạt động chuyên môn ghi trên giấy phép hành nghề và quyết định điều chỉnh phạm vi hành nghề;\nkỹ thuật do người chịu trách nhiệm chuyên môn kỹ thuật phân công thực hiện đối với người tham gia vào quá trình khám bệnh, chữa bệnh nhưng không cần phải cấp giấy phép hành nghề;\nghi 07 ký tự đầu của mã dịch vụ kỹ thuật theo danh mục dùng chung do Bộ Y tế ban hành.\nTrường hợp thực hiện nhiều dịch vụ kỹ thuật ghi các mã cách nhau bằng dấu chấm phẩy \";\"",
+      "batBuoc": "",
+      "trung": "",
+      "ghiChuBS": "- Trùng khớp với thông tin đăng tải trên cổng thông tin điện tử hoặc trang tin điện tử của cơ quan cấp giấy phép hoạt động.\n- Người hành nghề được phân công thực hiện nhiều DVKT cùng nhóm của chuyên khoa khác chuyên khoa ghi trên CCHN và QĐ bổ sung: ghi theo mã nhóm DVKT (VD: siêu âm chẩn đoán ghi \"18A.1\", phẫu thuật nội soi tiết niệu ghi \"27Đ.1;27Đ.2;27Đ.3...\")."
+    },
+    {
+      "stt": "15",
+      "chiTieu": "VB_PHANCONG",
+      "dinhDang": "Chuỗi",
+      "kichThuoc": "50",
+      "dienGiai": "Ngày và số, ký hiệu của văn bản phân công thực hiện dịch vụ kỹ thuật ngoài phạm vi hành nghề trên Giấy phép hành nghề và quyết định điều chỉnh phạm vi hành nghề hoặc văn bản phân công của người chịu trách nhiệm chuyên môn kỹ thuật đối với người thực hiện dịch vụ kỹ thuật nhưng không cần phải cấp Giấy phép hành nghề, ghi theo định dạng YYYYMMDD_Z (trong đó YYYYMMDD là 4 ký tự năm + 2 ký tự tháng + 2 ký tự ngày, Z là số, ký hiệu của văn bản). Trường hợp có nhiều quyết định phân công thì các quyết định cách nhau bởi dấu chấm phẩy \";\"",
+      "batBuoc": "",
+      "trung": "",
+      "ghiChuBS": ""
+    },
+    {
+      "stt": "16",
+      "chiTieu": "THOIGIAN_DK",
+      "dinhDang": "Số",
+      "kichThuoc": "1",
+      "dienGiai": "- Thời gian đăng ký hành nghề (1: toàn thời gian; 2: không toàn thời gian).\n- Người hành nghề đã đăng ký hành nghề tại một cơ sở khám bệnh, chữa bệnh khi thực hiện việc khám bệnh, chữa bệnh theo hợp đồng giữa các cơ sở khám bệnh, chữa bệnh với nhau thì không ghi các chỉ tiêu 16, 17 và 18.",
+      "batBuoc": "Không bắt buộc đối với trường hợp QD_CGKT có thông tin",
+      "trung": "",
+      "ghiChuBS": "Trùng khớp với thông tin đăng tải trên cổng thông tin điện tử hoặc trang tin điện tử của cơ quan cấp giấy phép hoạt động."
+    },
+    {
+      "stt": "17",
+      "chiTieu": "THOIGIAN_NGAY",
+      "dinhDang": "Chuỗi",
+      "kichThuoc": "200",
+      "dienGiai": "Thời gian làm việc ghi theo thời gian đăng ký hành nghề đăng tải trên Cổng thông tin điện tử của Bộ Y tế hoặc Trang thông tin điện tử của Sở Y tế, không ghi thời gian trực:\n- Định dạng: HHMM-HHMM (HH là giờ, MM là phút).\nVí dụ: làm việc từ 8 giờ đến 12 giờ thì ghi “0800-1200”\n- Trường hợp thời gian làm việc của các ngày trong tuần khác nhau hoặc các khoảng thời gian làm việc không liên tục trong ngày thì ghi lần lượt từng khoảng thời gian làm việc của từng ngày.Ví dụ: thứ 2 làm việc từ 8 giờ đến 15 giờ, thứ 3 làm việc từ 7 giờ đến 11 giờ, thứ 4 làm việc từ 8 giờ đến 11 giờ và từ 14 giờ đến 17 giờ thì ghi là \"T20800-1500;T30700-1100;T40800-1100;T41400-1700\"\n- Người tham gia vào quá trình khám bệnh, chữa bệnh nhưng không phải cấp giấy phép hành nghề: ghi theo phân công của người chịu trách nhiệm chuyên môn.",
+      "batBuoc": "Không bắt buộc đối với trường hợp QD_CGKT có thông tin",
+      "trung": "",
+      "ghiChuBS": "Trùng khớp với thông tin đăng tải trên cổng thông tin điện tử hoặc trang tin điện tử của cơ quan cấp giấy phép hoạt động."
+    },
+    {
+      "stt": "18",
+      "chiTieu": "THOIGIAN_TUAN",
+      "dinhDang": "Chuỗi",
+      "kichThuoc": "200",
+      "dienGiai": "Ngày làm việc trong tuần ghi theo thời gian đăng ký hành nghề đăng tải trên Cổng thông tin điện tử của Bộ Y tế hoặc Trang thông tin điện tử của Sở Y tế, không ghi thời gian trực:\n- Cách ghi gồm 02 ký tự là chữ \"T\" và số tương ứng, riêng Chủ nhật là \"CN\".\nVí dụ: chỉ làm việc các ngày thứ 2, thứ 3, thứ 5 thì ghi \"T2T3T5\"\n- Người tham gia vào quá trình khám bệnh, chữa bệnh nhưng không phải cấp giấy phép hành nghề: ghi theo phân công của người chịu trách nhiệm chuyên môn.\nMã các cơ sở khám bệnh, chữa bệnh khác nơi người hành nghề đăng ký làm việc (nếu có), các mã cơ sở khám bệnh, chữa bệnh cách nhau bằng dấu chấm phẩy \";\"",
+      "batBuoc": "Không bắt buộc đối với trường hợp QD_CGKT có thông tin",
+      "trung": "",
+      "ghiChuBS": "Trùng khớp với thông tin đăng tải trên cổng thông tin điện tử hoặc trang tin điện tử của cơ quan cấp giấy phép hoạt động."
+    },
+    {
+      "stt": "19",
+      "chiTieu": "CSKCB_KHAC",
+      "dinhDang": "Chuỗi",
+      "kichThuoc": "30",
+      "dienGiai": "Mã các cơ sở khám bệnh, chữa bệnh khác nơi người hành nghề đăng ký làm việc (nếu có), các mã cơ sở khám bệnh, chữa bệnh cách nhau bằng dấu chấm phẩy \";\"",
+      "batBuoc": "",
+      "trung": "",
+      "ghiChuBS": "Trùng khớp với thông tin đăng tải trên cổng thông tin điện tử hoặc trang tin điện tử của cơ quan cấp giấy phép hoạt động."
+    },
+    {
+      "stt": "20",
+      "chiTieu": "CSKCB_CGKT",
+      "dinhDang": "Chuỗi",
+      "kichThuoc": "5",
+      "dienGiai": "- Mã cơ sở khám bệnh, chữa bệnh chuyển giao dịch vụ kỹ thuật (nếu có).\n- Cơ sở khám bệnh, chữa bệnh chuyển giao dịch vụ kỹ thuật không ghi chỉ tiêu này.",
+      "batBuoc": "",
+      "trung": "",
+      "ghiChuBS": ""
+    },
+    {
+      "stt": "21",
+      "chiTieu": "QD_CGKT",
+      "dinhDang": "Chuỗi",
+      "kichThuoc": "50",
+      "dienGiai": "- Ngày và số, ký hiệu của văn bản giao thực hiện chuyển giao kỹ thuật của người chịu trách nhiệm chuyên môn kỹ thuật của cơ sở khám bệnh, chữa bệnh nơi chuyển giao kỹ thuật, ghi theo định dạng YYYYMMDD_Z (trong đó YYYYMMDD là 4 ký tự năm + 2 ký tự tháng + 2 ký tự ngày, Z là số, ký hiệu quyết định).\n- Cơ sở khám bệnh, chữa bệnh chuyển giao dịch vụ kỹ thuật không ghi chỉ tiêu này.",
+      "batBuoc": "",
+      "trung": "",
+      "ghiChuBS": ""
+    },
+    {
+      "stt": "22",
+      "chiTieu": "TU_NGAY",
+      "dinhDang": "Chuỗi",
+      "kichThuoc": "8",
+      "dienGiai": "- Trường hợp tạo lập danh mục sau khi ký hợp đồng lần đầu: ghi ngày hợp đồng có hiệu lực.\n- Trường hợp cập nhật, điều chỉnh trong quá trình thực hiện hợp đồng: ghi thời điểm gửi văn bản thông báo đến cơ quan bảo hiểm xã hội hoặc ngày cơ sở khám bệnh, chữa bệnh đề nghị trên văn bản thông báo nếu thời điểm đề nghị áp dụng sau ngày nhận được văn bản, định dạng gồm 8 ký tự (4 ký tự năm + 2 ký tự tháng + 2 ký tự ngày).",
+      "batBuoc": "x",
+      "trung": "",
+      "ghiChuBS": ""
+    },
+    {
+      "stt": "23",
+      "chiTieu": "DEN_NGAY",
+      "dinhDang": "Chuỗi",
+      "kichThuoc": "8",
+      "dienGiai": "Chỉ ghi khi cập nhật, điều chỉnh thông tin của nhân lực khám bệnh, chữa bệnh hoặc ngừng khám bệnh, chữa bệnh: ghi thời điểm ngừng áp dụng, định dạng gồm 8 ký tự (4 ký tự năm + 2 ký tự tháng + 2 ký tự ngày)",
+      "batBuoc": "",
+      "trung": "",
+      "ghiChuBS": "- Trường hợp có thay đổi thông tin danh mục: cơ sở KCB gửi bảng cập nhật gồm 02 dòng dữ liệu, trong đó dòng thứ nhất ghi thông tin cũ và DEN_NGAY là ngày ngừng áp dụng, dòng thứ 2 ghi thông tin thay đổi và TU_NGAY là ngày bắt đầu áp dụng, để trống chỉ tiêu DEN_NGAY.\n- Trường hợp ngừng hiệu lực: cơ sở KCB cập nhật DEN_NGAY của danh mục=> đồng bộ trạng thái sang PM Giám định; cơ sở KCB không được hiệu chỉnh thông tin đối với danh mục đã hết hiệu lực."
+    },
+    {
+      "stt": "24",
+      "chiTieu": "MA_CSKCB",
+      "dinhDang": "Chuỗi",
+      "kichThuoc": "5",
+      "dienGiai": "Mã cơ sở khám bệnh, chữa bệnh",
+      "batBuoc": "x",
+      "trung": "x",
+      "ghiChuBS": ""
+    }
+  ],
+  "p": [
+    {
+      "stt": "1",
+      "chiTieu": "STT",
+      "dinhDang": "Số",
+      "kichThuoc": "6",
+      "dienGiai": "Số thứ tự",
+      "batBuoc": "x",
+      "trung": "",
+      "ghiChuBS": ""
+    },
+    {
+      "stt": "2",
+      "chiTieu": "MA_THUOC",
+      "dinhDang": "Chuỗi",
+      "kichThuoc": "255",
+      "dienGiai": "Mã thuốc, máu, chế phẩm máu ghi theo hướng dẫn tại Quyết định số 3176/QĐ-BYT của Bộ Y tế",
+      "batBuoc": "x",
+      "trung": "x",
+      "ghiChuBS": "Ghi mã hoạt chất theo quy định tại Bộ mã danh mục dùng chung do Bộ Y tế ban hành.\nLưu ý:\n- Đối với thuốc do cơ sở KBCB tự bào chế, pha chế: ghi mã thuốc gồm mã các hoạt chất/thành phần, cách nhau bằng dấu cộng \"+\";\n- Khí oxy: ghi mã \"40.17\"; khí NO: ghi mã \"40.573\";\n- Máu và chế phẩm của máu: Ghi theo mã danh mục dùng chung do Bộ trưởng Bộ Y tế ban hành;\n- Đối với máu và chế phẩm có xét nghiệm kháng thể bất thường: ghi thêm \"KT\"; xét nghiệm NAT: ghi thêm \"NAT\"; cả hai ghi \"KTNAT\".\n- Chi phí bao bì thuốc thang: BB.XXXXX (XXXXX là mã cơ sở).\n- Thuốc ngoài danh mục BHYT ghi YYYY.SĐK."
+    },
+    {
+      "stt": "3",
+      "chiTieu": "TEN_HOAT_CHAT",
+      "dinhDang": "Chuỗi",
+      "kichThuoc": "1024",
+      "dienGiai": "- Tên hoạt chất hoặc thành phần;\n- Đối với thuốc tự bào chế, pha chế: ghi các hoạt chất/thành phần, cách nhau bằng dấu phẩy \",\".\n- Đối với máu, chế phẩm máu: không ghi chỉ tiêu này.",
+      "batBuoc": "x",
+      "trung": "",
+      "ghiChuBS": "- Tên hoạt chất hoặc thành phần ghi theo kết quả trúng thầu hoặc quyết định mua sắm..."
+    },
+    {
+      "stt": "4",
+      "chiTieu": "TEN_THUOC",
+      "dinhDang": "Chuỗi",
+      "kichThuoc": "1024",
+      "dienGiai": "- Tên thuốc ghi theo hướng dẫn tại Quyết định số 3176/QĐ-BYT của Bộ Y tế.\n- Tên máu, chế phẩm máu: ghi theo quy định của Bộ Y tế.",
+      "batBuoc": "x",
+      "trung": "",
+      "ghiChuBS": "Ghi tên thuốc theo đúng tên thuốc được Cục Quản lý Dược/Y dược cổ truyền cấp số đăng ký.\nTrường hợp tự bào chế thì ghi theo hồ sơ được phê duyệt."
+    },
+    {
+      "stt": "5",
+      "chiTieu": "DON_VI_TINH",
+      "dinhDang": "Chuỗi",
+      "kichThuoc": "50",
+      "dienGiai": "Đơn vị tính",
+      "batBuoc": "x",
+      "trung": "",
+      "ghiChuBS": ""
+    },
+    {
+      "stt": "6",
+      "chiTieu": "HAM_LUONG",
+      "dinhDang": "Chuỗi",
+      "kichThuoc": "1024",
+      "dienGiai": "- Hàm lượng của thuốc hoặc thể tích thực của máu, chế phẩm máu.\n- Đối với các loại khí y tế, vị thuốc cổ truyền: không ghi chỉ tiêu này.",
+      "batBuoc": "Không bắt buộc với MA_THUOC = 40.17 hoặc 40.573; hoặc LOAI_THUOC = 3 hoặc 7",
+      "trung": "x",
+      "ghiChuBS": "- Ghi hàm lượng của thuốc được cấp GĐKLH.\n- Nhiều hoạt chất ghi cách nhau dấu \"+\".\n- Vị thuốc/bài thuốc ghi đầy đủ khối lượng từng dược liệu cách nhau dấu \"+\".\n- Một SĐK cho nhiều quy cách: ghi hàm lượng X thể tích (VD: 20%X100ml)."
+    },
+    {
+      "stt": "7",
+      "chiTieu": "DUONG_DUNG",
+      "dinhDang": "Chuỗi",
+      "kichThuoc": "255",
+      "dienGiai": "- Đường dùng của thuốc hoặc máu, chế phẩm máu.\n- Trường hợp thuốc có nhiều đường dùng thì ghi các dòng thông tin của thuốc tương ứng với mỗi đường dùng.",
+      "batBuoc": "x",
+      "trung": "",
+      "ghiChuBS": ""
+    },
+    {
+      "stt": "8",
+      "chiTieu": "MA_DUONG_DUNG",
+      "dinhDang": "Chuỗi",
+      "kichThuoc": "10",
+      "dienGiai": "- Mã đường dùng theo danh mục dùng chung do Bộ Y tế ban hành.\n- Trường hợp thuốc có nhiều đường dùng thì ghi các dòng thông tin của thuốc tương ứng với mỗi đường dùng.",
+      "batBuoc": "x",
+      "trung": "x",
+      "ghiChuBS": ""
+    },
+    {
+      "stt": "9",
+      "chiTieu": "DANG_BAO_CHE",
+      "dinhDang": "Chuỗi",
+      "kichThuoc": "1024",
+      "dienGiai": "- Dạng bào chế của thuốc ghi theo hướng dẫn tại Quyết định số 3176/QĐ-BYT.\n- Đối với máu, chế phẩm máu: không ghi chỉ tiêu này.",
+      "batBuoc": "Không bắt buộc đối với LOAI_THUOC = 9 hoặc 10",
+      "trung": "",
+      "ghiChuBS": "Ghi dạng bào chế của thuốc theo thông tin cấp phép lưu hành hoặc tự bào chế được phê duyệt."
+    },
+    {
+      "stt": "10",
+      "chiTieu": "SO_DANG_KY",
+      "dinhDang": "Chuỗi",
+      "kichThuoc": "1024",
+      "dienGiai": "Số đăng ký ghi theo hướng dẫn tại Quyết định số 3176/QĐ-BYT",
+      "batBuoc": "Không bắt buộc với LOAI_THUOC = 8 hoặc 9",
+      "trung": "x",
+      "ghiChuBS": "Ghi số đăng ký lưu hành do Cục QLD cấp.\n- Dược liệu nhập khẩu: ghi số C/O.\n- Dược liệu trong nước: ghi số GACP.\n- Khí oxy/NO/Máu không bắt buộc.\n- Tự bào chế: HD/CP/VT/DL.Mã_Cơ_Sở.Năm.STT (VD: CP.19010.15.3).\n- Chưa GĐKLH nhưng có giấy phép nhập khẩu: KD.YYYY.X.S."
+    },
+    {
+      "stt": "11",
+      "chiTieu": "SO_LUONG",
+      "dinhDang": "Số",
+      "kichThuoc": "10",
+      "dienGiai": "Số lượng ghi theo kết quả trúng thầu hoặc hình thức mua sắm khác",
+      "batBuoc": "x",
+      "trung": "",
+      "ghiChuBS": "- Ghi số lượng thuốc tương ứng với các hình thức mua sắm\n- Trường hợp điều tiết, điều chuyển thuốc: ghi số lượng điều tiết, điều chuyển"
+    },
+    {
+      "stt": "12",
+      "chiTieu": "DON_GIA",
+      "dinhDang": "Số",
+      "kichThuoc": "15",
+      "dienGiai": "- Đơn giá ghi theo kết quả trúng thầu hoặc hình thức mua sắm khác, tương ứng với đơn vị tính.\n- Đối với thuốc do cơ sở khám bệnh, chữa bệnh tự bào chế, chế biến: là giá do cơ sở khám bệnh, chữa bệnh xây dựng và phê duyệt.",
+      "batBuoc": "x",
+      "trung": "x",
+      "ghiChuBS": "Trường hợp thay đổi DON_GIA, cơ sở KCB cập nhật dòng dữ liệu mới trong đó chỉ tiêu SO_LUONG ghi số lượng thuốc áp dụng theo DON_GIA mới, dòng dữ liệu với DON_GIA cũ thì tự động điều chỉnh SO_LUONG tương ứng."
+    },
+    {
+      "stt": "13",
+      "chiTieu": "DON_GIA_BH",
+      "dinhDang": "Số",
+      "kichThuoc": "10",
+      "dienGiai": "Đơn giá thanh toán bảo hiểm y tế ghi theo hướng dẫn tại Quyết định số 3176/QĐ-BYT",
+      "batBuoc": "x",
+      "trung": "x",
+      "ghiChuBS": "Ghi đơn giá của thuốc, là giá theo hóa đơn mua vào; làm tròn đến 3 chữ số thập phân. Sử dụng dấu chấm “.” để phân cách số thập phân.\n- Thuốc tự bào chế: do Thủ trưởng phê duyệt thống nhất cơ quan BHXH.\n- Đơn vị tính chia nhỏ: đơn giá chia nhỏ tương ứng."
+    },
+    {
+      "stt": "14",
+      "chiTieu": "QUY_CACH",
+      "dinhDang": "Chuỗi",
+      "kichThuoc": "1024",
+      "dienGiai": "Quy cách đóng gói; chỉ ghi đối với thuốc",
+      "batBuoc": "Không bắt buộc với LOAI_THUOC = 9 hoặc 10",
+      "trung": "",
+      "ghiChuBS": ""
+    },
+    {
+      "stt": "15",
+      "chiTieu": "NHA_SX",
+      "dinhDang": "Chuỗi",
+      "kichThuoc": "1024",
+      "dienGiai": "Nhà sản xuất",
+      "batBuoc": "x",
+      "trung": "",
+      "ghiChuBS": ""
+    },
+    {
+      "stt": "16",
+      "chiTieu": "NUOC_SX",
+      "dinhDang": "Chuỗi",
+      "kichThuoc": "100",
+      "dienGiai": "Nước sản xuất",
+      "batBuoc": "x",
+      "trung": "",
+      "ghiChuBS": ""
+    },
+    {
+      "stt": "17",
+      "chiTieu": "NHA_THAU",
+      "dinhDang": "Chuỗi",
+      "kichThuoc": "1024",
+      "dienGiai": "Tên nhà thầu hoặc tên đơn vị cung ứng",
+      "batBuoc": "Không bắt buộc với LOAI_THUOC = 5 hoặc 6 hoặc 8 hoặc LOAI_THAU =3 hoặc 4 hoặc 5",
+      "trung": "",
+      "ghiChuBS": ""
+    },
+    {
+      "stt": "18",
+      "chiTieu": "TT_THAU",
+      "dinhDang": "Chuỗi",
+      "kichThuoc": "50",
+      "dienGiai": "Thông tin thầu ghi theo hướng dẫn tại Quyết định 3176/QĐ-BYT; chỉ ghi đối với thuốc.",
+      "batBuoc": "Không bắt buộc với LOAI_THUOC = 9 hoặc 10",
+      "trung": "x",
+      "ghiChuBS": "Định dạng: Số QĐ;Mã gói thầu;Mã nhóm thầu;Năm ban hành.\n- Có 2 nhà thầu trúng thầu: bổ sung mã gói thầu và thứ tự (Gi.YY).\n- Áp thầu: bổ sung mã đơn vị ban hành.\n- Tự bào chế: Số QĐ;Năm.\n- Điều chuyển: theo cơ sở chuyển thuốc."
+    },
+    {
+      "stt": "19",
+      "chiTieu": "TU_NGAY_HD",
+      "dinhDang": "Chuỗi",
+      "kichThuoc": "8",
+      "dienGiai": "Thời điểm có hiệu lực hợp đồng cung ứng, ghi theo định dạng 8 ký tự (4 ký tự năm + 2 ký tự tháng + 2 ký tự ngày)",
+      "batBuoc": "",
+      "trung": "",
+      "ghiChuBS": ""
+    },
+    {
+      "stt": "20",
+      "chiTieu": "DEN_NGAY_HD",
+      "dinhDang": "Chuỗi",
+      "kichThuoc": "8",
+      "dienGiai": "Thời điểm hết hiệu lực của hợp đồng cung ứng, ghi theo định dạng 8 ký tự (4 ký tự năm + 2 ký tự tháng + 2 ký tự ngày).",
+      "batBuoc": "",
+      "trung": "",
+      "ghiChuBS": ""
+    },
+    {
+      "stt": "21",
+      "chiTieu": "MA_CSKCB",
+      "dinhDang": "Chuỗi",
+      "kichThuoc": "5",
+      "dienGiai": "Mã cơ sở khám bệnh, chữa bệnh",
+      "batBuoc": "x",
+      "trung": "x",
+      "ghiChuBS": ""
+    },
+    {
+      "stt": "22",
+      "chiTieu": "LOAI_THUOC",
+      "dinhDang": "Số",
+      "kichThuoc": "2",
+      "dienGiai": "Cách ghi loại thuốc “1”: tân dược;\n“2”: chế phẩm; “3”: vị thuốc; “4”: phóng xạ; “5”: tân dược tự bào chế;\n“6”: chế phẩm tự bào chế; “7”: dược liệu; “8”: vị thuốc tự bào chế, “9”: máu, “10”: chế phẩm máu",
+      "batBuoc": "x",
+      "trung": "",
+      "ghiChuBS": ""
+    },
+    {
+      "stt": "23",
+      "chiTieu": "LOAI_THAU",
+      "dinhDang": "Số",
+      "kichThuoc": "1",
+      "dienGiai": "Cách ghi loại thầu “1”: thầu tập trung;\n“2”: thầu riêng tại cơ sở khám bệnh, chữa bệnh; “3”: tự pha chế, bào chế, chế biến;\n“4”: mua sắm theo Điều 49 Nghị định số 188/2025/NĐ-CP;\n“5”: mua sắm theo khoản 4 Điều 80 Nghị định số 214/2025/NĐ-CP; “6”: tùy chọn mua thêm;\n“7”: nhận điều chuyển, điều tiết thuốc",
+      "batBuoc": "x",
+      "trung": "x",
+      "ghiChuBS": ""
+    },
+    {
+      "stt": "24",
+      "chiTieu": "HT_THAU",
+      "dinhDang": "Số",
+      "kichThuoc": "1",
+      "dienGiai": "- Cách ghi hình thức thầu “1”: đấu thầu rộng rãi;\n“2”: đấu thầu hạn chế; “3”: chỉ định thầu; “4”: chào hành cạnh tranh; “5”: mua sắm trực tiếp;\n“6”: lựa chọn nhà thầu trong trường hợp đặc biệt; “7”: đàm phán giá; “8”: chào giá trực tuyến;\n“9”: mua sắm trực tuyến).\n- Không ghi chỉ tiêu này nếu LOAI_THAU = 3 hoặc 4 hoặc 5 hoặc 7.",
+      "batBuoc": "Không bắt buộc nếu LOAI_THAU = 3 hoặc 4 hoặc 5 hoặc 7",
+      "trung": "",
+      "ghiChuBS": ""
+    },
+    {
+      "stt": "25",
+      "chiTieu": "MA_DVKT",
+      "dinhDang": "Chuỗi",
+      "kichThuoc": "1024",
+      "dienGiai": "Mã dịch vụ kỹ thuật có sử dụng thuốc phóng xạ, chất đánh dấu.\nGhi 07 ký tự đầu của mã dịch vụ kỹ thuật theo danh mục dùng chung do Bộ Y tế ban hành.\nTrường hợp thực hiện nhiều dịch vụ kỹ thuật ghi các mã cách nhau bằng dấu chấm phẩy \";\"",
+      "batBuoc": "",
+      "trung": "",
+      "ghiChuBS": ""
+    },
+    {
+      "stt": "26",
+      "chiTieu": "TCCL",
+      "dinhDang": "Chuỗi",
+      "kichThuoc": "50",
+      "dienGiai": "Tiêu chuẩn chất lượng hoặc số công bố tiêu chuẩn chất lượng đối với dược liệu theo quy định của Bộ Y tế",
+      "batBuoc": "",
+      "trung": "",
+      "ghiChuBS": ""
+    },
+    {
+      "stt": "27",
+      "chiTieu": "BO_PHAN_VT",
+      "dinhDang": "Số",
+      "kichThuoc": "1",
+      "dienGiai": "Cách ghi bộ phận sử dụng của vị thuốc, dược liệu “1”: rễ;\n“2”: thân rễ; “3”: quả; “4”: hạt; “5”: vỏ; “6”: khác",
+      "batBuoc": "",
+      "trung": "",
+      "ghiChuBS": ""
+    },
+    {
+      "stt": "28",
+      "chiTieu": "TEN_KHOA_HOC",
+      "dinhDang": "Chuỗi",
+      "kichThuoc": "500",
+      "dienGiai": "Tên khoa học của vị thuốc, dược liệu",
+      "batBuoc": "",
+      "trung": "",
+      "ghiChuBS": ""
+    },
+    {
+      "stt": "29",
+      "chiTieu": "NGUON_GOC",
+      "dinhDang": "Chuỗi",
+      "kichThuoc": "500",
+      "dienGiai": "Nguồn gốc của vị thuốc, dược liệu",
+      "batBuoc": "",
+      "trung": "",
+      "ghiChuBS": ""
+    },
+    {
+      "stt": "30",
+      "chiTieu": "PP_CHEBIEN",
+      "dinhDang": "Chuỗi",
+      "kichThuoc": "1024",
+      "dienGiai": "Mã phương pháp chế biến vị thuốc cổ truyền theo danh mục dùng chung do Bộ Y tế ban hành.\nTrường hợp thực hiện nhiều phương pháp chế biến ghi các mã cách nhau bằng dấu chấm phẩy \";\".",
+      "batBuoc": "",
+      "trung": "",
+      "ghiChuBS": "Mã phương pháp chế biến ghi theo Phục lục 3 Quyết định số 824/QĐ-BYT"
+    },
+    {
+      "stt": "31",
+      "chiTieu": "MA_DL_NHAP",
+      "dinhDang": "Chuỗi",
+      "kichThuoc": "3",
+      "dienGiai": "Tình trạng vị thuốc, dược liệu khi mua sắm theo Danh mục mã phương pháp chế biến vị thuốc y học cổ truyền do Bộ Y tế ban hành.",
+      "batBuoc": "",
+      "trung": "",
+      "ghiChuBS": "Tình trạng vị thuốc, dược liệu khi mua sắm ghi theo Mã phương pháp chế biến ghi theo Phục lục 3 Quyết định số 824/QĐ-BYT"
+    },
+    {
+      "stt": "32",
+      "chiTieu": "MA_DL_CB",
+      "dinhDang": "Chuỗi",
+      "kichThuoc": "3",
+      "dienGiai": "Tình trạng dược liệu được cơ sở khám bệnh, chữa bệnh trực tiếp chế biến theo Danh mục mã phương pháp chế biến vị thuốc y học cổ truyền do Bộ Y tế ban hành.\nTrường hợp cơ sở khám bệnh, chữa bệnh không chế biến vị thuốc: không ghi chỉ tiêu này.",
+      "batBuoc": "",
+      "trung": "",
+      "ghiChuBS": "Tình trạng dược liệu được cơ sở KCB trực tiếp chế biến ghi theo Phụ lục 3 Quyết định số 824/QĐ-BYT"
+    },
+    {
+      "stt": "33",
+      "chiTieu": "TLHH_CB",
+      "dinhDang": "Số",
+      "kichThuoc": "4",
+      "dienGiai": "Tỷ lệ hao hụt trong chế biến đối với vị thuốc, dược liệu",
+      "batBuoc": "",
+      "trung": "",
+      "ghiChuBS": ""
+    },
+    {
+      "stt": "34",
+      "chiTieu": "TLHH_BQ",
+      "dinhDang": "Số",
+      "kichThuoc": "4",
+      "dienGiai": "Tỷ lệ hao hụt do bảo quản, cân chia đối với vị thuốc, dược liệu",
+      "batBuoc": "",
+      "trung": "",
+      "ghiChuBS": ""
+    },
+    {
+      "stt": "35",
+      "chiTieu": "MA_CSKCB_THUOC",
+      "dinhDang": "Chuỗi",
+      "kichThuoc": "5",
+      "dienGiai": "Trường hợp nhận thuốc chuyển, điều tiết đến từ cơ sở khám bệnh, chữa bệnh khác thì ghi C.XXXXX (XXXXX là mã cơ sở khám bệnh, chữa bệnh nơi chuyển thuốc đi)",
+      "batBuoc": "",
+      "trung": "x",
+      "ghiChuBS": ""
+    },
+    {
+      "stt": "36",
+      "chiTieu": "TU_NGAY",
+      "dinhDang": "Chuỗi",
+      "kichThuoc": "8",
+      "dienGiai": "Định dạng gồm 8 ký tự (4 ký tự năm + 2 ký tự tháng + 2 ký tự ngày).\n- Trường hợp tạo lập danh mục sau khi ký hợp đồng lần đầu: ghi ngày hợp đồng có hiệu lực nhưng không sớm hơn thời điểm có hiệu lực của hợp đồng mua sắm hoặc thời điểm mua sắm.\n- Trường hợp cập nhật, điều chỉnh: ghi thời điểm gửi văn bản thông báo đến cơ quan bảo hiểm xã hội.\n- Mua sắm thuốc cấp cứu: ghi ngày trên hóa đơn của cơ sở KCB.",
+      "batBuoc": "x",
+      "trung": "x",
+      "ghiChuBS": "Lưu ý quy tắc: TU_NGAY là trường bắt buộc đưa vào KEY do 1 cơ sở KCB áp thầu cùng 1 QĐ có thể áp nhiều lần với số lượng khác nhau."
+    },
+    {
+      "stt": "37",
+      "chiTieu": "DEN_NGAY",
+      "dinhDang": "Chuỗi",
+      "kichThuoc": "8",
+      "dienGiai": "Chỉ ghi khi cập nhật, điều chỉnh thông tin hoặc ngừng sử dụng: ghi thời điểm ngừng áp dụng, định dạng gồm 8 ký tự (4 ký tự năm + 2 ký tự tháng + 2 ký tự ngày).",
+      "batBuoc": "",
+      "trung": "",
+      "ghiChuBS": "- Trường hợp có thay đổi: gửi bảng cập nhật 02 dòng dữ liệu.\n- Ngừng hiệu lực: KCB cập nhật DEN_NGAY của danh mục => đồng bộ trạng thái sang PM Giám định.\n- Cập nhật danh mục với LOAI_THAU = 7 tự động giảm số lượng.\n- Thay đổi DON_GIA tự động giảm số lượng thuốc tại DON_GIA cũ.\n- Cập nhật LOAI_THAU = 6, số lượng cập nhật < 30% số lượng trúng thầu."
+    }
+  ],
+  "m": [
+    {
+      "stt": "1",
+      "chiTieu": "STT",
+      "dinhDang": "Số",
+      "kichThuoc": "10",
+      "dienGiai": "Số thứ tự",
+      "batBuoc": "",
+      "trung": "",
+      "ghiChuBS": ""
+    },
+    {
+      "stt": "2",
+      "chiTieu": "MA_VAT_TU",
+      "dinhDang": "Chuỗi",
+      "kichThuoc": "50",
+      "dienGiai": "Mã theo danh mục dùng chung do Bộ Y tế ban hành đối với thiết bị y tế ban hành kèm theo các Thông tư số 04/2017/TT-BYT và 24/2025/TT-BYT",
+      "batBuoc": "x",
+      "trung": "x",
+      "ghiChuBS": ""
+    },
+    {
+      "stt": "3",
+      "chiTieu": "NHOM_VAT_TU",
+      "dinhDang": "Chuỗi",
+      "kichThuoc": "1024",
+      "dienGiai": "Tên nhóm thiết bị y tế theo quy định tại Thông tư số 04/2017/TT-BYT và Thông tư số 24/2025/TT-BYT",
+      "batBuoc": "x",
+      "trung": "",
+      "ghiChuBS": ""
+    },
+    {
+      "stt": "4",
+      "chiTieu": "TEN_VAT_TU",
+      "dinhDang": "Chuỗi",
+      "kichThuoc": "n",
+      "dienGiai": "Tên thương mại ghi theo quyết định trúng thầu hoặc hình thức mua sắm khác",
+      "batBuoc": "x",
+      "trung": "",
+      "ghiChuBS": ""
+    },
+    {
+      "stt": "5",
+      "chiTieu": "MA_HIEU",
+      "dinhDang": "Chuỗi",
+      "kichThuoc": "n",
+      "dienGiai": "Mã hiệu ghi theo hướng dẫn tại Quyết định 3176/QĐ-BYT",
+      "batBuoc": "x",
+      "trung": "x",
+      "ghiChuBS": "- Ghi mã hiệu sản phẩm của TBYT, do Công ty sản xuất tự đặt. Có thể là Model/Serial/EMEI.\n- Trường hợp có nhiều mã hiệu: ghi các mã cách nhau bằng dấu chấm phẩy \";\"."
+    },
+    {
+      "stt": "6",
+      "chiTieu": "SO_LUU_HANH",
+      "dinhDang": "Chuỗi",
+      "kichThuoc": "20",
+      "dienGiai": "Số lưu hành của thiết bị y tế theo quy định tại Nghị định số 07/2023/NĐ-CP",
+      "batBuoc": "x",
+      "trung": "x",
+      "ghiChuBS": ""
+    },
+    {
+      "stt": "7",
+      "chiTieu": "TINHNANG_KT",
+      "dinhDang": "Chuỗi",
+      "kichThuoc": "n",
+      "dienGiai": "Cấu hình, tính năng kỹ thuật cơ bản của thiết bị y tế (ví dụ: kích thước, cấu tạo, vật liệu...)",
+      "batBuoc": "x",
+      "trung": "",
+      "ghiChuBS": "Ghi theo quyết định trúng thầu hoặc hình thức mua sắm khác"
+    },
+    {
+      "stt": "8",
+      "chiTieu": "QUY_CACH",
+      "dinhDang": "Chuỗi",
+      "kichThuoc": "1024",
+      "dienGiai": "Quy cách đóng gói",
+      "batBuoc": "x",
+      "trung": "",
+      "ghiChuBS": ""
+    },
+    {
+      "stt": "9",
+      "chiTieu": "HANG_SX",
+      "dinhDang": "Chuỗi",
+      "kichThuoc": "1024",
+      "dienGiai": "Tên hãng sản xuất",
+      "batBuoc": "Không bắt buộc với LOAI_THAU = 3",
+      "trung": "",
+      "ghiChuBS": ""
+    },
+    {
+      "stt": "10",
+      "chiTieu": "NUOC_SX",
+      "dinhDang": "Chuỗi",
+      "kichThuoc": "100",
+      "dienGiai": "Tên nước sản xuất",
+      "batBuoc": "Không bắt buộc với LOAI_THAU = 3",
+      "trung": "",
+      "ghiChuBS": ""
+    },
+    {
+      "stt": "11",
+      "chiTieu": "DON_VI_TINH",
+      "dinhDang": "Chuỗi",
+      "kichThuoc": "50",
+      "dienGiai": "Đơn vị tính",
+      "batBuoc": "x",
+      "trung": "",
+      "ghiChuBS": ""
+    },
+    {
+      "stt": "12",
+      "chiTieu": "DON_GIA",
+      "dinhDang": "Số",
+      "kichThuoc": "10",
+      "dienGiai": "- Đơn giá ghi theo kết quả trúng thầu hoặc hình thức mua sắm khác, tương ứng với đơn vị tính\n- Trường hợp thiết bị y tế do cơ sở khám bệnh, chữa bệnh tự sản xuất: là giá do cơ sở khám bệnh, chữa bệnh xây dựng và phê duyệt.",
+      "batBuoc": "x",
+      "trung": "x",
+      "ghiChuBS": "Trường hợp thay đổi DON_GIA, cơ sở KCB cập nhật dòng dữ liệu mới trong đó chỉ tiêu SO_LUONG ghi số lượng thuốc áp dụng theo DON_GIA mới, dòng dữ liệu với DON_GIA cũ sẽ tự động điều chỉnh SO_LUONG tương ứng"
+    },
+    {
+      "stt": "13",
+      "chiTieu": "DON_GIA_BH",
+      "dinhDang": "Số",
+      "kichThuoc": "10",
+      "dienGiai": "Đơn giá thanh toán bảo hiểm y tế theo hướng dẫn tại Quyết định số 3176/QĐ-BYT",
+      "batBuoc": "x",
+      "trung": "x",
+      "ghiChuBS": "- Ghi đơn giá làm tròn đến 3 (ba) chữ số thập phân.\n- Đối với TBYT: Ghi đơn giá đấu thầu hoặc giá thanh toán tại cơ sở tư nhân.\n- Nếu TBYT quy định mức thanh toán BHYT thấp hơn giá mua vào: DON_GIA_BH = Mức thanh toán BHYT.\n- TBYT tái sử dụng: là giá thanh toán của 1 lần tái sử dụng."
+    },
+    {
+      "stt": "14",
+      "chiTieu": "TYLE_TT_BH",
+      "dinhDang": "Số",
+      "kichThuoc": "3",
+      "dienGiai": "Tỷ lệ thanh toán bảo hiểm y tế đối với thiết bị y tế có quy định tỷ lệ (%), biểu thị bằng số nguyên dương.\nVí dụ: tỷ lệ thanh toán của thiết bị y tế là 50% thì ghi là 50, thiết bị y tế không quy định tỷ lệ thanh toán thì ghi 100.",
+      "batBuoc": "x",
+      "trung": "",
+      "ghiChuBS": ""
+    },
+    {
+      "stt": "15",
+      "chiTieu": "SO_LUONG",
+      "dinhDang": "Số",
+      "kichThuoc": "10",
+      "dienGiai": "Số lượng theo kết quả trúng thầu hoặc hình thức mua sắm khác",
+      "batBuoc": "x",
+      "trung": "",
+      "ghiChuBS": "- Ghi số lượng tương ứng với các hình thức mua sắm\n- Trường hợp điều chuyển TBYT: ghi số lượng điều chuyển"
+    },
+    {
+      "stt": "16",
+      "chiTieu": "DINH_MUC",
+      "dinhDang": "Số",
+      "kichThuoc": "4",
+      "dienGiai": "Số lần sử dụng của thiết bị y tế tái sử dụng (nếu có). Ví dụ: Băng đạn dùng cho dụng cụ khâu cắt nội soi đa năng sử dụng 04 lần thì ghi là “4”",
+      "batBuoc": "",
+      "trung": "",
+      "ghiChuBS": ""
+    },
+    {
+      "stt": "17",
+      "chiTieu": "NHA_THAU",
+      "dinhDang": "Chuỗi",
+      "kichThuoc": "1024",
+      "dienGiai": "Tên nhà thầu hoặc tên đơn vị cung ứng",
+      "batBuoc": "Không bắt buộc với LOAI_THAU = 3",
+      "trung": "",
+      "ghiChuBS": ""
+    },
+    {
+      "stt": "18",
+      "chiTieu": "TT_THAU",
+      "dinhDang": "Chuỗi",
+      "kichThuoc": "50",
+      "dienGiai": "Thông tin thầu ghi theo hướng dẫn tại Quyết định 3176/QĐ-BYT",
+      "batBuoc": "x",
+      "trung": "x",
+      "ghiChuBS": ""
+    },
+    {
+      "stt": "19",
+      "chiTieu": "TU_NGAY_HD",
+      "dinhDang": "Chuỗi",
+      "kichThuoc": "8",
+      "dienGiai": "Thời điểm có hiệu lực hợp đồng cung ứng, ghi theo định dạng 8 ký tự (4 ký tự năm + 2 ký tự tháng + 2 ký tự ngày)",
+      "batBuoc": "Không bắt buộc đối với LOAI_THAU = 3 hoặc 4 hoặc 5 hoặc 7",
+      "trung": "",
+      "ghiChuBS": ""
+    },
+    {
+      "stt": "20",
+      "chiTieu": "DEN_NGAY_HD",
+      "dinhDang": "Chuỗi",
+      "kichThuoc": "8",
+      "dienGiai": "Thời điểm hết hiệu lực của hợp đồng cung ứng, ghi theo định dạng 8 ký tự (4 ký tự năm + 2 ký tự tháng + 2 ký tự ngày)",
+      "batBuoc": "Không bắt buộc đối với LOAI_THAU = 3 hoặc 4 hoặc 5 hoặc 7",
+      "trung": "",
+      "ghiChuBS": ""
+    },
+    {
+      "stt": "21",
+      "chiTieu": "MA_CSKCB",
+      "dinhDang": "Chuỗi",
+      "kichThuoc": "5",
+      "dienGiai": "Mã cơ sở khám bệnh, chữa bệnh",
+      "batBuoc": "x",
+      "trung": "x",
+      "ghiChuBS": ""
+    },
+    {
+      "stt": "22",
+      "chiTieu": "LOAI_THAU",
+      "dinhDang": "Số",
+      "kichThuoc": "2",
+      "dienGiai": "Cách ghi loại thầu “1”: thầu tập trung;\n“2”: thầu riêng tại cơ sở khám bệnh, chữa bệnh; “3”: tự sản xuất;\n“4”: mua sắm theo Điều 49 Nghị định số 188/2025/NĐ-CP;\n“5”: mua sắm theo khoản 4 Điều 80 Nghị định số 214/2025/NĐ-CP; “6”: tùy chọn mua thêm;\n“7”: nhận điều chuyển thiết bị y tế",
+      "batBuoc": "x",
+      "trung": "x",
+      "ghiChuBS": ""
+    },
+    {
+      "stt": "23",
+      "chiTieu": "HT_THAU",
+      "dinhDang": "Số",
+      "kichThuoc": "2",
+      "dienGiai": "- Cách ghi hình thức đấu thầu “1”: đấu thầu rộng rãi;\n“2”: đấu thầu hạn chế; “3”: chỉ định thầu; “4”: chào hành cạnh tranh; “5”: mua sắm trực tiếp;\n“6”: lựa chọn nhà thầu trong trường hợp đặc biệt; “7”: đàm phán giá; “8”: chào giá trực tuyến;\n“9”: mua sắm trực tuyến).\n- Trường hợp LOAI_THAU = 3 hoặc 4 hoặc 5 hoặc 7: không ghi chỉ tiêu này.",
+      "batBuoc": "Không bắt buộc đối với LOAI_THAU = 3 hoặc 4 hoặc 5 hoặc 7",
+      "trung": "",
+      "ghiChuBS": ""
+    },
+    {
+      "stt": "24",
+      "chiTieu": "MA_CSKCB_TBYT",
+      "dinhDang": "Chuỗi",
+      "kichThuoc": "5",
+      "dienGiai": "Trường hợp nhận thiết bị y tế thuộc phạm vi thanh toán bảo hiểm y tế điều chuyển từ cơ sở khám bệnh, chữa bệnh khác theo quy định để điều trị cho người bệnh thì ghi C.XXXXX (XXXXX là mã cơ sở khám bệnh, chữa bệnh nơi chuyển thiết bị y tế đi)",
+      "batBuoc": "Chỉ bắt buộc với LOAI_THAU=7",
+      "trung": "x",
+      "ghiChuBS": ""
+    },
+    {
+      "stt": "25",
+      "chiTieu": "TU_NGAY",
+      "dinhDang": "Chuỗi",
+      "kichThuoc": "8",
+      "dienGiai": "Định dạng gồm 8 ký tự (4 ký tự năm + 2 ký tự tháng + 2 ký tự ngày).\n- Trường hợp tạo lập danh mục sau khi ký hợp đồng lần đầu: ghi ngày hợp đồng có hiệu lực.\n- Trường hợp cập nhật, điều chỉnh: ghi thời điểm gửi văn bản thông báo đến CQ BHXH.\n- Trường hợp cấp cứu: ghi ngày trên hóa đơn.",
+      "batBuoc": "x",
+      "trung": "x",
+      "ghiChuBS": "Lưu ý quy tắc: TU_NGAY là trường bắt buộc đưa vào KEY do 1 cơ sở KCB áp thầu cùng 1 QĐ có thể áp nhiều lần với số lượng khác nhau"
+    },
+    {
+      "stt": "26",
+      "chiTieu": "DEN_NGAY",
+      "dinhDang": "Chuỗi",
+      "kichThuoc": "8",
+      "dienGiai": "Chỉ ghi khi cập nhật, điều chỉnh thông tin hoặc ngừng sử dụng: ghi thời điểm ngừng áp dụng, định dạng gồm 8 ký tự (4 ký tự năm + 2 ký tự tháng + 2 ký tự ngày).",
+      "batBuoc": "",
+      "trung": "",
+      "ghiChuBS": "- Có thay đổi thông tin: gửi bảng cập nhật 02 dòng dữ liệu.\n- Ngừng hiệu lực: cập nhật DEN_NGAY đồng bộ trạng thái sang PM Giám định.\n- Cập nhật LOAI_THAU =7 tự động giảm số lượng tại nơi điều chuyển.\n- Thay đổi DON_GIA, DON_GIA_BH tự động giảm số lượng thuốc tại giá cũ (KEY: MA_VAT_TU, TEN_VAT_TU, MA_HIEU, SO_LUU_HANH, LOAI_THAU)."
+    }
+  ],
+  "h": [
+    {
+      "stt": "1",
+      "chiTieu": "STT",
+      "dinhDang": "Số",
+      "kichThuoc": "6",
+      "dienGiai": "Số thứ tự",
+      "batBuoc": "x",
+      "trung": "",
+      "ghiChuBS": ""
+    },
+    {
+      "stt": "2",
+      "chiTieu": "MA_DICH_VU",
+      "dinhDang": "Chuỗi",
+      "kichThuoc": "20",
+      "dienGiai": "Mã dịch vụ khám bệnh, chữa bệnh ghi theo hướng dẫn tại Quyết định số 3176/QĐ-BYT của Bộ Y tế",
+      "batBuoc": "x",
+      "trung": "x",
+      "ghiChuBS": "Ghi mã dịch vụ kỹ thuật hoặc mã tiền khám hoặc mã tiền giường bệnh.\n- Chuyển mẫu bệnh phẩm/người bệnh đến cơ sở khác: XX.YYYY.ZZZZ.K.WWWWW (WWWWW là mã cơ sở nhận).\n- DVKT sử dụng phương pháp vô cảm gây tê: bổ sung ký hiệu \"_GT\"."
+    },
+    {
+      "stt": "3",
+      "chiTieu": "TEN_DICH_VU",
+      "dinhDang": "Chuỗi",
+      "kichThuoc": "n",
+      "dienGiai": "Tên dịch vụ dịch vụ kỹ thuật được cấp có thẩm quyền phê duyệt thực hiện hoặc tên giường bệnh, khám bệnh theo danh mục dùng chung do Bộ Y tế ban hành.",
+      "batBuoc": "x",
+      "trung": "x",
+      "ghiChuBS": ""
+    },
+    {
+      "stt": "4",
+      "chiTieu": "TEN_DVKT_GIA",
+      "dinhDang": "Chuỗi",
+      "kichThuoc": "n",
+      "dienGiai": "Tên dịch vụ phê duyệt giá tại quyết định/nghị quyết của cấp có thẩm quyền hoặc tên giường bệnh theo khoa, khám bệnh.\nLưu ý:\n- DVKT cần ghi rõ vị trí, phương pháp: mô tả chi tiết trong ngoặc vuông [ ].\n- DVKT sử dụng gây tê: bổ sung cụm từ \"[gây tê]\" sau tên dịch vụ.",
+      "batBuoc": "x",
+      "trung": "x",
+      "ghiChuBS": ""
+    },
+    {
+      "stt": "5",
+      "chiTieu": "DON_GIA",
+      "dinhDang": "Số",
+      "kichThuoc": "15",
+      "dienGiai": "Đơn giá dịch vụ khám bệnh, chữa bệnh thanh toán bảo hiểm y tế chưa bao gồm chi phí của thuốc phóng xạ và chất đánh dấu.",
+      "batBuoc": "x",
+      "trung": "",
+      "ghiChuBS": ""
+    },
+    {
+      "stt": "6",
+      "chiTieu": "QUY_TRINH",
+      "dinhDang": "Chuỗi",
+      "kichThuoc": "50",
+      "dienGiai": "Ngày và số, ký hiệu của quyết định ban hành Quy trình chuyên môn kỹ thuật của người đứng đầu cơ sở khám bệnh, chữa bệnh, trường hợp cơ sở không ban hành thì ghi theo quyết định của Bộ Y tế. Định dạng YYYYMMDD_Z.",
+      "batBuoc": "x",
+      "trung": "",
+      "ghiChuBS": ""
+    },
+    {
+      "stt": "7",
+      "chiTieu": "SO_LUONG_CGKT",
+      "dinhDang": "Số",
+      "kichThuoc": "4",
+      "dienGiai": "Số lượng dịch vụ thực hiện theo hợp đồng chuyển giao kỹ thuật",
+      "batBuoc": "Chỉ ghi đối với dịch vụ thực hiện theo hợp đồng chuyển giao kỹ thuật",
+      "trung": "",
+      "ghiChuBS": ""
+    },
+    {
+      "stt": "8",
+      "chiTieu": "CSKCB_CGKT",
+      "dinhDang": "Chuỗi",
+      "kichThuoc": "5",
+      "dienGiai": "Mã cơ sở khám bệnh, chữa bệnh chuyển giao dịch vụ kỹ thuật (nếu có)",
+      "batBuoc": "Chỉ ghi đối với cơ sở khám bệnh, chữa bệnh nhận chuyển giao dịch vụ kỹ thuật từ cơ sở khám bệnh, chữa bệnh khác",
+      "trung": "",
+      "ghiChuBS": ""
+    },
+    {
+      "stt": "9",
+      "chiTieu": "CSKCB_CLS",
+      "dinhDang": "Chuỗi",
+      "kichThuoc": "5",
+      "dienGiai": "Mã cơ sở khám bệnh, chữa bệnh thực hiện dịch vụ cận lâm sàng (nếu có)",
+      "batBuoc": "Chỉ ghi đối với cơ sở khám bệnh, chữa bệnh chuyển dịch vụ cận lâm sàng",
+      "trung": "",
+      "ghiChuBS": ""
+    },
+    {
+      "stt": "10",
+      "chiTieu": "QD_DVKT",
+      "dinhDang": "Chuỗi",
+      "kichThuoc": "50",
+      "dienGiai": "Ngày và số, ký hiệu của quyết định phê duyệt danh mục kỹ thuật trong khám bệnh, chữa bệnh thực hiện tại cơ sở KCB. Định dạng YYYYMMDD_Z.",
+      "batBuoc": "Ghi đối với danh mục kỹ thuật",
+      "trung": "",
+      "ghiChuBS": ""
+    },
+    {
+      "stt": "11",
+      "chiTieu": "QD_PD_GIA",
+      "dinhDang": "Chuỗi",
+      "kichThuoc": "50",
+      "dienGiai": "- Ngày và số, ký hiệu của quyết định phê duyệt giá thực hiện tại cơ sở.\n- CS tư nhân áp giá CS công lập: ngày ban hành_số ký hiệu_mã cơ sở công lập.\n- Dịch vụ CLS chuyển đi: ghi số văn bản phê duyệt giá tại nơi thực hiện.\n- Hợp đồng chuyển giao: ghi số văn bản phê duyệt giá của cơ sở chuyển giao.",
+      "batBuoc": "x",
+      "trung": "x",
+      "ghiChuBS": ""
+    },
+    {
+      "stt": "12",
+      "chiTieu": "GHI_CHU",
+      "dinhDang": "Chuỗi",
+      "kichThuoc": "n",
+      "dienGiai": "Ghi theo văn bản phê duyệt giá",
+      "batBuoc": "",
+      "trung": "",
+      "ghiChuBS": "Ghi theo cột ghi chú tại bảng giá dịch vụ kỹ thuật và xét nghiệm"
+    },
+    {
+      "stt": "13",
+      "chiTieu": "MA_THUOC",
+      "dinhDang": "Chuỗi",
+      "kichThuoc": "15",
+      "dienGiai": "Mã thuốc phóng xạ hoặc chất đánh dấu theo danh mục dùng chung do Bộ Y tế ban hành",
+      "batBuoc": "",
+      "trung": "x",
+      "ghiChuBS": "Trường hợp dịch vụ kỹ thuật có sử dụng thuốc phóng xạ, chất đánh dấu thì ghi thông tin thuốc tương ứng từ STT số 12 đến 23"
+    },
+    {
+      "stt": "14",
+      "chiTieu": "TEN_THUOC",
+      "dinhDang": "Chuỗi",
+      "kichThuoc": "1024",
+      "dienGiai": "Tên phóng xạ hoặc chất đánh dấu",
+      "batBuoc": "",
+      "trung": "",
+      "ghiChuBS": ""
+    },
+    {
+      "stt": "15",
+      "chiTieu": "SO_DANG_KY",
+      "dinhDang": "Chuỗi",
+      "kichThuoc": "50",
+      "dienGiai": "Số đăng ký của thuốc phóng xạ hoặc chất đánh dấu",
+      "batBuoc": "",
+      "trung": "x",
+      "ghiChuBS": ""
+    },
+    {
+      "stt": "16",
+      "chiTieu": "DON_VI_TINH",
+      "dinhDang": "Chuỗi",
+      "kichThuoc": "1024",
+      "dienGiai": "Đơn vị tính của của thuốc phóng xạ hoặc chất đánh dấu",
+      "batBuoc": "",
+      "trung": "",
+      "ghiChuBS": ""
+    },
+    {
+      "stt": "17",
+      "chiTieu": "TT_THAU",
+      "dinhDang": "Chuỗi",
+      "kichThuoc": "1024",
+      "dienGiai": "Thông tin thầu của thuốc phóng xạ hoặc chất đánh dấu theo hướng dẫn tại Quyết định số 3176/QĐ-BYT",
+      "batBuoc": "",
+      "trung": "x",
+      "ghiChuBS": "Ghi thông tin thầu của thuốc theo thứ tự: Số QĐ; mã gói thầu; mã nhóm thầu; năm.\n- Hai nhà thầu trúng: bổ sung Gi.YY.\n- Áp thầu: bổ sung mã đơn vị ban hành.\n- Thuốc tự bào chế: Số quyết định;XXXX (Năm).\n- Chuyển thuốc/DVKT chuyển đi: ghi thông tin thầu tại cơ sở nơi thực hiện."
+    },
+    {
+      "stt": "18",
+      "chiTieu": "DON_GIA_THUOC",
+      "dinhDang": "Số",
+      "kichThuoc": "15",
+      "dienGiai": "Đơn giá của thuốc phóng xạ hoặc chất đánh dấu",
+      "batBuoc": "",
+      "trung": "",
+      "ghiChuBS": ""
+    },
+    {
+      "stt": "19",
+      "chiTieu": "DM_NSX_CDD",
+      "dinhDang": "Số",
+      "kichThuoc": "15",
+      "dienGiai": "Định mức sử dụng chất đánh dấu của nhà sản xuất đối với từng dịch vụ kỹ thuật",
+      "batBuoc": "",
+      "trung": "",
+      "ghiChuBS": ""
+    },
+    {
+      "stt": "20",
+      "chiTieu": "DM_THUCTE_CDD",
+      "dinhDang": "Số",
+      "kichThuoc": "15",
+      "dienGiai": "Định mức sử dụng thực tế bình quân của chất đánh dấu theo quy định của Bộ Y tế",
+      "batBuoc": "",
+      "trung": "",
+      "ghiChuBS": ""
+    },
+    {
+      "stt": "21",
+      "chiTieu": "LIEU_BQ_PX",
+      "dinhDang": "Số",
+      "kichThuoc": "8",
+      "dienGiai": "Liều sử dụng bình quân của thuốc phóng xạ sử dụng trong dịch vụ kỹ thuật.",
+      "batBuoc": "",
+      "trung": "",
+      "ghiChuBS": ""
+    },
+    {
+      "stt": "22",
+      "chiTieu": "TL_THUCTE_BQ_PX",
+      "dinhDang": "Số",
+      "kichThuoc": "15",
+      "dienGiai": "Tỷ lệ sử dụng thực tế bình quân của thuốc phóng xạ",
+      "batBuoc": "",
+      "trung": "",
+      "ghiChuBS": ""
+    },
+    {
+      "stt": "23",
+      "chiTieu": "THANH_TIEN_THUOC",
+      "dinhDang": "Số",
+      "kichThuoc": "15",
+      "dienGiai": "- Thành tiền chi phí thuốc phóng xạ, được tính bằng DON_GIA_THUOC của thuốc phóng xạ nhân với LIEU_BQ_PX chia cho TLTHUCTE_BQ_PX.\n- Thành tiền chi phí chất đánh dấu, được tính bằng DON_GIA_THUOC của chất đánh dấu nhân với DM_THUCTE_CDD.",
+      "batBuoc": "",
+      "trung": "",
+      "ghiChuBS": ""
+    },
+    {
+      "stt": "24",
+      "chiTieu": "GIA_THANH_TOAN",
+      "dinhDang": "Số",
+      "kichThuoc": "15",
+      "dienGiai": "- Giá thanh toán bảo hiểm y tế bằng DON_GIA đối với dịch vụ khám bệnh, chữa bệnh không sử dụng thuốc phóng xạ, chất đánh dấu.\n- Giá thanh toán bảo hiểm y tế bằng DON_GIA cộng với THANH_TIEN_THUOC của thuốc phóng xạ, chất đánh dấu đối với dịch vụ kỹ thuật có sử dụng thuốc phóng xạ, chất đánh dấu.",
+      "batBuoc": "x",
+      "trung": "",
+      "ghiChuBS": ""
+    },
+    {
+      "stt": "25",
+      "chiTieu": "TU_NGAY",
+      "dinhDang": "Chuỗi",
+      "kichThuoc": "8",
+      "dienGiai": "- Trường hợp tạo lập danh mục sau khi ký hợp đồng lần đầu: ghi ngày hợp đồng có hiệu lực.\n- Trường hợp cập nhật, điều chỉnh trong quá trình thực hiện hợp đồng: ghi thời điểm gửi văn bản thông báo đến cơ quan bảo hiểm xã hội hoặc ngày cơ sở khám bệnh, chữa bệnh đề nghị trên văn bản thông báo nếu thời điểm đề nghị áp dụng sau ngày nhận được văn bản, định dạng gồm 8 ký tự (4 ký tự năm + 2 ký tự tháng + 2 ký tự ngày).",
+      "batBuoc": "",
+      "trung": "",
+      "ghiChuBS": ""
+    },
+    {
+      "stt": "26",
+      "chiTieu": "DEN_NGAY",
+      "dinhDang": "Chuỗi",
+      "kichThuoc": "8",
+      "dienGiai": "Chỉ ghi khi cập nhật, điều chỉnh thông tin hoặc ngừng sử dụng: ghi thời điểm ngừng áp dụng, định dạng gồm 8 ký tự (4 ký tự năm + 2 ký tự tháng + 2 ký tự ngày)",
+      "batBuoc": "",
+      "trung": "",
+      "ghiChuBS": "Trường hợp có thay đổi thông tin danh mục: cơ sở KCB gửi bảng cập nhật gồm 02 dòng dữ liệu, trong đó dòng thứ nhất ghi thông tin cũ và DEN_NGAY là ngày ngừng áp dụng, dòng thứ 2 ghi thông tin thay đổi và TU_NGAY là ngày bắt đầu áp dụng, để trống chỉ tiêu DEN_NGAY.\n- Trường hợp ngừng hiệu lực: cơ sở KCB cập nhật DEN_NGAY của danh mục=> đồng bộ trạng thái sang PM Giám định; cơ sở KCB không được hiệu chỉnh thông tin đối với danh mục đã hết hiệu lực."
+    },
+    {
+      "stt": "27",
+      "chiTieu": "MA_CSKCB",
+      "dinhDang": "Chuỗi",
+      "kichThuoc": "5",
+      "dienGiai": "Mã cơ sở khám bệnh, chữa bệnh",
+      "batBuoc": "x",
+      "trung": "x",
+      "ghiChuBS": ""
+    }
+  ],
+  "g": [
+    {
+      "stt": "1",
+      "chiTieu": "STT",
+      "dinhDang": "Số",
+      "kichThuoc": "10",
+      "dienGiai": "Số thứ tự",
+      "batBuoc": "x",
+      "trung": "",
+      "ghiChuBS": ""
+    },
+    {
+      "stt": "2",
+      "chiTieu": "TEN_TB",
+      "dinhDang": "Chuỗi",
+      "kichThuoc": "n",
+      "dienGiai": "Tên thiết bị y tế",
+      "batBuoc": "x",
+      "trung": "",
+      "ghiChuBS": ""
+    },
+    {
+      "stt": "3",
+      "chiTieu": "KY_HIEU",
+      "dinhDang": "Chuỗi",
+      "kichThuoc": "1024",
+      "dienGiai": "Model của thiết bị y tế",
+      "batBuoc": "x",
+      "trung": "x",
+      "ghiChuBS": ""
+    },
+    {
+      "stt": "4",
+      "chiTieu": "CONGTY_SX",
+      "dinhDang": "Chuỗi",
+      "kichThuoc": "1024",
+      "dienGiai": "Tên công ty sản xuất",
+      "batBuoc": "x",
+      "trung": "",
+      "ghiChuBS": ""
+    },
+    {
+      "stt": "5",
+      "chiTieu": "NUOC_SX",
+      "dinhDang": "Chuỗi",
+      "kichThuoc": "100",
+      "dienGiai": "Tên nước sản xuất",
+      "batBuoc": "x",
+      "trung": "",
+      "ghiChuBS": ""
+    },
+    {
+      "stt": "6",
+      "chiTieu": "NAM_SX",
+      "dinhDang": "Số",
+      "kichThuoc": "4",
+      "dienGiai": "Năm sản xuất",
+      "batBuoc": "x",
+      "trung": "",
+      "ghiChuBS": ""
+    },
+    {
+      "stt": "7",
+      "chiTieu": "NAM_SD",
+      "dinhDang": "Số",
+      "kichThuoc": "4",
+      "dienGiai": "Năm bắt đầu đưa vào sử dụng",
+      "batBuoc": "x",
+      "trung": "",
+      "ghiChuBS": ""
+    },
+    {
+      "stt": "8",
+      "chiTieu": "MA_MAY",
+      "dinhDang": "Số",
+      "kichThuoc": "n",
+      "dienGiai": "Mã máy thực hiện dịch vụ cận lâm sàng, phẫu thuật, thủ thuật, ghi theo hướng dẫn tại Quyết định số 3176/QĐ-BYT",
+      "batBuoc": "x",
+      "trung": "x",
+      "ghiChuBS": "Ghi mã các máy theo nguyên tắc: XX.n.Z\n- XX/XXX: Mã nhóm (HH, VS, SH, SA, XQ, CL, MRI, PT, TT...)\n- n: Nguồn kinh phí (1: NSNN; 2: Tài trợ; 3: Khác). Nếu 3 ghi rõ trong [ ].\n- Z: Số serial của máy. Nếu là hệ thống, ghi các serial cách nhau bằng dấu chấm phẩy \";\"."
+    },
+    {
+      "stt": "9",
+      "chiTieu": "SO_LUU_HANH",
+      "dinhDang": "Chuỗi",
+      "kichThuoc": "20",
+      "dienGiai": "Số lưu hành của thiết bị y tế theo quy định tại Nghị định số 07/2023/NĐ-CP",
+      "batBuoc": "x",
+      "trung": "x",
+      "ghiChuBS": ""
+    },
+    {
+      "stt": "10",
+      "chiTieu": "HD_TU",
+      "dinhDang": "Chuỗi",
+      "kichThuoc": "8",
+      "dienGiai": "- Chỉ ghi đối với thiết bị y tế có hợp đồng thuê, mua trả chậm, trả dần hoặc mượn.\n- Thời điểm có hiệu lực trên hợp đồng, ghi theo định dạng 8 ký tự (4 ký tự năm + 2 ký tự tháng + 2 ký tự ngày).",
+      "batBuoc": "Bắt buộc đối với thiết bị y tế có hợp đồng thuê, mua trả chậm, trả dần hoặc mượn",
+      "trung": "",
+      "ghiChuBS": ""
+    },
+    {
+      "stt": "11",
+      "chiTieu": "HD_DEN",
+      "dinhDang": "Chuỗi",
+      "kichThuoc": "8",
+      "dienGiai": "- Chỉ ghi đối với thiết bị y tế có hợp đồng thuê, mua trả chậm, trả dần hoặc mượn.\n- Thời điểm hết hiệu lực trên hợp đồng, ghi theo định dạng 8 ký tự (4 ký tự năm + 2 ký tự tháng + 2 ký tự ngày).",
+      "batBuoc": "Bắt buộc đối với thiết bị y tế có hợp đồng thuê, mua trả chậm, trả dần hoặc mượn",
+      "trung": "",
+      "ghiChuBS": ""
+    },
+    {
+      "stt": "12",
+      "chiTieu": "TU_NGAY",
+      "dinhDang": "Chuỗi",
+      "kichThuoc": "8",
+      "dienGiai": "- Trường hợp tạo lập danh mục sau khi ký hợp đồng lần đầu: ghi ngày hợp đồng có hiệu lực.\n- Trường hợp cập nhật, điều chỉnh trong quá trình thực hiện hợp đồng:\n+ Đối với thiết bị y tế phải kiểm định, thiết bị y tế bức xạ, chiếu xạ, thiết bị X-quang chẩn đoán: ghi thời điểm đề nghị thực hiện nằm trong thời gian máy đủ điều kiện sử dụng.\n+ Đối với thiết bị y tế còn lại: ghi thời điểm gửi văn bản thông báo đến cơ quan bảo hiểm xã hội hoặc ngày cơ sở khám bệnh, chữa bệnh đề nghị trên văn bản thông báo nếu thời điểm đề nghị áp dụng sau ngày nhận được văn bản.",
+      "batBuoc": "x",
+      "trung": "",
+      "ghiChuBS": ""
+    },
+    {
+      "stt": "13",
+      "chiTieu": "DEN_NGAY",
+      "dinhDang": "Chuỗi",
+      "kichThuoc": "8",
+      "dienGiai": "- Đối với thiết bị y tế phải kiểm định; thiết bị y tế bức xạ, chiếu xạ, thiết bị X-quang chẩn đoán: ghi thời điểm cuối cùng thiết bị y tế đủ điều kiện sử dụng.\n- Đối với thiết bị y tế còn lại: chỉ ghi khi cập nhật, điều chỉnh thông tin hoặc ngừng sử dụng thì ghi thời điểm ngừng áp dụng.",
+      "batBuoc": "Bắt buộc đối với thiết bị y tế phải kiểm định; thiết bị y tế bức xạ, chiếu xạ, thiết bị X-quang chẩn đoán",
+      "trung": "",
+      "ghiChuBS": "Trường hợp có thay đổi thông tin danh mục: cơ sở KCB gửi bảng cập nhật gồm 02 dòng dữ liệu, trong đó dòng thứ nhất ghi thông tin cũ và DEN_NGAY là ngày ngừng áp dụng, dòng thứ 2 ghi thông tin thay đổi và TU_NGAY là ngày bắt đầu áp dụng, để trống chỉ tiêu DEN_NGAY.\n- Trường hợp ngừng hiệu lực: cơ sở KCB cập nhật DEN_NGAY của danh mục=> đồng bộ trạng thái sang PM Giám định; cơ sở KCB không được hiệu chỉnh thông tin đối với danh mục đã hết hiệu lực."
+    },
+    {
+      "stt": "14",
+      "chiTieu": "MA_CSKCB",
+      "dinhDang": "Chuỗi",
+      "kichThuoc": "5",
+      "dienGiai": "Mã cơ sở khám bệnh, chữa bệnh",
+      "batBuoc": "x",
+      "trung": "x",
+      "ghiChuBS": ""
+    }
+  ],
+  "_": [
+    {
+      "stt": "1",
+      "ma": "01",
+      "dienGiai": "Khám bệnh",
+      "ghiChu": ""
+    },
+    {
+      "stt": "2",
+      "ma": "02",
+      "dienGiai": "Điều trị ngoại trú",
+      "ghiChu": "Điều trị ngoại trú các bệnh không thuộc các bệnh cần chữa trị dài ngày theo Phụ lục I ban hành kèm theo Thông tư số 25/2025/TT-BYT"
+    },
+    {
+      "stt": "3",
+      "ma": "03",
+      "dienGiai": "Điều trị nội trú",
+      "ghiChu": "Thời gian điều trị nội trú dưới 4 giờ thì sử dụng mã “09”"
+    },
+    {
+      "stt": "4",
+      "ma": "04",
+      "dienGiai": "Điều trị ban ngày",
+      "ghiChu": "Thực hiện theo quy định của pháp luật về khám bệnh, chữa bệnh.\nLà trường hợp người bệnh phải điều trị nội trú mà theo chỉ định của người hành nghề thì người bệnh không phải lưu lại qua đêm tại cơ sở khám bệnh, chữa bệnh.\nKhông áp dụng cho trường hợp điều trị nội trú dưới 4 giờ (mã “09”)"
+    },
+    {
+      "stt": "5",
+      "ma": "05",
+      "dienGiai": "Điều trị ngoại trú các bệnh cần chữa trị dài ngày liên tục trong năm, áp dụng cho các bệnh theo Phụ lục I ban hành kèm theo Thông tư số 25/2025/TT-BYT ngày 30/6/2025 của Bộ trưởng Bộ Y tế quy định chi tiết thi hành Luật Bảo hiểm xã hội, Luật An toàn vệ sinh lao động về lĩnh vực y tế và Luật Khám bệnh, chữa bệnh, có khám bệnh và lĩnh thuốc.",
+      "ghiChu": "Trường hợp có thực hiện dịch vụ kỹ thuật (ví dụ xét nghiệm, chạy thận nhân tạo,…) thì sử dụng mã “08”, không sử dụng mã “05”"
+    },
+    {
+      "stt": "6",
+      "ma": "06",
+      "dienGiai": "Lưu người bệnh tại phòng khám đa khoa, phòng khám đa khoa khu vực, nhà hộ sinh, trạm y tế xã, phường",
+      "ghiChu": ""
+    },
+    {
+      "stt": "7",
+      "ma": "07",
+      "dienGiai": "Nhận thuốc theo hẹn",
+      "ghiChu": "Không thuộc trường hợp người bệnh đi khám bệnh, chữa bệnh."
+    },
+    {
+      "stt": "8",
+      "ma": "08",
+      "dienGiai": "Điều trị ngoại trú các bệnh cần chữa trị dài ngày liên tục trong năm, áp dụng cho các bệnh theo Phụ lục I ban hành kèm theo Thông tư số 25/2025/TT-BYT, có khám bệnh, có thực hiện các dịch vụ kỹ thuật và/hoặc được sử dụng thuốc.",
+      "ghiChu": ""
+    },
+    {
+      "stt": "9",
+      "ma": "09",
+      "dienGiai": "Điều trị nội trú dưới 04 giờ",
+      "ghiChu": "Không áp dụng cho trường hợp điều trị ban ngày (mã “04”)"
+    },
+    {
+      "stt": "10",
+      "ma": "10",
+      "dienGiai": "Các trường hợp khác",
+      "ghiChu": ""
+    },
+    {
+      "stt": "11",
+      "ma": "11",
+      "dienGiai": "Khám bệnh, chữa bệnh lưu động",
+      "ghiChu": "Thực hiện theo quy định của pháp luật về khám bệnh, chữa bệnh, bảo hiểm y tế.\nÁp dụng khi cơ sở KCB cung cấp dịch vụ y tế ngoài địa điểm KCB được ghi trong giấy phép hoạt động (không bao gồm trường hợp KCB tại nhà áp dụng MA_LOAI_KCB = 12)"
+    },
+    {
+      "stt": "12",
+      "ma": "12",
+      "dienGiai": "Khám bệnh, chữa bệnh tại nhà",
+      "ghiChu": "Thực hiện theo quy định của pháp luật về khám bệnh, chữa bệnh, bảo hiểm y tế."
+    },
+    {
+      "stt": "13",
+      "ma": "13",
+      "dienGiai": "Khám bệnh, chữa bệnh y học gia đình",
+      "ghiChu": "Thực hiện theo quy định của pháp luật về khám bệnh, chữa bệnh, bảo hiểm y tế.\nÁp dụng tại cơ sở KCB y học gia đình hoặc cơ sở KCB khác có phạm vi hoạt động chuyên môn về y học gia đình thực hiện."
+    },
+    {
+      "stt": "14",
+      "ma": "14",
+      "dienGiai": "Khám bệnh, chữa bệnh từ xa",
+      "ghiChu": "Thực hiện theo quy định của pháp luật về khám bệnh, chữa bệnh, bảo hiểm y tế."
+    },
+    {
+      "stt": "15",
+      "ma": "15",
+      "dienGiai": "Khám sức khoẻ định kỳ",
+      "ghiChu": "- Đối với bảo hiểm y tế: Chỉ áp dụng khi có quy định của cấp có thẩm quyền về thanh toán chi phí từ Quỹ bảo hiểm y tế.\n- Đối với các nguồn kinh phí khác: áp dụng theo quy định hiện hành."
+    },
+    {
+      "stt": "16",
+      "ma": "16",
+      "dienGiai": "Khám sàng lọc",
+      "ghiChu": "- Đối với bảo hiểm y tế: Chỉ áp dụng khi có quy định của cấp có thẩm quyền về thanh toán chi phí từ Quỹ bảo hiểm y tế.\n- Đối với các nguồn kinh phí khác: áp dụng theo quy định hiện hành."
+    }
+  ],
+  "v": [
+    {
+      "tt": "1",
+      "chuyenKhoa": "Nội khoa",
+      "tenKhamBenh": "Nội tổng hợp",
+      "maKhamBenh": "02.03"
+    },
+    {
+      "tt": "2",
+      "chuyenKhoa": "",
+      "tenKhamBenh": "Nội Tim mạch",
+      "maKhamBenh": "02.04"
+    },
+    {
+      "tt": "3",
+      "chuyenKhoa": "",
+      "tenKhamBenh": "Nội tiêu hóa",
+      "maKhamBenh": "02.05"
+    },
+    {
+      "tt": "4",
+      "chuyenKhoa": "",
+      "tenKhamBenh": "Nội cơ xương khớp",
+      "maKhamBenh": "02.06"
+    },
+    {
+      "tt": "5",
+      "chuyenKhoa": "",
+      "tenKhamBenh": "Nội thận - tiết niệu",
+      "maKhamBenh": "02.07"
+    },
+    {
+      "tt": "6",
+      "chuyenKhoa": "",
+      "tenKhamBenh": "Nội tiết",
+      "maKhamBenh": "02.08"
+    },
+    {
+      "tt": "7",
+      "chuyenKhoa": "",
+      "tenKhamBenh": "Dị ứng - Miễn dịch lâm sàng",
+      "maKhamBenh": "02.09"
+    },
+    {
+      "tt": "8",
+      "chuyenKhoa": "",
+      "tenKhamBenh": "Huyết học",
+      "maKhamBenh": "02.10"
+    },
+    {
+      "tt": "9",
+      "chuyenKhoa": "",
+      "tenKhamBenh": "Truyền nhiễm",
+      "maKhamBenh": "02.11"
+    },
+    {
+      "tt": "10",
+      "chuyenKhoa": "",
+      "tenKhamBenh": "Da liễu",
+      "maKhamBenh": "02.13"
+    },
+    {
+      "tt": "11",
+      "chuyenKhoa": "",
+      "tenKhamBenh": "Thần kinh",
+      "maKhamBenh": "02.14"
+    },
+    {
+      "tt": "12",
+      "chuyenKhoa": "",
+      "tenKhamBenh": "Tâm thần",
+      "maKhamBenh": "02.15"
+    },
+    {
+      "tt": "13",
+      "chuyenKhoa": "",
+      "tenKhamBenh": "Nội Hô hấp",
+      "maKhamBenh": "02.50"
+    },
+    {
+      "tt": "14",
+      "chuyenKhoa": "Ngoại khoa",
+      "tenKhamBenh": "Ngoại tổng hợp ",
+      "maKhamBenh": "10.19"
+    },
+    {
+      "tt": "15",
+      "chuyenKhoa": "",
+      "tenKhamBenh": "Ngoại thần kinh",
+      "maKhamBenh": "10.20"
+    },
+    {
+      "tt": "16",
+      "chuyenKhoa": "",
+      "tenKhamBenh": "Ngoại lồng ngực",
+      "maKhamBenh": "10.21"
+    },
+    {
+      "tt": "17",
+      "chuyenKhoa": "",
+      "tenKhamBenh": "Ngoại tiêu hóa",
+      "maKhamBenh": "10.22"
+    },
+    {
+      "tt": "18",
+      "chuyenKhoa": "",
+      "tenKhamBenh": "Ngoại thận - tiết niệu",
+      "maKhamBenh": "10.23"
+    },
+    {
+      "tt": "19",
+      "chuyenKhoa": "",
+      "tenKhamBenh": "Chấn thương chỉnh hình",
+      "maKhamBenh": "10.24"
+    },
+    {
+      "tt": "20",
+      "chuyenKhoa": "",
+      "tenKhamBenh": "Bỏng",
+      "maKhamBenh": "10.25"
+    },
+    {
+      "tt": "21",
+      "chuyenKhoa": "",
+      "tenKhamBenh": "Ung bướu",
+      "maKhamBenh": "10.33"
+    },
+    {
+      "tt": "22",
+      "chuyenKhoa": "",
+      "tenKhamBenh": "Ngoại tim mạch",
+      "maKhamBenh": "10.04"
+    },
+    {
+      "tt": "23",
+      "chuyenKhoa": "",
+      "tenKhamBenh": "Ngoại hô hấp",
+      "maKhamBenh": "10.50"
+    },
+    {
+      "tt": "24",
+      "chuyenKhoa": "",
+      "tenKhamBenh": "Ngoại Phẫu thuật tạo hình",
+      "maKhamBenh": "10.52"
+    },
+    {
+      "tt": "25",
+      "chuyenKhoa": "",
+      "tenKhamBenh": "Ngoại cột sống",
+      "maKhamBenh": "10.20.1"
+    },
+    {
+      "tt": "26",
+      "chuyenKhoa": "",
+      "tenKhamBenh": "Ngoại gan - mật - tuỵ",
+      "maKhamBenh": "10.22.1"
+    },
+    {
+      "tt": "27",
+      "chuyenKhoa": "Hồi sức cấp cứu và chống độc",
+      "tenKhamBenh": "",
+      "maKhamBenh": "01.02"
+    },
+    {
+      "tt": "28",
+      "chuyenKhoa": "Nhi",
+      "tenKhamBenh": "",
+      "maKhamBenh": "03.18"
+    },
+    {
+      "tt": "29",
+      "chuyenKhoa": "Lao (Ngoại lao)",
+      "tenKhamBenh": "",
+      "maKhamBenh": "04.12"
+    },
+    {
+      "tt": "30",
+      "chuyenKhoa": "Y học cổ truyền",
+      "tenKhamBenh": "",
+      "maKhamBenh": "08.16"
+    },
+    {
+      "tt": "31",
+      "chuyenKhoa": "Ung bướu",
+      "tenKhamBenh": "",
+      "maKhamBenh": "12.33"
+    },
+    {
+      "tt": "32",
+      "chuyenKhoa": "Phụ sản",
+      "tenKhamBenh": "",
+      "maKhamBenh": "13.27"
+    },
+    {
+      "tt": "33",
+      "chuyenKhoa": "Nam học",
+      "tenKhamBenh": "",
+      "maKhamBenh": "13.53"
+    },
+    {
+      "tt": "34",
+      "chuyenKhoa": "Mắt",
+      "tenKhamBenh": "",
+      "maKhamBenh": "14.30"
+    },
+    {
+      "tt": "35",
+      "chuyenKhoa": "Tai Mũi Họng",
+      "tenKhamBenh": "",
+      "maKhamBenh": "15.28"
+    },
+    {
+      "tt": "36",
+      "chuyenKhoa": "Răng Hàm Mặt",
+      "tenKhamBenh": "",
+      "maKhamBenh": "16.29"
+    },
+    {
+      "tt": "37",
+      "chuyenKhoa": "Phục hồi chức năng",
+      "tenKhamBenh": "",
+      "maKhamBenh": "17.31"
+    },
+    {
+      "tt": "38",
+      "chuyenKhoa": "Dinh dưỡng",
+      "tenKhamBenh": "",
+      "maKhamBenh": "30.45"
+    },
+    {
+      "tt": "39",
+      "chuyenKhoa": "Khám bệnh tại Trạm Y tế xã và đơn vị tương đương",
+      "tenKhamBenh": "",
+      "maKhamBenh": "TYT.1899"
+    }
+  ],
+  "y": [
+    {
+      "stt": "1",
+      "tenKhoa": "Khoa Khám bệnh",
+      "maKhoa": "K01",
+      "ghiChu": ""
+    },
+    {
+      "stt": "2",
+      "tenKhoa": "Khoa Hồi sức cấp cứu",
+      "maKhoa": "K02",
+      "ghiChu": ""
+    },
+    {
+      "stt": "3",
+      "tenKhoa": "Khoa Nội tổng hợp",
+      "maKhoa": "K03",
+      "ghiChu": ""
+    },
+    {
+      "stt": "4",
+      "tenKhoa": "Khoa Nội tim mạch",
+      "maKhoa": "K04",
+      "ghiChu": ""
+    },
+    {
+      "stt": "5",
+      "tenKhoa": "Khoa Nội tiêu hoá",
+      "maKhoa": "K05",
+      "ghiChu": ""
+    },
+    {
+      "stt": "6",
+      "tenKhoa": "Khoa Nội cơ - xương - khớp",
+      "maKhoa": "K06",
+      "ghiChu": ""
+    },
+    {
+      "stt": "7",
+      "tenKhoa": "Khoa Nội thận - tiết niệu",
+      "maKhoa": "K07",
+      "ghiChu": ""
+    },
+    {
+      "stt": "8",
+      "tenKhoa": "Khoa Nội tiết",
+      "maKhoa": "K08",
+      "ghiChu": ""
+    },
+    {
+      "stt": "9",
+      "tenKhoa": "Khoa Dị ứng",
+      "maKhoa": "K09",
+      "ghiChu": ""
+    },
+    {
+      "stt": "10",
+      "tenKhoa": "Khoa Huyết học lâm sàng",
+      "maKhoa": "K10",
+      "ghiChu": ""
+    },
+    {
+      "stt": "11",
+      "tenKhoa": "Khoa Truyền nhiễm",
+      "maKhoa": "K11",
+      "ghiChu": ""
+    },
+    {
+      "stt": "12",
+      "tenKhoa": "Khoa Lao",
+      "maKhoa": "K12",
+      "ghiChu": ""
+    },
+    {
+      "stt": "13",
+      "tenKhoa": "Khoa Da liễu",
+      "maKhoa": "K13",
+      "ghiChu": ""
+    },
+    {
+      "stt": "14",
+      "tenKhoa": "Khoa Thần kinh",
+      "maKhoa": "K14",
+      "ghiChu": ""
+    },
+    {
+      "stt": "15",
+      "tenKhoa": "Khoa Tâm thần",
+      "maKhoa": "K15",
+      "ghiChu": ""
+    },
+    {
+      "stt": "16",
+      "tenKhoa": "Khoa Y học cổ truyền",
+      "maKhoa": "K16",
+      "ghiChu": "Áp dụng đối với các cơ sở KCB không tách lĩnh vực Y học cổ truyền thành các khoa chuyên môn"
+    },
+    {
+      "stt": "",
+      "tenKhoa": "Khoa Ngũ quan",
+      "maKhoa": "K16.1",
+      "ghiChu": ""
+    },
+    {
+      "stt": "",
+      "tenKhoa": "Khoa Châm cứu",
+      "maKhoa": "K16.2",
+      "ghiChu": ""
+    },
+    {
+      "stt": "",
+      "tenKhoa": "Khoa Ngoại phụ",
+      "maKhoa": "K16.3",
+      "ghiChu": ""
+    },
+    {
+      "stt": "17",
+      "tenKhoa": "Khoa Lão học",
+      "maKhoa": "K17",
+      "ghiChu": "Hoặc Khoa Lão, Khoa Người cao tuổi"
+    },
+    {
+      "stt": "18",
+      "tenKhoa": "Khoa Nhi",
+      "maKhoa": "K18",
+      "ghiChu": ""
+    },
+    {
+      "stt": "19",
+      "tenKhoa": "Khoa Ngoại tổng hợp",
+      "maKhoa": "K19",
+      "ghiChu": ""
+    },
+    {
+      "stt": "20",
+      "tenKhoa": "Khoa Ngoại thần kinh",
+      "maKhoa": "K20",
+      "ghiChu": ""
+    },
+    {
+      "stt": "21",
+      "tenKhoa": "Khoa Ngoại lồng ngực",
+      "maKhoa": "K21",
+      "ghiChu": ""
+    },
+    {
+      "stt": "22",
+      "tenKhoa": "Khoa Ngoại tiêu hoá",
+      "maKhoa": "K22",
+      "ghiChu": ""
+    },
+    {
+      "stt": "",
+      "tenKhoa": "Khoa Ngoại Hậu môn, đại trực tràng và sàn chậu",
+      "maKhoa": "K22.1",
+      "ghiChu": ""
+    },
+    {
+      "stt": "23",
+      "tenKhoa": "Khoa Ngoại thận - tiết niệu",
+      "maKhoa": "K23",
+      "ghiChu": ""
+    },
+    {
+      "stt": "24",
+      "tenKhoa": "Khoa Chấn thương chỉnh hình",
+      "maKhoa": "K24",
+      "ghiChu": ""
+    },
+    {
+      "stt": "25",
+      "tenKhoa": "Khoa Bỏng",
+      "maKhoa": "K25",
+      "ghiChu": ""
+    },
+    {
+      "stt": "26",
+      "tenKhoa": "Khoa Phẫu thuật - Gây mê hồi sức",
+      "maKhoa": "K26",
+      "ghiChu": ""
+    },
+    {
+      "stt": "27",
+      "tenKhoa": "Khoa Phụ sản",
+      "maKhoa": "K27",
+      "ghiChu": ""
+    },
+    {
+      "stt": "28",
+      "tenKhoa": "Khoa Tai - Mũi - Họng",
+      "maKhoa": "K28",
+      "ghiChu": ""
+    },
+    {
+      "stt": "29",
+      "tenKhoa": "Khoa Răng - Hàm - Mặt",
+      "maKhoa": "K29",
+      "ghiChu": ""
+    },
+    {
+      "stt": "30",
+      "tenKhoa": "Khoa Mắt",
+      "maKhoa": "K30",
+      "ghiChu": ""
+    },
+    {
+      "stt": "31",
+      "tenKhoa": "Khoa Hồi chức năng và/hoặc Vật lý trị liệu",
+      "maKhoa": "K31",
+      "ghiChu": ""
+    },
+    {
+      "stt": "32",
+      "tenKhoa": "Khoa Y học hạt nhân",
+      "maKhoa": "K32",
+      "ghiChu": "Trường hợp cơ sở KCB không có Khoa Y học hạt nhân riêng thì sử dụng mã “K33”"
+    },
+    {
+      "stt": "33",
+      "tenKhoa": "Khoa Ung bướu",
+      "maKhoa": "K33",
+      "ghiChu": ""
+    },
+    {
+      "stt": "34",
+      "tenKhoa": "Khoa Truyền máu",
+      "maKhoa": "K34",
+      "ghiChu": ""
+    },
+    {
+      "stt": "35",
+      "tenKhoa": "Khoa Lọc máu nhân tạo",
+      "maKhoa": "K35",
+      "ghiChu": ""
+    },
+    {
+      "stt": "36",
+      "tenKhoa": "Khoa Huyết học",
+      "maKhoa": "K36",
+      "ghiChu": ""
+    },
+    {
+      "stt": "37",
+      "tenKhoa": "Khoa Sinh hoá",
+      "maKhoa": "K37",
+      "ghiChu": "Hoặc Khoa Hoá sinh"
+    },
+    {
+      "stt": "38",
+      "tenKhoa": "Khoa Vi sinh",
+      "maKhoa": "K38",
+      "ghiChu": ""
+    },
+    {
+      "stt": "39",
+      "tenKhoa": "Khoa Chẩn đoán hình ảnh",
+      "maKhoa": "K39",
+      "ghiChu": ""
+    },
+    {
+      "stt": "40",
+      "tenKhoa": "Khoa Thăm dò chức năng",
+      "maKhoa": "K40",
+      "ghiChu": ""
+    },
+    {
+      "stt": "41",
+      "tenKhoa": "Khoa Nội soi",
+      "maKhoa": "K41",
+      "ghiChu": ""
+    },
+    {
+      "stt": "42",
+      "tenKhoa": "Khoa Giải phẫu bệnh",
+      "maKhoa": "K42",
+      "ghiChu": ""
+    },
+    {
+      "stt": "43",
+      "tenKhoa": "Khoa Kiểm soát nhiễm khuẩn",
+      "maKhoa": "K43",
+      "ghiChu": "Hoặc Khoa Chống nhiễm khuẩn"
+    },
+    {
+      "stt": "44",
+      "tenKhoa": "Khoa Dược",
+      "maKhoa": "K44",
+      "ghiChu": ""
+    },
+    {
+      "stt": "45",
+      "tenKhoa": "Khoa Dinh dưỡng",
+      "maKhoa": "K45",
+      "ghiChu": ""
+    },
+    {
+      "stt": "46",
+      "tenKhoa": "Khoa Sinh học phân tử",
+      "maKhoa": "K46",
+      "ghiChu": ""
+    },
+    {
+      "stt": "47",
+      "tenKhoa": "Khoa Xét nghiệm",
+      "maKhoa": "K47",
+      "ghiChu": ""
+    },
+    {
+      "stt": "48",
+      "tenKhoa": "Khoa Hồi sức tích cực",
+      "maKhoa": "K48",
+      "ghiChu": ""
+    },
+    {
+      "stt": "49",
+      "tenKhoa": "Khoa Chống độc",
+      "maKhoa": "K49",
+      "ghiChu": ""
+    },
+    {
+      "stt": "50",
+      "tenKhoa": "Khoa Nội hô hấp",
+      "maKhoa": "K50",
+      "ghiChu": ""
+    },
+    {
+      "stt": "51",
+      "tenKhoa": "Khoa Điều trị bệnh truyền nhiễm nhóm A",
+      "maKhoa": "K99",
+      "ghiChu": "Sử dụng trong trường hợp dịch bệnh truyền nhiễm nhóm A theo quyết định của cấp có thẩm quyền."
+    },
+    {
+      "stt": "52",
+      "tenKhoa": "Khoa Đột quỵ",
+      "maKhoa": "K51",
+      "ghiChu": ""
+    },
+    {
+      "stt": "53",
+      "tenKhoa": "Khoa Phẫu thuật tạo hình thẩm mỹ",
+      "maKhoa": "K52",
+      "ghiChu": ""
+    },
+    {
+      "stt": "54",
+      "tenKhoa": "Khoa Nam học",
+      "maKhoa": "K53",
+      "ghiChu": ""
+    },
+    {
+      "stt": "55",
+      "tenKhoa": "Khoa Y học gia đình",
+      "maKhoa": "K54",
+      "ghiChu": ""
+    },
+    {
+      "stt": "56",
+      "tenKhoa": "Khoa Y học dưới nước",
+      "maKhoa": "K55",
+      "ghiChu": ""
+    },
+    {
+      "stt": "57",
+      "tenKhoa": "Khoa Hỗ trợ sinh sản",
+      "maKhoa": "K56",
+      "ghiChu": ""
+    },
+    {
+      "stt": "58",
+      "tenKhoa": "Khoa Điều trị ban ngày",
+      "maKhoa": "K57",
+      "ghiChu": ""
+    },
+    {
+      "stt": "59",
+      "tenKhoa": "Khoa Ký sinh trùng",
+      "maKhoa": "K58",
+      "ghiChu": ""
+    },
+    {
+      "stt": "60",
+      "tenKhoa": "Khoa Khám, chữa bệnh theo yêu cầu",
+      "maKhoa": "K59",
+      "ghiChu": ""
+    },
+    {
+      "stt": "",
+      "tenKhoa": "Khoa Khám bệnh theo yêu cầu",
+      "maKhoa": "K59.1",
+      "ghiChu": ""
+    },
+    {
+      "stt": "",
+      "tenKhoa": "Khoa Điều trị theo yêu cầu",
+      "maKhoa": "K59.2",
+      "ghiChu": ""
+    },
+    {
+      "stt": "61",
+      "tenKhoa": "Khoa Di truyền lâm sàng",
+      "maKhoa": "K60",
+      "ghiChu": ""
+    }
+  ],
+  "x": [
+    {
+      "stt": "1",
+      "ma": "1.1",
+      "truongHop": "Đến KCB đúng cơ sở KCB nơi đăng ký KCB BHYT ban đầu (Trừ trường hợp quy định tại mã 1.2)",
+      "quyDinh": "",
+      "mucHuong": "100% chi phí KCB theo phạm vi quyền lợi, mức hưởng"
+    },
+    {
+      "stt": "2",
+      "ma": "1.2",
+      "truongHop": "Đi KCB tại cơ sở KCB cấp ban đầu bao gồm trạm y tế, cơ sở KCB y học gia đình, trạm y tế quân - dân y, trung tâm y tế huyện (trung tâm y tế khu vực từ 01/7/2025) được cấp giấy phép hoạt động theo hình thức tổ chức là phòng khám, y tế cơ quan, đơn vị, tổ chức được tổ chức dưới hình thức trạm y tế hoặc phòng khám, cơ sở KCB cấp ban đầu trong quân đội, công an (Bao gồm cả trường hợp đến đúng cơ sở KCB nơi đăng ký KCB BHYT ban đầu và đi KCB không đúng nơi đăng ký KCB BHYT ban đầu)",
+      "quyDinh": "- Điểm c khoản 1 Điều 22 Luật BHYT\n- Điểm c khoản 4 Điều 22 Luật BHYT\n- Điều 3 Thông tư số 01/2025/TT-BYT ",
+      "mucHuong": "100% chi phí KCB theo phạm vi quyền lợi (không phụ thuộc mức hưởng trên thẻ BHYT)"
+    },
+    {
+      "stt": "3",
+      "ma": "1.3",
+      "truongHop": "Đến KCB có phiếu chuyển cơ sở KCB (Bao gồm Phiếu chuyển cơ sở KCB có giá trị 1 năm)",
+      "quyDinh": "Điều 9, Điều 10 Thông tư số 01/2025/TT-BYT ",
+      "mucHuong": "100% chi phí KCB theo phạm vi quyền lợi, mức hưởng"
+    },
+    {
+      "stt": "4",
+      "ma": "1.4",
+      "truongHop": "Trường hợp KCB khi thay đổi nơi lưu trú, nơi cư trú theo quy định tại Điều 4 Thông tư số 01/2025/TT-BYT",
+      "quyDinh": "- Khoản 3 Điều 22 Luật BHYT\n- Điều 4 Thông tư số 01/2025/TT-BYT",
+      "mucHuong": "100% chi phí KCB theo phạm vi quyền lợi, mức hưởng"
+    },
+    {
+      "stt": "5",
+      "ma": "1.5",
+      "truongHop": "Đến KCB theo phiếu hẹn khám lại theo quy định tại Điều 11 Thông tư số 01/2025/TT-BYT",
+      "quyDinh": "Điều 11 Thông tư số 01/2025/TT-BYT",
+      "mucHuong": "100% chi phí KCB theo phạm vi quyền lợi, mức hưởng"
+    },
+    {
+      "stt": "6",
+      "ma": "1.6",
+      "truongHop": "Người đã hiến bộ phận cơ thể của mình phải điều trị ngay sau khi hiến bộ phận cơ thể",
+      "quyDinh": "Khoản 4 Điều 37 Nghị định số 188/2025/NĐ-CP",
+      "mucHuong": "100% chi phí KCB theo phạm vi quyền lợi, mức hưởng"
+    },
+    {
+      "stt": "7",
+      "ma": "1.7",
+      "truongHop": "Trẻ sơ sinh phải điều trị ngay sau khi sinh ra",
+      "quyDinh": "Khoản 2 Điều 37 Nghị định số 188/2025/NĐ-CP",
+      "mucHuong": "100% chi phí KCB theo phạm vi quyền lợi, mức hưởng"
+    },
+    {
+      "stt": "8",
+      "ma": "1.11",
+      "truongHop": "Tự đến KCB tại cơ sở KCB cấp ban đầu còn lại không thuộc mã 1.2",
+      "quyDinh": "Điểm c khoản 4 Điều 22 Luật BHYT",
+      "mucHuong": "100% chi phí KCB theo phạm vi quyền lợi, mức hưởng"
+    },
+    {
+      "stt": "9",
+      "ma": "1.12",
+      "truongHop": "Tự đến KCB ngoại trú tại cơ sở KCB cấp cơ bản đạt số điểm dưới 50 điểm hoặc được tạm xếp cấp cơ bản (trừ trường hợp KCB tại cơ sở KCB cấp cơ bản mà trước ngày 01/01/2025 đã được xác định là tuyến tỉnh hoặc tuyến trung ương)",
+      "quyDinh": "Khoản 1 Điều 19 Nghị định số 188/2025/NĐ-CP",
+      "mucHuong": "100% chi phí KCB theo phạm vi quyền lợi, mức hưởng"
+    },
+    {
+      "stt": "10",
+      "ma": "1.13",
+      "truongHop": "Tự đến KCB ngoại trú tại cơ sở KCB cấp cơ bản đạt số điểm từ 50 - 70 điểm (trừ trường hợp các bệnh thuộc Phụ lục II ban hành kèm theo Thông tư số 01/2025/TT-BYT)",
+      "quyDinh": "Khoản 2 Điều 19 Nghị định số 188/2025/NĐ-CP",
+      "mucHuong": "- Từ ngày 01/01/2025 - 30/6/2026: Không được hưởng BHYT\n- Từ ngày 01/7/2026: 50% chi phí KCB theo phạm vi quyền lợi, mức hưởng"
+    },
+    {
+      "stt": "11",
+      "ma": "1.14",
+      "truongHop": "Tự đến KCB ngoại trú tại cơ sở KCB cấp cơ bản mà trước ngày 01/01/2025 đã được xác định là tuyến tỉnh hoặc tuyến trung ương hoặc tương đương tuyến tỉnh hoặc tuyến trung ương (trừ trường hợp các bệnh thuộc Phụ lục II ban hành kèm theo Thông tư số 01/2025/TT-BYT)",
+      "quyDinh": "Khoản 3 Điều 19 Nghị định số 188/2025/NĐ-CP",
+      "mucHuong": "- Từ ngày 01/01/2025 - 30/6/2026: Không được hưởng BHYT\n- Từ ngày 01/7/2026: 50% chi phí KCB theo phạm vi quyền lợi, mức hưởng"
+    },
+    {
+      "stt": "12",
+      "ma": "1.15",
+      "truongHop": "Tự đến KCB nội trú tại cơ sở KCB cấp cơ bản",
+      "quyDinh": "Điểm d khoản 4 Điều 22 Luật BHYT",
+      "mucHuong": "100% chi phí KCB theo phạm vi quyền lợi, mức hưởng"
+    },
+    {
+      "stt": "13",
+      "ma": "1.16",
+      "truongHop": "Tự đến KCB tại cơ sở KCB cấp cơ bản đối với các bệnh thuộc Phụ lục II ban hành kèm theo Thông tư số 01/2025/TT-BYT",
+      "quyDinh": "- Điểm a khoản 4 Điều 22 Luật BHYT\n- Điểm b khoản 1 Điều 5 Thông tư số 01/2025/TT-BYT",
+      "mucHuong": "100% chi phí KCB theo phạm vi quyền lợi, mức hưởng"
+    },
+    {
+      "stt": "14",
+      "ma": "1.17",
+      "truongHop": "Tự đến KCB tại cơ sở KCB cấp chuyên sâu đối với các bệnh thuộc Phụ lục I ban hành kèm theo Thông tư số 01/2025/TT-BYT",
+      "quyDinh": "- Điểm a khoản 4 Điều 22 Luật BHYT\n- Điểm a khoản 1 Điều 5 Thông tư số 01/2025/TT-BYT",
+      "mucHuong": "100% chi phí KCB theo phạm vi quyền lợi, mức hưởng"
+    },
+    {
+      "stt": "15",
+      "ma": "1.18",
+      "truongHop": "Tự đến KCB ngoại trú tại cơ sở KCB cấp chuyên sâu mà trước ngày 01/01/2025 đã được cơ quan có thẩm quyền xác định là tuyến tỉnh (trừ trường hợp các bệnh thuộc Phụ lục I ban hành kèm theo Thông tư số 01/2025/TT-BYT)",
+      "quyDinh": "- Điểm h khoản 4 Điều 22 Luật BHYT\n- Khoản 4 Điều 19 Nghị định số 188/2025/NĐ-CP",
+      "mucHuong": "- Từ ngày 01/01/2025 - 30/6/2026: Không được hưởng BHYT\n- Từ ngày 01/7/2026: 50% chi phí KCB theo phạm vi quyền lợi, mức hưởng"
+    },
+    {
+      "stt": "16",
+      "ma": "2",
+      "truongHop": "Cấp cứu",
+      "quyDinh": "Khoản 5 Điều 22 Luật BHYT",
+      "mucHuong": "100% chi phí KCB theo phạm vi quyền lợi, mức hưởng"
+    },
+    {
+      "stt": "17",
+      "ma": "3.1",
+      "truongHop": "Tự đến KCB tại cơ sở KCB cấp chuyên sâu mà trước ngày 01/01/2025 đã được cơ quan có thẩm quyền xác định là tuyến trung ương (trừ đối tượng quy định tại mã 1.17)",
+      "quyDinh": "Điểm g khoản 4 Điều 22 Luật BHYT",
+      "mucHuong": "- 40% chi phí KCB nội trú theo phạm vi quyền lợi, mức hưởng\n- 0% chi phí KCB ngoại trú"
+    },
+    {
+      "stt": "18",
+      "ma": "3.2",
+      "truongHop": "Tự đến KCB nội trú tại cơ sở KCB cấp chuyên sâu mà trước ngày 01/01/2025 đã được cơ quan có thẩm quyền xác định là tuyến tỉnh (trừ đối tượng quy định tại mã 1.17)",
+      "quyDinh": "Điểm h khoản 4 Điều 22 Luật BHYT",
+      "mucHuong": "100% chi phí KCB theo phạm vi quyền lợi, mức hưởng"
+    },
+    {
+      "stt": "19",
+      "ma": "3.3",
+      "truongHop": "Tự đến KCB tại cơ sở KCB cấp cơ bản, cấp chuyên sâu mà trước ngày 01/01/2025 đã được cơ quan có thẩm quyền xác định là tuyến huyện",
+      "quyDinh": "Điểm đ khoản 4 Điều 22 Luật BHYT",
+      "mucHuong": "100% chi phí KCB theo phạm vi quyền lợi, mức hưởng"
+    },
+    {
+      "stt": "20",
+      "ma": "3.6",
+      "truongHop": "Người dân tộc thiểu số và người thuộc hộ nghèo đang sinh sống tại vùng có điều kiện kinh tế - xã hội khó khăn, vùng có điều kiện kinh tế - xã hội đặc biệt khó khăn, người đang sinh sống tại xã đảo, huyện đảo khi đến KCB nội trú tại cơ sở KCB cấp chuyên sâu",
+      "quyDinh": "Điểm b khoản 4 Điều 22 Luật BHYT",
+      "mucHuong": "100% chi phí KCB theo phạm vi quyền lợi, mức hưởng"
+    },
+    {
+      "stt": "21",
+      "ma": "7",
+      "truongHop": "Lĩnh thuốc theo giấy hẹn (chỉ lĩnh thuốc, không khám bệnh) trong trường hợp dịch bệnh nhóm A hoặc trường hợp bất khả kháng",
+      "quyDinh": "",
+      "mucHuong": "100% chi phí KCB theo phạm vi quyền lợi, mức hưởng"
+    },
+    {
+      "stt": "23",
+      "ma": "7.2",
+      "truongHop": "Người bệnh uỷ quyền cho người khác đến cơ sở khám bệnh, chữa bệnh lĩnh thuốc",
+      "quyDinh": "- Khoản 1 Điều 15 Thông tư số 37/2024/TT-BYT\n- Điểm a khoản 4 Điều 9 Thông tư 26/2025/TT-BYT",
+      "mucHuong": ""
+    },
+    {
+      "stt": "24",
+      "ma": "7.3",
+      "truongHop": "Người bệnh đến lĩnh thuốc tại cơ sở KCB khác mà không thể đến được cơ sở KCB nơi cấp giấy hẹn. Cơ sở KCB nơi cấp giấy hẹn chuyển thuốc cho cơ sở KCB nơi người bệnh đến lĩnh thuốc (Chỉ áp dụng trong trường hợp dịch bệnh nhóm A)",
+      "quyDinh": "Khoản 1 Điều 15 Thông tư số 37/2024/TT-BYT",
+      "mucHuong": ""
+    },
+    {
+      "stt": "25",
+      "ma": "7.4",
+      "truongHop": "Cơ sở KCB chuyển thuốc đến cho người bệnh (Chỉ áp dụng trong trường hợp dịch bệnh nhóm A)",
+      "quyDinh": "Khoản 1 Điều 15 Thông tư số 37/2024/TT-BYT",
+      "mucHuong": ""
+    },
+    {
+      "stt": "26",
+      "ma": "8",
+      "truongHop": "Thu hồi đề nghị thanh toán",
+      "quyDinh": "",
+      "mucHuong": ""
+    },
+    {
+      "stt": "27",
+      "ma": "9",
+      "truongHop": "Người bệnh không KCB BHYT",
+      "quyDinh": "",
+      "mucHuong": "0"
+    },
+    {
+      "stt": "28",
+      "ma": "10",
+      "truongHop": "Người bệnh đến cơ sở KCB để lĩnh thuốc theo giấy hẹn (chỉ lĩnh thuốc, không khám bệnh, trừ trường hợp quy định tại mã 7) ",
+      "quyDinh": "",
+      "mucHuong": "Phạm vi quyền lợi, mức hưởng tuỳ thuộc vào từng trường hợp cụ thể"
+    }
+  ],
+  "ne": [
+    {
+      "id": "mau01",
+      "label": "Mẫu số 01/DM"
+    },
+    {
+      "id": "mau02",
+      "label": "Mẫu số 02/DM"
+    },
+    {
+      "id": "mau03",
+      "label": "Mẫu số 03/DM"
+    },
+    {
+      "id": "mau04",
+      "label": "Mẫu số 04/DM"
+    },
+    {
+      "id": "mau05",
+      "label": "Mẫu số 05/DM"
+    },
+    {
+      "id": "mau06",
+      "label": "Mẫu số 06/DM"
+    }
+  ],
+  "re": [
+    {
+      "id": "maLoaiHinh",
+      "label": "Mã Loại hình KCB"
+    },
+    {
+      "id": "maKhamBenh",
+      "label": "Mã Khám bệnh"
+    },
+    {
+      "id": "maDoiTuong",
+      "label": "Mã Đối tượng KCB"
+    },
+    {
+      "id": "maKhoa",
+      "label": "Mã Khoa"
+    }
+  ],
+  "w": [
+    {
+      "label": "Dữ liệu khám, chữa bệnh",
+      "ids": [
+        "bang-1",
+        "bang-2",
+        "bang-3",
+        "bang-4",
+        "bang-5",
+        "bang-6"
+      ]
+    },
+    {
+      "label": "Giấy tờ, chứng từ BHXH",
+      "ids": [
+        "bang-7",
+        "bang-8",
+        "bang-9",
+        "bang-10",
+        "bang-11"
+      ]
+    },
+    {
+      "label": "Hồ sơ quản lý chuyên biệt",
+      "ids": [
+        "bang-12",
+        "bang-13",
+        "bang-14",
+        "bang-15"
+      ]
+    }
+  ],
+  "ae": [
+    {
+      "id": "1",
+      "name": "HD Ánh xạ thuốc_Lâm Xung",
+      "type": "pdf",
+      "url": "huong-dan-anh-xa-thuoc.pdf"
+    },
+    {
+      "id": "2",
+      "name": "Sơ đồ tóm tắt TT12",
+      "type": "pdf",
+      "url": "so-do-tom-tat-tt12.pdf"
+    },
+    {
+      "id": "3",
+      "name": "Tài liệu kỹ thuật TT12",
+      "type": "pdf",
+      "url": "tai-lieu-ky-thuat-tt12.pdf"
+    },
+    {
+      "id": "4",
+      "name": "PL 06 bảng DM",
+      "type": "word",
+      "url": "phu-luc-huong-dan-su-dung-06bangdanhmuc.docx"
+    },
+    {
+      "id": "5",
+      "name": "HD ghi PVCM (cv2148)",
+      "type": "pdf",
+      "url": "2148-HD-ma-hoa-pham-vi-chuyen-mon.pdf"
+    },
+    {
+      "id": "13",
+      "name": "QĐ 2026 - Mã loại KCB, mã khoa",
+      "type": "pdf",
+      "url": "qd-ma-loai-kcb-ma-khoa-2026.pdf"
+    },
+    {
+      "id": "6",
+      "name": "File mẫu Mẫu 01/DM",
+      "type": "excel",
+      "url": "MAU_01_Template.xlsx"
+    },
+    {
+      "id": "7",
+      "name": "File mẫu Mẫu 02/DM",
+      "type": "excel",
+      "url": "MAU_02_Template.xlsx"
+    },
+    {
+      "id": "8",
+      "name": "File mẫu Mẫu 03/DM",
+      "type": "excel",
+      "url": "MAU_03_Template.xlsx"
+    },
+    {
+      "id": "9",
+      "name": "File mẫu Mẫu 04/DM",
+      "type": "excel",
+      "url": "MAU_04_Template.xlsx"
+    },
+    {
+      "id": "10",
+      "name": "File mẫu Mẫu 05/DM",
+      "type": "excel",
+      "url": "MAU_05_Template.xlsx"
+    },
+    {
+      "id": "11",
+      "name": "File mẫu Mẫu 06/DM",
+      "type": "excel",
+      "url": "MAU_06_Template.xlsx"
+    },
+    {
+      "id": "12",
+      "name": "Mẫu Import Người hành nghề (GĐV import)",
+      "type": "excel",
+      "url": "mau-import-nguoi-hanh-nghe_giamdinhvien import.xlsx"
+    }
+  ]
+}

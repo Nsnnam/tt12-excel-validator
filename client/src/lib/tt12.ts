@@ -1,4 +1,5 @@
 import * as XLSX from "xlsx";
+import { getReferenceFields, isRequired } from "./reference";
 
 export type Severity = "error" | "warning" | "info";
 
@@ -211,12 +212,28 @@ function fieldFormat(header: string) {
 }
 
 export function fieldsForTemplate(template: TemplateSchema) {
+  const sourceFields = getReferenceFields(template.id);
+  if (sourceFields.length) {
+    return sourceFields.map((field, index) => ({
+      index: Number(field.stt) || index + 1,
+      name: field.chiTieu,
+      format: field.dinhDang || fieldFormat(field.chiTieu),
+      size: field.kichThuoc || "—",
+      note: field.dienGiai || fieldNotes[field.chiTieu] || `Trường dữ liệu thuộc ${template.label}.`,
+      required: isRequired(field),
+      duplicate: field.trung.trim().toLowerCase() === "x",
+      additionalNote: field.ghiChuBS,
+    }));
+  }
   return template.headers.map((header, index) => ({
     index: index + 1,
     name: header,
     format: fieldFormat(header),
     size: maxLengths[header] ?? "—",
     note: fieldNotes[header] ?? `Trường dữ liệu thuộc ${template.label}.`,
+    required: template.requiredFields.includes(header),
+    duplicate: false,
+    additionalNote: "",
   }));
 }
 
@@ -234,28 +251,30 @@ export function detectTemplate(headers: string[]): Detection[] {
 
 export function validateTable(template: TemplateSchema, headers: string[], rows: DataRow[]) {
   const issues: ValidationIssue[] = [];
+  const sourceFields = getReferenceFields(template.id);
+  const sourceByName = new Map(sourceFields.map((field) => [field.chiTieu, field]));
+  const requiredFields = Array.from(new Set([...template.requiredFields, ...sourceFields.filter(isRequired).map((field) => field.chiTieu)]));
   const normalizedHeaders = headers.map(normalize);
   const expected = new Set(template.headers.map(normalize));
-  const headerRow = rows.length ? rows[0].rowNumber - 1 : 1;
 
   const headerCount = new Map<string, number>();
   headers.forEach((header) => headerCount.set(normalize(header), (headerCount.get(normalize(header)) ?? 0) + 1));
   headerCount.forEach((count, header) => {
-    if (header && count > 1) issues.push(issue("error", headerRow, header, "Cấu trúc", "Trùng tên cột trong hàng tiêu đề.", "Chỉ giữ một cột cho mỗi chỉ tiêu chuẩn."));
+    if (header && count > 1) issues.push(issue("error", null, header, "Cấu trúc", "Trùng tên cột trong hàng tiêu đề.", "Chỉ giữ một cột cho mỗi chỉ tiêu chuẩn."));
   });
 
   template.headers.forEach((header) => {
     if (!normalizedHeaders.includes(normalize(header))) {
-      issues.push(issue("error", headerRow, header, "Cấu trúc", "Thiếu cột bắt buộc theo mẫu đã nhận diện.", "Khôi phục đúng tên cột theo file mẫu, không thêm hoặc bớt ký tự."));
+      issues.push(issue("error", null, header, "Cấu trúc", "Thiếu cột bắt buộc theo mẫu đã nhận diện.", "Khôi phục đúng tên cột theo file mẫu, không thêm hoặc bớt ký tự."));
     }
   });
   headers.forEach((header) => {
-    if (header && !expected.has(normalize(header))) issues.push(issue("warning", headerRow, header, "Cấu trúc", "Cột không thuộc mẫu chuẩn đã nhận diện.", "Rà soát tên cột hoặc chuyển nội dung sang trường phù hợp trong file mẫu."));
+    if (header && !expected.has(normalize(header))) issues.push(issue("warning", null, header, "Cấu trúc", "Cột không thuộc mẫu chuẩn đã nhận diện.", "Rà soát tên cột hoặc chuyển nội dung sang trường phù hợp trong file mẫu."));
   });
 
   const seen = new Map<string, number>();
   rows.forEach((row, index) => {
-    template.requiredFields.forEach((header) => {
+    requiredFields.forEach((header) => {
       if (!isPresent(row.cells[header])) {
         issues.push(issue("error", row.rowNumber, header, "Thiếu dữ liệu", "Trường lõi đang để trống.", "Bổ sung giá trị trước khi gửi danh mục."));
       }
@@ -280,17 +299,20 @@ export function validateTable(template: TemplateSchema, headers: string[], rows:
       if (/[\u0000-\u0008\u000B\u000C\u000E-\u001F]/.test(value) || value.includes("\u00a0")) {
         issues.push(issue("warning", row.rowNumber, header, "Văn bản", "Phát hiện ký tự ẩn hoặc khoảng trắng không ngắt.", "Thay bằng ký tự văn bản thông thường và kiểm tra lại ô."));
       }
-      const maximum = maxLengths[header];
+      const sourceLength = Number(sourceByName.get(header)?.kichThuoc);
+      const maximum = maxLengths[header] ?? (Number.isFinite(sourceLength) && sourceLength > 0 ? sourceLength : undefined);
       if (maximum && value.trim().length > maximum) {
         issues.push(issue("error", row.rowNumber, header, "Độ dài", `Giá trị dài ${value.trim().length} ký tự, vượt giới hạn ${maximum}.`, "Rút gọn giá trị theo quy định của chỉ tiêu."));
       }
       if (header.startsWith("MA_") && typeof cell?.value === "number") {
         issues.push(issue("warning", row.rowNumber, header, "Định dạng mã", "Mã được Excel đọc ở dạng số; có nguy cơ mất số 0 ở đầu.", "Định dạng cột là Text và nhập lại mã theo danh mục dùng chung."));
       }
+      const sourceFormat = sourceByName.get(header)?.dinhDang.toLowerCase() ?? "";
+      const expectsNumber = isNumber(header) || sourceFormat.includes("số");
       if (isDate(header) && !isValidDate(value)) {
         issues.push(issue("error", row.rowNumber, header, "Ngày tháng", "Ngày không đúng định dạng YYYYMMDD hoặc không tồn tại trên lịch.", "Nhập 8 chữ số, ví dụ 20260825; không dùng dấu gạch hoặc định dạng ngày Excel."));
       }
-      if (isNumber(header)) {
+      if (expectsNumber) {
         const numeric = numberValue(cell?.value);
         if (numeric === null || numeric < 0) {
           issues.push(issue("error", row.rowNumber, header, isCurrency(header) ? "Tiền tệ" : "Số liệu", isCurrency(header) ? "Giá trị tiền tệ phải là số không âm, không chứa ký hiệu tiền hoặc dấu phân tách." : "Giá trị phải là số không âm hợp lệ.", "Nhập giá trị số thuần, ví dụ 1250000."));

@@ -75,3 +75,5 @@ Biểu tượng **tờ biểu mẫu có dấu kiểm trong lăng kính quét**: 
 - Mỗi màn hình chính phải có dải hồ sơ gọn, hiển thị mẫu, nguồn, trạng thái nhận diện/kiểm định và mức độ lỗi bằng hệ nhãn quy tắc thống nhất.
 - Mực Cobalt `#1457C8` là “mực kiểm định”: dùng cho điều hướng đang chọn, dữ liệu được chọn, hành động chính và motif quét/dấu kiểm; không dùng làm màu trang trí chung chung.
 - Microcopy nêu rõ tác động nghiệp vụ và hành động tiếp theo trong một câu ngắn, ví dụ “Mẫu 01/DM đang được tra cứu; chưa có file Excel để kiểm định.”
+- Dải đầu mỗi màn hình là bản ghi hồ sơ chính thức: mã hồ sơ, mẫu, nguồn Excel và trạng thái kiểm định phải là các ô metadata có đường kẻ chung, không phải các card tách rời.
+- Danh mục tài liệu được trình bày như sổ mục lục kiểm định; ưu tiên tên nguồn, loại dữ liệu và mức độ liên quan thay vì kiểu card tiếp thị.

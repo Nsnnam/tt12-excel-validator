@@ -43,17 +43,9 @@ import {
   type Severity,
   type TemplateSchema,
 } from "@/lib/tt12";
-
-type View = "lookup" | "validate" | "guide" | "version" | "author" | "coffee";
-
-const library = [
-  ["HD Ánh xạ thuốc_Lâm Xung", "huong-dan-anh-xa-thuoc.pdf"],
-  ["Sơ đồ tóm tắt TT12", "so-do-tom-tat-tt12.pdf"],
-  ["Tài liệu kỹ thuật TT12", "tai-lieu-ky-thuat-tt12.pdf"],
-  ["PL 06 bảng DM", "phu-luc-huong-dan-su-dung-06bangdanhmuc.docx"],
-  ["HD ghi PVCM (CV 2148)", "2148-HD-ma-hoa-pham-vi-chuyen-mon.pdf"],
-  ["QĐ 2026 — Mã loại KCB, mã khoa", "qd-ma-loai-kcb-ma-khoa-2026.pdf"],
-];
+import { COMMON_CATALOGS, DOCUMENT_LIBRARY, QD3176_TABLES, sourceUrl } from "@/lib/reference";
+type View = "lookup" | "validate" | "catalog" | "qd3176" | "guide" | "version" | "author" | "coffee";
+type CommonCatalogId = keyof typeof COMMON_CATALOGS;
 
 const severityVisual: Record<Severity, { label: string; classes: string; icon: typeof AlertTriangle }> = {
   error: { label: "Lỗi", classes: "border-[#e6b2aa] bg-[#fff1ed] text-[#963c2d]", icon: AlertTriangle },
@@ -103,10 +95,20 @@ export default function Home() {
   const [loading, setLoading] = useState(false);
   const [dragging, setDragging] = useState(false);
   const [severityFilter, setSeverityFilter] = useState<Severity | "all">("all");
+  const [commonCatalog, setCommonCatalog] = useState<CommonCatalogId>("maLoaiHinh");
+  const [selectedQd, setSelectedQd] = useState(QD3176_TABLES[0]?.id ?? "bang-1");
   const inputRef = useRef<HTMLInputElement>(null);
   const guideRows = useMemo(() => fieldsForTemplate(selectedTemplate).filter((field) => `${field.name} ${field.note}`.toLowerCase().includes(query.toLowerCase())), [selectedTemplate, query]);
   const counts = inspection ? issueCounts(inspection.issues) : { error: 0, warning: 0, info: 0 };
   const visibleIssues = inspection?.issues.filter((item) => severityFilter === "all" || item.severity === severityFilter) ?? [];
+  const activeCatalogRows = COMMON_CATALOGS[commonCatalog];
+  const activeCatalogHeaders = Object.keys(activeCatalogRows[0] ?? {});
+  const activeQd = QD3176_TABLES.find((table) => table.id === selectedQd) ?? QD3176_TABLES[0];
+  const openCommonCatalog = (catalog: CommonCatalogId) => {
+    setCommonCatalog(catalog);
+    setQuery("");
+    setView("catalog");
+  };
   const statusTone = inspection ? (counts.error ? "record-status-error" : counts.warning ? "record-status-warning" : "record-status-good") : "record-status-idle";
   const statusText = inspection ? (counts.error ? `${counts.error} lỗi chặn cần xử lý` : counts.warning ? `${counts.warning} mục cần đối chiếu` : "Không có lỗi chặn") : "Chưa có file Excel để kiểm định";
   const recordSource = inspection ? `${inspection.fileName} · ${inspection.sheetName}` : "Chưa nạp nguồn Excel";
@@ -205,7 +207,7 @@ export default function Home() {
             <section className="validation-legend"><div><span className="legend-code">NGÔN NGỮ KIỂM ĐỊNH</span><p><strong>{selectedTemplate.label} đang được tra cứu;</strong> chưa có file Excel để kiểm định.</p></div><div className="legend-items"><span className="legend-item legend-valid"><CheckCircle2 size={14} />Hợp lệ</span><span className="legend-item legend-review"><AlertTriangle size={14} />Cần đối chiếu</span><span className="legend-item legend-block"><AlertTriangle size={14} />Lỗi chặn</span></div></section>
             <section className="lookup-tools"><label className="search-box"><Search size={18} /><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Tìm tên chỉ tiêu, mã hoặc diễn giải…" /></label><div className="template-stamp"><FileText size={16} /><span>{selectedTemplate.label}</span><b>{selectedTemplate.headers.length} cột</b></div></section>
             <section className="document-card"><div className="document-card-head"><div><p className="eyebrow">CẤU TRÚC MẪU</p><h2>{selectedTemplate.label}</h2></div><a className="template-download" href={sourceTemplateUrl(selectedTemplate.id)} target="_blank" rel="noreferrer"><Download size={16} />Tải file mẫu</a></div><div className="table-wrap"><table className="reference-table"><thead><tr><th>STT</th><th>Chỉ tiêu</th><th>Định dạng</th><th>Kích thước</th><th>Diễn giải</th></tr></thead><tbody>{guideRows.map((field) => <tr key={field.name}><td>{String(field.index).padStart(2, "0")}</td><td><code>{field.name}</code></td><td>{field.format}</td><td>{field.size}</td><td>{field.note}</td></tr>)}</tbody></table></div>{!guideRows.length && <div className="table-empty">Không có chỉ tiêu nào khớp từ khóa tìm kiếm.</div>}</section>
-            <section className="library-section"><div><p className="eyebrow">THƯ VIỆN TÀI LIỆU</p><h2>Nguồn đọc và file mẫu từ trang tham chiếu</h2></div><div className="library-grid">{library.map(([label, file]) => <a key={file} href={`https://tracuu-danhmuc-tt12.web.app/${file}`} target="_blank" rel="noreferrer" className="library-link"><BookOpen size={17} /><span>{label}</span><ChevronRight size={16} /></a>)}</div></section>
+            <section className="library-section"><div><p className="eyebrow">THƯ VIỆN TÀI LIỆU</p><h2>13 tài liệu và file mẫu từ trang tham chiếu</h2></div><div className="library-grid">{DOCUMENT_LIBRARY.map((document) => <a key={document.id} href={sourceUrl(document.url)} target="_blank" rel="noreferrer" className="library-link"><BookOpen size={17} /><span>{document.name}</span><ChevronRight size={16} /></a>)}</div></section>
           </>}
 
           {view === "validate" && <>

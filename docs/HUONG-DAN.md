@@ -6,6 +6,8 @@
 
 Tên cột được chuẩn hóa ở mức kỹ thuật: khoảng trắng không ngắt được thay bằng khoảng trắng, khoảng trắng đầu/cuối được bỏ và chữ hoa/thường được đồng nhất. Việc này chỉ phục vụ nhận diện; báo cáo vẫn cảnh báo tên cột sai hoặc không thuộc mẫu chuẩn.
 
+> **Hàng đầu tiên của dữ liệu được coi là hàng tiêu đề.** Các vấn đề liên quan tiêu đề được hiển thị dưới nhóm **Cấu trúc**, không gán vào dòng 1 dữ liệu và không tô màu dòng đầu trong bảng xem trước.
+
 ## Phân loại kết quả
 
 | Mức độ | Ý nghĩa | Hành động đề nghị |
@@ -25,5 +27,7 @@ Mọi mẫu có khoảng thời gian đều kiểm tra `TU_NGAY` không muộn h
 ## Giới hạn phiên bản 1.0.0
 
 Ứng dụng hiện chưa kết nối danh mục mã dùng chung, danh mục thuốc/vật tư hoặc các tài liệu pháp quy để xác thực từng mã theo thời điểm. Vì vậy, thông báo về mã là kiểm tra hình thức; người vận hành vẫn cần đối chiếu với danh mục chính thức và quy định hiện hành.
+
+Người dùng có thể nạp Excel danh mục mã khoa hoặc mã khám bệnh có cột `MA_KHOA`, `MA_KHAM_BENH` hoặc `MA` để đối chiếu cục bộ. Công cụ kiểm tra sự tồn tại của mã và sự khớp tên khi danh mục có cột tên tương ứng.
 
 Ứng dụng không tự chỉnh sửa file. Báo cáo xuất ra là bản kiểm định độc lập, giữ file nguồn không đổi. Người dùng chịu trách nhiệm bảo mật file Excel và không đưa dữ liệu bệnh án thực vào kho mã nguồn hoặc kênh hỗ trợ công khai.

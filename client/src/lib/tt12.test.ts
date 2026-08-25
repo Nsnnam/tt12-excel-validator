@@ -1,5 +1,6 @@
+import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
-import { TEMPLATES, detectTemplate, type DataRow, validateTable } from "./tt12";
+import { TEMPLATES, detectTemplate, inspectExcelFile, type DataRow, validateTable } from "./tt12";
 
 describe("validateTable", () => {
   it("phát hiện lỗi thời gian, công thức và tổng giường vượt mức", () => {
@@ -16,6 +17,12 @@ describe("validateTable", () => {
     expect(issues.some((item) => item.category === "Logic số liệu")).toBe(true);
     expect(issues.some((item) => item.category === "Công thức")).toBe(true);
   });
+  it("ghi nhận sai khác hàng tiêu đề là lỗi cấu trúc, không gán vào dòng dữ liệu 1", () => {
+    const issues = validateTable(TEMPLATES[0], ["STT", "MA_KHOA", "TEN_KHOA"], []);
+    const structural = issues.filter((item) => item.category === "Cấu trúc");
+    expect(structural.length).toBeGreaterThan(0);
+    expect(structural.every((item) => item.row === null)).toBe(true);
+  });
 });
 
 describe("detectTemplate", () => {
@@ -25,5 +32,16 @@ describe("detectTemplate", () => {
       expect(detection.template.id).toBe(template.id);
       expect(detection.score).toBe(100);
     });
+  });
+});
+
+describe("inspectExcelFile", () => {
+  it("đọc và nhận diện Mẫu 01/DM từ file mẫu công khai", async () => {
+    const bytes = readFileSync("/home/ubuntu/reference-tt12/MAU_01_Template.xlsx");
+    const file = new File([bytes], "MAU_01_Template.xlsx", { type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" });
+    const inspection = await inspectExcelFile(file);
+    expect(inspection.detection?.template.id).toBe("MAU_01");
+    expect(inspection.detection?.score).toBe(100);
+    expect(inspection.headers).toContain("MA_KHOA");
   });
 });
