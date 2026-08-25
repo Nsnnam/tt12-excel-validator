@@ -1,0 +1,151 @@
+/* Phong cách Hồ sơ điều hành: mở rộng dải mã hồ sơ và ngôn ngữ trạng thái xác nhận bằng Mực Cobalt. */
+
+.record-band {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(31, 63, 103, 0.22);
+}
+
+.record-slots {
+  display: flex;
+  min-width: 0;
+  align-items: stretch;
+  justify-content: flex-end;
+}
+
+.record-slots > div {
+  display: grid;
+  min-width: 140px;
+  max-width: 240px;
+  gap: 3px;
+  padding: 0 14px;
+  border-left: 1px solid rgba(31, 63, 103, 0.16);
+}
+
+.record-slots span {
+  color: #697689;
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+}
+
+.record-slots b {
+  overflow: hidden;
+  color: #183b6d;
+  font-size: 10px;
+  font-weight: 800;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.record-slots .record-status {
+  position: relative;
+  padding-left: 18px;
+}
+
+.record-status::before {
+  position: absolute;
+  top: 6px;
+  left: 9px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: currentColor;
+  content: "";
+}
+
+.record-status-idle { color: #3b67a7; }
+.record-status-good { color: #287352; }
+.record-status-warning { color: #927000; }
+.record-status-error { color: #9d3f31; }
+
+.validation-legend {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin-top: 10px;
+  padding: 9px 12px;
+  border-top: 1px solid #d5dfdf;
+  border-bottom: 1px solid #d5dfdf;
+  background: rgba(238, 243, 243, 0.58);
+}
+
+.legend-code {
+  color: #1457c8;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+}
+
+.validation-legend p {
+  margin: 2px 0 0;
+  color: #647383;
+  font-size: 11px;
+}
+
+.validation-legend p strong { color: #2d4a70; }
+
+.legend-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 6px;
+  border: 1px solid currentColor;
+  font-size: 9px;
+  font-weight: 800;
+}
+
+.legend-valid { color: #347859; }
+.legend-review { color: #987104; }
+.legend-block { color: #a44336; }
+
+.document-card-head,
+.issues-card-head { position: relative; }
+
+.document-card-head::after,
+.issues-card-head::after {
+  position: absolute;
+  right: 23px;
+  bottom: -1px;
+  width: 58px;
+  height: 2px;
+  background: #1457c8;
+  content: "";
+  transform: skewX(-34deg);
+}
+
+.library-link::before {
+  width: 3px;
+  height: 17px;
+  background: #1457c8;
+  content: "";
+  opacity: 0;
+  transform: skewX(-28deg);
+  transition: opacity 0.16s ease;
+}
+
+.library-link:hover::before { opacity: 1; }
+
+@media (max-width: 1000px) {
+  .record-band { align-items: flex-start; flex-direction: column; }
+  .record-slots { width: 100%; justify-content: flex-start; }
+  .record-slots > div { padding-left: 0; padding-right: 13px; border-left: 0; border-right: 1px solid rgba(31, 63, 103, 0.16); }
+}
+
+@media (max-width: 760px) {
+  .workspace-head { min-height: 205px; }
+  .record-band { gap: 10px; }
+  .record-slots { overflow-x: auto; }
+  .record-slots > div { min-width: 145px; }
+  .validation-legend { align-items: flex-start; flex-direction: column; }
+}
