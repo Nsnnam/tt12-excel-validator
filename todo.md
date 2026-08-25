@@ -11,8 +11,8 @@
 
 ## Phát hành NSN App Standard
 
-- [ ] Đọc checklist phát hành, kiểm tra metadata hiện có, artifact và dữ liệu nhạy cảm.
-- [ ] Bổ sung metadata trung tâm, trang Phiên bản/Lịch sử/Tác giả/Mời cà phê và tài liệu repo hoàn chỉnh.
-- [ ] Tạo bản HTML offline, smoke test bằng HTTP cục bộ và đóng gói EXE portable Windows.
-- [ ] Tạo repository GitHub private mới, commit rõ ràng và push bản phát hành.
-- [ ] Xác minh lại artifact, link GitHub, version, changelog và README.
+- [x] Đọc checklist phát hành, kiểm tra metadata hiện có, artifact và dữ liệu nhạy cảm.
+- [x] Bổ sung metadata trung tâm, trang Phiên bản/Lịch sử/Tác giả/Mời cà phê và tài liệu repo hoàn chỉnh.
+- [x] Tạo bản HTML offline, smoke test bằng HTTP cục bộ và đóng gói EXE portable Windows.
+- [x] Tạo repository GitHub private mới, commit rõ ràng và push bản phát hành.
+- [x] Xác minh lại artifact, link GitHub, version, changelog và README.
