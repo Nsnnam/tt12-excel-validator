@@ -43,6 +43,18 @@ describe("validateTable", () => {
     expect(issues.some((item) => item.column === "TU_NGAY" && item.category === "Ngày tháng")).toBe(true);
     expect(issues.some((item) => item.column === "MA_CSKCB" && item.category === "Độ dài")).toBe(true);
   });
+  it("kiểm tra các quy tắc liên cột chuyên sâu của từng mẫu", () => {
+    const mau01 = validateTable(TEMPLATES[0], TEMPLATES[0].headers, [{ rowNumber: 2, cells: { STT: { value: 1 }, MA_KHOA: { value: "K01" }, TEN_KHOA: { value: "Nội" }, GIUONG_PD: { value: 100 }, GIUONG_TK: { value: 131 }, TU_NGAY: { value: "20260101" }, MA_CSKCB: { value: "12345" } } }]);
+    const mau02 = validateTable(TEMPLATES[1], TEMPLATES[1].headers, [{ rowNumber: 2, cells: { MA_KHOA: { value: "K01" }, HO_TEN: { value: "A" }, SO_DINH_DANH: { value: "123456789012" }, THOIGIAN_NGAY: { value: 8 }, THOIGIAN_TUAN: { value: 7 }, TU_NGAY: { value: "20260101" }, MA_CSKCB: { value: "12345" } } }]);
+    const mau04 = validateTable(TEMPLATES[3], TEMPLATES[3].headers, [{ rowNumber: 2, cells: { MA_VAT_TU: { value: "VT1" }, TEN_VAT_TU: { value: "Vật tư" }, DON_VI_TINH: { value: "Cái" }, DON_GIA: { value: 100 }, DON_GIA_BH: { value: 120 }, TU_NGAY: { value: "20260101" }, MA_CSKCB: { value: "12345" } } }]);
+    const mau05 = validateTable(TEMPLATES[4], TEMPLATES[4].headers, [{ rowNumber: 2, cells: { MA_DICH_VU: { value: "DV1" }, TEN_DICH_VU: { value: "Dịch vụ" }, DON_GIA: { value: 100 }, SO_LUONG_CGKT: { value: 0 }, TU_NGAY: { value: "20260101" }, MA_CSKCB: { value: "12345" } } }]);
+    const mau06 = validateTable(TEMPLATES[5], TEMPLATES[5].headers, [{ rowNumber: 2, cells: { TEN_TB: { value: "Máy" }, HD_TU: { value: "20260110" }, TU_NGAY: { value: "20260101" }, MA_CSKCB: { value: "12345" } } }]);
+    expect(mau01.some((item) => item.category === "Logic giường bệnh")).toBe(true);
+    expect(mau02.some((item) => item.category === "Logic thời gian" && item.message.includes("tuần nhỏ hơn"))).toBe(true);
+    expect(mau04.some((item) => item.category === "Logic tiền tệ")).toBe(true);
+    expect(mau05.some((item) => item.category === "Logic dịch vụ")).toBe(true);
+    expect(mau06.some((item) => item.category === "Logic hiệu lực")).toBe(true);
+  });
 });
 
 describe("detectTemplate", () => {

@@ -376,10 +376,14 @@ export function validateTable(template: TemplateSchema, headers: string[], rows:
 
     if (template.id === "MAU_01") {
       const total = numberValue(row.cells.GIUONG_TK?.value);
+      const approved = numberValue(row.cells.GIUONG_PD?.value);
       const critical = numberValue(row.cells.GIUONG_HSTC?.value) ?? 0;
       const emergency = numberValue(row.cells.GIUONG_HSCC?.value) ?? 0;
       if (total !== null && critical + emergency > total) {
         issues.push(issue("error", row.rowNumber, "GIUONG_HSTC / GIUONG_HSCC", "Logic số liệu", "Tổng giường HSTC và HSCC vượt GIUONG_TK.", "Rà soát số giường từng nhóm và tổng số giường thực tế."));
+      }
+      if (approved !== null && total !== null && total > approved && (total - approved > 30 || total > approved * 1.1)) {
+        issues.push(issue("warning", row.rowNumber, "GIUONG_PD / GIUONG_TK", "Logic giường bệnh", "Giường thực tế vượt quá ngưỡng 10% hoặc vượt 30 giường so với số giường được phê duyệt.", "Đối chiếu giấy phép hoạt động, văn bản điều chỉnh quy mô hoặc cập nhật lại số giường thực tế."));
       }
     }
     if (template.id === "MAU_02") {
@@ -388,25 +392,41 @@ export function validateTable(template: TemplateSchema, headers: string[], rows:
       if ((day !== null && day > 24) || (week !== null && week > 168)) {
         issues.push(issue("warning", row.rowNumber, "THOIGIAN_NGAY / THOIGIAN_TUAN", "Logic thời gian", "Thời gian khai báo vượt giới hạn một ngày hoặc một tuần.", "Kiểm tra đơn vị và giá trị thời gian đăng ký."));
       }
+      if (day !== null && week !== null && week < day) {
+        issues.push(issue("warning", row.rowNumber, "THOIGIAN_NGAY / THOIGIAN_TUAN", "Logic thời gian", "Thời gian làm việc theo tuần nhỏ hơn thời gian đã khai báo cho một ngày.", "Rà soát lại số giờ làm việc theo ngày và tổng số giờ trong tuần."));
+      }
     }
     if (template.id === "MAU_03") {
       const price = numberValue(row.cells.DON_GIA?.value);
       const covered = numberValue(row.cells.DON_GIA_BH?.value);
+      const quantity = numberValue(row.cells.SO_LUONG?.value);
       if (price !== null && covered !== null && covered > price) {
         issues.push(issue("warning", row.rowNumber, "DON_GIA_BH", "Logic tiền tệ", "Đơn giá BHYT lớn hơn đơn giá khai báo.", "Đối chiếu giá thầu, giá nhập và mức thanh toán BHYT."));
+      }
+      if (quantity !== null && quantity <= 0) {
+        issues.push(issue("warning", row.rowNumber, "SO_LUONG", "Logic thuốc", "Số lượng thuốc, máu hoặc chế phẩm máu phải lớn hơn 0 khi khai báo bản ghi còn hiệu lực.", "Kiểm tra lại số lượng hoặc kết thúc hiệu lực bản ghi theo quy tắc cập nhật."));
       }
     }
     if (template.id === "MAU_04") {
       const rate = numberValue(row.cells.TYLE_TT_BH?.value);
+      const price = numberValue(row.cells.DON_GIA?.value);
+      const covered = numberValue(row.cells.DON_GIA_BH?.value);
       if (rate !== null && rate > 100) {
         issues.push(issue("warning", row.rowNumber, "TYLE_TT_BH", "Tỷ lệ", "Tỷ lệ thanh toán BHYT vượt 100%.", "Nhập tỷ lệ phần trăm trong khoảng từ 0 đến 100."));
+      }
+      if (price !== null && covered !== null && covered > price) {
+        issues.push(issue("warning", row.rowNumber, "DON_GIA_BH", "Logic tiền tệ", "Đơn giá BHYT của vật tư lớn hơn đơn giá khai báo.", "Đối chiếu giá thầu, đơn giá và tỷ lệ thanh toán BHYT."));
       }
     }
     if (template.id === "MAU_05") {
       const base = numberValue(row.cells.DON_GIA?.value);
       const paid = numberValue(row.cells.GIA_THANH_TOAN?.value);
+      const units = numberValue(row.cells.SO_LUONG_CGKT?.value);
       if (base !== null && paid !== null && paid > base) {
         issues.push(issue("warning", row.rowNumber, "GIA_THANH_TOAN", "Logic tiền tệ", "Giá thanh toán lớn hơn đơn giá dịch vụ.", "Đối chiếu quyết định phê duyệt giá và quy tắc thanh toán."));
+      }
+      if (units !== null && units <= 0) {
+        issues.push(issue("warning", row.rowNumber, "SO_LUONG_CGKT", "Logic dịch vụ", "Số lượng thực hiện dịch vụ kỹ thuật phải lớn hơn 0 khi có khai báo.", "Kiểm tra lại số lượng thực hiện hoặc để trống nếu chỉ tiêu không áp dụng."));
       }
     }
     if (template.id === "MAU_06") {
@@ -414,6 +434,11 @@ export function validateTable(template: TemplateSchema, headers: string[], rows:
       const used = numberValue(row.cells.NAM_SD?.value);
       if (manufactured !== null && used !== null && used < manufactured) {
         issues.push(issue("error", row.rowNumber, "NAM_SD", "Logic thiết bị", "Năm sử dụng không thể nhỏ hơn năm sản xuất.", "Rà soát lại năm sản xuất và năm bắt đầu sử dụng."));
+      }
+      const contractFrom = text(row.cells.HD_TU?.value).trim();
+      const effectiveFrom = text(row.cells.TU_NGAY?.value).trim();
+      if (contractFrom && effectiveFrom && isValidDate(contractFrom) && isValidDate(effectiveFrom) && effectiveFrom < contractFrom) {
+        issues.push(issue("warning", row.rowNumber, "HD_TU / TU_NGAY", "Logic hiệu lực", "Ngày bắt đầu áp dụng danh mục thiết bị sớm hơn ngày hiệu lực hợp đồng/thuê thiết bị.", "Đối chiếu hồ sơ hợp đồng, ngày bàn giao và ngày áp dụng danh mục."));
       }
     }
   });

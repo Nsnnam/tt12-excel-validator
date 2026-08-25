@@ -37,4 +37,14 @@
 
 - [x] So sánh bộ kiểm định hiện có với định dạng, kích thước, diễn giải và cờ bắt buộc từ dữ liệu nguồn.
 - [x] Bổ sung kiểm tra số/tiền tệ, chuỗi, ngày, độ dài, khoảng trắng, xuống dòng, ký tự ẩn và công thức theo từng cột.
-- [x] Gắn thông điệp cảnh báo vào đúng dòng/cột, thêm kiểm thử hồi quy và xác minh báo cáo Excel.
+- [ ] Gắn thông điệp cảnh báo vào đúng dòng/cột, thêm kiểm thử hồi quy và xác minh báo cáo Excel.
+
+## Khắc phục nút tải file mẫu
+
+- [x] Sửa nút Tải file mẫu không hiển thị nhãn và xác minh trên khung nhìn rộng.
+
+## Preview, Excel tô màu và logic liên cột
+
+- [x] Rà soát luồng preview, export và các quy tắc logic hiện có của sáu mẫu TT12.
+- [x] Bổ sung bộ lọc theo mức độ/nhóm lỗi trong preview Excel và xuất Excel có màu ô lỗi.
+- [x] Mở rộng quy tắc liên cột theo phụ lục từng mẫu, kiểm thử hồi quy và đóng gói bản cập nhật.
