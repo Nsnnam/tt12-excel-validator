@@ -1,0 +1,182 @@
+{
+  "MAU_01": {
+    "sizes": {
+      "STT": "3",
+      "MA_KHOA": "50",
+      "TEN_KHOA": "n",
+      "BAN_KHAM": "3",
+      "GIUONG_PD": "5",
+      "GIUONG_TK": "5",
+      "GIUONG_HSTC": "3",
+      "GIUONG_HSCC": "3",
+      "TU_NGAY": "8",
+      "DEN_NGAY": "8",
+      "MA_CSKCB": "5"
+    },
+    "note": "trường hợp có thay đổi Thông tin danh mục gửi bảng cập nhật gồm 02 dòng dữ liệu, trong đó dòng thứ nhất ghi thông tin cũ và DEN_NGAY là ngày ngừng áp dụng, dòng thứ 2 ghi thông tin thay đổi và TU_NGAY là ngày bắt đầu áp dụng, để trống chỉ tiêu DEN_NGAY."
+  },
+  "MAU_02": {
+    "sizes": {
+      "STT": "10",
+      "MA_KHOA": "100",
+      "TEN_KHOA": "n",
+      "HO_TEN": "250",
+      "GIOI_TINH": "1",
+      "SO_DINH_DANH": "15",
+      "CHUCDANH_NN": "2",
+      "VI_TRI": "5",
+      "MACCHN": "250",
+      "NGAYCAP_CCHN": "8",
+      "NOICAP_CCHN": "250",
+      "PHAMVI_CM": "15",
+      "PHAMVI_CMBS": "50",
+      "DVKT_KHAC": "n",
+      "VB_PHANCONG": "50",
+      "THOIGIAN_DK": "1",
+      "THOIGIAN_NGAY": "200",
+      "THOIGIAN_TUAN": "200",
+      "CSKCB_KHAC": "30",
+      "CSKCB_CGKT": "5",
+      "QD_CGKT": "50",
+      "TU_NGAY": "8",
+      "DEN_NGAY": "8",
+      "MA_CSKCB": "5"
+    },
+    "note": "trường hợp có thay đổi thông tin danh mục gửi bảng cập nhật gồm 02 dòng dữ liệu, trong đó dòng thứ nhất ghi thông tin cũ và DEN_NGAY là ngày ngừng áp dụng, dòng thứ 2 ghi thông tin thay đổi và TU_NGAY là ngày bắt đầu áp dụng, để trong chỉ tiêu DEN_NGAY."
+  },
+  "MAU_03": {
+    "sizes": {
+      "STT": "6",
+      "MA_THUOC": "255",
+      "TEN_HOAT_CHAT": "1024",
+      "TEN_THUOC": "1024",
+      "DON_VI_TINH": "50",
+      "HAM_LUONG": "1024",
+      "DUONG_DUNG": "255",
+      "MA_DUONG_DUNG": "10",
+      "DANG_BAO_CHE": "1024",
+      "SO_DANG_KY": "1024",
+      "SO_LUONG": "10",
+      "DON_GIA": "15",
+      "DON_GIA_BH": "10",
+      "QUY_CACH": "1024",
+      "NHA_SX": "1024",
+      "NUOC_SX": "100",
+      "NHA_THAU": "1024",
+      "TT_THAU": "50",
+      "TU_NGAY_HD": "8",
+      "DEN_NGAY_HD": "8",
+      "MA_CSKCB": "5",
+      "LOAI_THUOC": "2",
+      "LOAI_THAU": "1",
+      "HT_THAU": "1",
+      "MA_DVKT": "1024",
+      "TCCL": "50",
+      "BO_PHAN_VT": "1",
+      "TEN_KHOA_HOC": "500",
+      "NGUON_GOC": "500",
+      "PP_CHEBIEN": "1024",
+      "MA_DL_NHAP": "3",
+      "MA_DL_CB": "3",
+      "TLHH_CB": "4",
+      "TLHH_BQ": "4",
+      "MA_CSKCB_THUOC": "5",
+      "TU_NGAY": "8",
+      "DEN_NGAY": "8"
+    },
+    "note": "trường hợp có thay đổi thông tin danh mục gửi bảng cập nhật gồm 02 dòng dữ liệu, trong đó dòng thứ nhất ghi thông tin cũ và DEN_NGAY là ngày ngừng áp dụng, dòng thứ 2 ghi thông tin thay đổi và TU_NGAY là ngày bắt đầu áp dụng, để trống chỉ tiêu DEN_NGAY."
+  },
+  "MAU_04": {
+    "sizes": {
+      "STT": "10",
+      "MA_VAT_TU": "50",
+      "NHOM_VAT_TU": "1024",
+      "TEN_VAT_TU": "n",
+      "MA_HIEU": "1024",
+      "SO_LUU_HANH": "20",
+      "TINHNANG_KT": "n",
+      "QUY_CACH": "1024",
+      "HANG_SX": "1024",
+      "NUOC_SX": "100",
+      "DON_VI_TINH": "50",
+      "DON_GIA": "10",
+      "DON_GIA_BH": "10",
+      "TYLE_TT_BH": "3",
+      "SO_LUONG": "10",
+      "DINH_MUC": "4",
+      "NHA_THAU": "1024",
+      "TT_THAU": "50",
+      "TU_NGAY_HD": "8",
+      "DEN_NGAY_HD": "8",
+      "MA_CSKCB": "5",
+      "LOAI_THAU": "2",
+      "HT_THAU": "2",
+      "MA_CSKCB_TBYT": "5",
+      "TU_NGAY": "8",
+      "DEN_NGAY": "8"
+    },
+    "note": "trường hợp có thay đổi thông tin danh mục gửi bảng cập nhật gồm 02 dòng dữ liệu, trong đó dòng thứ nhất ghi thông tin cũ và DEN_NGAY là ngày ngừng áp dụng, dòng thứ 2 ghi thông tin thay đổi và TU_NGAY là ngày bắt đầu áp dụng, để trống chỉ tiêu DEN_NGAY."
+  },
+  "MAU_05": {
+    "sizes": {
+      "STT": "6",
+      "MA_DICH_VU": "20",
+      "TEN_DICH_VU": "n",
+      "TEN_DVKT_GIA": "n",
+      "DON_GIA": "15",
+      "QUY_TRINH": "50",
+      "SO_LUONG_CGKT": "4",
+      "CSKCB_CGKT": "5",
+      "CSKCB_CLS": "5",
+      "QD_DVKT": "50",
+      "QD_PD_GIA": "50",
+      "GHI_CHU": "n",
+      "TU_NGAY": "8",
+      "DEN_NGAY": "8",
+      "MA_CSKCB": "5",
+      "GIA_THANH_TOAN": "15"
+    },
+    "note": ""
+  },
+  "MAU_06": {
+    "sizes": {
+      "STT": "10",
+      "TEN_TB": "n",
+      "KY_HIEU": "1024",
+      "CONGTY_SX": "1024",
+      "NUOC_SX": "100",
+      "NAM_SX": "4",
+      "NAM_SD": "4",
+      "MA_MAY": "n",
+      "SO_LUU_HANH": "20",
+      "HD_TU": "8",
+      "HD_DEN": "8",
+      "TU_NGAY": "8",
+      "DEN_NGAY": "8",
+      "MA_CSKCB": "5"
+    },
+    "note": "trường hợp có thay đổi thông tin danh mục gửi bảng cập nhật gồm 02 dòng dữ liệu, trong đó dòng thứ nhất ghi thông tin cũ và DEN_NGAY là ngày ngừng áp dụng, dòng thứ 2 ghi thông tin thay đổi và TU_NGAY là ngày bắt đầu áp dụng, để trống chỉ tiêu DEN_NGAY."
+  },
+  "MAU_01_BH": {
+    "sizes": {
+      "STT": "10",
+      "HO_TEN": "255",
+      "NGAY_SINH": "12",
+      "GIOI_TINH": "1",
+      "NGAY_VAO": "12",
+      "NGAY_RA": "12",
+      "T_BHTT": "15",
+      "T_BNCCT": "15",
+      "T_BNTT": "15",
+      "NAM_QT": "4",
+      "THANG_QT": "2"
+    },
+    "note": ""
+  },
+  "MAU_02_BH": {
+    "sizes": {
+      "MA_CSKCB": "255"
+    },
+    "note": ""
+  }
+}

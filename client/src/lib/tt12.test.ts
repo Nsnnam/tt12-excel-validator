@@ -1,6 +1,6 @@
 import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
-import { TEMPLATES, detectTemplate, inspectExcelFile, type DataRow, validateTable } from "./tt12";
+import { TEMPLATES, detectTemplate, fieldsForTemplate, inspectExcelFile, type DataRow, validateTable } from "./tt12";
 
 describe("validateTable", () => {
   it("phát hiện lỗi thời gian, công thức và tổng giường vượt mức", () => {
@@ -63,6 +63,12 @@ describe("validateTable", () => {
     const issues = validateTable(TEMPLATES[0], TEMPLATES[0].headers, rows);
     expect(issues.some((item) => item.category === "Trùng dữ liệu" && item.row === 3)).toBe(true);
   });
+  it("ưu tiên kích thước Mục 5 theo từng mẫu", () => {
+    const mau01 = validateTable(TEMPLATES[0], TEMPLATES[0].headers, [{ rowNumber: 2, cells: { STT: { value: "1234" }, MA_KHOA: { value: "K01" }, TEN_KHOA: { value: "Nội" }, TU_NGAY: { value: "20260101" }, MA_CSKCB: { value: "12345" } } }]);
+    const mau02 = validateTable(TEMPLATES[1], TEMPLATES[1].headers, [{ rowNumber: 2, cells: { STT: { value: "1234567890" }, MA_KHOA: { value: "K01" }, TEN_KHOA: { value: "Nội" }, HO_TEN: { value: "A" }, SO_DINH_DANH: { value: "123456789012" }, TU_NGAY: { value: "20260101" }, MA_CSKCB: { value: "12345" } } }]);
+    expect(mau01.some((item) => item.column === "STT" && item.category === "Độ dài")).toBe(true);
+    expect(mau02.some((item) => item.column === "STT" && item.category === "Độ dài")).toBe(false);
+  });
 });
 
 describe("detectTemplate", () => {
@@ -72,6 +78,38 @@ describe("detectTemplate", () => {
       expect(detection.template.id).toBe(template.id);
       expect(detection.score).toBe(100);
     });
+  });
+});
+
+describe("metadata nguồn ưu tiên", () => {
+  it("ưu tiên kích thước, điều kiện và ghi chú từ file validate chi tiết", () => {
+    const fields = fieldsForTemplate(TEMPLATES.find((template) => template.id === "MAU_01")!);
+    const maKhoa = fields.find((field) => field.name === "MA_KHOA")!;
+    const banKham = fields.find((field) => field.name === "BAN_KHAM")!;
+    expect(maKhoa.size).toBe("50");
+    expect(maKhoa.additionalNote).toContain("Mã bàn khám chuyên khoa");
+    expect(banKham.requirementText).toContain("Không bắt buộc");
+  });
+  it("bổ sung metadata CHITIET_HS01BH cho Mẫu 01/BH", () => {
+    const fields = fieldsForTemplate(TEMPLATES.find((template) => template.id === "MAU_01_BH")!);
+    const card = fields.find((field) => field.name === "MA_THE_BHYT")!;
+    const stay = fields.find((field) => field.name === "SO_NGAY_DTRI")!;
+    expect(card.size).toBe("15");
+    expect(card.note).toContain("mã thẻ BHYT");
+    expect(stay.additionalNote).toContain("MA_LOAI_KCB");
+  });
+  it("cảnh báo khi thời điểm vào nội trú sớm hơn thời điểm đến KCB", () => {
+    const template = TEMPLATES.find((item) => item.id === "MAU_01_BH")!;
+    const issues = validateTable(template, template.headers, [{
+      rowNumber: 2,
+      cells: {
+        STT: { value: 1 },
+        NGAY_VAO: { value: "202601021000" },
+        NGAY_VAO_NOI_TRU: { value: "202601010900" },
+        NGAY_RA: { value: "202601031000" },
+      },
+    }]);
+    expect(issues.some((item) => item.column === "NGAY_VAO / NGAY_VAO_NOI_TRU")).toBe(true);
   });
 });
 

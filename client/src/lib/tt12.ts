@@ -56,7 +56,7 @@ export type Inspection = {
   hasFormula: boolean;
 };
 
-type UserField = { index: number; name: string; format: string; size: string; note: string; required: boolean; duplicate: boolean; additionalNote: string };
+type UserField = { index: number; name: string; format: string; size: string; note: string; required: boolean; duplicate: boolean; additionalNote: string; requirementText?: string };
 type UserTemplate = { id: string; label: string; sheetName: string; fileName: string; headers: string[]; keyFields: string[]; requiredFields: string[]; fields: UserField[] };
 const userSchemas = userTemplateSchemas as UserTemplate[];
 const userSchemaById = new Map(userSchemas.map((schema) => [schema.id, schema]));
@@ -169,15 +169,16 @@ function unaccent(value: string) {
 function schemaRule(header: string, field?: UserField) {
   const format = field?.format?.trim() || fieldFormat(header);
   const description = field?.note?.replace(/\s+/g, " ").trim() || fieldNotes[header] || "";
+  const additionalNote = field?.additionalNote?.replace(/\s+/g, " ").trim() || "";
   const normalizedFormat = unaccent(format);
   const normalizedDescription = unaccent(description);
   const sourceSize = Number(field?.size);
-  const maximum = maxLengths[header] ?? (Number.isFinite(sourceSize) && sourceSize > 0 ? sourceSize : undefined);
+  const maximum = Number.isFinite(sourceSize) && sourceSize > 0 ? sourceSize : maxLengths[header];
   const date = isDate(header) || /yyyymmdd|8 ky tu.*nam.*thang.*ngay/.test(normalizedDescription);
   const currency = isCurrency(header) || /don gia|gia thanh toan|thanh tien|gia bhyt/.test(normalizedDescription);
   const numeric = isNumber(header) || normalizedFormat.includes("so") || currency;
   const textOnly = normalizedFormat.includes("chuoi") && !date;
-  const summary = `${format}${maximum ? `; tối đa ${maximum} ký tự` : ""}${description ? `; ${description}` : ""}`;
+  const summary = `${format}${maximum ? `; tối đa ${maximum} ký tự` : ""}${description ? `; ${description}` : ""}${additionalNote ? `; Ghi chú: ${additionalNote}` : ""}`;
   return { date, currency, numeric, textOnly, maximum, summary };
 }
 
@@ -191,7 +192,7 @@ function fieldFormat(header: string) {
 
 export function fieldsForTemplate(template: TemplateSchema) {
   const source = userSchemaById.get(template.id);
-  if (source) return source.fields.map((field) => ({ ...field, requirementText: field.required ? "Bắt buộc" : "Không bắt buộc" }));
+  if (source) return source.fields.map((field) => ({ ...field, requirementText: field.requirementText?.trim() || (field.required ? "Bắt buộc" : "Không bắt buộc") }));
   return template.headers.map((header, index) => ({
     index: index + 1,
     name: header,
@@ -314,6 +315,13 @@ export function validateTable(template: TemplateSchema, headers: string[], rows:
         issues.push(issue("error", row.rowNumber, `${start} / ${end}`, "Logic thời gian", `${start} không được muộn hơn ${end}.`, "Điều chỉnh lại khoảng thời gian hiệu lực."));
       }
     });
+    if (template.id === "MAU_01_BH") {
+      const visit = text(row.cells.NGAY_VAO?.value).trim();
+      const admission = text(row.cells.NGAY_VAO_NOI_TRU?.value).trim();
+      if (visit && admission && isValidDate(visit) && isValidDate(admission) && admission < visit) {
+        issues.push(issue("warning", row.rowNumber, "NGAY_VAO / NGAY_VAO_NOI_TRU", "Logic thời gian", "Thời điểm vào nội trú/điều trị ban ngày sớm hơn thời điểm đến KCB.", "Đối chiếu lại thời điểm tiếp nhận và thời điểm vào nội trú; để trống NGAY_VAO_NOI_TRU nếu không phát sinh điều trị nội trú/ban ngày."));
+      }
+    }
     const uniquenessFields = duplicateFields.length ? duplicateFields : template.keyFields;
     const key = uniquenessFields.map((field) => text(row.cells[field]?.value).trim()).join("|");
     if (key && !key.includes("||") && key.split("|").every(Boolean)) {

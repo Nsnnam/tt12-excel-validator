@@ -40,3 +40,9 @@ Bản ứng dụng đã hiển thị được bảng validate đầy đủ của
 ## Đối chiếu cờ nghiệp vụ — 2026-08-25
 
 Nguồn trích xuất `tt12-reference.json` có ba trường nghiệp vụ theo mỗi chỉ tiêu: `batBuoc`, `trung` và `ghiChuBS`. Trường `batBuoc` không chỉ là ký hiệu `x`; một số chỉ tiêu có điều kiện mô tả. Ví dụ, `BAN_KHAM` ở Mẫu 01/DM được ghi là không bắt buộc đối với Khoa Dược/Dinh dưỡng/Chống nhiễm khuẩn hoặc khoa lâm sàng không có bàn khám chuyên khoa. Trường `trung = x` là cờ nguồn để hiển thị cột **Trùng** và đưa vào kiểm tra khóa nghiệp vụ.
+
+## Chính sách ưu tiên metadata — 2026-08-26
+
+File người dùng cung cấp `20260306_6bang_tt12_chitiet_valid_.xlsx` có sáu sheet `MS01DM` đến `MS06DM` với các cột **Chỉ tiêu**, **Định dạng**, **Kích thước tối đa**, **Diễn giải**, **Bắt buộc**, **Trùng/Key check trùng** và **Ghi chú bổ sung Diễn giải**. Từ phiên bản 1.5.0, đây là nguồn ưu tiên cho sáu schema Mẫu 01–06/DM: giá trị không trống trong file này ghi đè metadata cùng trường đã trích xuất trước đó; chỉ metadata không có trong file nguồn mới giữ lại từ nguồn kỹ thuật cũ. Điều kiện Bắt buộc được lưu nguyên văn để không suy diễn các ngoại lệ nghiệp vụ.
+
+Đối với Mẫu 01/BH, mô tả 20 chỉ tiêu được đối chiếu và cập nhật theo mục `CHITIET_HS01BH` tại trang 60 đến hết trang 63 của file `Tàiliệukỹthuật_TT12-2026-BTC.pdf` người dùng cung cấp. Phạm vi này gồm kích thước ngày/giờ 12 ký tự, các trường số tiền tối đa 15 ký tự, mã cơ sở KCB 5 ký tự và hướng dẫn `SO_NGAY_DTRI`. Các quy tắc kiểm định chỉ áp dụng quan hệ thời gian chắc chắn; công cụ không tự suy ra công thức thanh toán từ diễn giải.

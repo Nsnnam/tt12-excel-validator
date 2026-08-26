@@ -77,3 +77,6 @@ Biểu tượng **tờ biểu mẫu có dấu kiểm trong lăng kính quét**: 
 - Microcopy nêu rõ tác động nghiệp vụ và hành động tiếp theo trong một câu ngắn, ví dụ “Mẫu 01/DM đang được tra cứu; chưa có file Excel để kiểm định.”
 - Dải đầu mỗi màn hình là bản ghi hồ sơ chính thức: mã hồ sơ, mẫu, nguồn Excel và trạng thái kiểm định phải là các ô metadata có đường kẻ chung, không phải các card tách rời.
 - Danh mục tài liệu được trình bày như sổ mục lục kiểm định; ưu tiên tên nguồn, loại dữ liệu và mức độ liên quan thay vì kiểu card tiếp thị.
+- Phần đầu màn hình không xử lý như hero marketing: dải hồ sơ và trạng thái kiểm định là hierarchy chính; tiêu đề chỉ định danh ngữ cảnh.
+- Mực Cobalt `#1457C8` chỉ dùng như mực kiểm định cho lựa chọn hiện hành, thao tác chính, dấu quét/dấu kiểm và metadata đang được xác nhận.
+- Noto Serif chỉ gợi chất hồ sơ ở tiêu đề bản ghi hoặc tài liệu; trạng thái, metadata, bảng và thao tác kiểm định luôn ưu tiên Manrope để giữ cảm giác công cụ chính xác.

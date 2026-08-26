@@ -21,112 +21,123 @@
       {
         "index": 1,
         "name": "STT",
-        "format": "Số nguyên",
-        "size": "—",
-        "note": "Số thứ tự tự động tăng dần",
+        "format": "Số",
+        "size": "3",
+        "note": "Số thứ tự",
         "required": true,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "trường hợp có thay đổi Thông tin danh mục gửi bảng cập nhật gồm 02 dòng dữ liệu, trong đó dòng thứ nhất ghi thông tin cũ và DEN_NGAY là ngày ngừng áp dụng, dòng thứ 2 ghi thông tin thay đổi và TU_NGAY là ngày bắt đầu áp dụng, để trống chỉ tiêu DEN_NGAY.",
+        "requirementText": "Bắt buộc"
       },
       {
         "index": 2,
         "name": "MA_KHOA",
         "format": "Chuỗi",
-        "size": "—",
-        "note": "Mã khoa/phòng chuyên môn do cơ sở KCB tự quy định, duy nhất trong danh mục",
+        "size": "50",
+        "note": "Mã khám bệnh, mã khoa theo danh mục dùng chung do Bộ Y tế ban hành.\n- Bàn khám bệnh ngoại trú: ghi theo mã khám bệnh.\n- Khoa lâm sàng, cận lâm sàng, dược, dinh dưỡng, chống nhiễm khuẩn: ghi theo mã khoa.\n- Khoa gồm nhiều chuyên khoa: ghi ký tự “K” và lần lượt hai ký tự số của mã các khoa, ví dụ: Khoa Nội tiết – Dị ứng ghi “K0809”.\n- Đơn nguyên thuộc Khoa: ghi mã khoa, ký tự “.D” và hai ký tự số của mã khoa tương ứng với đơn nguyên, ví dụ: khoa Hồi sức cấp cứu có đơn nguyên Thận nhân tạo thì ghi \"K02.D35\".",
         "required": true,
         "duplicate": true,
-        "additionalNote": ""
+        "additionalNote": "- Mã bàn khám chuyên khoa: ghi mã khám bệnh theo Phụ lục 2 Quyết định số 2010/QĐ-BYT.\n- Mã khoa lâm sàng, cận lâm sàng, dược, dinh dưỡng, chống nhiễm khuẩn: ghi theo Phụ lục 6 Quyết định số 2010/QĐ-BYT.",
+        "requirementText": "Bắt buộc"
       },
       {
         "index": 3,
         "name": "TEN_KHOA",
         "format": "Chuỗi",
-        "size": "—",
-        "note": "Tên đầy đủ của khoa/phòng chuyên môn",
+        "size": "n",
+        "note": "- Bàn khám bệnh ngoại trú: ghi tên chuyên khoa tương ứng với mã bàn khám theo danh mục dùng chung do Bộ Y tế ban hành.\n- Khoa lâm sàng, khoa cận lâm sàng/dược/dinh dưỡng/chống nhiễm khuẩn: ghi tên khoa theo quyết định được cấp có thẩm quyền phê duyệt.",
         "required": true,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "trường hợp có thay đổi Thông tin danh mục gửi bảng cập nhật gồm 02 dòng dữ liệu, trong đó dòng thứ nhất ghi thông tin cũ và DEN_NGAY là ngày ngừng áp dụng, dòng thứ 2 ghi thông tin thay đổi và TU_NGAY là ngày bắt đầu áp dụng, để trống chỉ tiêu DEN_NGAY.",
+        "requirementText": "Bắt buộc"
       },
       {
         "index": 4,
         "name": "BAN_KHAM",
-        "format": "Số nguyên",
-        "size": "—",
-        "note": "Số bàn khám bệnh của khoa (áp dụng cho phòng khám). Để trống nếu không có",
+        "format": "Số",
+        "size": "3",
+        "note": "Số lượng bàn khám từng chuyên khoa hoặc khoa lâm sàng.",
         "required": false,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "trường hợp có thay đổi Thông tin danh mục gửi bảng cập nhật gồm 02 dòng dữ liệu, trong đó dòng thứ nhất ghi thông tin cũ và DEN_NGAY là ngày ngừng áp dụng, dòng thứ 2 ghi thông tin thay đổi và TU_NGAY là ngày bắt đầu áp dụng, để trống chỉ tiêu DEN_NGAY.",
+        "requirementText": "Không bắt buộc đối với Khoa Dược/Dinh dưỡng/Chống nhiễm khuẩn hoặc khoa lâm sàng không có bàn khám chuyên khoa"
       },
       {
         "index": 5,
         "name": "GIUONG_PD",
-        "format": "Số nguyên",
-        "size": "—",
-        "note": "Số giường ghi trên Giấy phép hoạt động (GPHĐ) hoặc quyết định điều chỉnh GPHĐ. Nếu GPHĐ không ghi thì lấy theo Biên bản thẩm định cấp GPHĐ hoặc Quyết định phê duyệt quy mô giường bệnh",
+        "format": "Số",
+        "size": "5",
+        "note": "- Số giường bệnh nội trú tại từng bộ phận chuyên môn được cấp thẩm quyền phê duyệt tại thời điểm cấp giấy phép hoạt động hoặc văn bản điều chỉnh giấy phép hoạt động khi thay đổi quy mô giường bệnh.\n- Số giường lưu tại nhà hộ sinh, trạm y tế xã, phòng khám đa khoa theo quy định tại khoản 2 Điều 77 Luật Khám bệnh, chữa bệnh.",
         "required": false,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "- Trường hợp khai báo thông tin số giường lưu của Trạm y tế, điểm trạm thì MA_KHOA ghi \"TYT\", TEN_KHOA ghi \"Trạm y tế\", GIUONG_PD, GIUONG_TK ghi số giường phê duyệt của cấp có thẩm quyền và giường thực kê, các chỉ tiêu khác để trống.\n- Trường hợp khai báo thông tin số giường lưu, giường nội trú của Phòng khám đa khoa khu vực thì MA_KHOA ghi lần lượt \"LKV\", “GKV”; GIUONG_PD, GIUONG_TK ghi số giường phê duyệt của cấp có thẩm quyền và giường thực kê, các chỉ tiêu khác để trống.",
+        "requirementText": "Không bắt buộc đối với Khoa khám bệnh, Khoa Dược/Dinh dưỡng/Chống nhiễm khuẩn"
       },
       {
         "index": 6,
         "name": "GIUONG_TK",
-        "format": "Số nguyên",
-        "size": "—",
-        "note": "Giường phê duyệt + số giường được kê thêm (dưới 10% và không quá 30 giường so với giường phê duyệt, khoản 3 Điều 67 Nghị định 96/2023/NĐ-CP) — kê trong mức này không phải điều chỉnh GPHĐ",
+        "format": "Số",
+        "size": "5",
+        "note": "Tổng số giường bệnh thực tế tại từng khoa.",
         "required": false,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "GIUONG_TK đúng với số giường bệnh được phê duyệt hoặc số giường thay đổi quy mô theo đúng quy định tại khoản 3 Điều 67 Nghị định số 96/2023/NĐ-CP (tổng số giường thực kê thay đổi so với  tổng giường phê duyệt dưới 10% và không vượt quá 30 giường).",
+        "requirementText": "Không bắt buộc đối với Khoa khám bệnh, Khoa Dược/Dinh dưỡng/Chống nhiễm khuẩn"
       },
       {
         "index": 7,
         "name": "GIUONG_HSTC",
-        "format": "Số nguyên",
-        "size": "—",
-        "note": "Số giường hồi sức tích cực ĐỦ ĐIỀU KIỆN thanh toán BHYT theo khoản 5 Điều 4c Thông tư 35/2016/TT-BYT (sửa đổi tại khoản 4 Điều 1 Thông tư 39/2024/TT-BYT)",
+        "format": "Số",
+        "size": "3",
+        "note": "Số giường hồi sức tích cực đủ điều kiện theo quy định của Bộ Y tế",
         "required": false,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "trường hợp có thay đổi Thông tin danh mục gửi bảng cập nhật gồm 02 dòng dữ liệu, trong đó dòng thứ nhất ghi thông tin cũ và DEN_NGAY là ngày ngừng áp dụng, dòng thứ 2 ghi thông tin thay đổi và TU_NGAY là ngày bắt đầu áp dụng, để trống chỉ tiêu DEN_NGAY.",
+        "requirementText": "Không bắt buộc đối với khoa lâm sàng không có giường HSTC đủ điều kiện theo quy định của Bộ Y tế"
       },
       {
         "index": 8,
         "name": "GIUONG_HSCC",
-        "format": "Số nguyên",
-        "size": "—",
-        "note": "Số giường hồi sức cấp cứu. Để trống nếu không có",
+        "format": "Số",
+        "size": "3",
+        "note": "Số giường hồi sức cấp cứu đủ điều kiện theo quy định của Bộ Y tế",
         "required": false,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "trường hợp có thay đổi Thông tin danh mục gửi bảng cập nhật gồm 02 dòng dữ liệu, trong đó dòng thứ nhất ghi thông tin cũ và DEN_NGAY là ngày ngừng áp dụng, dòng thứ 2 ghi thông tin thay đổi và TU_NGAY là ngày bắt đầu áp dụng, để trống chỉ tiêu DEN_NGAY.",
+        "requirementText": "Không bắt buộc đối với khoa lâm sàng không có giường HSCC đủ điều kiện theo quy định của Bộ Y tế"
       },
       {
         "index": 9,
         "name": "TU_NGAY",
-        "format": "Ngày (yyyyMMdd)",
-        "size": "—",
-        "note": "Ngày bắt đầu hiệu lực của khoa/phòng trong danh mục",
+        "format": "Chuỗi",
+        "size": "8",
+        "note": "- Trường hợp tạo lập danh mục sau khi ký hợp đồng lần đầu: ghi ngày hợp đồng có hiệu lực.\n- Trường hợp cập nhật, điều chỉnh trong quá trình thực hiện hợp đồng: ghi thời điểm gửi văn bản thông báo đến cơ quan bảo hiểm xã hội hoặc ngày cơ sở khám bệnh, chữa bệnh đề nghị trên văn bản thông báo nếu thời điểm đề nghị áp dụng sau ngày nhận được văn bản, định dạng gồm 8 ký tự (4 ký tự năm + 2 ký tự tháng + 2 ký tự ngày).",
         "required": true,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "trường hợp có thay đổi Thông tin danh mục gửi bảng cập nhật gồm 02 dòng dữ liệu, trong đó dòng thứ nhất ghi thông tin cũ và DEN_NGAY là ngày ngừng áp dụng, dòng thứ 2 ghi thông tin thay đổi và TU_NGAY là ngày bắt đầu áp dụng, để trống chỉ tiêu DEN_NGAY.",
+        "requirementText": "Bắt buộc"
       },
       {
         "index": 10,
         "name": "DEN_NGAY",
-        "format": "Ngày (yyyyMMdd)",
-        "size": "—",
-        "note": "Ngày kết thúc hiệu lực. Để trống nếu còn hoạt động",
+        "format": "Chuỗi",
+        "size": "8",
+        "note": "Chỉ ghi khi cập nhật, điều chỉnh bàn khám, giường bệnh trong khoa hoặc khoa dừng hoạt động: ghi thời điểm ngừng áp dụng, định dạng gồm 8 ký tự (4 ký tự năm + 2 ký tự tháng + 2 ký tự ngày)",
         "required": false,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "- Trường hợp có thay đổi thông tin danh mục: cơ sở KCB gửi bảng cập nhật gồm 02 dòng dữ liệu, trong đó dòng thứ nhất ghi thông tin cũ và DEN_NGAY là ngày ngừng áp dụng, dòng thứ 2 ghi thông tin thay đổi và TU_NGAY là ngày bắt đầu áp dụng, để trống  chỉ tiêu DEN_NGAY.\n- Trường hợp ngừng hiệu lực: cơ sở KCB cập nhật DEN_NGAY của danh mục=> đồng bộ trạng thái sang PM Giám định; cơ sở KCB không được hiệu chỉnh thông tin đối với danh mục đã hết hiệu lực.",
+        "requirementText": "Không bắt buộc"
       },
       {
         "index": 11,
         "name": "MA_CSKCB",
-        "format": "Chuỗi (5 ký tự)",
-        "size": "—",
-        "note": "Mã cơ sở khám chữa bệnh do BHXH cấp",
+        "format": "Chuỗi",
+        "size": "5",
+        "note": "Mã cơ sở khám bệnh, chữa bệnh",
         "required": true,
-        "duplicate": false,
-        "additionalNote": ""
+        "duplicate": true,
+        "additionalNote": "trường hợp có thay đổi Thông tin danh mục gửi bảng cập nhật gồm 02 dòng dữ liệu, trong đó dòng thứ nhất ghi thông tin cũ và DEN_NGAY là ngày ngừng áp dụng, dòng thứ 2 ghi thông tin thay đổi và TU_NGAY là ngày bắt đầu áp dụng, để trống chỉ tiêu DEN_NGAY.",
+        "requirementText": "Bắt buộc"
       }
     ],
     "requiredFields": [
@@ -176,263 +187,280 @@
       {
         "index": 1,
         "name": "STT",
-        "format": "Số nguyên",
-        "size": "—",
-        "note": "Số thứ tự tự động tăng dần",
+        "format": "Số",
+        "size": "10",
+        "note": "Số thứ tự",
         "required": true,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "trường hợp có thay đổi thông tin danh mục gửi bảng cập nhật gồm 02 dòng dữ liệu, trong đó dòng thứ nhất ghi thông tin cũ và DEN_NGAY là ngày ngừng áp dụng, dòng thứ 2 ghi thông tin thay đổi và TU_NGAY là ngày bắt đầu áp dụng, để trong chỉ tiêu DEN_NGAY.",
+        "requirementText": "Bắt buộc"
       },
       {
         "index": 2,
         "name": "MA_KHOA",
-        "format": "Chuỗi",
-        "size": "—",
-        "note": "Mã khoa/phòng nơi nhân viên công tác (tham chiếu MAU_01)",
-        "required": true,
+        "format": "Chuỗi",
+        "size": "100",
+        "note": "- Người được phân công khám bệnh tại Khoa khám bệnh: ghi mã khám bệnh theo danh mục dùng chung do Bộ Y tế ban hành.\n- Người được phân công làm việc tại khoa lâm sàng, cận lâm sàng, dinh dưỡng, dược, chống nhiễm khuẩn: ghi mã khoa theo danh mục dùng chung do Bộ Y tế ban hành. Trường hợp được phân công làm việc tại nhiều khoa: ghi lần lượt mã từng khoa, cách nhau bằng dấu chấm phẩy “;”, trong đó mã khoa đầu tiên là khoa quản lý người làm việc.\n- Trường hợp được phân công làm việc tại khoa lâm sàng hoặc cận lâm sàng và khám bệnh luân phiên tại Khoa khám bệnh: ghi lần lượt mã khoa lâm sàng hoặc cận lâm sàng và mã bàn khám, cách nhau bằng dấu chấm phẩy “;”.\n- Người hành nghề làm việc tại các phòng, bộ phận khác (phòng Kế hoạch tổng hợp, Tổ chức cán bộ…) đồng thời được phân công khám bệnh tại Khoa khám bệnh hoặc làm việc tại khoa lâm sàng, cận lâm sàng, dược, dinh dưỡng, chống nhiễm khuẩn: ghi mã khoa theo nơi được phân công khám bệnh hoặc làm việc.\n- Người làm việc khác tại Khoa khám bệnh (điều dưỡng, kỹ thuật y…): ghi “K01”.",
+        "required": false,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "- Mã bàn khám chuyên khoa: ghi mã khám bệnh theo Phụ lục 2 Quyết định số 2010/QĐ-BYT.\n- Mã khoa lâm sàng, cận lâm sàng, dược, dinh dưỡng, chống nhiễm khuẩn: ghi theo Phụ lục 6 Quyết định số 2010/QĐ-BYT.",
+        "requirementText": "Không bắt buộc đối với VI_TRI = 4"
       },
       {
         "index": 3,
         "name": "TEN_KHOA",
-        "format": "Chuỗi",
-        "size": "—",
-        "note": "Tên đầy đủ khoa/phòng nơi nhân viên công tác",
-        "required": true,
+        "format": "Chuỗi",
+        "size": "n",
+        "note": "- Người được phân công khám bệnh tại Khoa khám bệnh: ghi tên chuyên khoa khám bệnh tương ứng với mã bàn khám theo danh mục dùng chung do Bộ Y tế ban hành.\n- Người được phân công làm việc tại khoa lâm cận lâm sàng, dinh dưỡng, dược, chống nhiễm khuẩn: ghi tên khoa theo quyết định được cấp có thẩm quyền phê duyệt. Trường hợp được phân công làm việc tại nhiều khoa: ghi lần lượt tên từng khoa, cách nhau bằng dấu chấm phẩy “;”, trong đó tên khoa đầu tiên là khoa quản lý người làm việc.\n- Trường hợp được phân công làm việc tại khoa lâm sàng hoặc cận lâm sàng và khám bệnh luân phiên tại Khoa khám bệnh: ghi lần lượt tên khoa lâm sàng hoặc cận lâm sàng và tên bàn khám, cách nhau bằng dấu chấm phẩy “;”.\n'- Người hành nghề làm việc tại các phòng, bộ phận khác (phòng Kế hoạch tổng hợp, Tổ chức cán bộ…) đồng thời được phân công khám bệnh tại Khoa khám bệnh hoặc làm việc tại khoa lâm sàng, cận lâm sàng, dược, dinh dưỡng, chống nhiễm khuẩn: ghi tên khoa theo nơi được phân công khám bệnh hoặc làm việc.\n- Người làm việc khác tại Khoa khám bệnh (điều dưỡng, kỹ thuật viên…): ghi “Khoa khám bệnh”.",
+        "required": false,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "- Tên bàn khám chuyên khoa: ghi tên khám bệnh  tương ứng với mã bàn khám theo Phụ lục 2 Quyết định số 2010/QĐ-BYT.\n- Trùng khớp với thông tin đăng tải trên cổng thông tin điện tử hoặc trang tin điện tử của cơ quan cấp giấy phép hoạt động.",
+        "requirementText": "Không bắt buộc đối với VI_TRI = 4"
       },
       {
         "index": 4,
         "name": "HO_TEN",
-        "format": "Chuỗi",
-        "size": "—",
-        "note": "Họ và tên đầy đủ của nhân viên y tế",
+        "format": "Chuỗi",
+        "size": "250",
+        "note": "Họ và tên",
         "required": true,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "Trùng khớp với thông tin đăng tải trên cổng thông tin điện tử hoặc trang tin điện tử của cơ quan cấp giấy phép hoạt động.",
+        "requirementText": "Bắt buộc"
       },
       {
         "index": 5,
         "name": "GIOI_TINH",
-        "format": "Số (1|2)",
-        "size": "—",
-        "note": "1: Nam, 2: Nữ",
+        "format": "Số",
+        "size": "1",
+        "note": "Giới tính (1: Nam; 2: Nữ; 3: Chưa xác định)",
         "required": true,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "trường hợp có thay đổi thông tin danh mục gửi bảng cập nhật gồm 02 dòng dữ liệu, trong đó dòng thứ nhất ghi thông tin cũ và DEN_NGAY là ngày ngừng áp dụng, dòng thứ 2 ghi thông tin thay đổi và TU_NGAY là ngày bắt đầu áp dụng, để trong chỉ tiêu DEN_NGAY.",
+        "requirementText": "Bắt buộc"
       },
       {
         "index": 6,
         "name": "SO_DINH_DANH",
-        "format": "Chuỗi",
-        "size": "—",
-        "note": "Số CCCD/CMND hoặc số định danh cá nhân",
+        "format": "Chuỗi",
+        "size": "15",
+        "note": "Số căn cước công dân hoặc số định danh cá nhân trên thẻ căn cước",
         "required": true,
-        "duplicate": false,
-        "additionalNote": ""
+        "duplicate": true,
+        "additionalNote": "Trường hợp là người nước ngoài: ghi số hộ chiếu",
+        "requirementText": "Bắt buộc"
       },
       {
         "index": 7,
         "name": "CHUCDANH_NN",
-        "format": "Chuỗi",
-        "size": "—",
-        "note": "Mã chức danh nghề nghiệp theo quy định (VD: V.08.01.01 – Bác sĩ)",
-        "required": true,
+        "format": "Chuỗi",
+        "size": "2",
+        "note": "Cách ghi “1”: Bác sỹ, “2”: Y sỹ, “3”: Điều dưỡng, “4”: Hộ sinh, “5”: Kỹ thuật y, “6”: Cử nhân tâm lý lâm sàng, “7”: Lương y, “8”: Dược sỹ, “9”: người tham gia vào quá trình khám bệnh, chữa bệnh nhưng không cần phải cấp giấy phép hành nghề,",
+        "required": false,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "Trùng khớp với thông tin đăng tải trên cổng thông tin điện tử hoặc trang tin điện tử của cơ quan cấp giấy phép hoạt động.",
+        "requirementText": "Không bắt buộc với VI_TRI=4"
       },
       {
         "index": 8,
         "name": "VI_TRI",
-        "format": "Chuỗi",
-        "size": "—",
-        "note": "Vị trí/chức vụ công tác tại cơ sở KCB",
+        "format": "Chuỗi",
+        "size": "5",
+        "note": "Cách ghi “1”: người chịu trách nhiệm chuyên môn; “2”: Trưởng khoa/ Trưởng đơn nguyên/người phụ trách phòng khám chuyên khoa đối với cơ sở khám bệnh, chữa bệnh có hình thức tổ chức là phòng khám liên chuyên khoa; “3”: người chịu trách nhiệm chuyên môn kiêm Trưởng khoa; “4”: Người đứng đầu cơ sở khám bệnh, chữa bệnh hoặc người được người đứng đầu cơ sở khám bệnh, chữa bệnh ủy quyền ký giấy chuyển tuyến khám bệnh, chữa bệnh, giấy ra viện, giấy hẹn khám lại; “5”: Người hành nghề được giao phụ trách khoa trong trường hợp không có trưởng khoa; “6”: Người được ủy quyền chịu trách nhiệm chuyên môn kỹ thuật theo khoản 11 Điều 27 Nghị định số 96/2023/NĐ-CP",
         "required": true,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "Trùng khớp với thông tin đăng tải trên cổng thông tin điện tử hoặc trang tin điện tử của cơ quan cấp giấy phép hoạt động.",
+        "requirementText": "Bắt buộc"
       },
       {
         "index": 9,
         "name": "MACCHN",
-        "format": "Chuỗi",
-        "size": "—",
-        "note": "Mã chứng chỉ hành nghề do Bộ Y tế/Sở Y tế cấp",
-        "required": true,
+        "format": "Chuỗi",
+        "size": "250",
+        "note": "Số, ký hiệu của giấy phép hành nghề, ghi đối với các chức danh chuyên môn phải có giấy phép hành nghề",
+        "required": false,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "Trùng khớp với thông tin đăng tải trên cổng thông tin điện tử hoặc trang tin điện tử của cơ quan cấp giấy phép hoạt động.",
+        "requirementText": "Không bắt buộc đối với CHUCDANH_NN = 8 hoặc 9 hoặc VI_TRI=4"
       },
       {
         "index": 10,
         "name": "NGAYCAP_CCHN",
-        "format": "Ngày (yyyyMMdd)",
-        "size": "—",
-        "note": "Ngày cấp chứng chỉ hành nghề",
-        "required": true,
+        "format": "Chuỗi",
+        "size": "8",
+        "note": "Thời điểm cấp giấy phép hành nghề, ghi theo định dạng 8 ký tự (4 ký tự năm + 2 ký tự tháng + 2 ký tự ngày), ghi đối với các chức danh chuyên môn phải có giấy phép hành nghề",
+        "required": false,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "trường hợp có thay đổi thông tin danh mục gửi bảng cập nhật gồm 02 dòng dữ liệu, trong đó dòng thứ nhất ghi thông tin cũ và DEN_NGAY là ngày ngừng áp dụng, dòng thứ 2 ghi thông tin thay đổi và TU_NGAY là ngày bắt đầu áp dụng, để trong chỉ tiêu DEN_NGAY.",
+        "requirementText": "Không bắt buộc đối với CHUCDANH_NN = 8 hoặc 9 hoặc VI_TRI=4"
       },
       {
         "index": 11,
         "name": "NOICAP_CCHN",
-        "format": "Chuỗi",
-        "size": "—",
-        "note": "Cơ quan cấp chứng chỉ hành nghề",
-        "required": true,
+        "format": "Chuỗi",
+        "size": "250",
+        "note": "Tên cơ quan cấp giấy phép hành nghề, ghi đối với các chức danh chuyên môn phải có giấy phép hành nghề",
+        "required": false,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "trường hợp có thay đổi thông tin danh mục gửi bảng cập nhật gồm 02 dòng dữ liệu, trong đó dòng thứ nhất ghi thông tin cũ và DEN_NGAY là ngày ngừng áp dụng, dòng thứ 2 ghi thông tin thay đổi và TU_NGAY là ngày bắt đầu áp dụng, để trong chỉ tiêu DEN_NGAY.",
+        "requirementText": "Không bắt buộc đối với CHUCDANH_NN = 8 hoặc 9 hoặc VI_TRI=4"
       },
       {
         "index": 12,
         "name": "PHAMVI_CM",
-        "format": "Chuỗi",
-        "size": "—",
-        "note": "Phạm vi hoạt động chuyên môn theo CCHN",
-        "required": true,
+        "format": "Chuỗi",
+        "size": "15",
+        "note": "Phạm vi hành nghề theo giấy phép hành nghề và các quyết định điều chỉnh phạm vi hành nghề (nếu có), trường hợp phạm vi hành nghề gồm nhiều chuyên khoa thì ghi đầy đủ các chuyên khoa cách nhau bằng dấu chấm phẩy \";\"",
+        "required": false,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "- Mã phạm vi hành nghề đối chiếu bảng mã Danh mục mã phạm vi hành nghề dưới đây\n- Trùng khớp với thông tin đăng tải trên cổng thông tin điện tử hoặc trang tin điện tử của cơ quan cấp giấy phép hoạt động.",
+        "requirementText": "Không bắt buộc đối với CHUCDANH_NN = 8 hoặc 9 hoặc VI_TRI=4"
       },
       {
         "index": 13,
         "name": "PHAMVI_CMBS",
         "format": "Chuỗi",
-        "size": "—",
-        "note": "Phạm vi chuyên môn bổ sung (nếu có)",
+        "size": "50",
+        "note": "Ngày và số, ký hiệu của các quyết định điều chỉnh phạm vi hành nghề, ghi theo định dạng YYYYMMDD_Z (trong đó YYYYMMDD là 4 ký tự năm + 2 ký tự tháng + 2 ký tự ngày, Z là số, ký hiệu của quyết định).\nTrường hợp có nhiều quyết định bổ sung ghi cách nhau bằng dấu chấm phẩy \";\"",
         "required": false,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "Trùng khớp với thông tin đăng tải trên cổng thông tin điện tử hoặc trang tin điện tử của cơ quan cấp giấy phép hoạt động.",
+        "requirementText": "Không bắt buộc"
       },
       {
         "index": 14,
         "name": "DVKT_KHAC",
-        "format": "Chuỗi",
-        "size": "—",
-        "note": "Dịch vụ kỹ thuật khác được phân công",
+        "format": "Chuỗi",
+        "size": "n",
+        "note": "Mã dịch vụ kỹ thuật được người chịu trách nhiệm chuyên môn kỹ thuật phân công thực hiện ngoài phạm vi hoạt động chuyên môn ghi trên giấy phép hành nghề và quyết định điều chỉnh phạm vi hành nghề; kỹ thuật do người chịu trách nhiệm chuyên môn kỹ thuật phân công thực hiện đối với người tham gia vào quá trình khám bệnh, chữa bệnh nhưng không cần phải cấp giấy phép hành nghề; ghi 07 ký tự đầu của mã dịch vụ kỹ thuật theo danh mục dùng chung do Bộ Y tế ban hành. Trường hợp thực hiện nhiều dịch vụ kỹ thuật ghi các mã cách nhau bằng dấu chấm phẩy \";\"",
         "required": false,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "- Trùng khớp với thông tin đăng tải trên cổng thông tin điện tử hoặc trang tin điện tử của cơ quan cấp giấy phép hoạt động.\n- Người hành nghề được phân công thực hiện nhiều dịch vụ kỹ thuật (DVKT) cùng nhóm của chuyên khoa khác chuyên khoa ghi trên chứng chỉ hành nghề và quyết định bổ sung phạm vi hoạt động chuyên môn: chỉ tiêu DVKT_KHAC ghi theo mã nhóm DVKT được cập nhật trên Cổng tiếp nhận thuộc Hệ thống thông tin giám định BHYT, ví dụ được phân công thực hiện toàn bộ các dịch vụ siêu âm chẩn đoán ghi “18A.1”, bác sỹ ngoại khoa được phân công phẫu thuật nội soi thận ghi \"27Đ.1\", phân công phẫu thuật nội soi tiết niệu ghi “27Đ.1;27Đ.2;27Đ.3;27Đ.4; 27Đ.5”.",
+        "requirementText": "Không bắt buộc"
       },
       {
         "index": 15,
         "name": "VB_PHANCONG",
         "format": "Chuỗi",
-        "size": "—",
-        "note": "Số văn bản phân công nhiệm vụ",
+        "size": "50",
+        "note": "Ngày và số, ký hiệu của văn bản phân công thực hiện dịch vụ kỹ thuật ngoài phạm vi hành nghề trên Giấy phép hành nghề và quyết định điều chỉnh phạm vi hành nghề hoặc văn bản phân công của người chịu trách nhiệm chuyên môn kỹ thuật đối với người thực hiện dịch vụ kỹ thuật nhưng không cần phải cấp Giấy phép hành nghề, ghi theo định dạng YYYYMMDD_Z (trong đó YYYMMDD là 4 ký tự năm + 2 ký tự tháng + 2 ký tự ngày, Z là số, ký hiệu của văn bản). Trường hợp có nhiều quyết định phân công thì các quyết định cách nhau bởi dấu chấm phẩy \";\"",
         "required": false,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "trường hợp có thay đổi thông tin danh mục gửi bảng cập nhật gồm 02 dòng dữ liệu, trong đó dòng thứ nhất ghi thông tin cũ và DEN_NGAY là ngày ngừng áp dụng, dòng thứ 2 ghi thông tin thay đổi và TU_NGAY là ngày bắt đầu áp dụng, để trong chỉ tiêu DEN_NGAY.",
+        "requirementText": "Không bắt buộc"
       },
       {
         "index": 16,
         "name": "THOIGIAN_DK",
-        "format": "Chuỗi",
-        "size": "—",
-        "note": "Thời gian đăng ký hành nghề tại cơ sở",
+        "format": "Số",
+        "size": "1",
+        "note": "- Thời gian đăng ký hành nghề (1: toàn thời gian; 2: không toàn thời gian).\n- Người hành nghề đã đăng ký hành nghề tại một cơ sở khám bệnh, chữa bệnh khi thực hiện việc khám bệnh, chữa bệnh theo hợp đồng giữa các cơ sở khám bệnh, chữa bệnh với nhau thì không ghi các chỉ tiêu 16, 17 và 18.",
         "required": false,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "Trùng khớp với thông tin đăng tải trên cổng thông tin điện tử hoặc trang tin điện tử của cơ quan cấp giấy phép hoạt động.",
+        "requirementText": "Không bắt buộc đối với trường hợp QD_CGKT có thông tin"
       },
       {
         "index": 17,
         "name": "THOIGIAN_NGAY",
         "format": "Chuỗi",
-        "size": "—",
-        "note": "Số giờ làm việc trong ngày",
+        "size": "200",
+        "note": "Thời gian làm việc ghi theo thời gian đăng ký hành nghề đăng tải trên Cổng thông tin điện tử của Bộ Y tế hoặc Trang thông tin điện tử của Sở Y tế, không ghi thời gian trực:\n- Định dạng: HHMM-HHMM (HH là giờ, MM là phút). Ví dụ: làm việc từ 8 giờ đến 12 giờ thì ghi “0800-1200”\n- Trường hợp thời gian làm việc của các ngày trong tuần khác nhau hoặc các khoảng thời gian làm việc không liên tục trong ngày thì ghi lần lượt từng khoảng thời gian làm việc của từng ngày.Ví dụ: thứ 2 làm việc từ 8 giờ đến 15 giờ, thứ 3 làm việc từ 7 giờ đến 11 giờ, thứ 4 làm việc từ 8 giờ đến 11 giờ và từ 14 giờ đến 17 giờ thì ghi là \"T20800-1500;T30700-1100;T40800-1100;T41400-1700\"\n- Người tham gia vào quá trình khám bệnh, chữa bệnh nhưng không phải cấp giấy phép hành nghề: ghi theo phân công của người chịu trách nhiệm chuyên môn.",
         "required": false,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "Trùng khớp với thông tin đăng tải trên cổng thông tin điện tử hoặc trang tin điện tử của cơ quan cấp giấy phép hoạt động.",
+        "requirementText": "Không bắt buộc đối với trường hợp QD_CGKT có thông tin"
       },
       {
         "index": 18,
         "name": "THOIGIAN_TUAN",
         "format": "Chuỗi",
-        "size": "—",
-        "note": "Số ngày làm việc trong tuần",
+        "size": "200",
+        "note": "Ngày làm việc trong tuần ghi theo thời gian đăng ký hành nghề đăng tải trên Cổng thông tin điện tử của Bộ Y tế hoặc Trang thông tin điện tử của Sở Y tế, không ghi thời gian trực:\n- Cách ghi gồm 02 ký tự là chữ \"T\" và số tương ứng, riêng Chủ nhật là \"CN\". Ví dụ: chỉ làm việc các ngày thứ 2, thứ 3, thứ 5 thì ghi \"T2T3T5\"\n- Người tham gia vào quá trình khám bệnh, chữa bệnh nhưng không phải cấp giấy phép hành nghề: ghi theo phân công của người chịu trách nhiệm chuyên môn.\nMã các cơ sở khám bệnh, chữa bệnh khác nơi người hành nghề đăng ký làm việc (nếu có), các mã cơ sở khám bệnh, chữa bệnh cách nhau bằng dấu chấm phẩy \";\"",
         "required": false,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "Trùng khớp với thông tin đăng tải trên cổng thông tin điện tử hoặc trang tin điện tử của cơ quan cấp giấy phép hoạt động.",
+        "requirementText": "Không bắt buộc đối với trường hợp QD_CGKT có thông tin"
       },
       {
         "index": 19,
         "name": "CSKCB_KHAC",
         "format": "Chuỗi",
-        "size": "—",
-        "note": "Mã cơ sở KCB khác mà nhân viên đồng thời hành nghề (nếu có)",
+        "size": "30",
+        "note": "Mã các cơ sở khám bệnh, chữa bệnh khác nơi người hành nghề đăng ký làm việc (nếu có), các mã cơ sở khám bệnh, chữa bệnh cách nhau bằng dấu chấm phẩy \";\"",
         "required": false,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "Trùng khớp với thông tin đăng tải trên cổng thông tin điện tử hoặc trang tin điện tử của cơ quan cấp giấy phép hoạt động.",
+        "requirementText": "Không bắt buộc"
       },
       {
         "index": 20,
         "name": "CSKCB_CGKT",
         "format": "Chuỗi",
-        "size": "—",
-        "note": "Mã cơ sở KCB chuyển giao kỹ thuật",
+        "size": "5",
+        "note": "- Mã cơ sở khám bệnh, chữa bệnh chuyển giao dịch vụ kỹ thuật (nếu có).\n- Cơ sở khám bệnh, chữa bệnh chuyển giao dịch vụ kỹ thuật không ghi chỉ tiêu này.",
         "required": false,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "trường hợp có thay đổi thông tin danh mục gửi bảng cập nhật gồm 02 dòng dữ liệu, trong đó dòng thứ nhất ghi thông tin cũ và DEN_NGAY là ngày ngừng áp dụng, dòng thứ 2 ghi thông tin thay đổi và TU_NGAY là ngày bắt đầu áp dụng, để trong chỉ tiêu DEN_NGAY.",
+        "requirementText": "Không bắt buộc"
       },
       {
         "index": 21,
         "name": "QD_CGKT",
         "format": "Chuỗi",
-        "size": "—",
-        "note": "Số quyết định chuyển giao kỹ thuật",
+        "size": "50",
+        "note": "- Ngày và số, ký hiệu của văn bản giao thực hiện chuyển giao kỹ thuật của người chịu trách nhiệm chuyên môn kỹ thuật của cơ sở khám bệnh, chữa bệnh nơi chuyển giao kỹ thuật, ghi theo định dạng YYYYMMDD_Z (trong đó YYYMMDD là 4 ký tự năm + 2 ký tự tháng + 2 ký tự ngày, Z là số, ký hiệu quyết định).\n- Cơ sở khám bệnh, chữa bệnh chuyển giao dịch vụ kỹ thuật không ghi chỉ tiêu này.",
         "required": false,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "trường hợp có thay đổi thông tin danh mục gửi bảng cập nhật gồm 02 dòng dữ liệu, trong đó dòng thứ nhất ghi thông tin cũ và DEN_NGAY là ngày ngừng áp dụng, dòng thứ 2 ghi thông tin thay đổi và TU_NGAY là ngày bắt đầu áp dụng, để trong chỉ tiêu DEN_NGAY.",
+        "requirementText": "Không bắt buộc"
       },
       {
         "index": 22,
         "name": "TU_NGAY",
-        "format": "Ngày (yyyyMMdd)",
-        "size": "—",
-        "note": "Ngày bắt đầu hiệu lực trong danh mục",
+        "format": "Chuỗi",
+        "size": "8",
+        "note": "- Trường hợp tạo lập danh mục sau khi ký hợp đồng lần đầu: ghi ngày hợp đồng có hiệu lực.\n- Trường hợp cập nhật, điều chỉnh trong quá trình thực hiện hợp đồng: ghi thời điểm gửi văn bản thông báo đến cơ quan bảo hiểm xã hội hoặc ngày cơ sở khám bệnh, chữa bệnh đề nghị trên văn bản thông báo nếu thời điểm đề nghị áp dụng sau ngày nhận được văn bản, định dạng gồm 8 ký tự (4 ký tự năm + 2 ký tự tháng + 2 ký tự ngày).",
         "required": true,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "trường hợp có thay đổi thông tin danh mục gửi bảng cập nhật gồm 02 dòng dữ liệu, trong đó dòng thứ nhất ghi thông tin cũ và DEN_NGAY là ngày ngừng áp dụng, dòng thứ 2 ghi thông tin thay đổi và TU_NGAY là ngày bắt đầu áp dụng, để trong chỉ tiêu DEN_NGAY.",
+        "requirementText": "Bắt buộc"
       },
       {
         "index": 23,
         "name": "DEN_NGAY",
-        "format": "Ngày (yyyyMMdd)",
-        "size": "—",
-        "note": "Ngày kết thúc hiệu lực. Để trống nếu còn công tác",
+        "format": "Chuỗi",
+        "size": "8",
+        "note": "Chỉ ghi khi cập nhật, điều chỉnh thông tin của nhân lực khám bệnh, chữa bệnh hoặc ngừng khám bệnh, chữa bệnh: ghi thời điểm ngừng áp dụng, định dạng gồm 8 ký tự (4 ký tự năm + 2 ký tự tháng + 2 ký tự ngày)",
         "required": false,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "- Trường hợp có thay đổi thông tin danh mục: cơ sở KCB gửi bảng cập nhật gồm 02 dòng dữ liệu, trong đó dòng thứ nhất ghi thông tin cũ và DEN_NGAY là ngày ngừng áp dụng, dòng thứ 2 ghi thông tin thay đổi và TU_NGAY là ngày bắt đầu áp dụng, để trống  chỉ tiêu DEN_NGAY.\n- Trường hợp ngừng hiệu lực: cơ sở KCB cập nhật DEN_NGAY của danh mục=> đồng bộ trạng thái sang PM Giám định; cơ sở KCB không được hiệu chỉnh thông tin đối với danh mục đã hết hiệu lực.",
+        "requirementText": "Không bắt buộc"
       },
       {
         "index": 24,
         "name": "MA_CSKCB",
-        "format": "Chuỗi (5 ký tự)",
-        "size": "—",
-        "note": "Mã cơ sở khám chữa bệnh do BHXH cấp",
+        "format": "Chuỗi",
+        "size": "5",
+        "note": "Mã cơ sở khám bệnh, chữa bệnh",
         "required": true,
-        "duplicate": false,
-        "additionalNote": ""
+        "duplicate": true,
+        "additionalNote": "trường hợp có thay đổi thông tin danh mục gửi bảng cập nhật gồm 02 dòng dữ liệu, trong đó dòng thứ nhất ghi thông tin cũ và DEN_NGAY là ngày ngừng áp dụng, dòng thứ 2 ghi thông tin thay đổi và TU_NGAY là ngày bắt đầu áp dụng, để trong chỉ tiêu DEN_NGAY.",
+        "requirementText": "Bắt buộc"
       }
     ],
     "requiredFields": [
       "STT",
-      "MA_KHOA",
-      "TEN_KHOA",
       "HO_TEN",
       "GIOI_TINH",
       "SO_DINH_DANH",
-      "CHUCDANH_NN",
       "VI_TRI",
-      "MACCHN",
-      "NGAYCAP_CCHN",
-      "NOICAP_CCHN",
-      "PHAMVI_CM",
       "TU_NGAY",
       "MA_CSKCB"
     ],
     "keyFields": [
-      "MA_CSKCB",
-      "STT"
+      "SO_DINH_DANH",
+      "MA_CSKCB"
     ]
   },
   {
@@ -483,372 +511,409 @@
       {
         "index": 1,
         "name": "STT",
-        "format": "Số nguyên",
-        "size": "—",
-        "note": "Số thứ tự tự động tăng dần",
+        "format": "Số",
+        "size": "6",
+        "note": "Số thứ tự",
         "required": true,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "trường hợp có thay đổi thông tin danh mục gửi bảng cập nhật gồm 02 dòng dữ liệu, trong đó dòng thứ nhất ghi thông tin cũ và DEN_NGAY là ngày ngừng áp dụng, dòng thứ 2 ghi thông tin thay đổi và TU_NGAY là ngày bắt đầu áp dụng, để trống chỉ tiêu DEN_NGAY.",
+        "requirementText": "Bắt buộc"
       },
       {
         "index": 2,
         "name": "MA_THUOC",
         "format": "Chuỗi",
-        "size": "—",
-        "note": "Mã thuốc do cơ sở KCB quy định, duy nhất trong danh mục",
+        "size": "255",
+        "note": "Mã thuốc, máu, chế phẩm máu ghi theo hướng dẫn tại Quyết định số 3176/QĐ-BYT của Bộ Y tế",
         "required": true,
         "duplicate": true,
-        "additionalNote": ""
+        "additionalNote": "Ghi mã hoạt chất theo quy định tại Bộ mã danh mục dùng chung do Bộ Y tế ban hành.\nLưu ý:\n- Đối với thuốc do cơ sở KBCB tự bào chế, pha chế: ghi mã thuốc gồm mã các hoạt chất/thành phần, cách nhau bằng dấu cộng \"+\";\n- Khí oxy: ghi mã \"40.17\"; khí NO: ghi mã \"40.573\";\n- Máu và chế phẩm của máu: Ghi theo mã danh mục dùng chung do Bộ trưởng Bộ Y tế ban hành;\n- Đối với máu và chế phẩm của máu có cộng thêm chi phí xét nghiệm kháng thể bất thường: Sau mã máu và chế phẩm của máu ghi thêm 02 ký tự \"KT\", phân cách bằng dấu chấm “.”;\n- Trường hợp máu và chế phẩm của máu có cộng thêm chi phí xét nghiệm acid nucleic (viết tắt là NAT): Sau mã máu và chế phẩm của máu ghi thêm 03 ký tự \"NAT\", phân cách bằng dấu chấm “.”;\n- Trường hợp máu và chế phẩm của máu có cộng thêm chi phí xét nghiệm kháng thể bất thường và xét nghiệm NAT: Sau mã máu và chế phẩm của máu ghi thêm 05 ký tự \"KTNAT\", phân cách bằng dấu chấm “.”;\n- Chi phí bao bì cho thuốc thang: ghi BB.XXXXX, trong đó: \"BB\" là ký hiệu của từ \"bao bì\"; \"XXXXX\" là mã cơ sở KBCB nơi đóng gói thuốc thang;\n- Đối với thuốc do cơ sở KBCB tự bào chế, pha chế: ghi mã thuốc gồm mã các hoạt chất/thành phần, cách nhau bằng dấu cộng \"+\". Các hoạt chất/thành phần của thuốc nằm ngoài danh mục thuốc thuộc phạm vi thanh toán của quỹ BHYT thì ghi mã hoạt chất/thành phần theo cấu trúc YYYY.SĐK, trong đó YYYY là năm cấp số đăng ký lưu hành nguyên liệu làm thuốc và SĐK là số đăng ký lưu hành nguyên liệu làm thuốc.",
+        "requirementText": "Bắt buộc"
       },
       {
         "index": 3,
         "name": "TEN_HOAT_CHAT",
         "format": "Chuỗi",
-        "size": "—",
-        "note": "Tên hoạt chất (tên generic/INN) của thuốc",
+        "size": "1024",
+        "note": "- Tên hoạt chất hoặc thành phần;\n- Đối với thuốc tự bào chế, pha chế: ghi các hoạt chất/thành phần, cách nhau bằng dấu phẩy \",\".\n- Đối với máu, chế phẩm máu: không ghi chỉ tiêu này.",
         "required": true,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "- Tên hoạt chất hoặc thành phần ghi theo kết quả trúng thầu hoặc quyết định mua sắm văn bản thông báo của cơ sở khám bệnh, chữa bệnh gửi cơ quan bảo hiểm xã hội trong trường hợp mua sắm theo khoản 4 Điều 80 Nghị định số 214/2025/NĐ-CP, Điều 49 Nghị định số 188/2025/NĐ-CP.",
+        "requirementText": "Bắt buộc"
       },
       {
         "index": 4,
         "name": "TEN_THUOC",
         "format": "Chuỗi",
-        "size": "—",
-        "note": "Tên thương mại của thuốc",
+        "size": "1024",
+        "note": "- Tên thuốc ghi theo hướng dẫn tại Quyết định số 3176/QĐ-BYT của Bộ Y tế.\n- Tên máu, chế phẩm máu: ghi theo quy định của Bộ Y tế.",
         "required": true,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "Ghi tên thuốc theo đúng tên thuốc được Cục Quản lý Dược hoặc Cục Quản lý Y, dược cổ truyền cấp số đăng ký. \nTrường hợp thuốc do cơ sở KBCB tự bào chế, chế biến thì ghi tên thuốc theo đúng hồ sơ được người đứng đầu cơ sở KBCB phê duyệt.",
+        "requirementText": "Bắt buộc"
       },
       {
         "index": 5,
         "name": "DON_VI_TINH",
         "format": "Chuỗi",
-        "size": "—",
-        "note": "Đơn vị tính nhỏ nhất (Viên, Ống, Chai, Túi,...)",
+        "size": "50",
+        "note": "Đơn vị tính",
         "required": true,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "trường hợp có thay đổi thông tin danh mục gửi bảng cập nhật gồm 02 dòng dữ liệu, trong đó dòng thứ nhất ghi thông tin cũ và DEN_NGAY là ngày ngừng áp dụng, dòng thứ 2 ghi thông tin thay đổi và TU_NGAY là ngày bắt đầu áp dụng, để trống chỉ tiêu DEN_NGAY.",
+        "requirementText": "Bắt buộc"
       },
       {
         "index": 6,
         "name": "HAM_LUONG",
         "format": "Chuỗi",
-        "size": "—",
-        "note": "Hàm lượng/nồng độ hoạt chất",
-        "required": true,
-        "duplicate": false,
-        "additionalNote": ""
+        "size": "1024",
+        "note": "- Hàm lượng của thuốc hoặc thể tích thực của máu, chế phẩm máu.\n- Đối với các loại khí y tế, vị thuốc cổ truyền: không ghi chỉ tiêu này.",
+        "required": false,
+        "duplicate": true,
+        "additionalNote": "- Ghi hàm lượng của thuốc được Cục Quản lý Dược hoặc Cục Quản lý Y, dược cổ truyền cấp giấy đăng ký lưu hành hoặc hàm lượng điều chỉnh theo văn bản của Cục Quản lý Dược hoặc Cục Quản lý Y, dược cổ truyền hoặc do cơ sở KBCB tự bào chế). \n- Trường hợp nếu thuốc có nhiều hoạt chất hoặc thành phần thì ghi hàm lượng của các hoạt chất hoặc thành phần, giữa các hàm lượng cách nhau bằng dấu cộng \"+\";\n- Đối với vị thuốc, bài thuốc y học cổ truyền thì ghi đầy đủ khối lượng của từng dược liệu, vị thuốc; giữa các khối lượng cách nhau bằng dấu cộng \"+\".'Trường hợp một số đăng ký cấp cho nhiều thuốc có cùng hàm lượng nhưng quy cách đóng gói với thể tích/khối lượng khác nhau thì ghi hàm lượng thuốc và thể tích/khối lượng cách nhau bằng dấu \"X\". Ví dụ: thuốc Lipofundin MCT/LCT 20% E (số đăng ký 400110020423), hàm lượng  20%, quy cách đóng gói Chai 100ml; 250ml; 500ml thì ghi chỉ tiêu HAM_LUONG tương ứng với số lượng và đơn giá là \"20%X100ml\", \"20%X250ml\",  \"20%X500ml\".",
+        "requirementText": "Không bắt buộc với MA_THUOC = 40.17 hoặc 40.573; hoặc LOAI_THUOC = 3 hoặc 7"
       },
       {
         "index": 7,
         "name": "DUONG_DUNG",
         "format": "Chuỗi",
-        "size": "—",
-        "note": "Đường dùng thuốc (uống, tiêm, truyền,...)",
+        "size": "255",
+        "note": "- Đường dùng của thuốc hoặc máu, chế phẩm máu.\n- Trường hợp thuốc có nhiều đường dùng thì ghi các dòng thông tin của thuốc tương ứng với mỗi đường dùng.",
         "required": true,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "trường hợp có thay đổi thông tin danh mục gửi bảng cập nhật gồm 02 dòng dữ liệu, trong đó dòng thứ nhất ghi thông tin cũ và DEN_NGAY là ngày ngừng áp dụng, dòng thứ 2 ghi thông tin thay đổi và TU_NGAY là ngày bắt đầu áp dụng, để trống chỉ tiêu DEN_NGAY.",
+        "requirementText": "Bắt buộc"
       },
       {
         "index": 8,
         "name": "MA_DUONG_DUNG",
         "format": "Chuỗi",
-        "size": "—",
-        "note": "Mã đường dùng theo danh mục chuẩn BHXH",
+        "size": "10",
+        "note": "- Mã đường dùng theo danh mục dùng chung do Bộ Y tế ban hành.\n- Trường hợp thuốc có nhiều đường dùng thì ghi các dòng thông tin của thuốc tương ứng với mỗi đường dùng.",
         "required": true,
-        "duplicate": false,
-        "additionalNote": ""
+        "duplicate": true,
+        "additionalNote": "trường hợp có thay đổi thông tin danh mục gửi bảng cập nhật gồm 02 dòng dữ liệu, trong đó dòng thứ nhất ghi thông tin cũ và DEN_NGAY là ngày ngừng áp dụng, dòng thứ 2 ghi thông tin thay đổi và TU_NGAY là ngày bắt đầu áp dụng, để trống chỉ tiêu DEN_NGAY.",
+        "requirementText": "Bắt buộc"
       },
       {
         "index": 9,
         "name": "DANG_BAO_CHE",
         "format": "Chuỗi",
-        "size": "—",
-        "note": "Dạng bào chế của thuốc (viên nén, dung dịch tiêm,...)",
-        "required": true,
+        "size": "1024",
+        "note": "- Dạng bào chế của thuốc ghi theo hướng dẫn tại Quyết định số 3176/QĐ-BYT.\n- Đối với máu, chế phẩm máu: không ghi chỉ tiêu này.",
+        "required": false,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "Ghi dạng bào chế của thuốc (đối với thuốc hoá dược) hoặc dạng bào chế, chế biến của thuốc (đối với thuốc cổ truyền, thuốc dược liệu) theo thông tin được Cục Quản lý Dược hoặc Cục Quản lý Y, dược cổ truyền cấp giấy đăng ký lưu hành. Trường hợp thuốc do cơ sở KBCB tự bào chế, chế biến thì ghi dạng bào chế, chế biến của thuốc theo đúng hồ sơ được người đứng đầu cơ sở KBCB phê duyệt.",
+        "requirementText": "Không bắt buộc đối với LOAI_THUOC = 9 hoặc 10"
       },
       {
         "index": 10,
         "name": "SO_DANG_KY",
         "format": "Chuỗi",
-        "size": "—",
-        "note": "Số đăng ký/visa thuốc do Bộ Y tế cấp",
-        "required": true,
-        "duplicate": false,
-        "additionalNote": ""
+        "size": "1024",
+        "note": "Số đăng ký ghi theo hướng dẫn tại Quyết định số 3176/QĐ-BYT",
+        "required": false,
+        "duplicate": true,
+        "additionalNote": "Ghi số đăng ký lưu hành của thuốc do Cục Quản lý Dược hoặc Cục Quản lý Y, dược cổ truyền cấp phép (giữa các ký tự không có khoảng trống (space)). \nLưu ý:\n- Đối với dược liệu nhập khẩu thì ghi số giấy chứng nhận nguồn gốc, xuất xứ của dược liệu (Giấy chứng nhận C/O) do cơ quan có thẩm quyền của nước xuất khẩu cấp;\n- Đối với dược liệu được cơ sở trong nước nuôi trồng, thu hái hoặc khai thác tự nhiên đạt thực hành tốt nuôi trồng, thu hái dược liệu, khai thác dược liệu tự nhiên thì ghi số Giấy chứng nhận dược liệu đạt GACP;\n- Đối với vị thuốc cổ truyền thì ghi số đăng ký lưu hành của vị thuốc cổ truyền;\n- Đối với thuốc cổ truyền thì ghi số đăng ký lưu hành của thuốc cổ truyền. \n- Trường thông tin này không bắt buộc đối với khí Oxy (mã \"40.17\"); khí Nitric oxid (NO) (mã \"40.573\"); máu và chế phẩm của máu; thuốc thang; thuốc phóng xạ (trừ trường hợp thuốc phóng xạ được Cục Quản lý Dược cấp giấy đăng ký lưu hành);\n- Đối với thuốc tự bào chế, pha chế, chế biến: mã hóa theo chữ cái “HD” (hoá dược) hoặc \"CP\" (chế phẩm) hoặc \"VT\" (vị thuốc) hoặc \"DL\" (dược liệu), mã cơ sở KBCB, hai ký tự cuối của năm ban hành và số thứ tự của thuốc trong danh mục thuốc tự bào chế do thủ trưởng cơ sở KBCB ban hành, cách nhau bằng dấu chấm \".\".\nVí dụ: Chế phẩm y học cổ truyền C được bào chế tại cơ sở khám chữa bệnh B có mã cơ sở khám chữa bệnh là 19010. Thuốc C có số thứ tự trong danh Mục thuốc tự bào chế do thủ trưởng cơ sở khám chữa bệnh ban hành năm 2015 là 3, thì ghi số đăng ký là “CP.19010.15.3”.\n- Trường hợp thuốc chưa được cấp giấy phép đăng ký lưu hành nhưng được cấp giấy phép nhập khẩu do Cục Quản lý Dược hoặc Cục Quản lý Y, dược cổ truyền cấp thì được mã hoá như sau: KD.YYYY.X.S (trong đó KD là kinh doanh, YYYY là năm cấp giấy phép, X là số giấy phép nhập khẩu, S là số thứ tự của thuốc trong giấy phép nhập khẩu).\n- Trường hợp thuốc do cơ sở KBCB tự bào chế, pha chế từ nguyên liệu làm thuốc thì ghi số đăng ký của nguyên liệu làm thuốc.",
+        "requirementText": "Không bắt buộc với LOAI_THUOC = 8 hoặc 9"
       },
       {
         "index": 11,
         "name": "SO_LUONG",
         "format": "Số",
-        "size": "—",
-        "note": "Số lượng thuốc theo hợp đồng thầu",
+        "size": "10",
+        "note": "Số lượng ghi theo kết quả trúng thầu hoặc hình thức mua sắm khác",
         "required": true,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "- Ghi số lượng thuốc tương ứng với các hình thức mua sắm\n- Trường hợp điều tiết, điều chuyển thuốc: ghi số lượng điều tiết, điều chuyển",
+        "requirementText": "Bắt buộc"
       },
       {
         "index": 12,
         "name": "DON_GIA",
         "format": "Số",
-        "size": "—",
-        "note": "Đơn giá mua vào (VNĐ)",
+        "size": "15",
+        "note": "- Đơn giá ghi theo kết quả trúng thầu hoặc hình thức mua sắm khác, tương ứng với đơn vị tính.\n- Đối với thuốc do cơ sở khám bệnh, chữa bệnh tự bào chế, chế biến: là giá do cơ sở khám bệnh, chữa bệnh xây dựng và phê duyệt.",
         "required": true,
-        "duplicate": false,
-        "additionalNote": ""
+        "duplicate": true,
+        "additionalNote": "Trường hợp thay đổi DON_GIA, cơ sở KCB cập nhật dòng dữ liệu mới trong đó chỉ tiêu SO_LUONG ghi số lượng thuốc áp dụng theo DON_GIA mới, dòng dữ liệu với DON_GIA cũ thì tự động điều chỉnh SO_LUONG,  dòng dữ liệu với DON_GIA cũ sẽ tự động điều chỉnh SO_LUONG tương ứng.",
+        "requirementText": "Bắt buộc"
       },
       {
         "index": 13,
         "name": "DON_GIA_BH",
         "format": "Số",
-        "size": "—",
-        "note": "Đơn giá BHYT thanh toán (VNĐ). Nếu = DON_GIA thì để bằng DON_GIA",
+        "size": "10",
+        "note": "Đơn giá thanh toán bảo hiểm y tế ghi theo hướng dẫn tại Quyết định số 3176/QĐ-BYT",
         "required": true,
-        "duplicate": false,
-        "additionalNote": ""
+        "duplicate": true,
+        "additionalNote": "Ghi đơn giá của thuốc, là giá theo hóa đơn mua vào của cơ sở KBCB; làm tròn đến 3 (ba) chữ số thập phân. Sử dụng dấu chấm “.” để phân cách giữa số Nguyên (hàng đơn vị) với số thập phân đầu tiên, trong đó:\n- Đối với thuốc do cơ sở KBCB tự bào chế, chế biến: Đơn giá của thuốc do người đứng đầu cơ sở KBCB xây dựng, phê duyệt và thống nhất với cơ quan BHXH để làm căn cứ thanh toán.\n- Trường hợp thuốc cổ truyền (bao gồm cả vị thuốc cổ truyền), thuốc hoá dược, thuốc phóng xạ (theo Thông tư 43/2017/TT-BYT, Thông tư 27/2020/TT-BYT, Thông tư 20/2022/TT-BYT) thì đơn giá được cộng thêm các chi phí khác (nếu có) theo quy định của Bộ Y tế.\n- Trường hợp thuốc sử dụng thực tế theo đơn vị tính được chia nhỏ hơn đơn vị tính tại quyết định phê duyệt kết quả lựa chọn nhà thầu (ví dụ: đơn vị tính theo đơn vị quốc tế (UI) hoặc mililít (ml)) thì đơn giá phải chia nhỏ theo đơn vị tính tương ứng.\n- Trường hợp thay đổi DON_GIA_BH cập nhật dòng dữ liệu mới xác định cụ thể số lượng đối với DON_GIA_BH mới,  dòng dữ liệu với DON_GIA_BH cũ sẽ tự động điều chỉnh SO_LUONG tương ứng.",
+        "requirementText": "Bắt buộc"
       },
       {
         "index": 14,
         "name": "QUY_CACH",
         "format": "Chuỗi",
-        "size": "—",
-        "note": "Quy cách đóng gói (Hộp 10 vỉ x 10 viên,...)",
+        "size": "1024",
+        "note": "Quy cách đóng gói; chỉ ghi đối với thuốc",
         "required": false,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "trường hợp có thay đổi thông tin danh mục gửi bảng cập nhật gồm 02 dòng dữ liệu, trong đó dòng thứ nhất ghi thông tin cũ và DEN_NGAY là ngày ngừng áp dụng, dòng thứ 2 ghi thông tin thay đổi và TU_NGAY là ngày bắt đầu áp dụng, để trống chỉ tiêu DEN_NGAY.",
+        "requirementText": "Không bắt buộc với LOAI_THUOC = 9 hoặc 10"
       },
       {
         "index": 15,
         "name": "NHA_SX",
         "format": "Chuỗi",
-        "size": "—",
-        "note": "Tên nhà sản xuất thuốc",
+        "size": "1024",
+        "note": "Nhà sản xuất",
         "required": true,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "trường hợp có thay đổi thông tin danh mục gửi bảng cập nhật gồm 02 dòng dữ liệu, trong đó dòng thứ nhất ghi thông tin cũ và DEN_NGAY là ngày ngừng áp dụng, dòng thứ 2 ghi thông tin thay đổi và TU_NGAY là ngày bắt đầu áp dụng, để trống chỉ tiêu DEN_NGAY.",
+        "requirementText": "Bắt buộc"
       },
       {
         "index": 16,
         "name": "NUOC_SX",
         "format": "Chuỗi",
-        "size": "—",
-        "note": "Nước sản xuất thuốc",
+        "size": "100",
+        "note": "Nước sản xuất",
         "required": true,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "trường hợp có thay đổi thông tin danh mục gửi bảng cập nhật gồm 02 dòng dữ liệu, trong đó dòng thứ nhất ghi thông tin cũ và DEN_NGAY là ngày ngừng áp dụng, dòng thứ 2 ghi thông tin thay đổi và TU_NGAY là ngày bắt đầu áp dụng, để trống chỉ tiêu DEN_NGAY.",
+        "requirementText": "Bắt buộc"
       },
       {
         "index": 17,
         "name": "NHA_THAU",
         "format": "Chuỗi",
-        "size": "—",
-        "note": "Tên nhà thầu cung cấp",
+        "size": "1024",
+        "note": "Tên nhà thầu hoặc tên đơn vị cung ứng",
         "required": false,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "trường hợp có thay đổi thông tin danh mục gửi bảng cập nhật gồm 02 dòng dữ liệu, trong đó dòng thứ nhất ghi thông tin cũ và DEN_NGAY là ngày ngừng áp dụng, dòng thứ 2 ghi thông tin thay đổi và TU_NGAY là ngày bắt đầu áp dụng, để trống chỉ tiêu DEN_NGAY.",
+        "requirementText": "Không bắt buộc với LOAI_THUOC = 5 hoặc 6 hoặc 8 hoặc LOAI_THAU =3 hoặc 4 hoặc 5"
       },
       {
         "index": 18,
         "name": "TT_THAU",
         "format": "Chuỗi",
-        "size": "—",
-        "note": "Số hợp đồng/gói thầu",
+        "size": "50",
+        "note": "Thông tin thầu ghi theo hướng dẫn tại Quyết định 3176/QĐ-BYT; chỉ ghi đối với thuốc.",
         "required": false,
-        "duplicate": false,
-        "additionalNote": ""
+        "duplicate": true,
+        "additionalNote": "Ghi thông tin thầu của thuốc theo thứ tự, gồm: Số quyết định phê duyệt kết quả lựa chọn nhà thầu; mã gói thầu; mã nhóm thầu (theo quy định tại Phụ lục số 6 ban hành kèm theo Quyết định số 5937/QĐ-BYT ngày 30 tháng 12 năm 2021 của Bộ trưởng Bộ Y tế); năm ban hành quyết định phê duyệt kết quả lựa chọn nhà thầu. Các thông tin này cách nhau bằng dấu chấm phẩy “;”.\nLưu ý:\n- Trường hợp có hai nhà thầu cùng trúng thầu một thuốc thì bổ sung mã gói thầu và số thứ tự nhà thầu trúng thầu của đơn vị đấu thầu, với định dạng Gi.YY, trong đó: \"i\" là số gói thầu, YY là số thứ tự của nhà thầu trúng thầu trong quyết định của cơ quan có thẩm quyền phê duyệt kết quả trúng thầu, cách nhau bằng dấu chấm phẩy “;”.\n- Trường hợp áp thầu thì bổ sung mã đơn vị ban hành quyết định. Trong đó: Trung tâm mua sắm tập trung (TTMSTT) quốc gia, đơn vị thực hiện đàm phán giá là mã \"00\"; trường hợp các tỉnh, thành phố đấu thầu tập trung thì lấy mã tỉnh, thành phố; trường hợp cơ sở KCB đấu thầu thì lấy mã cơ sở KCB), cách nhau bằng dấu chấm phẩy “;”.\n- Trường hợp thuốc tự bào chế, pha chế, chế biến thì ghi thông tin thầu như sau: Số quyết định;XXXX, trong đó số quyết định là số văn bản gửi cơ quan BHXH, XXXX là năm ban hành văn bản.\nVí dụ (4): Chế phẩm Cao thấp khớp do BV YHCT Trung ương tự bào chế năm 2023, BV YHCT TW có văn bản số 456/BVYHCTTW-BH gửi BHXH TP Hà Nội thì mã hoá thông tin thầu của chế phẩm như sau: 456/BVYHCTTW-BH;2023\n- Trường hợp do thiên tai, dịch bệnh phải chuyển thuốc đến cơ sở KBCB khác để điều trị cho người bệnh hoặc thuốc thanh toán ngoài giá dịch vụ cận lâm sàng chuyển thực hiện tại cơ sở KBCB khác thì ghi thông tin thầu của thuốc theo thông tin tại cơ sở KBCB chuyển thuốc hoặc nơi thực hiện dịch vụ cận lâm sàng.",
+        "requirementText": "Không bắt buộc với LOAI_THUOC = 9 hoặc 10"
       },
       {
         "index": 19,
         "name": "TU_NGAY_HD",
-        "format": "Ngày (yyyyMMdd)",
-        "size": "—",
-        "note": "Ngày bắt đầu hiệu lực hợp đồng thầu",
+        "format": "Chuỗi",
+        "size": "8",
+        "note": "Thời điểm có hiệu lực hợp đồng cung ứng, ghi theo định dạng 8 ký tự (4 ký tự năm + 2 ký tự tháng + 2 ký tự ngày)",
         "required": false,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "trường hợp có thay đổi thông tin danh mục gửi bảng cập nhật gồm 02 dòng dữ liệu, trong đó dòng thứ nhất ghi thông tin cũ và DEN_NGAY là ngày ngừng áp dụng, dòng thứ 2 ghi thông tin thay đổi và TU_NGAY là ngày bắt đầu áp dụng, để trống chỉ tiêu DEN_NGAY.",
+        "requirementText": "Không bắt buộc"
       },
       {
         "index": 20,
         "name": "DEN_NGAY_HD",
-        "format": "Ngày (yyyyMMdd)",
-        "size": "—",
-        "note": "Ngày kết thúc hiệu lực hợp đồng thầu",
+        "format": "Chuỗi",
+        "size": "8",
+        "note": "Thời điểm hết hiệu lực của hợp đồng cung ứng, ghi theo định dạng 8 ký tự (4 ký tự năm + 2 ký tự tháng + 2 ký tự ngày).",
         "required": false,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "trường hợp có thay đổi thông tin danh mục gửi bảng cập nhật gồm 02 dòng dữ liệu, trong đó dòng thứ nhất ghi thông tin cũ và DEN_NGAY là ngày ngừng áp dụng, dòng thứ 2 ghi thông tin thay đổi và TU_NGAY là ngày bắt đầu áp dụng, để trống chỉ tiêu DEN_NGAY.",
+        "requirementText": "Không bắt buộc"
       },
       {
         "index": 21,
         "name": "MA_CSKCB",
-        "format": "Chuỗi (5 ký tự)",
-        "size": "—",
-        "note": "Mã cơ sở KCB thực hiện đấu thầu",
+        "format": "Chuỗi",
+        "size": "5",
+        "note": "Mã cơ sở khám bệnh, chữa bệnh",
         "required": true,
-        "duplicate": false,
-        "additionalNote": ""
+        "duplicate": true,
+        "additionalNote": "trường hợp có thay đổi thông tin danh mục gửi bảng cập nhật gồm 02 dòng dữ liệu, trong đó dòng thứ nhất ghi thông tin cũ và DEN_NGAY là ngày ngừng áp dụng, dòng thứ 2 ghi thông tin thay đổi và TU_NGAY là ngày bắt đầu áp dụng, để trống chỉ tiêu DEN_NGAY.",
+        "requirementText": "Bắt buộc"
       },
       {
         "index": 22,
         "name": "LOAI_THUOC",
-        "format": "Chuỗi",
-        "size": "—",
-        "note": "Phân loại thuốc: 1-Thuốc tân dược, 2-Thuốc YHCT, 3-Chế phẩm máu, 4-Máu",
+        "format": "Số",
+        "size": "2",
+        "note": "Cách ghi loại thuốc “1”: tân dược; “2”: chế phẩm; “3”: vị thuốc; “4”: phóng xạ; “5”: tân dược tự bào chế; “6”: chế phẩm tự bào chế; “7”: dược liệu; “8”: vị thuốc tự bào chế, “9”: máu, “10”: chế phẩm máu",
         "required": true,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "trường hợp có thay đổi thông tin danh mục gửi bảng cập nhật gồm 02 dòng dữ liệu, trong đó dòng thứ nhất ghi thông tin cũ và DEN_NGAY là ngày ngừng áp dụng, dòng thứ 2 ghi thông tin thay đổi và TU_NGAY là ngày bắt đầu áp dụng, để trống chỉ tiêu DEN_NGAY.",
+        "requirementText": "Bắt buộc"
       },
       {
         "index": 23,
         "name": "LOAI_THAU",
-        "format": "Chuỗi",
-        "size": "—",
-        "note": "Loại hình đấu thầu (1-Tập trung QG, 2-Tập trung ĐP, 3-Tự tổ chức, 4-Đàm phán giá, 5-Mua sắm trực tiếp)",
-        "required": false,
-        "duplicate": false,
-        "additionalNote": ""
+        "format": "Số",
+        "size": "1",
+        "note": "Cách ghi loại thầu “1”: thầu tập trung; “2”: thầu riêng tại cơ sở khám bệnh, chữa bệnh; “3”: tự pha chế, bào chế, chế biến; “4”: mua sắm theo Điều 49 Nghị định số 188/2025/NĐ-CP; “5”: mua sắm theo khoản 4 Điều 80 Nghị định số 214/2025/NĐ-CP; “6”: tùy chọn mua thêm; “7”: nhận điều chuyển, điều tiết thuốc",
+        "required": true,
+        "duplicate": true,
+        "additionalNote": "trường hợp có thay đổi thông tin danh mục gửi bảng cập nhật gồm 02 dòng dữ liệu, trong đó dòng thứ nhất ghi thông tin cũ và DEN_NGAY là ngày ngừng áp dụng, dòng thứ 2 ghi thông tin thay đổi và TU_NGAY là ngày bắt đầu áp dụng, để trống chỉ tiêu DEN_NGAY.",
+        "requirementText": "Bắt buộc"
       },
       {
         "index": 24,
         "name": "HT_THAU",
-        "format": "Chuỗi",
-        "size": "—",
-        "note": "Hình thức đấu thầu (rộng rãi, hạn chế, chỉ định,...)",
+        "format": "Số",
+        "size": "1",
+        "note": "- Cách ghi hình thức thầu “1”: đấu thầu rộng rãi; “2”: đấu thầu hạn chế; “3”: chỉ định thầu; “4”: chào hành cạnh tranh; “5”: mua sắm trực tiếp; “6”: lựa chọn nhà thầu trong trường hợp đặc biệt; “7”: đàm phán giá; “8”: chào giá trực tuyến; “9”: mua sắm trực tuyến).\n- Không ghi chỉ tiêu này nếu LOAI_THAU = 3 hoặc 4 hoặc 5 hoặc 7.",
         "required": false,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "trường hợp có thay đổi thông tin danh mục gửi bảng cập nhật gồm 02 dòng dữ liệu, trong đó dòng thứ nhất ghi thông tin cũ và DEN_NGAY là ngày ngừng áp dụng, dòng thứ 2 ghi thông tin thay đổi và TU_NGAY là ngày bắt đầu áp dụng, để trống chỉ tiêu DEN_NGAY.",
+        "requirementText": "Không bắt buộc nếu LOAI_THAU = 3 hoặc 4 hoặc 5 hoặc 7"
       },
       {
         "index": 25,
         "name": "MA_DVKT",
         "format": "Chuỗi",
-        "size": "—",
-        "note": "Mã dịch vụ kỹ thuật liên quan (nếu là chế phẩm máu/máu)",
+        "size": "1024",
+        "note": "Mã dịch vụ kỹ thuật có sử dụng thuốc phóng xạ, chất đánh dấu. Ghi 07 ký tự đầu của mã dịch vụ kỹ thuật theo danh mục dùng chung do Bộ Y tế ban hành. Trường hợp thực hiện nhiều dịch vụ kỹ thuật ghi các mã cách nhau bằng dấu chấm phẩy \";\"",
         "required": false,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "trường hợp có thay đổi thông tin danh mục gửi bảng cập nhật gồm 02 dòng dữ liệu, trong đó dòng thứ nhất ghi thông tin cũ và DEN_NGAY là ngày ngừng áp dụng, dòng thứ 2 ghi thông tin thay đổi và TU_NGAY là ngày bắt đầu áp dụng, để trống chỉ tiêu DEN_NGAY.",
+        "requirementText": "Không bắt buộc"
       },
       {
         "index": 26,
         "name": "TCCL",
         "format": "Chuỗi",
-        "size": "—",
-        "note": "Tiêu chuẩn chất lượng thuốc (GMP, WHO-GMP,...)",
+        "size": "50",
+        "note": "Tiêu chuẩn chất lượng hoặc số công bố tiêu chuẩn chất lượng đối với dược liệu theo quy định của Bộ Y tế",
         "required": false,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "trường hợp có thay đổi thông tin danh mục gửi bảng cập nhật gồm 02 dòng dữ liệu, trong đó dòng thứ nhất ghi thông tin cũ và DEN_NGAY là ngày ngừng áp dụng, dòng thứ 2 ghi thông tin thay đổi và TU_NGAY là ngày bắt đầu áp dụng, để trống chỉ tiêu DEN_NGAY.",
+        "requirementText": "Không bắt buộc"
       },
       {
         "index": 27,
         "name": "BO_PHAN_VT",
-        "format": "Chuỗi",
-        "size": "—",
-        "note": "Bộ phận sử dụng vật tư (áp dụng cho thuốc YHCT)",
+        "format": "Số",
+        "size": "1",
+        "note": "Cách ghi bộ phận sử dụng của vị thuốc, dược liệu “1”: rễ; “2”: thân rễ; “3”: quả; “4”: hạt; “5”: vỏ; “6”: khác",
         "required": false,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "trường hợp có thay đổi thông tin danh mục gửi bảng cập nhật gồm 02 dòng dữ liệu, trong đó dòng thứ nhất ghi thông tin cũ và DEN_NGAY là ngày ngừng áp dụng, dòng thứ 2 ghi thông tin thay đổi và TU_NGAY là ngày bắt đầu áp dụng, để trống chỉ tiêu DEN_NGAY.",
+        "requirementText": "Không bắt buộc"
       },
       {
         "index": 28,
         "name": "TEN_KHOA_HOC",
         "format": "Chuỗi",
-        "size": "—",
-        "note": "Tên khoa học của dược liệu (thuốc YHCT)",
+        "size": "500",
+        "note": "Tên khoa học của vị thuốc, dược liệu",
         "required": false,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "trường hợp có thay đổi thông tin danh mục gửi bảng cập nhật gồm 02 dòng dữ liệu, trong đó dòng thứ nhất ghi thông tin cũ và DEN_NGAY là ngày ngừng áp dụng, dòng thứ 2 ghi thông tin thay đổi và TU_NGAY là ngày bắt đầu áp dụng, để trống chỉ tiêu DEN_NGAY.",
+        "requirementText": "Không bắt buộc"
       },
       {
         "index": 29,
         "name": "NGUON_GOC",
         "format": "Chuỗi",
-        "size": "—",
-        "note": "Nguồn gốc dược liệu (thuốc YHCT: trồng trọt, thu hái tự nhiên,...)",
+        "size": "500",
+        "note": "Nguồn gốc của vị thuốc, dược liệu",
         "required": false,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "trường hợp có thay đổi thông tin danh mục gửi bảng cập nhật gồm 02 dòng dữ liệu, trong đó dòng thứ nhất ghi thông tin cũ và DEN_NGAY là ngày ngừng áp dụng, dòng thứ 2 ghi thông tin thay đổi và TU_NGAY là ngày bắt đầu áp dụng, để trống chỉ tiêu DEN_NGAY.",
+        "requirementText": "Không bắt buộc"
       },
       {
         "index": 30,
         "name": "PP_CHEBIEN",
         "format": "Chuỗi",
-        "size": "—",
-        "note": "Phương pháp chế biến dược liệu (thuốc YHCT)",
+        "size": "1024",
+        "note": "Mã phương pháp chế biến vị thuốc cổ truyền theo danh mục dùng chung do Bộ Y tế ban hành. Trường hợp thực hiện nhiều phương pháp chế biến ghi các mã cách nhau bằng dấu chấm phẩy \";\".",
         "required": false,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "Mã phương pháp chế biến ghi theo Phục lục 3 Quyết định số 824/QĐ-BYT",
+        "requirementText": "Không bắt buộc"
       },
       {
         "index": 31,
         "name": "MA_DL_NHAP",
         "format": "Chuỗi",
-        "size": "—",
-        "note": "Mã dược liệu nguyên liệu nhập (thuốc YHCT)",
+        "size": "3",
+        "note": "Tình trạng vị thuốc, dược liệu khi mua sắm theo Danh mục mã phương pháp chế biến vị thuốc y học cổ truyền do Bộ Y tế ban hành.",
         "required": false,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "Tình trạng vị thuốc, dược liệu khi mua sắm ghi theo Mã phương pháp chế biến ghi theo Phục lục 3 Quyết định số 824/QĐ-BYT",
+        "requirementText": "Không bắt buộc"
       },
       {
         "index": 32,
         "name": "MA_DL_CB",
         "format": "Chuỗi",
-        "size": "—",
-        "note": "Mã dược liệu đã chế biến (thuốc YHCT)",
+        "size": "3",
+        "note": "Tình trạng dược liệu được cơ sở khám bệnh, chữa bệnh trực tiếp chế biến theo Danh mục mã phương pháp chế biến vị thuốc y học cổ truyền do Bộ Y tế ban hành. Trường hợp cơ sở khám bệnh, chữa bệnh không chế biến vị thuốc: không ghi chỉ tiêu này.",
         "required": false,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "Tình trạng dược liệu được cơ sở khám bệnh, chữa bệnh trực tiếp chế biến ghi theo Mã phương pháp chế biến ghi theo Phục lục 3 Quyết định số 824/QĐ-BYT",
+        "requirementText": "Không bắt buộc"
       },
       {
         "index": 33,
         "name": "TLHH_CB",
         "format": "Số",
-        "size": "—",
-        "note": "Tỷ lệ hao hụt khi chế biến (%)",
+        "size": "4",
+        "note": "Tỷ lệ hao hụt trong chế biến đối với vị thuốc, dược liệu",
         "required": false,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "trường hợp có thay đổi thông tin danh mục gửi bảng cập nhật gồm 02 dòng dữ liệu, trong đó dòng thứ nhất ghi thông tin cũ và DEN_NGAY là ngày ngừng áp dụng, dòng thứ 2 ghi thông tin thay đổi và TU_NGAY là ngày bắt đầu áp dụng, để trống chỉ tiêu DEN_NGAY.",
+        "requirementText": "Không bắt buộc"
       },
       {
         "index": 34,
         "name": "TLHH_BQ",
         "format": "Số",
-        "size": "—",
-        "note": "Tỷ lệ hao hụt khi bảo quản (%)",
+        "size": "4",
+        "note": "Tỷ lệ hao hụt do bảo quản, cân chia đối với vị thuốc, dược liệu",
         "required": false,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "trường hợp có thay đổi thông tin danh mục gửi bảng cập nhật gồm 02 dòng dữ liệu, trong đó dòng thứ nhất ghi thông tin cũ và DEN_NGAY là ngày ngừng áp dụng, dòng thứ 2 ghi thông tin thay đổi và TU_NGAY là ngày bắt đầu áp dụng, để trống chỉ tiêu DEN_NGAY.",
+        "requirementText": "Không bắt buộc"
       },
       {
         "index": 35,
         "name": "MA_CSKCB_THUOC",
-        "format": "Chuỗi (5 ký tự)",
-        "size": "—",
-        "note": "Mã cơ sở KCB quản lý danh mục thuốc",
+        "format": "Chuỗi",
+        "size": "5",
+        "note": "Trường hợp nhận thuốc chuyển, điều tiết đến từ cơ sở khám bệnh, chữa bệnh khác thì ghi C.XXXXX (XXXXX là mã cơ sở khám bệnh, chữa bệnh nơi chuyển thuốc đi)",
         "required": false,
-        "duplicate": false,
-        "additionalNote": ""
+        "duplicate": true,
+        "additionalNote": "trường hợp có thay đổi thông tin danh mục gửi bảng cập nhật gồm 02 dòng dữ liệu, trong đó dòng thứ nhất ghi thông tin cũ và DEN_NGAY là ngày ngừng áp dụng, dòng thứ 2 ghi thông tin thay đổi và TU_NGAY là ngày bắt đầu áp dụng, để trống chỉ tiêu DEN_NGAY.",
+        "requirementText": "Không bắt buộc"
       },
       {
         "index": 36,
         "name": "TU_NGAY",
-        "format": "Ngày (yyyyMMdd)",
-        "size": "—",
-        "note": "Ngày bắt đầu hiệu lực trong danh mục",
+        "format": "Chuỗi",
+        "size": "8",
+        "note": "Định dạng gồm 8 ký tự (4 ký tự năm + 2 ký tự tháng + 2 ký tự ngày).\n- Trường hợp tạo lập danh mục sau khi ký hợp đồng lần đầu: ghi ngày hợp đồng có hiệu lực nhưng không sớm hơn thời điểm có hiệu lực của hợp đồng mua sắm hoặc thời điểm mua sắm theo quy định tại Điều 49 Nghị định số 188/2025/NĐ-CP hoặc khoản 4 Điều 80 Nghị định số 214/2025/NĐ-CP.\n- Trường hợp cập nhật, điều chỉnh trong quá trình thực hiện hợp đồng: ghi thời điểm gửi văn bản thông báo đến cơ quan bảo hiểm xã hội hoặc ngày cơ sở khám bệnh, chữa bệnh đề nghị trên văn bản thông báo nếu thời điểm đề nghị áp dụng sau ngày nhận được văn bản.\n- Trường hợp mua sắm thuốc để cấp cứu người bệnh trong tình trạng cấp cứu theo quy định tại điểm đ khoản 1 Điều 78 và khoản 4 Điều 80 Nghị định số 214/2025/NĐ-CP: ghi ngày trên hóa đơn của cơ sở khám bệnh, chữa bệnh.",
         "required": true,
-        "duplicate": false,
-        "additionalNote": ""
+        "duplicate": true,
+        "additionalNote": "trường hợp có thay đổi thông tin danh mục gửi bảng cập nhật gồm 02 dòng dữ liệu, trong đó dòng thứ nhất ghi thông tin cũ và DEN_NGAY là ngày ngừng áp dụng, dòng thứ 2 ghi thông tin thay đổi và TU_NGAY là ngày bắt đầu áp dụng, để trống chỉ tiêu DEN_NGAY.",
+        "requirementText": "Bắt buộc"
       },
       {
         "index": 37,
         "name": "DEN_NGAY",
-        "format": "Ngày (yyyyMMdd)",
-        "size": "—",
-        "note": "Ngày kết thúc hiệu lực. Để trống nếu còn sử dụng",
+        "format": "Chuỗi",
+        "size": "8",
+        "note": "Chỉ ghi khi cập nhật, điều chỉnh thông tin hoặc ngừng sử dụng: ghi thời điểm ngừng áp dụng, định dạng gồm 8 ký tự (4 ký tự năm + 2 ký tự tháng + 2 ký tự ngày).",
         "required": false,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "Trường hợp có thay đổi thông tin danh mục: cơ sở KCB gửi bảng cập nhật gồm 02 dòng dữ liệu, trong đó dòng thứ nhất ghi thông tin cũ và DEN_NGAY là ngày ngừng áp dụng, dòng thứ 2 ghi thông tin thay đổi và TU_NGAY là ngày bắt đầu áp dụng, để trống  chỉ tiêu DEN_NGAY.\n- Trường hợp ngừng hiệu lực: cơ sở KCB cập nhật DEN_NGAY của danh mục=> đồng bộ trạng thái sang PM Giám định; cơ sở KCB không được hiệu chỉnh thông tin đối với danh mục đã hết hiệu lực.",
+        "requirementText": "Không bắt buộc"
       }
     ],
     "requiredFields": [
@@ -857,11 +922,8 @@
       "TEN_HOAT_CHAT",
       "TEN_THUOC",
       "DON_VI_TINH",
-      "HAM_LUONG",
       "DUONG_DUNG",
       "MA_DUONG_DUNG",
-      "DANG_BAO_CHE",
-      "SO_DANG_KY",
       "SO_LUONG",
       "DON_GIA",
       "DON_GIA_BH",
@@ -869,11 +931,21 @@
       "NUOC_SX",
       "MA_CSKCB",
       "LOAI_THUOC",
+      "LOAI_THAU",
       "TU_NGAY"
     ],
     "keyFields": [
       "MA_THUOC",
-      "MA_CSKCB"
+      "HAM_LUONG",
+      "MA_DUONG_DUNG",
+      "SO_DANG_KY",
+      "DON_GIA",
+      "DON_GIA_BH",
+      "TT_THAU",
+      "MA_CSKCB",
+      "LOAI_THAU",
+      "MA_CSKCB_THUOC",
+      "TU_NGAY"
     ]
   },
   {
@@ -913,281 +985,319 @@
       {
         "index": 1,
         "name": "STT",
-        "format": "Số nguyên",
-        "size": "—",
-        "note": "Số thứ tự tự động tăng dần",
-        "required": true,
+        "format": "Số",
+        "size": "10",
+        "note": "Số thứ tự",
+        "required": false,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "trường hợp có thay đổi thông tin danh mục gửi bảng cập nhật gồm 02 dòng dữ liệu, trong đó dòng thứ nhất ghi thông tin cũ và DEN_NGAY là ngày ngừng áp dụng, dòng thứ 2 ghi thông tin thay đổi và TU_NGAY là ngày bắt đầu áp dụng, để trống chỉ tiêu DEN_NGAY.",
+        "requirementText": "Không bắt buộc"
       },
       {
         "index": 2,
         "name": "MA_VAT_TU",
         "format": "Chuỗi",
-        "size": "—",
-        "note": "Mã vật tư y tế do cơ sở KCB quy định, duy nhất trong danh mục",
+        "size": "50",
+        "note": "Mã theo danh mục dùng chung do Bộ Y tế ban hành đối với thiết bị y tế ban hành kèm theo các Thông tư số 04/2017/TT-BYT và 24/2025/TT-BYT",
         "required": true,
         "duplicate": true,
-        "additionalNote": ""
+        "additionalNote": "trường hợp có thay đổi thông tin danh mục gửi bảng cập nhật gồm 02 dòng dữ liệu, trong đó dòng thứ nhất ghi thông tin cũ và DEN_NGAY là ngày ngừng áp dụng, dòng thứ 2 ghi thông tin thay đổi và TU_NGAY là ngày bắt đầu áp dụng, để trống chỉ tiêu DEN_NGAY.",
+        "requirementText": "Bắt buộc"
       },
       {
         "index": 3,
         "name": "NHOM_VAT_TU",
         "format": "Chuỗi",
-        "size": "—",
-        "note": "Nhóm phân loại vật tư y tế (theo phụ lục TT)",
-        "required": false,
+        "size": "1024",
+        "note": "Tên nhóm thiết bị y tế theo quy định tại Thông tư số 04/2017/TT-BYT và Thông tư số 24/2025/TT-BYT",
+        "required": true,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "trường hợp có thay đổi thông tin danh mục gửi bảng cập nhật gồm 02 dòng dữ liệu, trong đó dòng thứ nhất ghi thông tin cũ và DEN_NGAY là ngày ngừng áp dụng, dòng thứ 2 ghi thông tin thay đổi và TU_NGAY là ngày bắt đầu áp dụng, để trống chỉ tiêu DEN_NGAY.",
+        "requirementText": "Bắt buộc"
       },
       {
         "index": 4,
         "name": "TEN_VAT_TU",
         "format": "Chuỗi",
-        "size": "—",
-        "note": "Tên đầy đủ của vật tư y tế",
+        "size": "n",
+        "note": "Tên thương mại ghi theo quyết định trúng thầu hoặc hình thức mua sắm khác",
         "required": true,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "trường hợp có thay đổi thông tin danh mục gửi bảng cập nhật gồm 02 dòng dữ liệu, trong đó dòng thứ nhất ghi thông tin cũ và DEN_NGAY là ngày ngừng áp dụng, dòng thứ 2 ghi thông tin thay đổi và TU_NGAY là ngày bắt đầu áp dụng, để trống chỉ tiêu DEN_NGAY.",
+        "requirementText": "Bắt buộc"
       },
       {
         "index": 5,
         "name": "MA_HIEU",
         "format": "Chuỗi",
-        "size": "—",
-        "note": "Mã hiệu/model của vật tư",
-        "required": false,
-        "duplicate": false,
-        "additionalNote": ""
+        "size": "n",
+        "note": "Mã hiệu ghi theo hướng dẫn tại Quyết định 3176/QĐ-BYT",
+        "required": true,
+        "duplicate": true,
+        "additionalNote": "- Ghi mã hiệu sản phẩm của TBYT, là mã hiệu do Công ty sản xuất tự đặt cho sản phẩm của mình. Mã hiệu có thể là số Model sản phẩm hoặc số Serial hoặc số EMEI được in trên sản phẩm hoặc bao bì sản phẩm. \nMã hiệu sản phẩm chỉ bắt buộc đối với TBYT có thông tin mã hiệu sản phẩm.\n- Trường hợp TBYT có nhiều mã hiệu: ghi các mã hiệu cách nhau bằng dấu chấm phẩy \";\".",
+        "requirementText": "Bắt buộc"
       },
       {
         "index": 6,
         "name": "SO_LUU_HANH",
         "format": "Chuỗi",
-        "size": "—",
-        "note": "Số giấy phép lưu hành/đăng ký lưu hành",
-        "required": false,
-        "duplicate": false,
-        "additionalNote": ""
+        "size": "20",
+        "note": "Số lưu hành của thiết bị y tế theo quy định tại Nghị định số 07/2023/NĐ-CP",
+        "required": true,
+        "duplicate": true,
+        "additionalNote": "trường hợp có thay đổi thông tin danh mục gửi bảng cập nhật gồm 02 dòng dữ liệu, trong đó dòng thứ nhất ghi thông tin cũ và DEN_NGAY là ngày ngừng áp dụng, dòng thứ 2 ghi thông tin thay đổi và TU_NGAY là ngày bắt đầu áp dụng, để trống chỉ tiêu DEN_NGAY.",
+        "requirementText": "Bắt buộc"
       },
       {
         "index": 7,
         "name": "TINHNANG_KT",
         "format": "Chuỗi",
-        "size": "—",
-        "note": "Mô tả tính năng kỹ thuật, thông số chính",
-        "required": false,
+        "size": "n",
+        "note": "Cấu hình, tính năng kỹ thuật cơ bản của thiết bị y tế (ví dụ: kích thước, cấu tạo, vật liệu...)",
+        "required": true,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "Ghi theo quyết định trúng thầu hoặc hình thức mua sắm khác",
+        "requirementText": "Bắt buộc"
       },
       {
         "index": 8,
         "name": "QUY_CACH",
         "format": "Chuỗi",
-        "size": "—",
-        "note": "Quy cách đóng gói (Hộp, Thùng,...)",
-        "required": false,
+        "size": "1024",
+        "note": "Quy cách đóng gói",
+        "required": true,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "trường hợp có thay đổi thông tin danh mục gửi bảng cập nhật gồm 02 dòng dữ liệu, trong đó dòng thứ nhất ghi thông tin cũ và DEN_NGAY là ngày ngừng áp dụng, dòng thứ 2 ghi thông tin thay đổi và TU_NGAY là ngày bắt đầu áp dụng, để trống chỉ tiêu DEN_NGAY.",
+        "requirementText": "Bắt buộc"
       },
       {
         "index": 9,
         "name": "HANG_SX",
         "format": "Chuỗi",
-        "size": "—",
-        "note": "Tên hãng/nhà sản xuất vật tư",
-        "required": true,
+        "size": "1024",
+        "note": "Tên hãng sản xuất",
+        "required": false,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "trường hợp có thay đổi thông tin danh mục gửi bảng cập nhật gồm 02 dòng dữ liệu, trong đó dòng thứ nhất ghi thông tin cũ và DEN_NGAY là ngày ngừng áp dụng, dòng thứ 2 ghi thông tin thay đổi và TU_NGAY là ngày bắt đầu áp dụng, để trống chỉ tiêu DEN_NGAY.",
+        "requirementText": "Không bắt buộc với LOAI_THAU = 3"
       },
       {
         "index": 10,
         "name": "NUOC_SX",
         "format": "Chuỗi",
-        "size": "—",
-        "note": "Quốc gia sản xuất vật tư",
-        "required": true,
+        "size": "100",
+        "note": "Tên nước sản xuất",
+        "required": false,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "trường hợp có thay đổi thông tin danh mục gửi bảng cập nhật gồm 02 dòng dữ liệu, trong đó dòng thứ nhất ghi thông tin cũ và DEN_NGAY là ngày ngừng áp dụng, dòng thứ 2 ghi thông tin thay đổi và TU_NGAY là ngày bắt đầu áp dụng, để trống chỉ tiêu DEN_NGAY.",
+        "requirementText": "Không bắt buộc với LOAI_THAU = 3"
       },
       {
         "index": 11,
         "name": "DON_VI_TINH",
         "format": "Chuỗi",
-        "size": "—",
-        "note": "Đơn vị tính nhỏ nhất (Cái, Bộ, Chiếc,...)",
+        "size": "50",
+        "note": "Đơn vị tính",
         "required": true,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "trường hợp có thay đổi thông tin danh mục gửi bảng cập nhật gồm 02 dòng dữ liệu, trong đó dòng thứ nhất ghi thông tin cũ và DEN_NGAY là ngày ngừng áp dụng, dòng thứ 2 ghi thông tin thay đổi và TU_NGAY là ngày bắt đầu áp dụng, để trống chỉ tiêu DEN_NGAY.",
+        "requirementText": "Bắt buộc"
       },
       {
         "index": 12,
         "name": "DON_GIA",
         "format": "Số",
-        "size": "—",
-        "note": "Đơn giá mua vào (VNĐ)",
+        "size": "10",
+        "note": "- Đơn giá ghi theo kết quả trúng thầu hoặc hình thức mua sắm khác, tương ứng với đơn vị tính\n- Trường hợp thiết bị y tế do cơ sở khám bệnh, chữa bệnh tự sản xuất: là giá do cơ sở khám bệnh, chữa bệnh xây dựng và phê duyệt.",
         "required": true,
-        "duplicate": false,
-        "additionalNote": ""
+        "duplicate": true,
+        "additionalNote": "Trường hợp thay đổi DON_GIA, cơ sở KCB cập nhật dòng dữ liệu mới trong đó chỉ tiêu SO_LUONG ghi số lượng thuốc áp dụng theo DON_GIA mới, dòng dữ liệu với DON_GIA cũ sẽ tự động điều chỉnh SO_LUONG tương ứng",
+        "requirementText": "Bắt buộc"
       },
       {
         "index": 13,
         "name": "DON_GIA_BH",
         "format": "Số",
-        "size": "—",
-        "note": "Đơn giá BHYT thanh toán (VNĐ)",
+        "size": "10",
+        "note": "Đơn giá thanh toán bảo hiểm y tế theo hướng dẫn tại Quyết định số 3176/QĐ-BYT",
         "required": true,
-        "duplicate": false,
-        "additionalNote": ""
+        "duplicate": true,
+        "additionalNote": "- Ghi đơn giá làm tròn đến 3 (ba) chữ số thập phân. Sử dụng dấu chấm “.” để phân cách giữa số Nguyên (hàng đơn vị) với số thập phân đầu tiên.\n- Đối với TBYT: Ghi đơn giá đấu thầu, mua sắm TBYT hoặc giá thanh toán TBYT tại cơ sở KBCB tư nhân theo quy định;\n- Trường hợp TBYT có quy định mức thanh toán BHYT và đơn giá mua vào (DON_GIA_BV) cao hơn mức thanh toán BHYT thì DON_GIA_BH = T_TRANTT, trường hợp TBYT có quy định mức thanh toán BHYT và đơn giá mua vào (DON_GIA_BV) không cao hơn mức thanh toán BHYT thì DON_GIA_BH = DON_GIA_BV;\n- Trường hợp TBYT tái sử dụng: DON_GIA_BH là giá thanh toán của 1 lần tái sử dụng TBYT;\n- Trường hợp thay đổi DON_GIA_BH, cơ sở KCB cập nhật dòng dữ liệu mới trong đó chỉ tiêu SO_LUONG ghi số lượng áp dụng theo DON_GIA_BH mới, dòng dữ liệu với DON_GIA cũ sẽ tự động điều chỉnh SO_LUONG tương ứng.",
+        "requirementText": "Bắt buộc"
       },
       {
         "index": 14,
         "name": "TYLE_TT_BH",
         "format": "Số",
-        "size": "—",
-        "note": "Tỷ lệ thanh toán BHYT (%). VD: 100, 80, 50",
+        "size": "3",
+        "note": "Tỷ lệ thanh toán bảo hiểm y tế đối với thiết bị y tế có quy định tỷ lệ (%), biểu thị bằng số nguyên dương. Ví dụ: tỷ lệ thanh toán của thiết bị y tế là 50% thì ghi là 50, thiết bị y tế không quy định tỷ lệ thanh toán thì ghi 100.",
         "required": true,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "trường hợp có thay đổi thông tin danh mục gửi bảng cập nhật gồm 02 dòng dữ liệu, trong đó dòng thứ nhất ghi thông tin cũ và DEN_NGAY là ngày ngừng áp dụng, dòng thứ 2 ghi thông tin thay đổi và TU_NGAY là ngày bắt đầu áp dụng, để trống chỉ tiêu DEN_NGAY.",
+        "requirementText": "Bắt buộc"
       },
       {
         "index": 15,
         "name": "SO_LUONG",
         "format": "Số",
-        "size": "—",
-        "note": "Số lượng vật tư theo hợp đồng thầu",
+        "size": "10",
+        "note": "Số lượng theo kết quả trúng thầu hoặc hình thức mua sắm khác",
         "required": true,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "- Ghi số lượng  tương ứng với các hình thức mua sắm\n- Trường hợp điều chuyển TBYT: ghi số lượng điều chuyển",
+        "requirementText": "Bắt buộc"
       },
       {
         "index": 16,
         "name": "DINH_MUC",
         "format": "Số",
-        "size": "—",
-        "note": "Định mức sử dụng cho mỗi lần thực hiện dịch vụ",
+        "size": "4",
+        "note": "Số lần sử dụng của thiết bị y tế tái sử dụng (nếu có). Ví dụ: Băng đạn dùng cho dụng cụ khâu cắt nội soi đa năng sử dụng 04 lần thì ghi là “4”",
         "required": false,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "trường hợp có thay đổi thông tin danh mục gửi bảng cập nhật gồm 02 dòng dữ liệu, trong đó dòng thứ nhất ghi thông tin cũ và DEN_NGAY là ngày ngừng áp dụng, dòng thứ 2 ghi thông tin thay đổi và TU_NGAY là ngày bắt đầu áp dụng, để trống chỉ tiêu DEN_NGAY.",
+        "requirementText": "Không bắt buộc"
       },
       {
         "index": 17,
         "name": "NHA_THAU",
         "format": "Chuỗi",
-        "size": "—",
-        "note": "Tên nhà thầu cung cấp",
+        "size": "1024",
+        "note": "Tên nhà thầu hoặc tên đơn vị cung ứng",
         "required": false,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "trường hợp có thay đổi thông tin danh mục gửi bảng cập nhật gồm 02 dòng dữ liệu, trong đó dòng thứ nhất ghi thông tin cũ và DEN_NGAY là ngày ngừng áp dụng, dòng thứ 2 ghi thông tin thay đổi và TU_NGAY là ngày bắt đầu áp dụng, để trống chỉ tiêu DEN_NGAY.",
+        "requirementText": "Không bắt buộc với LOAI_THAU = 3"
       },
       {
         "index": 18,
         "name": "TT_THAU",
         "format": "Chuỗi",
-        "size": "—",
-        "note": "Số hợp đồng/gói thầu",
-        "required": false,
-        "duplicate": false,
-        "additionalNote": ""
+        "size": "50",
+        "note": "Thông tin thầu ghi theo hướng dẫn tại Quyết định 3176/QĐ-BYT",
+        "required": true,
+        "duplicate": true,
+        "additionalNote": "trường hợp có thay đổi thông tin danh mục gửi bảng cập nhật gồm 02 dòng dữ liệu, trong đó dòng thứ nhất ghi thông tin cũ và DEN_NGAY là ngày ngừng áp dụng, dòng thứ 2 ghi thông tin thay đổi và TU_NGAY là ngày bắt đầu áp dụng, để trống chỉ tiêu DEN_NGAY.",
+        "requirementText": "Bắt buộc"
       },
       {
         "index": 19,
         "name": "TU_NGAY_HD",
-        "format": "Ngày (yyyyMMdd)",
-        "size": "—",
-        "note": "Ngày bắt đầu hiệu lực hợp đồng thầu",
+        "format": "Chuỗi",
+        "size": "8",
+        "note": "Thời điểm có hiệu lực hợp đồng cung ứng, ghi theo định dạng 8 ký tự (4 ký tự năm + 2 ký tự tháng + 2 ký tự ngày)",
         "required": false,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "trường hợp có thay đổi thông tin danh mục gửi bảng cập nhật gồm 02 dòng dữ liệu, trong đó dòng thứ nhất ghi thông tin cũ và DEN_NGAY là ngày ngừng áp dụng, dòng thứ 2 ghi thông tin thay đổi và TU_NGAY là ngày bắt đầu áp dụng, để trống chỉ tiêu DEN_NGAY.",
+        "requirementText": "Không bắt buộc đối với LOAI_THAU = 3 hoặc 4 hoặc 5 hoặc 7"
       },
       {
         "index": 20,
         "name": "DEN_NGAY_HD",
-        "format": "Ngày (yyyyMMdd)",
-        "size": "—",
-        "note": "Ngày kết thúc hiệu lực hợp đồng thầu",
+        "format": "Chuỗi",
+        "size": "8",
+        "note": "Thời điểm hết hiệu lực của hợp đồng cung ứng, ghi theo định dạng 8 ký tự (4 ký tự năm + 2 ký tự tháng + 2 ký tự ngày)",
         "required": false,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "trường hợp có thay đổi thông tin danh mục gửi bảng cập nhật gồm 02 dòng dữ liệu, trong đó dòng thứ nhất ghi thông tin cũ và DEN_NGAY là ngày ngừng áp dụng, dòng thứ 2 ghi thông tin thay đổi và TU_NGAY là ngày bắt đầu áp dụng, để trống chỉ tiêu DEN_NGAY.",
+        "requirementText": "Không bắt buộc đối với LOAI_THAU = 3 hoặc 4 hoặc 5 hoặc 7"
       },
       {
         "index": 21,
         "name": "MA_CSKCB",
-        "format": "Chuỗi (5 ký tự)",
-        "size": "—",
-        "note": "Mã cơ sở KCB thực hiện đấu thầu",
+        "format": "Chuỗi",
+        "size": "5",
+        "note": "Mã cơ sở khám bệnh, chữa bệnh",
         "required": true,
-        "duplicate": false,
-        "additionalNote": ""
+        "duplicate": true,
+        "additionalNote": "trường hợp có thay đổi thông tin danh mục gửi bảng cập nhật gồm 02 dòng dữ liệu, trong đó dòng thứ nhất ghi thông tin cũ và DEN_NGAY là ngày ngừng áp dụng, dòng thứ 2 ghi thông tin thay đổi và TU_NGAY là ngày bắt đầu áp dụng, để trống chỉ tiêu DEN_NGAY.",
+        "requirementText": "Bắt buộc"
       },
       {
         "index": 22,
         "name": "LOAI_THAU",
-        "format": "Chuỗi",
-        "size": "—",
-        "note": "Loại hình đấu thầu (1-Tập trung QG, 2-Tập trung ĐP, 3-Tự tổ chức, 4-Đàm phán giá, 5-Mua sắm trực tiếp)",
-        "required": false,
-        "duplicate": false,
-        "additionalNote": ""
+        "format": "Số",
+        "size": "2",
+        "note": "Cách ghi loại thầu “1”: thầu tập trung; “2”: thầu riêng tại cơ sở khám bệnh, chữa bệnh; “3”: tự sản xuất; “4”: mua sắm theo Điều 49 Nghị định số 188/2025/NĐ-CP; “5”: mua sắm theo khoản 4 Điều 80 Nghị định số 214/2025/NĐ-CP; “6”: tùy chọn mua thêm; “7”: nhận điều chuyển thiết bị y tế",
+        "required": true,
+        "duplicate": true,
+        "additionalNote": "trường hợp có thay đổi thông tin danh mục gửi bảng cập nhật gồm 02 dòng dữ liệu, trong đó dòng thứ nhất ghi thông tin cũ và DEN_NGAY là ngày ngừng áp dụng, dòng thứ 2 ghi thông tin thay đổi và TU_NGAY là ngày bắt đầu áp dụng, để trống chỉ tiêu DEN_NGAY.",
+        "requirementText": "Bắt buộc"
       },
       {
         "index": 23,
         "name": "HT_THAU",
-        "format": "Chuỗi",
-        "size": "—",
-        "note": "Hình thức đấu thầu",
+        "format": "Số",
+        "size": "2",
+        "note": "- Cách ghi hình thức đấu thầu “1”: đấu thầu rộng rãi; “2”: đấu thầu hạn chế; “3”: chỉ định thầu; “4”: chào hành cạnh tranh; “5”: mua sắm trực tiếp; “6”: lựa chọn nhà thầu trong trường hợp đặc biệt; “7”: đàm phán giá; “8”: chào giá trực tuyến; “9”: mua sắm trực tuyến).\n'- Trường hợp LOAI_THAU = 3 hoặc 4 hoặc 5 hoặc 7: không ghi chỉ tiêu này.",
         "required": false,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "trường hợp có thay đổi thông tin danh mục gửi bảng cập nhật gồm 02 dòng dữ liệu, trong đó dòng thứ nhất ghi thông tin cũ và DEN_NGAY là ngày ngừng áp dụng, dòng thứ 2 ghi thông tin thay đổi và TU_NGAY là ngày bắt đầu áp dụng, để trống chỉ tiêu DEN_NGAY.",
+        "requirementText": "Không bắt buộc đối với  LOAI_THAU = 3 hoặc 4 hoặc 5 hoặc 7"
       },
       {
         "index": 24,
         "name": "MA_CSKCB_TBYT",
-        "format": "Chuỗi (5 ký tự)",
-        "size": "—",
-        "note": "Mã cơ sở KCB quản lý danh mục VTYT",
+        "format": "Chuỗi",
+        "size": "5",
+        "note": "Trường hợp nhận thiết bị y tế thuộc phạm vi thanh toán bảo hiểm y tế điều chuyển từ cơ sở khám bệnh, chữa bệnh khác theo quy định để điều trị cho người bệnh thì ghi C.XXXXX (XXXXX là mã cơ sở khám bệnh, chữa bệnh nơi chuyển thiết bị y tế đi)",
         "required": false,
-        "duplicate": false,
-        "additionalNote": ""
+        "duplicate": true,
+        "additionalNote": "trường hợp có thay đổi thông tin danh mục gửi bảng cập nhật gồm 02 dòng dữ liệu, trong đó dòng thứ nhất ghi thông tin cũ và DEN_NGAY là ngày ngừng áp dụng, dòng thứ 2 ghi thông tin thay đổi và TU_NGAY là ngày bắt đầu áp dụng, để trống chỉ tiêu DEN_NGAY.",
+        "requirementText": "Chỉ bắt buộc với LOAI_THAU=7"
       },
       {
         "index": 25,
         "name": "TU_NGAY",
-        "format": "Ngày (yyyyMMdd)",
-        "size": "—",
-        "note": "Ngày bắt đầu hiệu lực trong danh mục",
+        "format": "Chuỗi",
+        "size": "8",
+        "note": "Định dạng gồm 8 ký tự (4 ký tự năm + 2 ký tự tháng + 2 ký tự ngày).\n- Trường hợp tạo lập danh mục sau khi ký hợp đồng lần đầu: ghi ngày hợp đồng có hiệu lực nhưng không sớm hơn thời điểm có hiệu lực của hợp đồng mua sắm hoặc thời điểm mua sắm theo quy định tại Điều 49 Nghị định số 188/2025/NĐ-CP hoặc khoản 4 Điều 80 Nghị định số 214/2025/NĐ-CP.\n- Trường hợp cập nhật, điều chỉnh trong quá trình thực hiện hợp đồng: ghi thời điểm gửi văn bản thông báo đến cơ quan bảo hiểm xã hội hoặc ngày cơ sở khám bệnh, chữa bệnh đề nghị trên văn bản thông báo nếu thời điểm đề nghị áp dụng sau ngày nhận được văn bản.\n- Trường hợp mua sắm thiết bị y tế để cấp cứu người bệnh trong tình trạng cấp cứu theo quy định tại điểm đ khoản 1 Điều 78 và khoản 4 Điều 80 Nghị định số 214/2025/NĐ-CP: ghi ngày trên hóa đơn của cơ sở khám bệnh, chữa bệnh.",
         "required": true,
-        "duplicate": false,
-        "additionalNote": ""
+        "duplicate": true,
+        "additionalNote": "trường hợp có thay đổi thông tin danh mục gửi bảng cập nhật gồm 02 dòng dữ liệu, trong đó dòng thứ nhất ghi thông tin cũ và DEN_NGAY là ngày ngừng áp dụng, dòng thứ 2 ghi thông tin thay đổi và TU_NGAY là ngày bắt đầu áp dụng, để trống chỉ tiêu DEN_NGAY.",
+        "requirementText": "Bắt buộc"
       },
       {
         "index": 26,
         "name": "DEN_NGAY",
-        "format": "Ngày (yyyyMMdd)",
-        "size": "—",
-        "note": "Ngày kết thúc hiệu lực. Để trống nếu còn sử dụng",
+        "format": "Chuỗi",
+        "size": "8",
+        "note": "Chỉ ghi khi cập nhật, điều chỉnh thông tin hoặc ngừng sử dụng: ghi thời điểm ngừng áp dụng, định dạng gồm 8 ký tự (4 ký tự năm + 2 ký tự tháng + 2 ký tự ngày).",
         "required": false,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "Trường hợp có thay đổi thông tin danh mục: cơ sở KCB gửi bảng cập nhật gồm 02 dòng dữ liệu, trong đó dòng thứ nhất ghi thông tin cũ và DEN_NGAY là ngày ngừng áp dụng, dòng thứ 2 ghi thông tin thay đổi và TU_NGAY là ngày bắt đầu áp dụng, để trống  chỉ tiêu DEN_NGAY.\n- Trường hợp ngừng hiệu lực: cơ sở KCB cập nhật DEN_NGAY của danh mục=> đồng bộ trạng thái sang PM Giám định; cơ sở KCB không được hiệu chỉnh thông tin đối với danh mục đã hết hiệu lực.",
+        "requirementText": "Không bắt buộc"
       }
     ],
     "requiredFields": [
-      "STT",
       "MA_VAT_TU",
+      "NHOM_VAT_TU",
       "TEN_VAT_TU",
-      "HANG_SX",
-      "NUOC_SX",
+      "MA_HIEU",
+      "SO_LUU_HANH",
+      "TINHNANG_KT",
+      "QUY_CACH",
       "DON_VI_TINH",
       "DON_GIA",
       "DON_GIA_BH",
       "TYLE_TT_BH",
       "SO_LUONG",
+      "TT_THAU",
       "MA_CSKCB",
+      "LOAI_THAU",
       "TU_NGAY"
     ],
     "keyFields": [
       "MA_VAT_TU",
-      "MA_CSKCB"
+      "MA_HIEU",
+      "SO_LUU_HANH",
+      "DON_GIA",
+      "DON_GIA_BH",
+      "TT_THAU",
+      "MA_CSKCB",
+      "LOAI_THAU",
+      "MA_CSKCB_TBYT",
+      "TU_NGAY"
     ]
   },
   {
@@ -1229,290 +1339,308 @@
       {
         "index": 1,
         "name": "STT",
-        "format": "Số nguyên",
-        "size": "—",
-        "note": "Số thứ tự tự động tăng dần",
+        "format": "Số",
+        "size": "6",
+        "note": "Số thứ tự",
         "required": true,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "Trường hợp có thay đổi thông tin danh mục: gửi 02 dòng, dòng cũ ghi DEN_NGAY là ngày ngừng áp dụng; dòng thay đổi ghi TU_NGAY là ngày bắt đầu áp dụng và để trống DEN_NGAY.",
+        "requirementText": "Bắt buộc"
       },
       {
         "index": 2,
         "name": "MA_DICH_VU",
         "format": "Chuỗi",
-        "size": "—",
-        "note": "Mã dịch vụ KCB do cơ sở quy định hoặc theo danh mục BHXH",
+        "size": "20",
+        "note": "Mã dịch vụ khám bệnh, chữa bệnh ghi theo hướng dẫn tại Quyết định số 3176/QĐ-BYT của Bộ Y tế",
         "required": true,
-        "duplicate": false,
-        "additionalNote": ""
+        "duplicate": true,
+        "additionalNote": "Ghi mã dịch vụ kỹ thuật hoặc mã tiền khám hoặc mã tiền giường bệnh theo quy định tại Bộ mã DMDC do Bộ Y tế ban hành.\nLưu ý:\n- Trường hợp phải chuyển mẫu bệnh phẩm hoặc chuyển người bệnh đến cơ sở KBCB khác để thực hiện dịch vụ cận lâm sàng theo quy định của Thông tư 09/2019/TT-BYT thì mã hoá theo nguyên tắc: XX.YYYY.ZZZZ.K.WWWWW, trong đó XX.YYYY.ZZZZ là mã dịch vụ cận lâm sàng tại Bộ mã DMDC do Bộ trưởng Bộ Y tế ban hành, WWWWW là mã cơ sở KBCB nơi thực hiện dịch vụ cận lâm sàng.\n- Đối với DVKT sử dụng phương pháp vô cảm gây tê, bổ sung ký hiệu \"_GT\" sau mã DVKT tương đương. Cụ thể: (XX.YYYY.ZZZZ_GT).",
+        "requirementText": "Bắt buộc"
       },
       {
         "index": 3,
         "name": "TEN_DICH_VU",
         "format": "Chuỗi",
-        "size": "—",
-        "note": "Tên đầy đủ dịch vụ kỹ thuật",
+        "size": "n",
+        "note": "Tên dịch vụ dịch vụ kỹ thuật được cấp có thẩm quyền phê duyệt thực hiện hoặc tên giường bệnh, khám bệnh theo danh mục dùng chung do Bộ Y tế ban hành.",
         "required": true,
-        "duplicate": false,
-        "additionalNote": ""
+        "duplicate": true,
+        "additionalNote": "Trường hợp có thay đổi thông tin danh mục: gửi 02 dòng, dòng cũ ghi DEN_NGAY là ngày ngừng áp dụng; dòng thay đổi ghi TU_NGAY là ngày bắt đầu áp dụng và để trống DEN_NGAY.",
+        "requirementText": "Bắt buộc"
       },
       {
         "index": 4,
         "name": "TEN_DVKT_GIA",
         "format": "Chuỗi",
-        "size": "—",
-        "note": "Tên dịch vụ kỹ thuật theo bảng giá (nếu khác tên dịch vụ)",
-        "required": false,
-        "duplicate": false,
-        "additionalNote": ""
+        "size": "n",
+        "note": "Tên dịch vụ phê duyệt giá tại quyết định/nghị quyết của cấp có thẩm quyền hoặc tên giường bệnh theo khoa, khám bệnh theo danh mục dùng chung do Bộ Y tế ban hành\nLưu ý:\n- Đối với dịch vụ kỹ thuật, trường hợp cần ghi rõ vị trí, phương pháp thực hiện hoặc phân biệt các mức giá khác nhau thì sau tên dịch vụ kỹ thuật ghi phần mô tả chi tiết trong ngoặc vuông [ ].\n- Đối với dịch vụ kỹ thuật sử dụng phương pháp vô cảm gây tê, bổ sung cụm từ \"[gây tê]\" sau tên dịch vụ.",
+        "required": true,
+        "duplicate": true,
+        "additionalNote": "Trường hợp có thay đổi thông tin danh mục: gửi 02 dòng, dòng cũ ghi DEN_NGAY là ngày ngừng áp dụng; dòng thay đổi ghi TU_NGAY là ngày bắt đầu áp dụng và để trống DEN_NGAY.",
+        "requirementText": "Bắt buộc"
       },
       {
         "index": 5,
         "name": "DON_GIA",
         "format": "Số",
-        "size": "—",
-        "note": "Đơn giá dịch vụ theo bảng giá (VNĐ)",
+        "size": "15",
+        "note": "Đơn giá dịch vụ khám bệnh, chữa bệnh thanh toán bảo hiểm y tế chưa bao gồm chi phí của thuốc phóng xạ và chất đánh dấu.",
         "required": true,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "Trường hợp có thay đổi thông tin danh mục: gửi 02 dòng, dòng cũ ghi DEN_NGAY là ngày ngừng áp dụng; dòng thay đổi ghi TU_NGAY là ngày bắt đầu áp dụng và để trống DEN_NGAY.",
+        "requirementText": "Bắt buộc"
       },
       {
         "index": 6,
         "name": "QUY_TRINH",
         "format": "Chuỗi",
-        "size": "—",
-        "note": "Mã/tên quy trình kỹ thuật áp dụng",
-        "required": false,
+        "size": "50",
+        "note": "Ngày và số, ký hiệu của quyết định ban hành Quy trình chuyên môn kỹ thuật của người đứng đầu cơ sở khám bệnh, chữa bệnh, trường hợp cơ sở khám bệnh, chữa bệnh không ban hành thì ghi theo quyết định của Bộ Y tế, ghi theo định dạng YYYYMMDD_Z (trong đó YYYYMMDD là 4 ký tự năm + 2 ký tự tháng + 2 ký tự ngày, Z là số, ký hiệu của quyết định)",
+        "required": true,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "Trường hợp có thay đổi thông tin danh mục: gửi 02 dòng, dòng cũ ghi DEN_NGAY là ngày ngừng áp dụng; dòng thay đổi ghi TU_NGAY là ngày bắt đầu áp dụng và để trống DEN_NGAY.",
+        "requirementText": "Bắt buộc"
       },
       {
         "index": 7,
         "name": "SO_LUONG_CGKT",
         "format": "Số",
-        "size": "—",
-        "note": "Số lượng kỹ thuật viên thực hiện (nếu là DVKT chuyển giao)",
+        "size": "4",
+        "note": "Số lượng dịch vụ thực hiện theo hợp đồng chuyển giao kỹ thuật",
         "required": false,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "Trường hợp có thay đổi thông tin danh mục: gửi 02 dòng, dòng cũ ghi DEN_NGAY là ngày ngừng áp dụng; dòng thay đổi ghi TU_NGAY là ngày bắt đầu áp dụng và để trống DEN_NGAY.",
+        "requirementText": "Chỉ ghi đối với dịch vụ thực hiện theo hợp đồng chuyển giao kỹ thuật"
       },
       {
         "index": 8,
         "name": "CSKCB_CGKT",
         "format": "Chuỗi",
-        "size": "—",
-        "note": "Mã cơ sở KCB chuyển giao kỹ thuật",
+        "size": "5",
+        "note": "Mã cơ sở khám bệnh, chữa bệnh chuyển giao dịch vụ kỹ thuật (nếu có), chỉ ghi đối với cơ sở khám bệnh, chữa bệnh nhận chuyển giao dịch vụ kỹ thuật từ cơ sở khám bệnh, chữa bệnh khác",
         "required": false,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "Trường hợp có thay đổi thông tin danh mục: gửi 02 dòng, dòng cũ ghi DEN_NGAY là ngày ngừng áp dụng; dòng thay đổi ghi TU_NGAY là ngày bắt đầu áp dụng và để trống DEN_NGAY.",
+        "requirementText": "Chỉ ghi đối với cơ sở khám bệnh, chữa bệnh nhận chuyển giao dịch vụ kỹ thuật từ cơ sở khám bệnh, chữa bệnh khác"
       },
       {
         "index": 9,
         "name": "CSKCB_CLS",
         "format": "Chuỗi",
-        "size": "—",
-        "note": "Mã cơ sở KCB thực hiện cận lâm sàng (nếu gửi mẫu)",
+        "size": "5",
+        "note": "Mã cơ sở khám bệnh, chữa bệnh thực hiện dịch vụ cận lâm sàng (nếu có), chỉ ghi đối với cơ sở khám bệnh, chữa bệnh chuyển dịch vụ cận lâm sàng",
         "required": false,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "Trường hợp có thay đổi thông tin danh mục: gửi 02 dòng, dòng cũ ghi DEN_NGAY là ngày ngừng áp dụng; dòng thay đổi ghi TU_NGAY là ngày bắt đầu áp dụng và để trống DEN_NGAY.",
+        "requirementText": "Chỉ ghi đối với cơ sở khám bệnh, chữa bệnh chuyển dịch vụ cận lâm sàng"
       },
       {
         "index": 10,
         "name": "QD_DVKT",
         "format": "Chuỗi",
-        "size": "—",
-        "note": "Số quyết định phê duyệt dịch vụ kỹ thuật",
+        "size": "50",
+        "note": "Ngày và số, ký hiệu của quyết định phê duyệt danh mục kỹ thuật trong khám bệnh, chữa bệnh thực hiện tại cơ sở khám bệnh, chữa bệnh của cấp có thẩm quyền, ghi theo định dạng YYYYMMDD_Z (trong đó YYYYMMDD là 4 ký tự năm + 2 ký tự tháng + 2 ký tự ngày, Z là số, ký hiệu của quyết định)",
         "required": false,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "Trường hợp có thay đổi thông tin danh mục: gửi 02 dòng, dòng cũ ghi DEN_NGAY là ngày ngừng áp dụng; dòng thay đổi ghi TU_NGAY là ngày bắt đầu áp dụng và để trống DEN_NGAY.",
+        "requirementText": "Ghi đối với danh mục kỹ thuật"
       },
       {
         "index": 11,
         "name": "QD_PD_GIA",
         "format": "Chuỗi",
-        "size": "—",
-        "note": "Số quyết định phê duyệt giá dịch vụ",
-        "required": false,
-        "duplicate": false,
-        "additionalNote": ""
+        "size": "50",
+        "note": "- Ngày và số, ký hiệu của quyết định/nghị quyết phê duyệt giá thực hiện tại cơ sở khám bệnh, chữa bệnh của cấp có thẩm quyền, ghi theo định dạng YYYYMMDD_Z (trong đó YYYYMMDD là 4 ký tự năm + 2 ký tự tháng + 2 ký tự ngày, Z là số, ký hiệu của quyết định)\n- Trường hợp cơ sở khám bệnh, chữa bệnh tư nhân đề nghị thanh toán theo giá của cơ sở khám bệnh, chữa bệnh công lập: ghi ngày ban hành, số và ký hiệu quyết định phê duyệt giá, mã của cơ sở khám bệnh, chữa bệnh công lập, cách nhau bằng dấu “_”. \n- Trường hợp dịch vụ cận lâm sàng chuyển thực hiện tại cơ sở y tế khác thì ghi số, ký hiệu của văn bản phê duyệt giá tại nơi thực hiện dịch vụ kỹ thuật.\n- Trường hợp thực hiện dịch vụ kỹ thuật theo hợp đồng chuyển giao kỹ thuật, cơ sở khám bệnh, chữa bệnh nhận chuyển giao ghi số, ký hiệu của văn bản phê duyệt giá của cơ sở khám bệnh, chữa bệnh thực hiện chuyển giao.",
+        "required": true,
+        "duplicate": true,
+        "additionalNote": "Trường hợp có thay đổi thông tin danh mục: gửi 02 dòng, dòng cũ ghi DEN_NGAY là ngày ngừng áp dụng; dòng thay đổi ghi TU_NGAY là ngày bắt đầu áp dụng và để trống DEN_NGAY.",
+        "requirementText": "Bắt buộc"
       },
       {
         "index": 12,
         "name": "GHI_CHU",
         "format": "Chuỗi",
-        "size": "—",
-        "note": "Ghi chú bổ sung (nếu có)",
+        "size": "n",
+        "note": "Ghi theo văn bản phê duyệt giá",
         "required": false,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "Ghi theo cột ghi chú tại bảng giá dịch vụ kỹ thuật và xét nghiệm",
+        "requirementText": "Không bắt buộc"
       },
       {
         "index": 13,
         "name": "TU_NGAY",
-        "format": "Ngày (yyyyMMdd)",
-        "size": "—",
-        "note": "Ngày bắt đầu hiệu lực dịch vụ",
-        "required": true,
+        "format": "Chuỗi",
+        "size": "8",
+        "note": "- Trường hợp tạo lập danh mục sau khi ký hợp đồng lần đầu: ghi ngày hợp đồng có hiệu lực.\n- Trường hợp cập nhật, điều chỉnh trong quá trình thực hiện hợp đồng: ghi thời điểm gửi văn bản thông báo đến cơ quan bảo hiểm xã hội hoặc ngày cơ sở khám bệnh, chữa bệnh đề nghị trên văn bản thông báo nếu thời điểm đề nghị áp dụng sau ngày nhận được văn bản, định dạng gồm 8 ký tự (4 ký tự năm + 2 ký tự tháng + 2 ký tự ngày).",
+        "required": false,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "Trường hợp có thay đổi thông tin danh mục: gửi 02 dòng, dòng cũ ghi DEN_NGAY là ngày ngừng áp dụng; dòng thay đổi ghi TU_NGAY là ngày bắt đầu áp dụng và để trống DEN_NGAY.",
+        "requirementText": "Không bắt buộc"
       },
       {
         "index": 14,
         "name": "DEN_NGAY",
-        "format": "Ngày (yyyyMMdd)",
-        "size": "—",
-        "note": "Ngày kết thúc hiệu lực. Để trống nếu còn hoạt động",
+        "format": "Chuỗi",
+        "size": "8",
+        "note": "Chỉ ghi khi cập nhật, điều chỉnh thông tin hoặc ngừng sử dụng: ghi thời điểm ngừng áp dụng, định dạng gồm 8 ký tự (4 ký tự năm + 2 ký tự tháng + 2 ký tự ngày)",
         "required": false,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "Trường hợp có thay đổi thông tin danh mục: cơ sở KCB gửi bảng cập nhật gồm 02 dòng dữ liệu, trong đó dòng thứ nhất ghi thông tin cũ và DEN_NGAY là ngày ngừng áp dụng, dòng thứ 2 ghi thông tin thay đổi và TU_NGAY là ngày bắt đầu áp dụng, để trống  chỉ tiêu DEN_NGAY.\n- Trường hợp ngừng hiệu lực: cơ sở KCB cập nhật DEN_NGAY của danh mục=> đồng bộ trạng thái sang PM Giám định; cơ sở KCB không được hiệu chỉnh thông tin đối với danh mục đã hết hiệu lực.",
+        "requirementText": "Không bắt buộc"
       },
       {
         "index": 15,
         "name": "MA_CSKCB",
-        "format": "Chuỗi (5 ký tự)",
-        "size": "—",
-        "note": "Mã cơ sở khám chữa bệnh do BHXH cấp",
+        "format": "Chuỗi",
+        "size": "5",
+        "note": "Mã cơ sở khám bệnh, chữa bệnh",
         "required": true,
-        "duplicate": false,
-        "additionalNote": ""
+        "duplicate": true,
+        "additionalNote": "Trường hợp có thay đổi thông tin danh mục: gửi 02 dòng, dòng cũ ghi DEN_NGAY là ngày ngừng áp dụng; dòng thay đổi ghi TU_NGAY là ngày bắt đầu áp dụng và để trống DEN_NGAY.",
+        "requirementText": "Bắt buộc"
       },
       {
         "index": 16,
         "name": "GIA_THANH_TOAN",
         "format": "Số",
-        "size": "—",
-        "note": "Giá BHYT thanh toán cho dịch vụ (VNĐ). Nếu = DON_GIA thì để bằng DON_GIA",
+        "size": "15",
+        "note": "- Giá thanh toán bảo hiểm y tế bằng DON_GIA đối với dịch vụ khám bệnh, chữa bệnh không sử dụng thuốc phóng xạ, chất đánh dấu.\n- Giá thanh toán bảo hiểm y tế bằng DON_GIA cộng với THANH_TIEN_THUOC của thuốc phóng xạ, chất đánh dấu đối với dịch vụ kỹ thuật có sử dụng thuốc phóng xạ, chất đánh dấu.",
         "required": true,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "Trường hợp có thay đổi thông tin danh mục: gửi 02 dòng, dòng cũ ghi DEN_NGAY là ngày ngừng áp dụng; dòng thay đổi ghi TU_NGAY là ngày bắt đầu áp dụng và để trống DEN_NGAY.",
+        "requirementText": "Bắt buộc"
       },
       {
         "index": 17,
         "name": "DS_THUOCPX.STT",
         "format": "Số nguyên",
-        "size": "—",
+        "size": "6",
         "note": "Số thứ tự thuốc phụ trợ trong dịch vụ",
         "required": true,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "Trường hợp có thay đổi thông tin danh mục: gửi 02 dòng, dòng cũ ghi DEN_NGAY là ngày ngừng áp dụng; dòng thay đổi ghi TU_NGAY là ngày bắt đầu áp dụng và để trống DEN_NGAY."
       },
       {
         "index": 18,
         "name": "DS_THUOCPX.MA_THUOC",
         "format": "Chuỗi",
-        "size": "—",
+        "size": "15",
         "note": "Mã thuốc phụ trợ (tham chiếu MAU_03)",
         "required": true,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "Trường hợp có thay đổi thông tin danh mục: gửi 02 dòng, dòng cũ ghi DEN_NGAY là ngày ngừng áp dụng; dòng thay đổi ghi TU_NGAY là ngày bắt đầu áp dụng và để trống DEN_NGAY."
       },
       {
         "index": 19,
         "name": "DS_THUOCPX.TEN_THUOC",
         "format": "Chuỗi",
-        "size": "—",
+        "size": "1024",
         "note": "Tên thuốc phụ trợ sử dụng trong dịch vụ",
         "required": true,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "Trường hợp có thay đổi thông tin danh mục: gửi 02 dòng, dòng cũ ghi DEN_NGAY là ngày ngừng áp dụng; dòng thay đổi ghi TU_NGAY là ngày bắt đầu áp dụng và để trống DEN_NGAY."
       },
       {
         "index": 20,
         "name": "DS_THUOCPX.SO_DANG_KY",
         "format": "Chuỗi",
-        "size": "—",
+        "size": "50",
         "note": "Số đăng ký/visa thuốc phụ trợ",
         "required": false,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "Trường hợp có thay đổi thông tin danh mục: gửi 02 dòng, dòng cũ ghi DEN_NGAY là ngày ngừng áp dụng; dòng thay đổi ghi TU_NGAY là ngày bắt đầu áp dụng và để trống DEN_NGAY."
       },
       {
         "index": 21,
         "name": "DS_THUOCPX.DON_VI_TINH",
         "format": "Chuỗi",
-        "size": "—",
+        "size": "1024",
         "note": "Đơn vị tính thuốc phụ trợ",
         "required": true,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "Trường hợp có thay đổi thông tin danh mục: gửi 02 dòng, dòng cũ ghi DEN_NGAY là ngày ngừng áp dụng; dòng thay đổi ghi TU_NGAY là ngày bắt đầu áp dụng và để trống DEN_NGAY."
       },
       {
         "index": 22,
         "name": "DS_THUOCPX.TT_THAU",
         "format": "Chuỗi",
-        "size": "—",
+        "size": "1024",
         "note": "Thông tin thầu thuốc phụ trợ",
         "required": false,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "Trường hợp có thay đổi thông tin danh mục: gửi 02 dòng, dòng cũ ghi DEN_NGAY là ngày ngừng áp dụng; dòng thay đổi ghi TU_NGAY là ngày bắt đầu áp dụng và để trống DEN_NGAY."
       },
       {
         "index": 23,
         "name": "DS_THUOCPX.DON_GIA_THUOC",
         "format": "Số",
-        "size": "—",
+        "size": "15",
         "note": "Đơn giá thuốc phụ trợ (VNĐ)",
         "required": true,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "Trường hợp có thay đổi thông tin danh mục: gửi 02 dòng, dòng cũ ghi DEN_NGAY là ngày ngừng áp dụng; dòng thay đổi ghi TU_NGAY là ngày bắt đầu áp dụng và để trống DEN_NGAY."
       },
       {
         "index": 24,
         "name": "DS_THUOCPX.DM_NSX_CDD",
         "format": "Số",
-        "size": "—",
+        "size": "15",
         "note": "Định mức theo nhà sản xuất cho chỉ định điều trị",
         "required": false,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "Trường hợp có thay đổi thông tin danh mục: gửi 02 dòng, dòng cũ ghi DEN_NGAY là ngày ngừng áp dụng; dòng thay đổi ghi TU_NGAY là ngày bắt đầu áp dụng và để trống DEN_NGAY."
       },
       {
         "index": 25,
         "name": "DS_THUOCPX.DM_THUCTE_CDD",
         "format": "Số",
-        "size": "—",
+        "size": "15",
         "note": "Định mức thực tế sử dụng cho chỉ định điều trị",
         "required": false,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "Trường hợp có thay đổi thông tin danh mục: gửi 02 dòng, dòng cũ ghi DEN_NGAY là ngày ngừng áp dụng; dòng thay đổi ghi TU_NGAY là ngày bắt đầu áp dụng và để trống DEN_NGAY."
       },
       {
         "index": 26,
         "name": "DS_THUOCPX.LIEU_BQ_PX",
         "format": "Số",
-        "size": "—",
+        "size": "8",
         "note": "Liều bình quân phụ trợ cho mỗi lần thực hiện dịch vụ",
         "required": false,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "Trường hợp có thay đổi thông tin danh mục: gửi 02 dòng, dòng cũ ghi DEN_NGAY là ngày ngừng áp dụng; dòng thay đổi ghi TU_NGAY là ngày bắt đầu áp dụng và để trống DEN_NGAY."
       },
       {
         "index": 27,
         "name": "DS_THUOCPX.TL_THUCTE_BQ_PX",
         "format": "Số",
-        "size": "—",
+        "size": "15",
         "note": "Tỷ lệ thực tế bình quân phụ trợ (%)",
         "required": false,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "Trường hợp có thay đổi thông tin danh mục: gửi 02 dòng, dòng cũ ghi DEN_NGAY là ngày ngừng áp dụng; dòng thay đổi ghi TU_NGAY là ngày bắt đầu áp dụng và để trống DEN_NGAY."
       },
       {
         "index": 28,
         "name": "DS_THUOCPX.THANH_TIEN_THUOC",
         "format": "Số",
-        "size": "—",
+        "size": "15",
         "note": "Thành tiền thuốc phụ trợ = Liều BQ × Đơn giá (VNĐ)",
         "required": false,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "Trường hợp có thay đổi thông tin danh mục: gửi 02 dòng, dòng cũ ghi DEN_NGAY là ngày ngừng áp dụng; dòng thay đổi ghi TU_NGAY là ngày bắt đầu áp dụng và để trống DEN_NGAY."
       }
     ],
     "requiredFields": [
       "STT",
       "MA_DICH_VU",
       "TEN_DICH_VU",
+      "TEN_DVKT_GIA",
       "DON_GIA",
-      "TU_NGAY",
+      "QUY_TRINH",
+      "QD_PD_GIA",
       "MA_CSKCB",
       "GIA_THANH_TOAN",
       "DS_THUOCPX.STT",
@@ -1522,8 +1650,11 @@
       "DS_THUOCPX.DON_GIA_THUOC"
     ],
     "keyFields": [
-      "MA_CSKCB",
-      "STT"
+      "MA_DICH_VU",
+      "TEN_DICH_VU",
+      "TEN_DVKT_GIA",
+      "QD_PD_GIA",
+      "MA_CSKCB"
     ]
   },
   {
@@ -1551,142 +1682,156 @@
       {
         "index": 1,
         "name": "STT",
-        "format": "Số nguyên",
-        "size": "—",
-        "note": "Số thứ tự tự động tăng dần",
+        "format": "Số",
+        "size": "10",
+        "note": "Số thứ tự",
         "required": true,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "trường hợp có thay đổi thông tin danh mục gửi bảng cập nhật gồm 02 dòng dữ liệu, trong đó dòng thứ nhất ghi thông tin cũ và DEN_NGAY là ngày ngừng áp dụng, dòng thứ 2 ghi thông tin thay đổi và TU_NGAY là ngày bắt đầu áp dụng, để trống chỉ tiêu DEN_NGAY.",
+        "requirementText": "Bắt buộc"
       },
       {
         "index": 2,
         "name": "TEN_TB",
         "format": "Chuỗi",
-        "size": "—",
-        "note": "Tên đầy đủ thiết bị y tế",
+        "size": "n",
+        "note": "Tên thiết bị y tế",
         "required": true,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "trường hợp có thay đổi thông tin danh mục gửi bảng cập nhật gồm 02 dòng dữ liệu, trong đó dòng thứ nhất ghi thông tin cũ và DEN_NGAY là ngày ngừng áp dụng, dòng thứ 2 ghi thông tin thay đổi và TU_NGAY là ngày bắt đầu áp dụng, để trống chỉ tiêu DEN_NGAY.",
+        "requirementText": "Bắt buộc"
       },
       {
         "index": 3,
         "name": "KY_HIEU",
         "format": "Chuỗi",
-        "size": "—",
-        "note": "Ký hiệu, model thiết bị",
+        "size": "1024",
+        "note": "Model của thiết bị y tế",
         "required": true,
-        "duplicate": false,
-        "additionalNote": ""
+        "duplicate": true,
+        "additionalNote": "trường hợp có thay đổi thông tin danh mục gửi bảng cập nhật gồm 02 dòng dữ liệu, trong đó dòng thứ nhất ghi thông tin cũ và DEN_NGAY là ngày ngừng áp dụng, dòng thứ 2 ghi thông tin thay đổi và TU_NGAY là ngày bắt đầu áp dụng, để trống chỉ tiêu DEN_NGAY.",
+        "requirementText": "Bắt buộc"
       },
       {
         "index": 4,
         "name": "CONGTY_SX",
         "format": "Chuỗi",
-        "size": "—",
-        "note": "Tên công ty/hãng sản xuất thiết bị",
+        "size": "1024",
+        "note": "Tên công ty sản xuất",
         "required": true,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "trường hợp có thay đổi thông tin danh mục gửi bảng cập nhật gồm 02 dòng dữ liệu, trong đó dòng thứ nhất ghi thông tin cũ và DEN_NGAY là ngày ngừng áp dụng, dòng thứ 2 ghi thông tin thay đổi và TU_NGAY là ngày bắt đầu áp dụng, để trống chỉ tiêu DEN_NGAY.",
+        "requirementText": "Bắt buộc"
       },
       {
         "index": 5,
         "name": "NUOC_SX",
         "format": "Chuỗi",
-        "size": "—",
-        "note": "Quốc gia sản xuất thiết bị",
+        "size": "100",
+        "note": "Tên nước sản xuất",
         "required": true,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "trường hợp có thay đổi thông tin danh mục gửi bảng cập nhật gồm 02 dòng dữ liệu, trong đó dòng thứ nhất ghi thông tin cũ và DEN_NGAY là ngày ngừng áp dụng, dòng thứ 2 ghi thông tin thay đổi và TU_NGAY là ngày bắt đầu áp dụng, để trống chỉ tiêu DEN_NGAY.",
+        "requirementText": "Bắt buộc"
       },
       {
         "index": 6,
         "name": "NAM_SX",
-        "format": "Số (yyyy)",
-        "size": "—",
-        "note": "Năm sản xuất thiết bị",
+        "format": "Số",
+        "size": "4",
+        "note": "Năm sản xuất",
         "required": true,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "trường hợp có thay đổi thông tin danh mục gửi bảng cập nhật gồm 02 dòng dữ liệu, trong đó dòng thứ nhất ghi thông tin cũ và DEN_NGAY là ngày ngừng áp dụng, dòng thứ 2 ghi thông tin thay đổi và TU_NGAY là ngày bắt đầu áp dụng, để trống chỉ tiêu DEN_NGAY.",
+        "requirementText": "Bắt buộc"
       },
       {
         "index": 7,
         "name": "NAM_SD",
-        "format": "Số (yyyy)",
-        "size": "—",
-        "note": "Năm bắt đầu đưa vào sử dụng tại cơ sở",
+        "format": "Số",
+        "size": "4",
+        "note": "Năm bắt đầu đưa vào sử dụng",
         "required": true,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "trường hợp có thay đổi thông tin danh mục gửi bảng cập nhật gồm 02 dòng dữ liệu, trong đó dòng thứ nhất ghi thông tin cũ và DEN_NGAY là ngày ngừng áp dụng, dòng thứ 2 ghi thông tin thay đổi và TU_NGAY là ngày bắt đầu áp dụng, để trống chỉ tiêu DEN_NGAY.",
+        "requirementText": "Bắt buộc"
       },
       {
         "index": 8,
         "name": "MA_MAY",
-        "format": "Chuỗi",
-        "size": "—",
-        "note": "Mã thiết bị do cơ sở KCB quy định (số serial hoặc mã nội bộ)",
+        "format": "Số",
+        "size": "n",
+        "note": "Mã máy thực hiện dịch vụ cận lâm sàng, phẫu thuật, thủ thuật, ghi theo hướng dẫn tại Quyết định số 3176/QĐ-BYT",
         "required": true,
-        "duplicate": false,
-        "additionalNote": ""
+        "duplicate": true,
+        "additionalNote": "Ghi mã các máy thực hiện dịch vụ cận lâm sàng, phẫu thuật, thủ thuật (máy xét nghiệm, máy XQuang, máy siêu âm…), tạm thời được ghi theo nguyên tắc: XX.n.Z, trong đó:\n- XX hoặc XXX: Mã nhóm máy thực hiện, trong đó: Huyết học ghi mã \"HH\"; vi sinh ghi mã \"VS\"; sinh hóa ghi mã \"SH\"; siêu âm ghi mã \"SA\"; Xquang ghi mã \"XQ\"; chụp cắt lớp vi tính ghi mã \"CL\"; chụp MRI ghi mã \"MRI\"; máy thực hiện phẫu thuật ghi mã \"PT\"; máy thực hiện thủ thuật ghi mã \"TT\"; máy xét nghiệm đa chức năng thì ghi mã \"DN\"; máy xạ trị ghi mã \"XT\"; máy chụp SPECT ghi mã \"SP\"; máy chụp PET/CT ghi mã \"PET\"; máy xạ hình xương ghi mã \"XH\"; máy nội soi ghi mã \"NS\"; máy chụp mạch xoá nền DSA ghi mã \"DSA\"; máy điện tim ghi mã \"ĐT\",....(Đối với các máy chưa quy định mã nhóm máy (XX hoặc XXX) thì ghi các chữ cái đầu tiên theo phiên âm tiếng Việt của máy, tối đa không quá 03 ký tự đầu tiên).\n- n: Ký hiệu của nguồn kinh phí mua máy (1: ngân sách nhà nước; 2: tài trợ, viện trợ, hỗ trợ; 3: nguồn khác). Trường hợp n = 3 thì ghi cụ thể nguồn kinh phí trong dấu [...]). Ví dụ: Nguồn kinh phí mua máy từ nguồn vay ngân hàng thì ghi [vaynganhang]\n- Z: Số serial của máy (Ghi cả phần chữ và phần số). Trường hợp không có số serial của máy thì sử dụng mã quản lý của máy do cơ sở KBCB lập. Đối với hệ thống máy gồm nhiều máy thì ghi tất cả các serial của các máy, cách nhau bằng dấu chấm phẩy \";\"",
+        "requirementText": "Bắt buộc"
       },
       {
         "index": 9,
         "name": "SO_LUU_HANH",
         "format": "Chuỗi",
-        "size": "—",
-        "note": "Số giấy phép lưu hành/phân loại trang thiết bị y tế",
-        "required": false,
-        "duplicate": false,
-        "additionalNote": ""
+        "size": "20",
+        "note": "Số lưu hành của thiết bị y tế theo quy định tại Nghị định số 07/2023/NĐ-CP",
+        "required": true,
+        "duplicate": true,
+        "additionalNote": "trường hợp có thay đổi thông tin danh mục gửi bảng cập nhật gồm 02 dòng dữ liệu, trong đó dòng thứ nhất ghi thông tin cũ và DEN_NGAY là ngày ngừng áp dụng, dòng thứ 2 ghi thông tin thay đổi và TU_NGAY là ngày bắt đầu áp dụng, để trống chỉ tiêu DEN_NGAY.",
+        "requirementText": "Bắt buộc"
       },
       {
         "index": 10,
         "name": "HD_TU",
-        "format": "Ngày (yyyyMMdd)",
-        "size": "—",
-        "note": "Ngày bắt đầu hiệu lực hoạt động thiết bị",
+        "format": "Chuỗi",
+        "size": "8",
+        "note": "- Chỉ ghi đối với thiết bị y tế có hợp đồng thuê, mua trả chậm, trả dần hoặc mượn.\n- Thời điểm có hiệu lực trên hợp đồng, ghi theo định dạng 8 ký tự (4 ký tự năm + 2 ký tự tháng + 2 ký tự ngày).",
         "required": false,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "trường hợp có thay đổi thông tin danh mục gửi bảng cập nhật gồm 02 dòng dữ liệu, trong đó dòng thứ nhất ghi thông tin cũ và DEN_NGAY là ngày ngừng áp dụng, dòng thứ 2 ghi thông tin thay đổi và TU_NGAY là ngày bắt đầu áp dụng, để trống chỉ tiêu DEN_NGAY.",
+        "requirementText": "Bắt buộc đối với thiết bị y tế có hợp đồng thuê, mua trả chậm, trả dần hoặc mượn"
       },
       {
         "index": 11,
         "name": "HD_DEN",
-        "format": "Ngày (yyyyMMdd)",
-        "size": "—",
-        "note": "Ngày kết thúc hiệu lực hoạt động. Để trống nếu còn hoạt động",
+        "format": "Chuỗi",
+        "size": "8",
+        "note": "- Chỉ ghi đối với thiết bị y tế có hợp đồng thuê, mua trả chậm, trả dần hoặc mượn.\n- Thời điểm hết hiệu lực trên hợp đồng, ghi theo định dạng 8 ký tự (4 ký tự năm + 2 ký tự tháng + 2 ký tự ngày).",
         "required": false,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "trường hợp có thay đổi thông tin danh mục gửi bảng cập nhật gồm 02 dòng dữ liệu, trong đó dòng thứ nhất ghi thông tin cũ và DEN_NGAY là ngày ngừng áp dụng, dòng thứ 2 ghi thông tin thay đổi và TU_NGAY là ngày bắt đầu áp dụng, để trống chỉ tiêu DEN_NGAY.",
+        "requirementText": "Bắt buộc đối với thiết bị y tế có hợp đồng thuê, mua trả chậm, trả dần hoặc mượn"
       },
       {
         "index": 12,
         "name": "TU_NGAY",
-        "format": "Ngày (yyyyMMdd)",
-        "size": "—",
-        "note": "Ngày bắt đầu hiệu lực trong danh mục",
+        "format": "Chuỗi",
+        "size": "8",
+        "note": "- Trường hợp tạo lập danh mục sau khi ký hợp đồng lần đầu: ghi ngày hợp đồng có hiệu lực.\n- Trường hợp cập nhật, điều chỉnh trong quá trình thực hiện hợp đồng:\n+ Đối với thiết bị y tế phải kiểm định, thiết bị y tế bức xạ, chiếu xạ, thiết bị X-quang chẩn đoán: ghi thời điểm đề nghị thực hiện nằm trong thời gian máy đủ điều kiện sử dụng. \n+ Đối với thiết bị y tế còn lại: ghi thời điểm gửi văn bản thông báo đến cơ quan bảo hiểm xã hội hoặc ngày cơ sở khám bệnh, chữa bệnh đề nghị trên văn bản thông báo nếu thời điểm đề nghị áp dụng sau ngày nhận được văn bản, định dạng gồm 8 ký tự (4 ký tự năm + 2 ký tự tháng + 2 ký tự ngày).",
         "required": true,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "trường hợp có thay đổi thông tin danh mục gửi bảng cập nhật gồm 02 dòng dữ liệu, trong đó dòng thứ nhất ghi thông tin cũ và DEN_NGAY là ngày ngừng áp dụng, dòng thứ 2 ghi thông tin thay đổi và TU_NGAY là ngày bắt đầu áp dụng, để trống chỉ tiêu DEN_NGAY.",
+        "requirementText": "Bắt buộc"
       },
       {
         "index": 13,
         "name": "DEN_NGAY",
-        "format": "Ngày (yyyyMMdd)",
-        "size": "—",
-        "note": "Ngày kết thúc hiệu lực. Để trống nếu còn sử dụng",
+        "format": "Chuỗi",
+        "size": "8",
+        "note": "- Đối với thiết bị y tế phải kiểm định; thiết bị y tế bức xạ, chiếu xạ, thiết bị X-quang chẩn đoán: ghi thời điểm cuối cùng thiết bị y tế đủ điều kiện sử dụng, định dạng gồm 8 ký tự (4 ký tự năm + 2 ký tự tháng + 2 ký tự ngày).\n- Đối với thiết bị y tế còn lại: chỉ ghi khi cập nhật, điều chỉnh thông tin hoặc ngừng sử dụng thì ghi thời điểm ngừng áp dụng, định dạng gồm 8 ký tự (4 ký tự năm + 2 ký tự tháng + 2 ký tự ngày).",
         "required": false,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "Trường hợp có thay đổi thông tin danh mục: cơ sở KCB gửi bảng cập nhật gồm 02 dòng dữ liệu, trong đó dòng thứ nhất ghi thông tin cũ và DEN_NGAY là ngày ngừng áp dụng, dòng thứ 2 ghi thông tin thay đổi và TU_NGAY là ngày bắt đầu áp dụng, để trống  chỉ tiêu DEN_NGAY.\n- Trường hợp ngừng hiệu lực: cơ sở KCB cập nhật DEN_NGAY của danh mục=> đồng bộ trạng thái sang PM Giám định; cơ sở KCB không được hiệu chỉnh thông tin đối với danh mục đã hết hiệu lực.",
+        "requirementText": "Bắt buộc đối với thiết bị y tế phải kiểm định; thiết bị y tế bức xạ, chiếu xạ, thiết bị X-quang chẩn đoán"
       },
       {
         "index": 14,
         "name": "MA_CSKCB",
-        "format": "Chuỗi (5 ký tự)",
-        "size": "—",
-        "note": "Mã cơ sở khám chữa bệnh do BHXH cấp",
+        "format": "Chuỗi",
+        "size": "5",
+        "note": "Mã cơ sở khám bệnh, chữa bệnh",
         "required": true,
-        "duplicate": false,
-        "additionalNote": ""
+        "duplicate": true,
+        "additionalNote": "trường hợp có thay đổi thông tin danh mục gửi bảng cập nhật gồm 02 dòng dữ liệu, trong đó dòng thứ nhất ghi thông tin cũ và DEN_NGAY là ngày ngừng áp dụng, dòng thứ 2 ghi thông tin thay đổi và TU_NGAY là ngày bắt đầu áp dụng, để trống chỉ tiêu DEN_NGAY.",
+        "requirementText": "Bắt buộc"
       }
     ],
     "requiredFields": [
@@ -1698,12 +1843,15 @@
       "NAM_SX",
       "NAM_SD",
       "MA_MAY",
+      "SO_LUU_HANH",
       "TU_NGAY",
       "MA_CSKCB"
     ],
     "keyFields": [
-      "MA_CSKCB",
-      "STT"
+      "KY_HIEU",
+      "MA_MAY",
+      "SO_LUU_HANH",
+      "MA_CSKCB"
     ]
   },
   {
@@ -1737,9 +1885,9 @@
       {
         "index": 1,
         "name": "STT",
-        "format": "Chuỗi",
-        "size": "—",
-        "note": "Theo file mẫu người dùng cung cấp.",
+        "format": "Số",
+        "size": "10",
+        "note": "Ghi số thứ tự tăng từ 1 đến hết trong một lần gửi dữ liệu.",
         "required": false,
         "duplicate": false,
         "additionalNote": ""
@@ -1747,9 +1895,9 @@
       {
         "index": 2,
         "name": "HO_TEN",
-        "format": "Chuỗi",
-        "size": "—",
-        "note": "Theo file mẫu người dùng cung cấp.",
+        "format": "Chuỗi ký tự",
+        "size": "255",
+        "note": "Ghi họ và tên của người bệnh.",
         "required": false,
         "duplicate": false,
         "additionalNote": ""
@@ -1757,9 +1905,9 @@
       {
         "index": 3,
         "name": "NGAY_SINH",
-        "format": "Chuỗi",
-        "size": "—",
-        "note": "Theo file mẫu người dùng cung cấp.",
+        "format": "Chuỗi ký tự",
+        "size": "12",
+        "note": "Ghi ngày, tháng, năm sinh trên thẻ BHYT, gồm 12 ký tự: năm, tháng, ngày, giờ và phút.",
         "required": false,
         "duplicate": false,
         "additionalNote": ""
@@ -1767,9 +1915,9 @@
       {
         "index": 4,
         "name": "GIOI_TINH",
-        "format": "Chuỗi",
-        "size": "—",
-        "note": "Theo file mẫu người dùng cung cấp.",
+        "format": "Chuỗi ký tự",
+        "size": "1",
+        "note": "Ghi giới tính: 1 - Nam; 2 - Nữ; 3 - Chưa xác định.",
         "required": false,
         "duplicate": false,
         "additionalNote": ""
@@ -1777,9 +1925,9 @@
       {
         "index": 5,
         "name": "MA_THE_BHYT",
-        "format": "Chuỗi",
-        "size": "—",
-        "note": "Theo file mẫu người dùng cung cấp.",
+        "format": "Chuỗi ký tự",
+        "size": "15",
+        "note": "Ghi mã thẻ BHYT do cơ quan BHXH cấp.",
         "required": false,
         "duplicate": false,
         "additionalNote": ""
@@ -1787,9 +1935,9 @@
       {
         "index": 6,
         "name": "MA_BENH_CHINH",
-        "format": "Chuỗi",
-        "size": "—",
-        "note": "Theo file mẫu người dùng cung cấp.",
+        "format": "Chuỗi ký tự",
+        "size": "7",
+        "note": "Ghi mã bệnh chính theo ICD-10 do Bộ Y tế ban hành.",
         "required": false,
         "duplicate": false,
         "additionalNote": ""
@@ -1797,9 +1945,9 @@
       {
         "index": 7,
         "name": "NGAY_VAO",
-        "format": "Chuỗi",
-        "size": "—",
-        "note": "Theo file mẫu người dùng cung cấp.",
+        "format": "Chuỗi ký tự",
+        "size": "12",
+        "note": "Ghi thời điểm người bệnh đến KCB, gồm 12 ký tự: năm, tháng, ngày, giờ và phút.",
         "required": false,
         "duplicate": false,
         "additionalNote": ""
@@ -1807,9 +1955,9 @@
       {
         "index": 8,
         "name": "NGAY_VAO_NOI_TRU",
-        "format": "Chuỗi",
-        "size": "—",
-        "note": "Theo file mẫu người dùng cung cấp.",
+        "format": "Chuỗi ký tự",
+        "size": "12",
+        "note": "Ghi thời điểm vào điều trị nội trú hoặc điều trị ban ngày, gồm 12 ký tự: năm, tháng, ngày, giờ và phút.",
         "required": false,
         "duplicate": false,
         "additionalNote": ""
@@ -1817,9 +1965,9 @@
       {
         "index": 9,
         "name": "NGAY_RA",
-        "format": "Chuỗi",
-        "size": "—",
-        "note": "Theo file mẫu người dùng cung cấp.",
+        "format": "Chuỗi ký tự",
+        "size": "12",
+        "note": "Ghi thời điểm kết thúc lần khám hoặc đợt điều trị tại cơ sở KCB, gồm 12 ký tự: năm, tháng, ngày, giờ và phút.",
         "required": false,
         "duplicate": false,
         "additionalNote": ""
@@ -1827,19 +1975,19 @@
       {
         "index": 10,
         "name": "SO_NGAY_DTRI",
-        "format": "Chuỗi",
-        "size": "—",
-        "note": "Theo file mẫu người dùng cung cấp.",
+        "format": "Chuỗi ký tự",
+        "size": "3",
+        "note": "Số ngày điều trị = NGAY_RA - NGAY_VAO + 1.",
         "required": false,
         "duplicate": false,
-        "additionalNote": ""
+        "additionalNote": "MA_LOAI_KCB 02/08: ghi số ngày thực hiện DVKT ngoại trú; 05/07: ghi số ngày dùng thuốc dài nhất; 09: ghi 0."
       },
       {
         "index": 11,
         "name": "MA_LOAI_KCB",
-        "format": "Chuỗi",
-        "size": "—",
-        "note": "Theo file mẫu người dùng cung cấp.",
+        "format": "Số",
+        "size": "2",
+        "note": "Ghi mã hình thức KCB theo Bộ mã danh mục dùng chung do Bộ Y tế ban hành.",
         "required": false,
         "duplicate": false,
         "additionalNote": ""
@@ -1847,9 +1995,9 @@
       {
         "index": 12,
         "name": "T_TONGCHI_BV",
-        "format": "Chuỗi",
-        "size": "—",
-        "note": "Theo file mẫu người dùng cung cấp.",
+        "format": "Số",
+        "size": "15",
+        "note": "Tổng chi phí trong lần khám hoặc đợt điều trị; làm tròn 2 chữ số thập phân, dùng dấu chấm phân cách thập phân.",
         "required": false,
         "duplicate": false,
         "additionalNote": ""
@@ -1857,9 +2005,9 @@
       {
         "index": 13,
         "name": "T_TONGCHI_BH",
-        "format": "Chuỗi",
-        "size": "—",
-        "note": "Theo file mẫu người dùng cung cấp.",
+        "format": "Số",
+        "size": "15",
+        "note": "Tổng chi phí trong phạm vi quỹ BHYT thanh toán; làm tròn 2 chữ số thập phân, dùng dấu chấm phân cách thập phân.",
         "required": false,
         "duplicate": false,
         "additionalNote": ""
@@ -1867,9 +2015,9 @@
       {
         "index": 14,
         "name": "T_BHTT",
-        "format": "Chuỗi",
-        "size": "—",
-        "note": "Theo file mẫu người dùng cung cấp.",
+        "format": "Số",
+        "size": "15",
+        "note": "Tổng số tiền đề nghị cơ quan BHXH thanh toán; làm tròn 2 chữ số thập phân.",
         "required": false,
         "duplicate": false,
         "additionalNote": ""
@@ -1877,9 +2025,9 @@
       {
         "index": 15,
         "name": "T_BNCCT",
-        "format": "Chuỗi",
-        "size": "—",
-        "note": "Theo file mẫu người dùng cung cấp.",
+        "format": "Số",
+        "size": "15",
+        "note": "Tổng số tiền người bệnh cùng chi trả trong phạm vi quyền lợi BHYT.",
         "required": false,
         "duplicate": false,
         "additionalNote": ""
@@ -1887,9 +2035,9 @@
       {
         "index": 16,
         "name": "T_BNTT",
-        "format": "Chuỗi",
-        "size": "—",
-        "note": "Theo file mẫu người dùng cung cấp.",
+        "format": "Số",
+        "size": "15",
+        "note": "Tổng số tiền người bệnh tự trả ngoài phạm vi chi trả của quỹ BHYT.",
         "required": false,
         "duplicate": false,
         "additionalNote": ""
@@ -1897,9 +2045,9 @@
       {
         "index": 17,
         "name": "T_NGUONKHAC",
-        "format": "Chuỗi",
-        "size": "—",
-        "note": "Theo file mẫu người dùng cung cấp.",
+        "format": "Số",
+        "size": "15",
+        "note": "Tổng số tiền các nguồn khác chi trả ngoài phạm vi chi trả của quỹ BHYT.",
         "required": false,
         "duplicate": false,
         "additionalNote": ""
@@ -1907,9 +2055,9 @@
       {
         "index": 18,
         "name": "MA_CSKCB",
-        "format": "Chuỗi",
-        "size": "—",
-        "note": "Theo file mẫu người dùng cung cấp.",
+        "format": "Chuỗi ký tự",
+        "size": "5",
+        "note": "Ghi mã cơ sở KCB nơi người bệnh đến khám bệnh, điều trị do cơ quan có thẩm quyền cấp.",
         "required": false,
         "duplicate": false,
         "additionalNote": ""
@@ -1917,9 +2065,9 @@
       {
         "index": 19,
         "name": "NAM_QT",
-        "format": "Chuỗi",
-        "size": "—",
-        "note": "Theo file mẫu người dùng cung cấp.",
+        "format": "Số",
+        "size": "4",
+        "note": "Ghi năm cơ sở KCB đề nghị cơ quan BHXH thanh toán.",
         "required": false,
         "duplicate": false,
         "additionalNote": ""
@@ -1927,9 +2075,9 @@
       {
         "index": 20,
         "name": "THANG_QT",
-        "format": "Chuỗi",
-        "size": "—",
-        "note": "Theo file mẫu người dùng cung cấp.",
+        "format": "Số",
+        "size": "2",
+        "note": "Ghi tháng cơ sở KCB đề nghị cơ quan BHXH thanh toán.",
         "required": false,
         "duplicate": false,
         "additionalNote": ""
@@ -1964,7 +2112,7 @@
         "index": 1,
         "name": "STT",
         "format": "Chuỗi",
-        "size": "—",
+        "size": "10",
         "note": "Mã ĐỊNH DANH dòng do người dùng tự đặt, DUY NHẤT trong báo cáo và hiển thị nguyên văn ở cột STT của PDF (VD mục lớn: A, B; nhóm con: B1, B2; dòng chi tiết: 01, 02…). Với mẫu 02/BH, hệ thống GIỮ NGUYÊN giá trị này (không tự đánh số lại).",
         "required": true,
         "duplicate": true,
@@ -1974,7 +2122,7 @@
         "index": 2,
         "name": "STT_CHA",
         "format": "Chuỗi",
-        "size": "—",
+        "size": "10",
         "note": "Phân cấp cha–con: điền STT của dòng CHA. Để TRỐNG nếu là mục lớn (cấp 1). VD dòng '01. Khám bệnh' thuộc mục 'A' → STT_CHA = A; nhóm 'B1' thuộc 'B' → STT_CHA = B. Cột phụ trợ dựng PDF, KHÔNG xuất ra XML.",
         "required": false,
         "duplicate": false,
@@ -1984,7 +2132,7 @@
         "index": 3,
         "name": "CHI_TIEU",
         "format": "Chuỗi",
-        "size": "—",
+        "size": "255",
         "note": "Tên chỉ tiêu quyết toán (theo mẫu báo cáo 02/BH). PDF tự thụt lề theo cấp cha–con.",
         "required": true,
         "duplicate": false,
@@ -1994,7 +2142,7 @@
         "index": 4,
         "name": "SO_LUOT",
         "format": "Số",
-        "size": "—",
+        "size": "10",
         "note": "Số lượt KCB. CHỈ nhập ở DÒNG LÁ (dòng không có con); dòng CHA (được dòng khác trỏ tới qua STT_CHA) để TRỐNG — hệ thống tự cộng từ các dòng con.",
         "required": false,
         "duplicate": false,
@@ -2004,7 +2152,7 @@
         "index": 5,
         "name": "T_TONGCHI_BV",
         "format": "Số",
-        "size": "—",
+        "size": "15",
         "note": "Tổng chi phí KCB theo giá bệnh viện (VNĐ). Chỉ nhập ở dòng lá; dòng cha để trống (tự cộng).",
         "required": false,
         "duplicate": false,
@@ -2014,7 +2162,7 @@
         "index": 6,
         "name": "T_TONGCHI_BH",
         "format": "Số",
-        "size": "—",
+        "size": "15",
         "note": "Tổng chi phí KCB thuộc phạm vi thanh toán BHYT (VNĐ). Chỉ nhập ở dòng lá.",
         "required": false,
         "duplicate": false,
@@ -2024,7 +2172,7 @@
         "index": 7,
         "name": "T_BHTT",
         "format": "Số",
-        "size": "—",
+        "size": "15",
         "note": "Số tiền quỹ BHYT thanh toán (VNĐ). Chỉ nhập ở dòng lá.",
         "required": false,
         "duplicate": false,
@@ -2034,7 +2182,7 @@
         "index": 8,
         "name": "T_BNCCT",
         "format": "Số",
-        "size": "—",
+        "size": "15",
         "note": "Số tiền người bệnh cùng chi trả (VNĐ). Chỉ nhập ở dòng lá.",
         "required": false,
         "duplicate": false,
@@ -2044,7 +2192,7 @@
         "index": 9,
         "name": "T_NGUONKHAC",
         "format": "Số",
-        "size": "—",
+        "size": "15",
         "note": "Số tiền nguồn khác chi trả (VNĐ). Chỉ nhập ở dòng lá.",
         "required": false,
         "duplicate": false,
@@ -2054,7 +2202,7 @@
         "index": 10,
         "name": "T_BNTT",
         "format": "Số",
-        "size": "—",
+        "size": "15",
         "note": "Số tiền người bệnh tự trả ngoài phạm vi BHYT (VNĐ). Chỉ nhập ở dòng lá.",
         "required": false,
         "duplicate": false,
@@ -2064,7 +2212,7 @@
         "index": 11,
         "name": "MA_CSKCB",
         "format": "Chuỗi (5 ký tự)",
-        "size": "—",
+        "size": "5",
         "note": "Mã cơ sở khám chữa bệnh do BHXH cấp",
         "required": true,
         "duplicate": false,

@@ -6,6 +6,15 @@ Mọi thay đổi đáng chú ý của **TT12 Excel Validator** được ghi t�
 
 Chưa có thay đổi ngoài phiên bản phát hành đầu tiên.
 
+## [1.5.0] — 2026-08-26
+
+### Thay đổi
+
+- Đặt `20260306_6bang_tt12_chitiet_valid_.xlsx` làm nguồn ưu tiên cho định dạng, kích thước tối đa, diễn giải, ghi chú bổ sung và cờ **Bắt buộc/Trùng** của sáu mẫu 01–06/DM.
+- Bảo toàn nguyên văn các điều kiện nguồn như “Không bắt buộc đối với …” trong bảng tra cứu.
+- Bổ sung kích thước và diễn giải của `CHITIET_HS01BH` (trang 60–63 tài liệu kỹ thuật TT12) cho 20 chỉ tiêu Mẫu 01/BH.
+- Thêm cảnh báo khi `NGAY_VAO_NOI_TRU` sớm hơn `NGAY_VAO`; kiểm tra sẵn có tiếp tục bảo đảm `NGAY_RA` không sớm hơn hai thời điểm này.
+
 ## [1.4.0] — 2026-08-26
 
 ### Thay đổi

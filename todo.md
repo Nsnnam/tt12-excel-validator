@@ -69,3 +69,17 @@
 - [x] Thay sáu file mẫu tải xuống, bổ sung hai mẫu BH vào thư viện và cập nhật metadata/tên nghiệp vụ.
 - [x] Cập nhật chữ ký nhận diện, kiểm định cấu trúc/cột và các kiểm thử theo tám mẫu thực tế.
 - [x] Kiểm thử import từng mẫu, cập nhật giao diện/tài liệu, tạo lại single HTML/EXE và push GitHub private.
+
+## Kích thước, diễn giải và ghi chú theo tài liệu TT12-2026-BTC
+
+- [ ] Trích xuất Mục 5, xác định các bảng quy ước tương ứng tám mẫu và đối chiếu với schema hiện có.
+- [ ] Cập nhật kích thước, diễn giải, ghi chú và kiểm định độ dài cho từng chỉ tiêu có quy ước.
+- [ ] Kiểm thử cảnh báo giới hạn mới, rà soát bảng tra cứu và cập nhật tài liệu phát hành.
+- [ ] Tạo artifact cập nhật, commit/push GitHub private và xác minh bản phát hành.
+
+## Validate ưu tiên và CHITIET_HS01BH
+
+- [ ] Trích xuất toàn bộ bảng validate từ file mới, đối chiếu header và đánh giá mức độ phủ so với sáu schema DM.
+- [ ] Trích xuất bảng CHITIET_HS01BH trang 60–63 để cập nhật Mẫu 01/BH.
+- [ ] Hợp nhất định dạng, kích thước, diễn giải, ghi chú, Bắt buộc và Trùng từ nguồn ưu tiên; kiểm thử hồi quy.
+- [ ] Rà soát giao diện, tài liệu, artifact và commit/push GitHub private.

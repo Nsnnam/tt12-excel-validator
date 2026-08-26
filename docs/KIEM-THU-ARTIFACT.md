@@ -18,3 +18,9 @@ Single HTML `TT12-Excel-Validator-v1.3.0-offline.html` đã được mở trực
 ## 2026-08-26 — Bản v1.4.0
 
 Single HTML `TT12-Excel-Validator-v1.4.0-offline.html` đã được mở trực tiếp qua `file://` và đạt smoke test. Artifact hiển thị đủ sáu mẫu danh mục TT12 được thay thế, Mẫu 01/BH tổng hợp đề nghị thanh toán và Mẫu 02/BH báo cáo quyết toán. EXE v1.4.0 được xác nhận là PE32+ x86-64 cho Windows; cần chạy smoke test trên Windows 64-bit tại máy đích.
+
+## 2026-08-26 — Bản v1.5.0
+
+Single HTML `TT12-Excel-Validator-v1.5.0-offline.html` đã được mở trực tiếp qua `file://` và đạt smoke test. Artifact hiển thị dải hồ sơ kiểm định, metadata **VALIDATE CHI TIẾT ƯU TIÊN**, bảng Mẫu 01/DM có kích thước/diễn giải/cờ Bắt buộc–Trùng từ nguồn ưu tiên và thông tin phát hành `v1.5.0`. SHA-256: `8dc52525d5d12bafad135e70e9df1ed6715db31f5ce87a50f473fc56bd976ff7`.
+
+EXE `TT12-Excel-Validator-v1.5.0-win-x64.exe` được xác nhận là `PE32+ x86-64` cho Windows, gồm 7 section. SHA-256: `1c639f91cce090a0df4d0def75d30d24bdcb6329d5e2b7101d666854f1184a2a`. Sandbox Linux không thể thực thi EXE Windows; cần chạy smoke test cuối cùng trên Windows 64-bit tại máy đích và mở `http://localhost:3000`.
