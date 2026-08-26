@@ -35,7 +35,7 @@ export const DOCUMENT_LIBRARY = [
   { id: "3", name: "Tài liệu kỹ thuật TT12", type: "pdf", url: "tai-lieu-ky-thuat-tt12.pdf" },
   { id: "4", name: "PL 06 bảng DM", type: "word", url: "phu-luc-huong-dan-su-dung-06bangdanhmuc.docx" },
   { id: "5", name: "HD ghi PVCM (CV 2148)", type: "pdf", url: "2148-HD-ma-hoa-pham-vi-chuyen-mon.pdf" },
-  { id: "13", name: "QĐ 2026 — Mã loại KCB, mã khoa", type: "pdf", url: "qd-ma-loai-kcb-ma-khoa-2026.pdf" },
+  { id: "qd-2026-ma-kcb-ma-khoa", name: "QĐ 2026 — Mã loại KCB, mã khoa", type: "pdf", url: "qd-ma-loai-kcb-ma-khoa-2026.pdf" },
   { id: "6", name: "Mẫu 01/DM - Bộ phận chuyên môn KCB BHYT", type: "excel", url: "/manus-storage/MAU_01_Template_b516b53b.xlsx" },
   { id: "7", name: "Mẫu 02/DM - Nhân lực thực hiện KCB BHYT", type: "excel", url: "/manus-storage/MAU_02_Template_0406dec0.xlsx" },
   { id: "8", name: "Mẫu 03/DM - Thuốc, máu, chế phẩm máu", type: "excel", url: "/manus-storage/MAU_03_Template_815ef4f9.xlsx" },
@@ -43,7 +43,7 @@ export const DOCUMENT_LIBRARY = [
   { id: "10", name: "Mẫu 05/DM - Dịch vụ KCB", type: "excel", url: "/manus-storage/MAU_05_Template_f74b0c1a.xlsx" },
   { id: "11", name: "Mẫu 06/DM - Thiết bị thực hiện dịch vụ", type: "excel", url: "/manus-storage/MAU_06_Template_92c8b3db.xlsx" },
   { id: "12", name: "Mẫu 01/BH - Tổng hợp đề nghị thanh toán KCB BHYT", type: "excel", url: "/manus-storage/MAU_01_BH_Template_e4db7973.xlsx" },
-  { id: "13", name: "Mẫu 02/BH - Báo cáo quyết toán KCB BHYT", type: "excel", url: "/manus-storage/MAU_02_BH_Template_0f545a41.xlsx" },
+  { id: "mau-02-bh", name: "Mẫu 02/BH - Báo cáo quyết toán KCB BHYT", type: "excel", url: "/manus-storage/MAU_02_BH_Template_0f545a41.xlsx" },
 ] as const;
 
 export const COMMON_CATALOGS: Record<"maLoaiHinh" | "maKhamBenh" | "maDoiTuong" | "maKhoa", CommonCode[]> = {

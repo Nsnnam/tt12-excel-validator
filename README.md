@@ -4,7 +4,7 @@
 
 | | |
 |---|---|
-| **Phiên bản** | `1.5.0` |
+| **Phiên bản** | `1.5.1` |
 | **Ngày** | 2026-08-26 |
 | **Tác giả** | [Nguyễn Sơn Nam (Nsnnam)](https://github.com/Nsnnam) |
 | **Múi giờ** | GMT+7 (`Asia/Ho_Chi_Minh`) |
@@ -86,6 +86,7 @@ Chi tiết thay đổi xem tại [CHANGELOG.md](./CHANGELOG.md).
 | 2026-08-25 | `1.3.0` | Bổ sung cờ nghiệp vụ, lọc theo cột và quy tắc cơ sở KCB. |
 | 2026-08-26 | `1.4.0` | Thay sáu file mẫu, thêm Mẫu 01/BH và 02/BH, nhận diện tám schema mới. |
 | 2026-08-26 | `1.5.0` | Ưu tiên metadata file validate chi tiết cho sáu mẫu DM; bổ sung CHITIET_HS01BH cho Mẫu 01/BH. |
+| 2026-08-26 | `1.5.1` | Sửa khóa React bị trùng trong thư viện tài liệu và bổ sung kiểm thử hồi quy ID duy nhất. |
 
 ## Ủng hộ
 

@@ -6,6 +6,13 @@ Mọi thay đổi đáng chú ý của **TT12 Excel Validator** được ghi t�
 
 Chưa có thay đổi ngoài phiên bản phát hành đầu tiên.
 
+## [1.5.1] — 2026-08-26
+
+### Sửa lỗi
+
+- Thay hai ID trùng `13` trong thư viện tài liệu bằng định danh nghiệp vụ duy nhất, loại bỏ cảnh báo React về khóa con trùng lặp khi mở trang tra cứu.
+- Bổ sung kiểm thử hồi quy xác nhận tất cả ID thư viện tài liệu là duy nhất.
+
 ## [1.5.0] — 2026-08-26
 
 ### Thay đổi

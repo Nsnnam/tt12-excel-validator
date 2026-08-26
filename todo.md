@@ -83,3 +83,7 @@
 - [ ] Trích xuất bảng CHITIET_HS01BH trang 60–63 để cập nhật Mẫu 01/BH.
 - [ ] Hợp nhất định dạng, kích thước, diễn giải, ghi chú, Bắt buộc và Trùng từ nguồn ưu tiên; kiểm thử hồi quy.
 - [ ] Rà soát giao diện, tài liệu, artifact và commit/push GitHub private.
+
+## Bản vá khóa React trùng lặp
+
+- [x] Xác định danh sách render tạo khóa con không duy nhất, sửa theo định danh nghiệp vụ ổn định và kiểm thử console.
