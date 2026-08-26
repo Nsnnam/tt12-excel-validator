@@ -1,5 +1,5 @@
 import * as XLSX from "xlsx";
-import { getReferenceFields, hasDuplicateRule, isRequired, readableRequirement } from "./reference";
+import userTemplateSchemas from "@/data/user-template-schemas.json";
 
 export type Severity = "error" | "warning" | "info";
 
@@ -28,6 +28,7 @@ export type TemplateSchema = {
   id: string;
   label: string;
   sheetName: string;
+  fileName: string;
   headers: string[];
   keyFields: string[];
   requiredFields: string[];
@@ -55,64 +56,17 @@ export type Inspection = {
   hasFormula: boolean;
 };
 
-const common = ["TU_NGAY", "DEN_NGAY", "MA_CSKCB"];
+type UserField = { index: number; name: string; format: string; size: string; note: string; required: boolean; duplicate: boolean; additionalNote: string };
+type UserTemplate = { id: string; label: string; sheetName: string; fileName: string; headers: string[]; keyFields: string[]; requiredFields: string[]; fields: UserField[] };
+const userSchemas = userTemplateSchemas as UserTemplate[];
+const userSchemaById = new Map(userSchemas.map((schema) => [schema.id, schema]));
 
-export const TEMPLATES: TemplateSchema[] = [
-  {
-    id: "MAU_01",
-    label: "Mẫu số 01/DM - Bộ phận chuyên môn KCB BHYT",
-    sheetName: "MAU_01",
-    headers: ["STT", "MA_KHOA", "TEN_KHOA", "BAN_KHAM", "GIUONG_PD", "GIUONG_TK", "GIUONG_HSTC", "GIUONG_HSCC", ...common],
-    keyFields: ["MA_KHOA", "MA_CSKCB", "TU_NGAY"],
-    requiredFields: ["MA_KHOA", "TEN_KHOA", "TU_NGAY", "MA_CSKCB"],
-    datePairs: [["TU_NGAY", "DEN_NGAY"]],
-  },
-  {
-    id: "MAU_02",
-    label: "Mẫu số 02/DM - Nhân lực thực hiện KCB BHYT",
-    sheetName: "MAU_02",
-    headers: ["STT", "MA_KHOA", "TEN_KHOA", "HO_TEN", "GIOI_TINH", "SO_DINH_DANH", "CHUCDANH_NN", "VI_TRI", "MACCHN", "NGAYCAP_CCHN", "NOICAP_CCHN", "PHAMVI_CM", "PHAMVI_CMBS", "DVKT_KHAC", "VB_PHANCONG", "THOIGIAN_DK", "THOIGIAN_NGAY", "THOIGIAN_TUAN", "CSKCB_KHAC", "CSKCB_CGKT", "QD_CGKT", ...common],
-    keyFields: ["SO_DINH_DANH", "MA_CSKCB", "TU_NGAY"],
-    requiredFields: ["MA_KHOA", "HO_TEN", "SO_DINH_DANH", "TU_NGAY", "MA_CSKCB"],
-    datePairs: [["TU_NGAY", "DEN_NGAY"]],
-  },
-  {
-    id: "MAU_03",
-    label: "Mẫu số 03/DM - Thuốc, máu, chế phẩm máu áp dụng trong thanh toán BHYT",
-    sheetName: "MAU_03",
-    headers: ["STT", "MA_THUOC", "TEN_HOAT_CHAT", "TEN_THUOC", "DON_VI_TINH", "HAM_LUONG", "DUONG_DUNG", "MA_DUONG_DUNG", "DANG_BAO_CHE", "SO_DANG_KY", "SO_LUONG", "DON_GIA", "DON_GIA_BH", "QUY_CACH", "NHA_SX", "NUOC_SX", "NHA_THAU", "TT_THAU", "TU_NGAY_HD", "DEN_NGAY_HD", "MA_CSKCB", "LOAI_THUOC", "LOAI_THAU", "HT_THAU", "MA_DVKT", "TCCL", "BO_PHAN_VT", "TEN_KHOA_HOC", "NGUON_GOC", "PP_CHEBIEN", "MA_DL_NHAP", "MA_DL_CB", "TLHH_CB", "TLHH_BQ", "MA_CSKCB_THUOC", "TU_NGAY", "DEN_NGAY"],
-    keyFields: ["MA_THUOC", "MA_CSKCB", "TU_NGAY"],
-    requiredFields: ["MA_THUOC", "TEN_THUOC", "DON_VI_TINH", "DON_GIA", "TU_NGAY", "MA_CSKCB"],
-    datePairs: [["TU_NGAY_HD", "DEN_NGAY_HD"], ["TU_NGAY", "DEN_NGAY"]],
-  },
-  {
-    id: "MAU_04",
-    label: "Mẫu số 04/DM - Thiết bị y tế áp dụng trong thanh toán BHYT",
-    sheetName: "MAU_04",
-    headers: ["STT", "MA_VAT_TU", "NHOM_VAT_TU", "TEN_VAT_TU", "MA_HIEU", "SO_LUU_HANH", "TINHNANG_KT", "QUY_CACH", "HANG_SX", "NUOC_SX", "DON_VI_TINH", "DON_GIA", "DON_GIA_BH", "TYLE_TT_BH", "SO_LUONG", "DINH_MUC", "NHA_THAU", "TT_THAU", "TU_NGAY_HD", "DEN_NGAY_HD", "MA_CSKCB", "LOAI_THAU", "HT_THAU", "MA_CSKCB_TBYT", "TU_NGAY", "DEN_NGAY"],
-    keyFields: ["MA_VAT_TU", "MA_CSKCB", "TU_NGAY"],
-    requiredFields: ["MA_VAT_TU", "TEN_VAT_TU", "DON_VI_TINH", "DON_GIA", "TU_NGAY", "MA_CSKCB"],
-    datePairs: [["TU_NGAY_HD", "DEN_NGAY_HD"], ["TU_NGAY", "DEN_NGAY"]],
-  },
-  {
-    id: "MAU_05",
-    label: "Mẫu số 05/DM - Dịch vụ KCB áp dụng trong thanh toán BHYT",
-    sheetName: "MAU_05",
-    headers: ["STT", "MA_DICH_VU", "TEN_DICH_VU", "TEN_DVKT_GIA", "DON_GIA", "QUY_TRINH", "SO_LUONG_CGKT", "CSKCB_CGKT", "CSKCB_CLS", "QD_DVKT", "QD_PD_GIA", "GHI_CHU", "TU_NGAY", "DEN_NGAY", "MA_CSKCB", "GIA_THANH_TOAN", "DS_THUOCPX.STT", "DS_THUOCPX.MA_THUOC", "DS_THUOCPX.TEN_THUOC", "DS_THUOCPX.SO_DANG_KY", "DS_THUOCPX.DON_VI_TINH", "DS_THUOCPX.TT_THAU", "DS_THUOCPX.DON_GIA_THUOC", "DS_THUOCPX.DM_NSX_CDD", "DS_THUOCPX.DM_THUCTE_CDD", "DS_THUOCPX.LIEU_BQ_PX", "DS_THUOCPX.TL_THUCTE_BQ_PX", "DS_THUOCPX.THANH_TIEN_THUOC"],
-    keyFields: ["MA_DICH_VU", "MA_CSKCB", "TU_NGAY"],
-    requiredFields: ["MA_DICH_VU", "TEN_DICH_VU", "DON_GIA", "TU_NGAY", "MA_CSKCB"],
-    datePairs: [["TU_NGAY", "DEN_NGAY"]],
-  },
-  {
-    id: "MAU_06",
-    label: "Mẫu số 06/DM - Thiết bị y tế để thực hiện dịch vụ kỹ thuật áp dụng trong thanh toán BHYT",
-    sheetName: "MAU_06",
-    headers: ["STT", "TEN_TB", "KY_HIEU", "CONGTY_SX", "NUOC_SX", "NAM_SX", "NAM_SD", "MA_MAY", "SO_LUU_HANH", "HD_TU", "HD_DEN", "TU_NGAY", "DEN_NGAY", "MA_CSKCB"],
-    keyFields: ["MA_MAY", "MA_CSKCB", "TU_NGAY"],
-    requiredFields: ["TEN_TB", "TU_NGAY", "MA_CSKCB"],
-    datePairs: [["HD_TU", "HD_DEN"], ["TU_NGAY", "DEN_NGAY"]],
-  },
-];
+function templateDatePairs(headers: string[]): [string, string][] {
+  return [["TU_NGAY_HD", "DEN_NGAY_HD"], ["HD_TU", "HD_DEN"], ["TU_NGAY", "DEN_NGAY"], ["NGAY_VAO", "NGAY_RA"], ["NGAY_VAO_NOI_TRU", "NGAY_RA"]]
+    .filter(([from, to]) => headers.includes(from) && headers.includes(to)) as [string, string][];
+}
+
+export const TEMPLATES: TemplateSchema[] = userSchemas.map((schema) => ({ ...schema, datePairs: templateDatePairs(schema.headers) }));
 
 const fieldNotes: Record<string, string> = {
   STT: "Số thứ tự của dòng dữ liệu.",
@@ -143,12 +97,12 @@ const maxLengths: Record<string, number> = {
 };
 
 const integerFields = new Set([
-  "STT", "BAN_KHAM", "GIUONG_PD", "GIUONG_TK", "GIUONG_HSTC", "GIUONG_HSCC", "SO_LUONG", "DINH_MUC", "THOIGIAN_DK", "THOIGIAN_NGAY", "THOIGIAN_TUAN", "NAM_SX", "NAM_SD", "DS_THUOCPX.STT",
+  "STT", "BAN_KHAM", "GIUONG_PD", "GIUONG_TK", "GIUONG_HSTC", "GIUONG_HSCC", "SO_LUONG", "DINH_MUC", "THOIGIAN_DK", "THOIGIAN_NGAY", "THOIGIAN_TUAN", "NAM_SX", "NAM_SD", "DS_THUOCPX.STT", "SO_LUOT", "SO_NGAY_DTRI", "NAM_QT", "THANG_QT", "GIOI_TINH",
 ]);
 
 const decimalFields = new Set(["TYLE_TT_BH", "TLHH_CB", "TLHH_BQ", "DS_THUOCPX.LIEU_BQ_PX", "DS_THUOCPX.TL_THUCTE_BQ_PX", "SO_LUONG_CGKT"]);
 
-const dateFields = new Set(["TU_NGAY", "DEN_NGAY", "TU_NGAY_HD", "DEN_NGAY_HD", "NGAYCAP_CCHN", "HD_TU", "HD_DEN"]);
+const dateFields = new Set(["TU_NGAY", "DEN_NGAY", "TU_NGAY_HD", "DEN_NGAY_HD", "NGAYCAP_CCHN", "HD_TU", "HD_DEN", "NGAY_SINH", "NGAY_VAO", "NGAY_VAO_NOI_TRU", "NGAY_RA"]);
 
 function normalize(value: unknown) {
   return String(value ?? "").replace(/\u00a0/g, " ").trim().replace(/\s+/g, " ").toUpperCase();
@@ -172,12 +126,17 @@ function numberValue(value: unknown) {
 
 function isValidDate(value: unknown) {
   const source = text(value).trim();
-  if (!/^\d{8}$/.test(source)) return false;
+  if (!/^\d{8}(?:\d{4}|\d{6})?$/.test(source)) return false;
   const year = Number(source.slice(0, 4));
   const month = Number(source.slice(4, 6));
   const day = Number(source.slice(6, 8));
   const date = new Date(Date.UTC(year, month - 1, day));
-  return date.getUTCFullYear() === year && date.getUTCMonth() === month - 1 && date.getUTCDate() === day;
+  if (date.getUTCFullYear() !== year || date.getUTCMonth() !== month - 1 || date.getUTCDate() !== day) return false;
+  if (source.length === 8) return true;
+  const hour = Number(source.slice(8, 10));
+  const minute = Number(source.slice(10, 12));
+  const second = source.length === 14 ? Number(source.slice(12, 14)) : 0;
+  return hour <= 23 && minute <= 59 && second <= 59;
 }
 
 function issue(
@@ -192,7 +151,7 @@ function issue(
 }
 
 function isCurrency(header: string) {
-  return header.includes("DON_GIA") || header.includes("GIA_THANH") || header.includes("THANH_TIEN");
+  return header.includes("DON_GIA") || header.includes("GIA_THANH") || header.includes("THANH_TIEN") || header.startsWith("T_");
 }
 
 function isDate(header: string) {
@@ -207,12 +166,12 @@ function unaccent(value: string) {
   return value.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
 }
 
-function schemaRule(header: string, field?: { dinhDang: string; kichThuoc: string; dienGiai: string }) {
-  const format = field?.dinhDang?.trim() || fieldFormat(header);
-  const description = field?.dienGiai?.replace(/\s+/g, " ").trim() || fieldNotes[header] || "";
+function schemaRule(header: string, field?: UserField) {
+  const format = field?.format?.trim() || fieldFormat(header);
+  const description = field?.note?.replace(/\s+/g, " ").trim() || fieldNotes[header] || "";
   const normalizedFormat = unaccent(format);
   const normalizedDescription = unaccent(description);
-  const sourceSize = Number(field?.kichThuoc);
+  const sourceSize = Number(field?.size);
   const maximum = maxLengths[header] ?? (Number.isFinite(sourceSize) && sourceSize > 0 ? sourceSize : undefined);
   const date = isDate(header) || /yyyymmdd|8 ky tu.*nam.*thang.*ngay/.test(normalizedDescription);
   const currency = isCurrency(header) || /don gia|gia thanh toan|thanh tien|gia bhyt/.test(normalizedDescription);
@@ -231,20 +190,8 @@ function fieldFormat(header: string) {
 }
 
 export function fieldsForTemplate(template: TemplateSchema) {
-  const sourceFields = getReferenceFields(template.id);
-  if (sourceFields.length) {
-    return sourceFields.map((field, index) => ({
-      index: Number(field.stt) || index + 1,
-      name: field.chiTieu,
-      format: field.dinhDang || fieldFormat(field.chiTieu),
-      size: field.kichThuoc || "—",
-      note: field.dienGiai || fieldNotes[field.chiTieu] || `Trường dữ liệu thuộc ${template.label}.`,
-      required: isRequired(field),
-      requirementText: readableRequirement(field),
-      duplicate: field.trung.trim().toLowerCase() === "x",
-      additionalNote: field.ghiChuBS,
-    }));
-  }
+  const source = userSchemaById.get(template.id);
+  if (source) return source.fields.map((field) => ({ ...field, requirementText: field.required ? "Bắt buộc" : "Không bắt buộc" }));
   return template.headers.map((header, index) => ({
     index: index + 1,
     name: header,
@@ -272,10 +219,10 @@ export function detectTemplate(headers: string[]): Detection[] {
 
 export function validateTable(template: TemplateSchema, headers: string[], rows: DataRow[]) {
   const issues: ValidationIssue[] = [];
-  const sourceFields = getReferenceFields(template.id);
-  const sourceByName = new Map(sourceFields.map((field) => [field.chiTieu, field]));
-  const requiredFields = Array.from(new Set([...template.requiredFields, ...sourceFields.filter(isRequired).map((field) => field.chiTieu)]));
-  const duplicateFields = sourceFields.filter(hasDuplicateRule).map((field) => field.chiTieu);
+  const source = userSchemaById.get(template.id);
+  const sourceByName = new Map(source?.fields.map((field) => [field.name, field]) ?? []);
+  const requiredFields = template.requiredFields;
+  const duplicateFields = source?.fields.filter((field) => field.duplicate).map((field) => field.name) ?? [];
   const normalizedHeaders = headers.map(normalize);
   const expected = new Set(template.headers.map(normalize));
 
@@ -332,7 +279,7 @@ export function validateTable(template: TemplateSchema, headers: string[], rows:
       if (rule.date && !isValidDate(value)) {
         const dateMessage = typeof cell?.value === "number"
           ? "Excel đang lưu ngày ở dạng số serial, không phải chuỗi YYYYMMDD."
-          : "Ngày không đúng định dạng YYYYMMDD hoặc không tồn tại trên lịch.";
+          : "Ngày không đúng định dạng YYYYMMDD hoặc YYYYMMDDHHMM[SS], hoặc không tồn tại trên lịch.";
         issues.push(issue("error", row.rowNumber, header, "Ngày tháng", dateMessage, `Yêu cầu cột: ${rule.summary}`));
       }
       if (rule.numeric) {
@@ -552,6 +499,15 @@ export function exportReport(inspection: Inspection) {
 }
 
 export function sourceTemplateUrl(id: string) {
-  const number = id.replace("MAU_", "");
-  return `https://tracuu-danhmuc-tt12.web.app/MAU_${number}_Template.xlsx`;
+  const urls: Record<string, string> = {
+    MAU_01: "/manus-storage/MAU_01_Template_b516b53b.xlsx",
+    MAU_02: "/manus-storage/MAU_02_Template_0406dec0.xlsx",
+    MAU_03: "/manus-storage/MAU_03_Template_815ef4f9.xlsx",
+    MAU_04: "/manus-storage/MAU_04_Template_2549b380.xlsx",
+    MAU_05: "/manus-storage/MAU_05_Template_f74b0c1a.xlsx",
+    MAU_06: "/manus-storage/MAU_06_Template_92c8b3db.xlsx",
+    MAU_01_BH: "/manus-storage/MAU_01_BH_Template_e4db7973.xlsx",
+    MAU_02_BH: "/manus-storage/MAU_02_BH_Template_0f545a41.xlsx",
+  };
+  return urls[id] ?? "#";
 }

@@ -62,3 +62,10 @@
 - [x] Hoàn thiện cờ nghiệp vụ, lọc cột và quản lý quy tắc cơ sở KCB.
 - [x] Kiểm thử, tạo lại single HTML và EXE portable từ mã mới.
 - [x] Commit, push repository GitHub private và xác minh artifact phát hành.
+
+## Thay bộ mẫu Excel TT12 và bổ sung mẫu BH
+
+- [x] Trích xuất sheet, hàng tiêu đề, cột, định dạng và công thức từ sáu mẫu TT12 mới cùng Mẫu 01/BH và 02/BH.
+- [x] Thay sáu file mẫu tải xuống, bổ sung hai mẫu BH vào thư viện và cập nhật metadata/tên nghiệp vụ.
+- [x] Cập nhật chữ ký nhận diện, kiểm định cấu trúc/cột và các kiểm thử theo tám mẫu thực tế.
+- [x] Kiểm thử import từng mẫu, cập nhật giao diện/tài liệu, tạo lại single HTML/EXE và push GitHub private.

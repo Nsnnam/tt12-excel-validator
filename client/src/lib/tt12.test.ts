@@ -84,4 +84,22 @@ describe("inspectExcelFile", () => {
     expect(inspection.detection?.score).toBe(100);
     expect(inspection.headers).toContain("MA_KHOA");
   });
+  it("nhận diện chính xác tám file mẫu người dùng cung cấp", async () => {
+    const cases = [
+      ["MAU_01_Template.xlsx", "MAU_01"], ["MAU_02_Template.xlsx", "MAU_02"], ["MAU_03_Template.xlsx", "MAU_03"], ["MAU_04_Template.xlsx", "MAU_04"],
+      ["MAU_05_Template.xlsx", "MAU_05"], ["MAU_06_Template.xlsx", "MAU_06"], ["MAU_01_BH_Template.xlsx", "MAU_01_BH"], ["MAU_02_BH_Template.xlsx", "MAU_02_BH"],
+    ];
+    for (const [fileName, expectedId] of cases) {
+      const bytes = readFileSync(`/home/ubuntu/upload/${fileName}`);
+      const file = new File([bytes], fileName, { type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" });
+      const inspection = await inspectExcelFile(file);
+      expect(inspection.detection?.template.id).toBe(expectedId);
+      expect(inspection.detection?.score).toBe(100);
+    }
+  });
+  it("chấp nhận ngày giờ hợp lệ của Mẫu 01/BH", () => {
+    const row: DataRow = { rowNumber: 2, cells: { STT: { value: 1 }, HO_TEN: { value: "Nguyễn Văn A" }, NGAY_SINH: { value: "19900101" }, GIOI_TINH: { value: 1 }, MA_THE_BHYT: { value: "DN401010000001" }, MA_BENH_CHINH: { value: "J06" }, NGAY_VAO: { value: "202608160712" }, NGAY_VAO_NOI_TRU: { value: "202608160712" }, NGAY_RA: { value: "202608170915" }, SO_NGAY_DTRI: { value: 2 }, MA_LOAI_KCB: { value: "1" }, T_TONGCHI_BV: { value: 100000 }, T_TONGCHI_BH: { value: 100000 }, T_BHTT: { value: 80000 }, T_BNCCT: { value: 0 }, T_BNTT: { value: 20000 }, T_NGUONKHAC: { value: 0 }, MA_CSKCB: { value: "01001" }, NAM_QT: { value: 2026 }, THANG_QT: { value: 8 } } };
+    const issues = validateTable(TEMPLATES.find((template) => template.id === "MAU_01_BH")!, TEMPLATES.find((template) => template.id === "MAU_01_BH")!.headers, [row]);
+    expect(issues.some((item) => item.category === "Ngày tháng")).toBe(false);
+  });
 });

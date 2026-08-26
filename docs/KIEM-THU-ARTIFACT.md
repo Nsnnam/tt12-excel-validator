@@ -14,3 +14,7 @@ Artifact `releases/TT12-Excel-Validator-v1.2.0-win-x64.exe` đã được tạo 
 ## 2026-08-25 — Bản v1.3.0
 
 Single HTML `TT12-Excel-Validator-v1.3.0-offline.html` đã được mở trực tiếp qua `file://` và hiển thị ứng dụng bình thường. Smoke test xác nhận các nhãn sáu mẫu, cột **Bắt buộc/Trùng** và điểm vào **Quy tắc cơ sở KCB** đều có trong artifact offline. EXE v1.3.0 được xác nhận là PE32+ x86-64 cho Windows; vẫn cần thực hiện smoke test trên Windows 64-bit tại máy đích.
+
+## 2026-08-26 — Bản v1.4.0
+
+Single HTML `TT12-Excel-Validator-v1.4.0-offline.html` đã được mở trực tiếp qua `file://` và đạt smoke test. Artifact hiển thị đủ sáu mẫu danh mục TT12 được thay thế, Mẫu 01/BH tổng hợp đề nghị thanh toán và Mẫu 02/BH báo cáo quyết toán. EXE v1.4.0 được xác nhận là PE32+ x86-64 cho Windows; cần chạy smoke test trên Windows 64-bit tại máy đích.

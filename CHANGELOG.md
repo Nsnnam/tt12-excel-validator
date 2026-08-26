@@ -6,6 +6,15 @@ Mọi thay đổi đáng chú ý của **TT12 Excel Validator** được ghi t�
 
 Chưa có thay đổi ngoài phiên bản phát hành đầu tiên.
 
+## [1.4.0] — 2026-08-26
+
+### Thay đổi
+
+- Thay sáu file Mẫu 01–06/DM cũ bằng sáu file người dùng cung cấp.
+- Bổ sung Mẫu 01/BH — Tổng hợp đề nghị thanh toán KCB BHYT và Mẫu 02/BH — Báo cáo quyết toán KCB BHYT.
+- Nhận diện và kiểm định chuyển sang dùng schema cột trích xuất từ sheet Hướng dẫn của tám file mới.
+- Hỗ trợ ngày `YYYYMMDDHHMM[SS]` của Mẫu 01/BH và cập nhật liên kết tải toàn bộ tám file mẫu.
+
 ## [1.3.0] — 2026-08-25
 
 ### Thêm mới
