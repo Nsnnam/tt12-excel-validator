@@ -28,3 +28,9 @@ EXE `TT12-Excel-Validator-v1.5.0-win-x64.exe` được xác nhận là `PE32+ x8
 ## 2026-08-26 — Bản vá v1.5.1
 
 Single HTML `TT12-Excel-Validator-v1.5.1-offline.html` đã được mở trực tiếp qua `file://`. Bản artifact hiển thị đủ 14 mục thư viện tài liệu, thông tin phát hành `v1.5.1`; console chỉ còn thông tin khuyến nghị React DevTools và **không còn** cảnh báo khóa React trùng. EXE `TT12-Excel-Validator-v1.5.1-win-x64.exe` được xác nhận là `PE32+ x86-64` cho Windows, gồm 7 section.
+
+## 2026-08-28 — Bản v1.6.0
+
+Single HTML `TT12-Excel-Validator-v1.6.0-offline.html` đã được mở trực tiếp qua `file://` và đạt smoke test. Artifact hiển thị vùng **Tra cứu xuyên hồ sơ**, phạm vi toàn bộ dữ liệu, tám mẫu TT12, bốn danh mục mã và 15 bảng QĐ 3176; thông tin phát hành hiển thị `v1.6.0`. SHA-256: `2407274f9aa68f1f1520dcfb927f3b925447a983c83d53719efdf7499556a62d`.
+
+EXE `TT12-Excel-Validator-v1.6.0-win-x64.exe` được xác nhận là `PE32+ x86-64` cho Windows, gồm 7 section. SHA-256: `8bda08c5d72a1dc94301810e657ee1d15a9518da22eeed912812f6a459512820`. Sandbox Linux không thể thực thi EXE Windows; cần chạy smoke test cuối cùng trên Windows 64-bit tại máy đích và mở `http://localhost:3000`.

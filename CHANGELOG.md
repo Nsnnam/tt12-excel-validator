@@ -6,6 +6,14 @@ Mọi thay đổi đáng chú ý của **TT12 Excel Validator** được ghi t�
 
 Chưa có thay đổi ngoài phiên bản phát hành đầu tiên.
 
+## [1.6.0] — 2026-08-28
+
+### Thêm mới
+
+- Bổ sung tìm kiếm toàn cục trên tám mẫu TT12, bốn danh mục mã, 15 bảng QĐ 3176 và thư viện tài liệu.
+- Cho phép thu hẹp theo từng mẫu TT12 hoặc từng bảng riêng biệt; các kết quả có thể mở đúng khu vực dữ liệu tương ứng.
+- Bổ sung lọc trực tiếp trong bảng QĐ 3176 đang chọn và kiểm thử hồi quy cho các phạm vi tìm kiếm.
+
 ## [1.5.1] — 2026-08-26
 
 ### Sửa lỗi

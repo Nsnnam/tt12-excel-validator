@@ -87,3 +87,9 @@
 ## Bản vá khóa React trùng lặp
 
 - [x] Xác định danh sách render tạo khóa con không duy nhất, sửa theo định danh nghiệp vụ ổn định và kiểm thử console.
+
+## Tìm kiếm đa phạm vi
+
+- [x] Bổ sung tìm kiếm toàn bộ dữ liệu TT12, theo từng mẫu TT và theo từng bảng; kiểm thử giao diện và phát hành.
+
+// Phong cách Hồ sơ điều hành: nhãn rõ, mực xanh kiểm định, nền giấy ngà; tìm kiếm là công cụ tra cứu dữ liệu, không phải CTA tiếp thị.

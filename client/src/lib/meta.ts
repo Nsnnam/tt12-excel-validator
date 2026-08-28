@@ -3,14 +3,15 @@
  */
 export const APP_META = {
   name: "TT12 Excel Validator",
-  version: "1.5.1",
-  date: "2026-08-26",
+  version: "1.6.0",
+  date: "2026-08-28",
   author: "Nguyễn Sơn Nam (Nsnnam)",
   authorShort: "NSN",
   role: "Tác giả · Tiện ích HIS / Excel / dữ liệu y tế",
   github: "https://github.com/Nsnnam/tt12-excel-validator",
   timezone: "Asia/Ho_Chi_Minh",
   changelog: [
+    { version: "1.6.0", date: "2026-08-28", changes: ["Bổ sung tìm kiếm toàn cục trên schema TT12, danh mục mã, 15 bảng QĐ 3176 và thư viện tài liệu.", "Cho phép thu hẹp theo từng mẫu TT12 hoặc từng bảng, đồng thời lọc trực tiếp trong bảng đang chọn."] },
     { version: "1.5.1", date: "2026-08-26", changes: ["Sửa ID trùng trong thư viện tài liệu để loại bỏ cảnh báo React về key không duy nhất."] },
     { version: "1.5.0", date: "2026-08-26", changes: ["Ưu tiên kích thước, định dạng, diễn giải, ghi chú, Bắt buộc và Trùng từ file validate chi tiết của sáu mẫu DM.", "Bổ sung mô tả CHITIET_HS01BH (trang 60–63 tài liệu kỹ thuật) cho Mẫu 01/BH và cảnh báo thời điểm vào nội trú sớm hơn thời điểm đến KCB."] },
     { version: "1.4.0", date: "2026-08-26", changes: ["Thay sáu file mẫu TT12 bằng file người dùng cung cấp và bổ sung Mẫu 01/BH, Mẫu 02/BH.", "Nhận diện/kiểm định dùng schema cột trích xuất từ tám file mẫu mới, gồm định dạng datetime của Mẫu 01/BH."] },

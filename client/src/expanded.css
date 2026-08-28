@@ -160,3 +160,102 @@ body { color: var(--readable-ink); font-size: 16px; }
 .head-title-row { align-items: flex-end; padding-top: 18px; padding-bottom: 18px; }.head-title-row h1 { color: #0d3159; font-family: "Manrope", system-ui, sans-serif; font-size: clamp(28px, 2.4vw, 36px); line-height: 1.13; letter-spacing: -.045em; }.head-title-row p { max-width: 760px; color: #34516d; font-size: 14px; font-weight: 650; line-height: 1.55; }.head-title-row .record-context { display: flex; align-items: center; gap: 7px; margin: 0 0 5px; color: #1457c8; font-size: 10px; font-weight: 900; letter-spacing: .11em; }.head-title-row .record-context::before { width: 18px; height: 2px; background: #1457c8; content: ""; }.head-actions .button-cobalt, .head-actions .button-outline { min-height: 42px; font-size: 13px; font-weight: 850; }
 .source-card-head .eyebrow { display: inline-flex; align-items: center; gap: 6px; color: #1457c8; }
 @media (max-width: 1060px) { .workspace-head .record-slots > div { min-width: 132px; }.workspace-head .record-spec { display: none; } }
+
+
+/* Phong cách Hồ sơ điều hành: tìm kiếm xuyên hồ sơ là một dải mục lục có nguồn,
+   kết quả gọn, tương phản rõ và vẫn ưu tiên bảng dữ liệu thay vì cảm giác landing page. */
+.global-search {
+  margin-top: 18px;
+  border: 2px solid #9fb5c7;
+  background: rgba(255, 254, 250, .96);
+  box-shadow: 5px 5px 0 rgba(20, 87, 200, .1);
+}
+.global-search-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 13px 18px 10px;
+  border-bottom: 1px solid #c8d5df;
+  background: #f1f7fb;
+}
+.global-search-heading .eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0 0 5px;
+  color: #075fc4;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: .12em;
+}
+.global-search-heading strong { color: #12395d; font-size: 14px; }
+.global-search-heading > span { color: #4d6880; font-size: 12px; font-weight: 700; text-align: right; }
+.global-search-controls { display: flex; align-items: stretch; gap: 14px; padding: 13px 18px; }
+.global-search-input {
+  display: flex;
+  align-items: center;
+  flex: 1 1 auto;
+  gap: 10px;
+  min-width: 0;
+  border-bottom: 2px solid #1457c8;
+  color: #1457c8;
+}
+.global-search-input input {
+  width: 100%;
+  min-height: 42px;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: #163956;
+  font-size: 16px;
+  font-weight: 700;
+}
+.global-search-input input::placeholder { color: #61778b; opacity: 1; font-weight: 600; }
+.global-search-scope { display: grid; gap: 4px; min-width: 260px; }
+.global-search-scope span { color: #526882; font-size: 9px; font-weight: 900; letter-spacing: .1em; }
+.global-search-scope select {
+  min-height: 42px;
+  max-width: 390px;
+  border: 1px solid #8fa9bd;
+  background: #fff;
+  color: #163956;
+  font-size: 13px;
+  font-weight: 750;
+}
+.global-search-results {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  max-height: 410px;
+  overflow: auto;
+  border-top: 1px solid #c8d5df;
+  background: #c8d5df;
+}
+.global-search-result {
+  display: grid;
+  gap: 3px;
+  min-width: 0;
+  padding: 13px 16px;
+  border: 0;
+  background: #fffefa;
+  color: #1c425f;
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 160ms ease, transform 160ms ease;
+}
+.global-search-result:hover { background: #eaf3ff; transform: translateX(2px); }
+.global-search-result:focus-visible { outline: 3px solid #f0b400; outline-offset: -3px; }
+.global-search-result-kind { color: #075fc4; font-size: 9px; font-weight: 900; letter-spacing: .09em; text-transform: uppercase; }
+.global-search-result strong { color: #133d65; font-size: 14px; line-height: 1.35; }
+.global-search-result small { color: #597287; font-size: 11px; font-weight: 700; }
+.global-search-result p { margin: 3px 0 0; color: #3e5b72; font-size: 12px; line-height: 1.45; }
+.global-search-empty { display: flex; grid-column: 1 / -1; align-items: center; gap: 10px; padding: 17px 18px; background: #fffefa; color: #4b6579; font-size: 13px; font-weight: 650; }
+@media (max-width: 760px) {
+  .global-search-heading { align-items: flex-start; flex-direction: column; gap: 8px; }
+  .global-search-heading > span { text-align: left; }
+  .global-search-controls { align-items: stretch; flex-direction: column; }
+  .global-search-scope, .global-search-scope select { width: 100%; max-width: none; }
+  .global-search-results { grid-template-columns: 1fr; }
+}
