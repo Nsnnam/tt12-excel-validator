@@ -34,3 +34,9 @@ Single HTML `TT12-Excel-Validator-v1.5.1-offline.html` đã được mở trực
 Single HTML `TT12-Excel-Validator-v1.6.0-offline.html` đã được mở trực tiếp qua `file://` và đạt smoke test. Artifact hiển thị vùng **Tra cứu xuyên hồ sơ**, phạm vi toàn bộ dữ liệu, tám mẫu TT12, bốn danh mục mã và 15 bảng QĐ 3176; thông tin phát hành hiển thị `v1.6.0`. SHA-256: `2407274f9aa68f1f1520dcfb927f3b925447a983c83d53719efdf7499556a62d`.
 
 EXE `TT12-Excel-Validator-v1.6.0-win-x64.exe` được xác nhận là `PE32+ x86-64` cho Windows, gồm 7 section. SHA-256: `8bda08c5d72a1dc94301810e657ee1d15a9518da22eeed912812f6a459512820`. Sandbox Linux không thể thực thi EXE Windows; cần chạy smoke test cuối cùng trên Windows 64-bit tại máy đích và mở `http://localhost:3000`.
+
+## 2026-08-28 — Bản v1.7.0
+
+Bản production đã build thành công sau khi thu gọn dải tiêu đề/TRA CỨU XUYÊN HỒ SƠ và bổ sung nút Xóa hồ sơ. HTML offline `TT12-Excel-Validator-v1.7.0-offline.html` có kích thước 2,9 MB, định dạng HTML UTF-8; checksum SHA-256: `4d3b4e589c35c001649dc51ef54238ba91c387256708ecdb77a133292e8f9e37`. My Browser không cho phép mở `file://` cục bộ trong phiên này; giao diện tương ứng đã được kiểm tra trên preview web và build single-file hoàn tất.
+
+EXE `TT12-Excel-Validator-v1.7.0-win-x64.exe` có kích thước 58 MB, được xác nhận là `PE32+ x86-64` cho Windows, gồm 7 section; checksum SHA-256: `e2034d7bbbf887f6a11b79d947f250a177d6242fe921c0b2a759ef63669794bd`. Sandbox Linux không thể thực thi EXE Windows; cần smoke test cuối cùng trên Windows 64-bit tại máy đích và mở `http://localhost:3000`.

@@ -6,6 +6,13 @@ Mọi thay đổi đáng chú ý của **TT12 Excel Validator** được ghi t�
 
 Chưa có thay đổi ngoài phiên bản phát hành đầu tiên.
 
+## [1.7.0] — 2026-08-28
+
+### Thay đổi
+
+- Thu gọn dải tiêu đề và khu **TRA CỨU XUYÊN HỒ SƠ** để giảm chiều cao đầu trang, giữ trọng tâm ở bảng dữ liệu.
+- Bổ sung nút **Xóa hồ sơ** sau khi nạp Excel; thao tác chỉ xóa hồ sơ khỏi phiên làm việc và không xóa file gốc trên máy.
+
 ## [1.6.0] — 2026-08-28
 
 ### Thêm mới

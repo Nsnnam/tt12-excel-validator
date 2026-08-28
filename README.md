@@ -4,7 +4,7 @@
 
 | | |
 |---|---|
-| **Phiên bản** | `1.6.0` |
+| **Phiên bản** | `1.7.0` |
 | **Ngày** | 2026-08-28 |
 | **Tác giả** | [Nguyễn Sơn Nam (Nsnnam)](https://github.com/Nsnnam) |
 | **Múi giờ** | GMT+7 (`Asia/Ho_Chi_Minh`) |
@@ -13,7 +13,7 @@
 
 ## Tính năng
 
-Ứng dụng tổ chức sáu mẫu 01–06/DM và hai mẫu 01–02/BH theo sidebar tra cứu, hiển thị cấu trúc chỉ tiêu tương ứng. Schema được trích xuất từ sheet **Hướng dẫn** của các file người dùng cung cấp; với sáu mẫu DM, file `20260306_6bang_tt12_chitiet_valid_.xlsx` là nguồn ưu tiên cho định dạng, kích thước, diễn giải, ghi chú và cờ **Bắt buộc/Trùng**. Mẫu 01/BH được bổ sung mô tả `CHITIET_HS01BH` tại trang 60–63 của tài liệu kỹ thuật. Nhận diện dựa trên **chữ ký hàng tiêu đề**, không suy đoán theo tên tệp. Bộ tìm kiếm xuyên hồ sơ cho phép tìm toàn bộ dữ liệu hoặc thu hẹp theo từng mẫu TT12, danh mục mã và từng bảng QĐ 3176; kết quả giữ nguồn và mở đúng khu vực tra cứu tương ứng.
+Ứng dụng tổ chức sáu mẫu 01–06/DM và hai mẫu 01–02/BH theo sidebar tra cứu, hiển thị cấu trúc chỉ tiêu tương ứng. Schema được trích xuất từ sheet **Hướng dẫn** của các file người dùng cung cấp; với sáu mẫu DM, file `20260306_6bang_tt12_chitiet_valid_.xlsx` là nguồn ưu tiên cho định dạng, kích thước, diễn giải, ghi chú và cờ **Bắt buộc/Trùng**. Mẫu 01/BH được bổ sung mô tả `CHITIET_HS01BH` tại trang 60–63 của tài liệu kỹ thuật. Nhận diện dựa trên **chữ ký hàng tiêu đề**, không suy đoán theo tên tệp. Bộ tìm kiếm xuyên hồ sơ cho phép tìm toàn bộ dữ liệu hoặc thu hẹp theo từng mẫu TT12, danh mục mã, từng bảng QĐ 3176 và 13 phụ lục QĐ 5937; kết quả giữ nguồn và mở đúng khu vực tra cứu tương ứng. Khu kiểm định có nút **Xóa hồ sơ** để kết thúc phiên Excel đã nạp mà không xóa file gốc trên máy.
 
 Khi import file `.xlsx`, `.xls` hoặc `.xlsm`, công cụ đọc sheet có độ khớp cấu trúc cao nhất, công bố mức độ tin cậy nhận diện và phân loại phát hiện thành **Lỗi**, **Cảnh báo** và **Thông tin**. Phạm vi rà soát gồm thiếu/trùng cột, thiếu dữ liệu lõi, độ dài, ngày `YYYYMMDD`, định dạng mã, tiền tệ/số liệu, ký tự ẩn, khoảng trắng, xuống dòng, công thức Excel, trùng khóa nghiệp vụ và một số quan hệ logic đặc thù từng mẫu.
 
@@ -60,7 +60,8 @@ Người dùng nên xử lý toàn bộ **Lỗi** trước khi rà soát **Cản
 |---|---|
 | `client/src/lib/tt12.ts` | Schema tám mẫu, nhận diện file, bộ quy tắc kiểm định và xuất báo cáo. |
 | `client/src/lib/tt12.test.ts` | Kiểm thử quy tắc logic/ô công thức trọng yếu. |
-| `client/src/lib/search.ts` | Chỉ mục tìm kiếm theo mẫu, danh mục mã, bảng QĐ 3176 và tài liệu. |
+| `client/src/lib/search.ts` | Chỉ mục tìm kiếm theo mẫu, danh mục mã, bảng QĐ 3176, phụ lục QĐ 5937 và tài liệu. |
+| `client/src/data/qd5937-danh-muc.json` | 13 tab dữ liệu nguồn từ các phụ lục Quyết định 5937/QĐ-BYT. |
 | `docs/SEARCH-UX-TEST.md` | Ghi nhận kiểm thử tìm kiếm desktop, mobile và các phạm vi dữ liệu. |
 | `.github/workflows/deploy-pages.yml` | Build và deploy bản web public lên GitHub Pages. |
 | `client/src/pages/HomeExpanded.tsx` | Giao diện tra cứu, import, preview và đối chiếu. |
@@ -75,7 +76,7 @@ Người dùng nên xử lý toàn bộ **Lỗi** trước khi rà soát **Cản
 
 ## Lưu ý nghiệp vụ và an toàn
 
-> **Công cụ hỗ trợ kiểm định sơ bộ, không thay thế tài liệu pháp lý hoặc việc đối chiếu với danh mục dùng chung đang hiệu lực.** Phiên bản `1.6.0` có thể đối chiếu cục bộ với danh mục mã do người dùng nạp; kết quả tìm kiếm chỉ giúp định vị thông tin và vẫn cần được xác nhận theo danh mục chính thức đang hiệu lực.
+> **Công cụ hỗ trợ kiểm định sơ bộ, không thay thế tài liệu pháp lý hoặc việc đối chiếu với danh mục dùng chung đang hiệu lực.** Phiên bản `1.7.0` có thể đối chiếu cục bộ với danh mục mã do người dùng nạp; dữ liệu QĐ 5937 được dùng làm nguồn tham chiếu và vẫn cần được xác nhận theo văn bản chính thức đang hiệu lực.
 
 Ứng dụng chỉ đọc file và xuất báo cáo, không tự sửa file gốc. Các ô có công thức được cảnh báo để người dùng chủ động chuyển về giá trị tĩnh khi quy trình nộp danh mục yêu cầu. Dữ liệu có tính nhạy cảm không được đưa vào issue tracker, commit hoặc kho công khai.
 

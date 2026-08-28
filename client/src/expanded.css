@@ -259,3 +259,38 @@ body { color: var(--readable-ink); font-size: 16px; }
   .global-search-scope, .global-search-scope select { width: 100%; max-width: none; }
   .global-search-results { grid-template-columns: 1fr; }
 }
+
+
+/* Phong cách Hồ sơ điều hành · bản tối ưu compact: tiêu đề và tra cứu nhường diện tích cho dữ liệu; nút xóa là thao tác quản trị rõ ràng, không gây nhầm với CTA chính. */
+.workspace-head .record-band { min-height: 46px; }
+.workspace-head .dossier-code { padding-top: 6px; padding-bottom: 6px; }
+.workspace-head .record-slots > div { padding-top: 8px; padding-bottom: 7px; }
+.workspace-head .head-title-row { padding-top: 11px; padding-bottom: 10px; gap: 16px; }
+.workspace-head .head-title-row h1 { font-size: clamp(24px, 2.1vw, 32px); line-height: 1.08; }
+.workspace-head .head-title-row p { font-size: 13px; line-height: 1.4; }
+.workspace-head .head-title-row .record-context { margin-bottom: 3px; font-size: 9px; }
+.workspace-head .head-actions { gap: 8px; }
+.workspace-head .head-actions .button-cobalt,
+.workspace-head .head-actions .button-outline { min-height: 36px; padding: 7px 11px; font-size: 12px; }
+.global-search { margin-top: 10px; box-shadow: 3px 3px 0 rgba(20, 87, 200, .08); }
+.global-search-heading { align-items: center; padding: 8px 13px 7px; gap: 12px; }
+.global-search-heading .eyebrow { margin-bottom: 2px; font-size: 8px; }
+.global-search-heading strong { font-size: 12px; }
+.global-search-heading > span { font-size: 10px; }
+.global-search-controls { gap: 10px; padding: 8px 13px; }
+.global-search-input input { min-height: 32px; font-size: 14px; }
+.global-search-scope { min-width: 220px; }
+.global-search-scope select { min-height: 34px; font-size: 12px; }
+.global-search-results { max-height: 300px; }
+.global-search-result { padding: 9px 12px; }
+.global-search-result strong { font-size: 12px; }
+.global-search-result p { font-size: 11px; }
+.button-danger-outline { border-color: #c75c4d !important; color: #9b3327 !important; background: #fff8f6 !important; box-shadow: inset 3px 0 0 rgba(199, 92, 77, .2) !important; }
+.button-danger-outline:hover { border-color: #9b3327 !important; background: #ffe9e4 !important; color: #7e241c !important; }
+@media (max-width: 760px) {
+  .workspace-head .head-title-row { padding-top: 10px; padding-bottom: 9px; }
+  .workspace-head .head-title-row h1 { font-size: 26px; }
+  .global-search-heading { align-items: flex-start; padding: 8px 11px 6px; }
+  .global-search-controls { padding: 7px 11px; }
+  .global-search-input input { min-height: 30px; }
+}

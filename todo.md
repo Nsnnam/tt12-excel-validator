@@ -103,3 +103,7 @@
 - [x] Nếu GitHub yêu cầu xác thực, người dùng đăng nhập trong trang Settings → Pages đang mở rồi tiếp tục bật nguồn GitHub Actions.
 
 - [x] Kiểm tra/kết nối My Browser, bật GitHub Pages trong phiên GitHub của người dùng và xác minh URL public.
+
+## Tối ưu hồ sơ và xóa phiên Excel
+
+- [x] Thu gọn vùng tiêu đề/tra cứu xuyên hồ sơ, thêm xóa hồ sơ đã nạp, kiểm thử responsive và phát hành.

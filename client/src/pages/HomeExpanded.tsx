@@ -6,18 +6,18 @@ import { useMemo, useRef, useState, type ReactNode } from "react";
 import "../inspection.css";
 import "../expanded.css";
 import { toast } from "sonner";
-import { AlertTriangle, BookOpen, CheckCircle2, ChevronRight, Download, FileCheck2, FileSpreadsheet, Filter, FolderSearch, Info, Search, ShieldCheck, Upload, X } from "lucide-react";
+import { AlertTriangle, BookOpen, CheckCircle2, ChevronRight, Download, FileCheck2, FileSpreadsheet, Filter, FolderSearch, Info, Search, ShieldCheck, Trash2, Upload, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ReleaseLedger } from "@/components/ReleaseLedger";
 import { APP_META, BRAND_ASSETS } from "@/lib/meta";
 import { TEMPLATES, exportReport, fieldsForTemplate, inspectExcelFile, issueCounts, sourceTemplateUrl, type Inspection, type Severity, type TemplateSchema, type ValidationIssue } from "@/lib/tt12";
-import { COMMON_CATALOGS, DOCUMENT_LIBRARY, QD3176_TABLES, sourceUrl } from "@/lib/reference";
+import { COMMON_CATALOGS, DOCUMENT_LIBRARY, QD3176_TABLES, QD5937_TABLES, sourceUrl } from "@/lib/reference";
 import { importCatalogFile, validateCatalogIssues, type ImportedCatalog } from "@/lib/catalog";
 import { downloadHighlightedWorkbook, downloadNormalizedWorkbook } from "@/lib/normalize";
 import { applyFacilityRules, loadFacilityRules, makeFacilityRule, persistFacilityRules, type FacilityRule, type FacilityRuleKind } from "@/lib/facility-rules";
 import { searchReferenceData, searchScopeOptions, type SearchResult, type SearchScope } from "@/lib/search";
 
-type View = "lookup" | "validate" | "catalog" | "qd" | "guide" | "rules";
+type View = "lookup" | "validate" | "catalog" | "qd" | "qd5937" | "guide" | "rules";
 type CatalogId = keyof typeof COMMON_CATALOGS;
 type IssueFilter = Severity | "all";
 
@@ -54,6 +54,7 @@ export default function HomeExpanded() {
   const [catalogs, setCatalogs] = useState<ImportedCatalog[]>([]);
   const [catalogId, setCatalogId] = useState<CatalogId>("maLoaiHinh");
   const [qdId, setQdId] = useState(QD3176_TABLES[0]?.id ?? "bang-1");
+  const [qd5937Id, setQd5937Id] = useState(QD5937_TABLES[0]?.id ?? "pl-01");
   const [filter, setFilter] = useState<IssueFilter>("all");
   const [categoryFilter, setCategoryFilter] = useState("all");
   const [columnFilter, setColumnFilter] = useState("all");
@@ -79,6 +80,8 @@ export default function HomeExpanded() {
   const codeHeaders = Object.keys(codeRows[0] ?? COMMON_CATALOGS[catalogId][0] ?? {});
   const qd = QD3176_TABLES.find((item) => item.id === qdId) ?? QD3176_TABLES[0];
   const qdRows = useMemo(() => qd?.rows.filter((row) => row.some((cell) => searchable(cell, query))) ?? [], [qd, query]);
+  const qd5937 = QD5937_TABLES.find((item) => item.id === qd5937Id) ?? QD5937_TABLES[0];
+  const qd5937Rows = useMemo(() => qd5937?.rows.filter((row) => row.some((cell) => searchable(cell, query))) ?? [], [qd5937, query]);
   const ruleColumns = inspection?.headers.length ? inspection.headers : template.headers;
   const dmTemplates = TEMPLATES.filter((item) => !item.id.endsWith("_BH"));
   const bhTemplates = TEMPLATES.filter((item) => item.id.endsWith("_BH"));
@@ -96,11 +99,13 @@ export default function HomeExpanded() {
       setCatalogId(result.targetId as CatalogId); setView("catalog"); setQuery(result.focus);
     } else if (result.kind === "qd" && result.targetId) {
       setQdId(result.targetId); setView("qd"); setQuery(result.focus);
+    } else if (result.kind === "qd5937" && result.targetId) {
+      setQd5937Id(result.targetId); setView("qd5937"); setQuery(result.focus);
     }
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  const resultKindLabel: Record<SearchResult["kind"], string> = { field: "Chỉ tiêu", catalog: "Mã dùng chung", qd: "Bảng QĐ 3176", document: "Tài liệu" };
+  const resultKindLabel: Record<SearchResult["kind"], string> = { field: "Chỉ tiêu", catalog: "Mã dùng chung", qd: "Bảng QĐ 3176", qd5937: "Bảng QĐ 5937", document: "Tài liệu" };
 
   const loadExcel = async (file?: File) => {
     if (!file) return;
@@ -183,7 +188,19 @@ export default function HomeExpanded() {
     persistFacilityRules(next);
   };
 
-  const title = view === "lookup" ? "Tra cứu cấu trúc danh mục" : view === "validate" ? "Kiểm định và xem trước Excel" : view === "catalog" ? "Danh mục mã dùng chung" : view === "qd" ? "15 bảng chỉ tiêu QĐ 3176" : view === "rules" ? "Quản lý quy tắc cơ sở KCB" : "Hướng dẫn vận hành";
+  const clearInspection = () => {
+    if (!inspection) return;
+    if (!window.confirm(`Xóa hồ sơ “${inspection.fileName}” khỏi phiên làm việc? Dữ liệu trên máy không bị xóa.`)) return;
+    setInspection(null);
+    setExcelFile(null);
+    setQuery("");
+    setFilter("all");
+    setCategoryFilter("all");
+    setColumnFilter("all");
+    toast.success("Đã xóa hồ sơ khỏi phiên làm việc.");
+  };
+
+  const title = view === "lookup" ? "Tra cứu cấu trúc danh mục" : view === "validate" ? "Kiểm định và xem trước Excel" : view === "catalog" ? "Danh mục mã dùng chung" : view === "qd" ? "15 bảng chỉ tiêu QĐ 3176" : view === "qd5937" ? "13 bảng nguồn tham chiếu QĐ 5937" : view === "rules" ? "Quản lý quy tắc cơ sở KCB" : "Hướng dẫn vận hành";
   const status = inspection ? (counts.error ? `${counts.error} lỗi chặn` : counts.warning ? `${counts.warning} mục cần đối chiếu` : "Không có lỗi chặn") : "Chưa có file Excel";
 
   return <div className="app-shell">
@@ -203,6 +220,7 @@ export default function HomeExpanded() {
         {(Object.keys(catalogLabels) as CatalogId[]).map((item) => <button key={item} className={`supplement-button ${view === "catalog" && catalogId === item ? "supplement-button-active" : ""}`} onClick={() => { setCatalogId(item); setView("catalog"); setQuery(""); }}>{catalogLabels[item]}<ChevronRight size={14} /></button>)}
         <p className="sidebar-label space-top">NGUỒN THAM CHIẾU</p>
         <button className={`supplement-button ${view === "qd" ? "supplement-button-active" : ""}`} onClick={() => setView("qd")}>15 bảng chỉ tiêu QĐ 3176<ChevronRight size={14} /></button>
+        <button className={`supplement-button ${view === "qd5937" ? "supplement-button-active" : ""}`} onClick={() => { setView("qd5937"); setQuery(""); }}>13 bảng nguồn QĐ 5937<ChevronRight size={14} /></button>
       </div>
       <div className="sidebar-bottom"><SideButton active={view === "rules"} onClick={() => setView("rules")}>Quy tắc cơ sở KCB</SideButton><SideButton active={view === "guide"} onClick={() => setView("guide")}>Hướng dẫn & phạm vi</SideButton><ReleaseLedger /><p className="footer-meta">v{APP_META.version} · Nguyễn Sơn Nam</p></div>
     </aside>
@@ -212,13 +230,14 @@ export default function HomeExpanded() {
         {BRAND_ASSETS.texture && <img src={BRAND_ASSETS.texture} alt="" className="ledger-texture" />}
         <div className="head-content">
           <div className="record-band"><div className="dossier-code"><span className="dossier-mark"><FileCheck2 size={15} /></span><div><span>HỒ SƠ KIỂM ĐỊNH</span><b>TT12 / 2026</b></div><i /></div><div className="record-slots"><div className="record-template"><span>MẪU ĐANG CHỌN</span><b>{template.label}</b></div><div className="record-source"><span>NGUỒN EXCEL</span><b>{inspection?.fileName ?? "Chưa nạp nguồn"}</b></div><div className="record-spec"><span>CĂN CỨ SCHEMA</span><b>{schemaSource}</b></div><div className={`record-status ${counts.error ? "record-status-error" : counts.warning ? "record-status-warning" : "record-status-idle"}`}><span>TRẠNG THÁI</span><b>{status}</b></div></div></div>
-          <div className="head-title-row"><div><p className="record-context">{view === "lookup" ? "TRA CỨU HỒ SƠ MẪU" : "BÀN LÀM VIỆC KIỂM ĐỊNH"}</p><h1>{title}</h1><p>{contextLine}</p></div><div className="head-actions"><Button className="button-outline" variant="outline" onClick={() => catalogInput.current?.click()}><FolderSearch size={16} />Nạp mã dùng chung</Button><Button className="button-cobalt" onClick={() => excelInput.current?.click()}><Upload size={16} />Nạp hồ sơ Excel</Button></div></div>
+          <div className="head-title-row"><div><p className="record-context">{view === "lookup" ? "TRA CỨU HỒ SƠ MẪU" : "BÀN LÀM VIỆC KIỂM ĐỊNH"}</p><h1>{title}</h1><p>{contextLine}</p></div><div className="head-actions"><Button className="button-outline" variant="outline" onClick={() => catalogInput.current?.click()}><FolderSearch size={16} />Nạp mã dùng chung</Button>{inspection && <Button className="button-danger-outline" variant="outline" onClick={clearInspection}><Trash2 size={16} />Xóa hồ sơ</Button>}<Button className="button-cobalt" onClick={() => excelInput.current?.click()}><Upload size={16} />Nạp hồ sơ Excel</Button></div>
+</div>
           <section className="global-search" aria-label="Tìm kiếm dữ liệu TT12"><div className="global-search-heading"><div><p className="eyebrow"><Search size={13} />TRA CỨU XUYÊN HỒ SƠ</p><strong>Tìm mã, tên chỉ tiêu hoặc diễn giải trên toàn bộ dữ liệu TT12</strong></div><span>{globalQuery.trim() ? `${globalSearchResults.length} kết quả` : "Tìm toàn bộ hoặc thu hẹp theo mẫu/bảng"}</span></div><div className="global-search-controls"><label className="global-search-input"><Search size={19} /><input value={globalQuery} onChange={(event) => setGlobalQuery(event.target.value)} placeholder="Ví dụ: MA_KHOA, thuốc, dịch vụ, Bảng 1…" aria-label="Từ khóa tìm kiếm toàn bộ dữ liệu" /></label><label className="global-search-scope"><span>PHẠM VI</span><select value={globalScope} onChange={(event) => setGlobalScope(event.target.value as SearchScope)} aria-label="Chọn phạm vi tìm kiếm"><option value="all">Toàn bộ dữ liệu TT12</option><optgroup label="Theo mẫu TT12">{globalSearchScopes.filter((item) => item.group === "template").map((item) => <option key={item.value} value={item.value}>{item.label}</option>)}</optgroup><optgroup label="Theo bảng riêng biệt">{globalSearchScopes.filter((item) => item.group === "table").map((item) => <option key={item.value} value={item.value}>{item.label}</option>)}</optgroup></select></label></div>{globalQuery.trim() && <div className="global-search-results">{globalSearchResults.length ? globalSearchResults.map((result) => result.kind === "document" && result.url ? <a key={result.id} className="global-search-result" href={sourceUrl(result.url)} target="_blank" rel="noreferrer"><span className="global-search-result-kind">{resultKindLabel[result.kind]}</span><strong>{result.title}</strong><small>{result.subtitle}</small><p>{result.snippet}</p></a> : <button key={result.id} className="global-search-result" onClick={() => openSearchResult(result)}><span className="global-search-result-kind">{resultKindLabel[result.kind]}</span><strong>{result.title}</strong><small>{result.subtitle}</small><p>{result.snippet}</p></button>) : <div className="global-search-empty"><Info size={18} /><span>Không tìm thấy dữ liệu trong phạm vi đã chọn. Thử mã cột, tên danh mục hoặc một từ khóa ngắn hơn.</span></div>}</div>}</section>
         </div>
       </header>
 
       <div className="workspace-body">
-        <div className="work-nav"><button className={view === "lookup" ? "active" : ""} onClick={() => { setView("lookup"); setQuery(""); }}>Mẫu TT12</button><button className={view === "validate" ? "active" : ""} onClick={() => { setView("validate"); setQuery(""); }}>Kiểm định & preview</button><button className={view === "catalog" ? "active" : ""} onClick={() => { setView("catalog"); setQuery(""); }}>Mã dùng chung</button><button className={view === "qd" ? "active" : ""} onClick={() => { setView("qd"); setQuery(""); }}>QĐ 3176</button></div>
+        <div className="work-nav"><button className={view === "lookup" ? "active" : ""} onClick={() => { setView("lookup"); setQuery(""); }}>Mẫu TT12</button><button className={view === "validate" ? "active" : ""} onClick={() => { setView("validate"); setQuery(""); }}>Kiểm định & preview</button><button className={view === "catalog" ? "active" : ""} onClick={() => { setView("catalog"); setQuery(""); }}>Mã dùng chung</button><button className={view === "qd" ? "active" : ""} onClick={() => { setView("qd"); setQuery(""); }}>QĐ 3176</button><button className={view === "qd5937" ? "active" : ""} onClick={() => { setView("qd5937"); setQuery(""); }}>QĐ 5937</button></div>
 
         {view === "lookup" && <>
           <section className="notice-strip"><Info size={18} /><p><strong>Quy tắc cập nhật:</strong> dòng cũ ghi <code>DEN_NGAY</code>; dòng thay đổi ghi <code>TU_NGAY</code> và để trống <code>DEN_NGAY</code>.</p></section>
@@ -230,6 +249,7 @@ export default function HomeExpanded() {
         {view === "catalog" && <section className="catalog-layout"><aside className="source-card"><div className="source-card-head"><div><p className="eyebrow">BẢNG MÃ</p><h2>Danh mục</h2></div></div><div className="p-3">{(Object.keys(catalogLabels) as CatalogId[]).map((item) => <button key={item} className={`catalog-file ${catalogId === item ? "active" : ""}`} onClick={() => { setCatalogId(item); setQuery(""); }}><span>{catalogLabels[item]}</span><b>{COMMON_CATALOGS[item].length}</b></button>)}</div></aside><section className="source-card"><div className="source-card-head"><div><p className="eyebrow">DỮ LIỆU GỐC ĐÃ TÍCH HỢP</p><h2>{catalogLabels[catalogId]}</h2><p>{codeRows.length}/{COMMON_CATALOGS[catalogId].length} dòng khớp từ khóa.</p></div><label className="search-box"><Search size={16} /><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Tìm mã hoặc nội dung…" /></label></div><div className="source-table-wrap"><table className="source-table"><thead><tr>{codeHeaders.map((header) => <th key={header}>{header}</th>)}</tr></thead><tbody>{codeRows.map((row, index) => <tr key={`${index}-${JSON.stringify(row)}`}>{codeHeaders.map((header) => <td key={header}>{row[header]}</td>)}</tr>)}</tbody></table></div></section></section>}
 
         {view === "qd" && <section className="source-card"><div className="source-card-head"><div><p className="eyebrow">CHUẨN ĐẦU RA</p><h2>{qd?.title}</h2><p>{query ? `${qdRows.length}/${qd?.rows.length ?? 0} dòng khớp từ khóa.` : `${qd?.rows.length ?? 0} dòng chỉ tiêu từ dữ liệu QĐ 3176 đã tải.`}</p></div><label className="search-box"><Search size={16} /><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Tìm trong bảng đang chọn…" aria-label="Tìm trong bảng QĐ 3176 đang chọn" /></label></div><div className="work-nav">{QD3176_TABLES.map((item) => <button key={item.id} className={qdId === item.id ? "active" : ""} onClick={() => { setQdId(item.id); setQuery(""); }}>{item.id.replace("bang-", "Bảng ")}</button>)}</div><div className="source-table-wrap"><table className="source-table"><thead><tr>{qd?.headers.map((header) => <th key={header}>{header}</th>)}</tr></thead><tbody>{qdRows.map((row, index) => <tr key={`${qd?.id}-${index}`}>{row.map((cell, column) => <td key={`${index}-${column}`}><pre>{cell}</pre></td>)}</tr>)}</tbody></table></div>{query && !qdRows.length && <div className="table-empty">Không có dòng nào trong bảng đang chọn khớp từ khóa.</div>}</section>}
+        {view === "qd5937" && <section className="source-card"><div className="source-card-head"><div><p className="eyebrow">NGUỒN THAM CHIẾU · QUYẾT ĐỊNH 5937/QĐ-BYT · 30/12/2021</p><h2>{qd5937?.title}</h2><p>{query ? `${qd5937Rows.length}/${qd5937?.rows.length ?? 0} dòng khớp từ khóa.` : `${qd5937?.rows.length ?? 0} dòng dữ liệu từ PDF quyết định đã trích xuất.`}</p></div><label className="search-box"><Search size={16} /><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Tìm trong phụ lục đang chọn…" aria-label="Tìm trong bảng QĐ 5937 đang chọn" /></label></div><div className="work-nav">{QD5937_TABLES.map((item) => <button key={item.id} className={qd5937Id === item.id ? "active" : ""} onClick={() => { setQd5937Id(item.id); setQuery(""); }}>{item.id.replace("pl-", "PL ")}</button>)}</div><div className="source-table-wrap"><table className="source-table"><thead><tr>{qd5937?.headers.map((header) => <th key={header}>{header}</th>)}</tr></thead><tbody>{qd5937Rows.map((row, index) => <tr key={`${qd5937?.id}-${index}`}>{row.map((cell, column) => <td key={`${index}-${column}`}><pre>{cell}</pre></td>)}</tr>)}</tbody></table></div>{qd5937?.notes?.length ? <div className="normalize-note"><Info size={17} /><p><strong>Ghi chú nguồn:</strong> {qd5937.notes.join(" ")}</p></div> : null}{query && !qd5937Rows.length && <div className="table-empty">Không có dòng nào trong phụ lục đang chọn khớp từ khóa.</div>}</section>}
 
         {view === "validate" && <>
           <section className="validate-toolbar"><div className="catalog-drop"><Button variant="outline" className="button-outline" onClick={() => catalogInput.current?.click()}><FolderSearch size={16} />Nạp mã khoa/mã KCB</Button>{catalogs.map((catalog) => <span className="uploaded-catalog" key={catalog.id}>{catalog.kind === "maKhoa" ? "Mã khoa" : catalog.kind === "maKhamBenh" ? "Mã khám bệnh" : "Danh mục"} · {catalog.count} mã<button onClick={() => setCatalogs((items) => items.filter((item) => item.id !== catalog.id))}><X size={13} /></button></span>)}</div>{inspection && <div className="head-actions"><Button variant="outline" className="button-outline" onClick={normalize} disabled={normalizing}>{normalizing ? "Đang chuẩn hóa…" : "Tạo file chuẩn hóa"}</Button><Button variant="outline" className="button-outline" onClick={() => void exportHighlighted()} disabled={highlighting}>{highlighting ? "Đang tạo file…" : "Xuất Excel tô màu"}</Button><Button className="button-cobalt" onClick={() => exportReport({ ...inspection, issues: allIssues })}><Download size={16} />Xuất báo cáo</Button></div>}</section>

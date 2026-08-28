@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { COMMON_CATALOGS, QD3176_TABLES } from "./reference";
+import { COMMON_CATALOGS, QD3176_TABLES, QD5937_TABLES } from "./reference";
 import { searchReferenceData, searchScopeOptions } from "./search";
 
 /**
@@ -30,10 +30,23 @@ describe("searchReferenceData", () => {
     expect(results.some((item) => item.kind === "qd" && item.targetId === table.id)).toBe(true);
   });
 
+  it("tìm được mã thật trong bảng QĐ5937 theo phụ lục riêng", () => {
+    expect(QD5937_TABLES).toHaveLength(13);
+    expect(QD5937_TABLES.find((table) => table.id === "pl-02")?.rows).toHaveLength(296);
+    const results = searchReferenceData("HD.46", "qd5937:pl-02");
+    expect(results.some((item) => item.kind === "qd5937" && item.targetId === "pl-02")).toBe(true);
+  });
+
+  it("tìm được mã khoa và mã giám định trong QĐ5937", () => {
+    expect(searchReferenceData("K01", "qd5937:pl-05").some((item) => item.kind === "qd5937")).toBe(true);
+    expect(searchReferenceData("NKT", "qd5937:pl-11-1").some((item) => item.kind === "qd5937")).toBe(true);
+  });
+
   it("cung cấp đủ lựa chọn toàn bộ, theo mẫu và theo bảng", () => {
     const scopes = searchScopeOptions();
     expect(scopes[0].value).toBe("all");
     expect(scopes.filter((item) => item.group === "template")).toHaveLength(8);
-    expect(scopes.filter((item) => item.group === "table").length).toBeGreaterThanOrEqual(19);
+    expect(scopes.filter((item) => item.group === "table").length).toBeGreaterThanOrEqual(32);
+    expect(scopes.some((item) => item.value === "qd5937:pl-09")).toBe(true);
   });
 });
