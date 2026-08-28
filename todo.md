@@ -96,4 +96,10 @@
 
 ## Công khai GitHub Pages
 
-- [ ] Kiểm tra cấu hình repository, công khai repository, cấu hình workflow deploy Pages và xác minh URL public.
+- [x] Kiểm tra cấu hình repository, công khai repository, cấu hình workflow deploy Pages và xác minh URL public.
+
+- [x] Bật GitHub Pages trong Settings → Pages bằng nguồn GitHub Actions và chạy lại workflow deploy.
+
+- [x] Nếu GitHub yêu cầu xác thực, người dùng đăng nhập trong trang Settings → Pages đang mở rồi tiếp tục bật nguồn GitHub Actions.
+
+- [x] Kiểm tra/kết nối My Browser, bật GitHub Pages trong phiên GitHub của người dùng và xác minh URL public.
