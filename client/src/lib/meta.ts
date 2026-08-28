@@ -27,7 +27,9 @@ export const APP_META = {
   },
 } as const;
 
+const MANUS_ASSET_ORIGIN = "https://tt12excel-g5pahdhg.manus.space";
+
 export const BRAND_ASSETS = {
-  logo: import.meta.env.VITE_NSN_OFFLINE === "1" ? "" : "/manus-storage/tt12-validator-logo_43635a60.png",
-  texture: import.meta.env.VITE_NSN_OFFLINE === "1" ? "" : "/manus-storage/tt12-ledger-texture_03495bba.png",
+  logo: import.meta.env.VITE_NSN_OFFLINE === "1" ? "" : `${MANUS_ASSET_ORIGIN}/manus-storage/tt12-validator-logo_43635a60.png`,
+  texture: import.meta.env.VITE_NSN_OFFLINE === "1" ? "" : `${MANUS_ASSET_ORIGIN}/manus-storage/tt12-ledger-texture_03495bba.png`,
 } as const;

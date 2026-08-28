@@ -205,10 +205,11 @@ function vitePluginStorageProxy(): Plugin {
 }
 
 const isOfflineBuild = process.env.NSN_OFFLINE === "1";
+const isGitHubPagesBuild = process.env.GITHUB_PAGES === "1";
 const plugins = [react(), tailwindcss(), jsxLocPlugin(), vitePluginManusRuntime(), vitePluginManusDebugCollector(), vitePluginStorageProxy(), ...(isOfflineBuild ? [viteSingleFile()] : [])];
 
 export default defineConfig({
-  base: isOfflineBuild ? "./" : "/",
+  base: isOfflineBuild ? "./" : isGitHubPagesBuild ? "/tt12-excel-validator/" : "/",
   plugins,
   resolve: {
     alias: {

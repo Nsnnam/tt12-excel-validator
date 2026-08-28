@@ -68,7 +68,10 @@ export function hasDuplicateRule(field: ReferenceField) {
   return field.trung.trim().toLowerCase() === "x";
 }
 
+const MANUS_ASSET_ORIGIN = "https://tt12excel-g5pahdhg.manus.space";
+
 export function sourceUrl(path: string) {
+  if (path.startsWith("/manus-storage/")) return `${MANUS_ASSET_ORIGIN}${path}`;
   if (path.startsWith("/") || path.startsWith("http")) return path;
   return `https://tracuu-danhmuc-tt12.web.app/${path}`;
 }

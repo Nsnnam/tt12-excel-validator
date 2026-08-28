@@ -506,6 +506,8 @@ export function exportReport(inspection: Inspection) {
   XLSX.writeFile(workbook, `${fileTimestamp()}.xlsx`);
 }
 
+const MANUS_ASSET_ORIGIN = "https://tt12excel-g5pahdhg.manus.space";
+
 export function sourceTemplateUrl(id: string) {
   const urls: Record<string, string> = {
     MAU_01: "/manus-storage/MAU_01_Template_b516b53b.xlsx",
@@ -517,5 +519,5 @@ export function sourceTemplateUrl(id: string) {
     MAU_01_BH: "/manus-storage/MAU_01_BH_Template_e4db7973.xlsx",
     MAU_02_BH: "/manus-storage/MAU_02_BH_Template_0f545a41.xlsx",
   };
-  return urls[id] ?? "#";
+  return urls[id] ? `${MANUS_ASSET_ORIGIN}${urls[id]}` : "#";
 }

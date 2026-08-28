@@ -9,6 +9,7 @@
 | **Tác giả** | [Nguyễn Sơn Nam (Nsnnam)](https://github.com/Nsnnam) |
 | **Múi giờ** | GMT+7 (`Asia/Ho_Chi_Minh`) |
 | **Nguồn tham chiếu** | [Tra cứu danh mục TT12](https://tracuu-danhmuc-tt12.web.app/) |
+| **Web public** | [nsnnam.github.io/tt12-excel-validator](https://nsnnam.github.io/tt12-excel-validator/) |
 
 ## Tính năng
 
@@ -61,6 +62,7 @@ Người dùng nên xử lý toàn bộ **Lỗi** trước khi rà soát **Cản
 | `client/src/lib/tt12.test.ts` | Kiểm thử quy tắc logic/ô công thức trọng yếu. |
 | `client/src/lib/search.ts` | Chỉ mục tìm kiếm theo mẫu, danh mục mã, bảng QĐ 3176 và tài liệu. |
 | `docs/SEARCH-UX-TEST.md` | Ghi nhận kiểm thử tìm kiếm desktop, mobile và các phạm vi dữ liệu. |
+| `.github/workflows/deploy-pages.yml` | Build và deploy bản web public lên GitHub Pages. |
 | `client/src/pages/HomeExpanded.tsx` | Giao diện tra cứu, import, preview và đối chiếu. |
 | `client/src/lib/meta.ts` | Nguồn sự thật cho version, tác giả, lịch sử và thông tin hỗ trợ. |
 | `scripts/build-offline.mjs` | Tạo bản HTML tự chứa để chạy không cần web server. |

@@ -93,3 +93,7 @@
 - [x] Bổ sung tìm kiếm toàn bộ dữ liệu TT12, theo từng mẫu TT và theo từng bảng; kiểm thử giao diện và phát hành.
 
 // Phong cách Hồ sơ điều hành: nhãn rõ, mực xanh kiểm định, nền giấy ngà; tìm kiếm là công cụ tra cứu dữ liệu, không phải CTA tiếp thị.
+
+## Công khai GitHub Pages
+
+- [ ] Kiểm tra cấu hình repository, công khai repository, cấu hình workflow deploy Pages và xác minh URL public.
