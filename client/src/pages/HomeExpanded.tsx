@@ -271,11 +271,14 @@ export default function HomeExpanded() {
                 <input
                   value={globalQuery}
                   onChange={(event) => setGlobalQuery(event.target.value)}
+                  onKeyDown={(event) => {
+                    if (event.key === "Escape") setGlobalQuery("");
+                  }}
                   placeholder="Tra cứu xuyên hồ sơ: nhập mã chỉ tiêu (MA_KHOA, GIA_BHYT...), tên thuốc, dịch vụ, bảng QĐ 3176, QĐ 5937..."
                   aria-label="Từ khóa tìm kiếm toàn bộ dữ liệu"
                 />
                 {globalQuery && (
-                  <button className="compact-search-clear" onClick={() => setGlobalQuery("")} title="Xóa tìm kiếm">
+                  <button className="compact-search-clear" onClick={() => setGlobalQuery("")} title="Xóa tìm kiếm (Esc)">
                     <X size={14} />
                   </button>
                 )}
@@ -299,6 +302,12 @@ export default function HomeExpanded() {
 
             {globalQuery.trim() && (
               <div className="compact-search-dropdown">
+                <div className="compact-search-dropdown-header">
+                  <span>Kết quả tìm kiếm cho "{globalQuery}" ({globalSearchResults.length} mục)</span>
+                  <button className="compact-dropdown-close" onClick={() => setGlobalQuery("")} title="Đóng danh sách tìm kiếm (Esc)">
+                    <X size={14} />Đóng (Esc)
+                  </button>
+                </div>
                 <div className="global-search-results">
                   {globalSearchResults.length ? globalSearchResults.map((result) => result.kind === "document" && result.url ? (
                     <a key={result.id} className="global-search-result" href={sourceUrl(result.url)} target="_blank" rel="noreferrer">
