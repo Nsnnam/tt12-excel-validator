@@ -6,12 +6,13 @@
 
 | Thông tin | Chi tiết |
 |---|---|
-| **Phiên bản** | `1.7.0` |
+| **Phiên bản** | `1.7.1` |
 | **Ngày cập nhật** | 2026-09-01 |
 | **Tác giả** | [Nguyễn Sơn Nam (Nsnnam)](https://github.com/Nsnnam) |
 | **Múi giờ** | GMT+7 (`Asia/Ho_Chi_Minh`) |
 | **Web trực tiếp** | [https://nsnnam.github.io/tt12-excel-validator/](https://nsnnam.github.io/tt12-excel-validator/) |
 | **Bản HTML Single-page** | [`releases/single-page/tt12-excel-validator.html`](./releases/single-page/tt12-excel-validator.html) |
+| **Tài liệu tham chiếu QĐ 1227** | [`docs/QD_1227.xlsx`](./docs/QD_1227.xlsx) |
 | **Nguồn tham chiếu** | [Tra cứu danh mục TT12](https://tracuu-danhmuc-tt12.web.app/) |
 
 ---

@@ -38,6 +38,7 @@ export const DOCUMENT_LIBRARY = [
   { id: "5", name: "HD ghi PVCM (CV 2148)", type: "pdf", url: "2148-HD-ma-hoa-pham-vi-chuyen-mon.pdf" },
   { id: "qd-2026-ma-kcb-ma-khoa", name: "QĐ 2026 — Mã loại KCB, mã khoa", type: "pdf", url: "qd-ma-loai-kcb-ma-khoa-2026.pdf" },
   { id: "qd-5937-2021", name: "QĐ 5937/QĐ-BYT — 11 danh mục mã dùng chung", type: "pdf", url: "https://bvquan9.medinet.gov.vn/chuyen-muc/quyet-dinh-5937qd-byt-ban-hanh-bo-sung-cac-danh-muc-ma-dung-chung-ap-dung-trong-cmobile16640-62317.aspx" },
+  { id: "qd-1227-byt", name: "QĐ 1227 — Định mức KT-KT kỹ thuật y tế", type: "excel", url: "https://raw.githubusercontent.com/Nsnnam/tt12-excel-validator/main/docs/QD_1227.xlsx" },
   { id: "6", name: "Mẫu 01/DM - Bộ phận chuyên môn KCB BHYT", type: "excel", url: "/manus-storage/MAU_01_Template_b516b53b.xlsx" },
   { id: "7", name: "Mẫu 02/DM - Nhân lực thực hiện KCB BHYT", type: "excel", url: "/manus-storage/MAU_02_Template_0406dec0.xlsx" },
   { id: "8", name: "Mẫu 03/DM - Thuốc, máu, chế phẩm máu", type: "excel", url: "/manus-storage/MAU_03_Template_815ef4f9.xlsx" },

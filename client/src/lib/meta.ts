@@ -3,14 +3,15 @@
  */
 export const APP_META = {
   name: "TT12 Excel Validator",
-  version: "1.7.0",
-  date: "2026-08-28",
+  version: "1.7.1",
+  date: "2026-09-01",
   author: "Nguyễn Sơn Nam (Nsnnam)",
   authorShort: "NSN",
   role: "Tác giả · Tiện ích HIS / Excel / dữ liệu y tế",
   github: "https://github.com/Nsnnam/tt12-excel-validator",
   timezone: "Asia/Ho_Chi_Minh",
   changelog: [
+    { version: "1.7.1", date: "2026-09-01", changes: ["Bổ sung file Excel QĐ 1227/QĐ-BYT (Định mức KT-KT kỹ thuật y tế) vào thư viện tài liệu và lưu trữ trực tiếp trên GitHub."] },
     { version: "1.7.0", date: "2026-08-28", changes: ["Thu gọn dải tiêu đề và khu TRA CỨU XUYÊN HỒ SƠ để ưu tiên vùng dữ liệu.", "Bổ sung thao tác Xóa hồ sơ để kết thúc phiên Excel đã nạp mà không xóa file gốc trên máy."] },
     { version: "1.6.0", date: "2026-08-28", changes: ["Bổ sung tìm kiếm toàn cục trên schema TT12, danh mục mã, 15 bảng QĐ 3176 và thư viện tài liệu.", "Cho phép thu hẹp theo từng mẫu TT12 hoặc từng bảng, đồng thời lọc trực tiếp trong bảng đang chọn."] },
     { version: "1.5.1", date: "2026-08-26", changes: ["Sửa ID trùng trong thư viện tài liệu để loại bỏ cảnh báo React về key không duy nhất."] },

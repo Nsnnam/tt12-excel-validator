@@ -6,6 +6,12 @@ Mọi thay đổi đáng chú ý của **TT12 Excel Validator** được ghi t�
 
 Chưa có thay đổi ngoài phiên bản phát hành đầu tiên.
 
+## [1.7.1] — 2026-09-01
+
+### Thêm mới
+
+- Bổ sung file Excel **Quyết định 1227/QĐ-BYT** (Định mức KT-KT xét nghiệm & CĐHA) vào mục **THƯ VIỆN FILE MẪU & TÀI LIỆU**, lưu trữ và tải trực tiếp từ GitHub repository.
+
 ## [1.7.0] — 2026-08-28
 
 ### Thay đổi
