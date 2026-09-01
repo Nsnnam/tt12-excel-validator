@@ -107,8 +107,12 @@ temp/
 
 # Webdev artifacts (checkpoint zips, migrations, etc.)
 .webdev/
-releases/*
+releases/*.exe
+releases/.offline-stage/
 !releases/README.md
+!releases/single-page/
+!releases/single-page/**
+!releases/*.html
 
 # Manus version file (auto-generated, not part of source)
 client/public/__manus__/version.json

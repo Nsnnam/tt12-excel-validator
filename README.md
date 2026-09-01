@@ -1,104 +1,162 @@
 # TT12 Excel Validator
 
-Ứng dụng web hỗ trợ **tra cứu, nhận diện và kiểm định tám mẫu Excel BHYT**: sáu mẫu danh mục TT12 cùng Mẫu 01/BH tổng hợp đề nghị thanh toán và Mẫu 02/BH báo cáo quyết toán.
+**TT12 Excel Validator** là ứng dụng web tra cứu, nhận diện tự động và kiểm định dữ liệu cho **8 mẫu Excel BHYT** (gồm 6 mẫu danh mục 01–06/DM theo Thông tư 12/2026/TT-BYT, Mẫu 01/BH tổng hợp đề nghị thanh toán và Mẫu 02/BH báo cáo quyết toán).
 
-| | |
+Ứng dụng chạy hoàn toàn trên trình duyệt (**100% Client-side**), bảo mật tuyệt đối dữ liệu y tế, hỗ trợ chạy trực tiếp trên web qua GitHub Pages hoặc tải về file HTML tự chứa để sử dụng offline không cần kết nối Internet và không cần cài đặt môi trường.
+
+| Thông tin | Chi tiết |
 |---|---|
 | **Phiên bản** | `1.7.0` |
-| **Ngày** | 2026-08-28 |
+| **Ngày cập nhật** | 2026-09-01 |
 | **Tác giả** | [Nguyễn Sơn Nam (Nsnnam)](https://github.com/Nsnnam) |
 | **Múi giờ** | GMT+7 (`Asia/Ho_Chi_Minh`) |
+| **Web trực tiếp** | [https://nsnnam.github.io/tt12-excel-validator/](https://nsnnam.github.io/tt12-excel-validator/) |
+| **Bản HTML Single-page** | [`releases/single-page/tt12-excel-validator.html`](./releases/single-page/tt12-excel-validator.html) |
 | **Nguồn tham chiếu** | [Tra cứu danh mục TT12](https://tracuu-danhmuc-tt12.web.app/) |
-| **Web public** | [nsnnam.github.io/tt12-excel-validator](https://nsnnam.github.io/tt12-excel-validator/) |
 
-## Tính năng
+---
 
-Ứng dụng tổ chức sáu mẫu 01–06/DM và hai mẫu 01–02/BH theo sidebar tra cứu, hiển thị cấu trúc chỉ tiêu tương ứng. Schema được trích xuất từ sheet **Hướng dẫn** của các file người dùng cung cấp; với sáu mẫu DM, file `20260306_6bang_tt12_chitiet_valid_.xlsx` là nguồn ưu tiên cho định dạng, kích thước, diễn giải, ghi chú và cờ **Bắt buộc/Trùng**. Mẫu 01/BH được bổ sung mô tả `CHITIET_HS01BH` tại trang 60–63 của tài liệu kỹ thuật. Nhận diện dựa trên **chữ ký hàng tiêu đề**, không suy đoán theo tên tệp. Bộ tìm kiếm xuyên hồ sơ cho phép tìm toàn bộ dữ liệu hoặc thu hẹp theo từng mẫu TT12, danh mục mã, từng bảng QĐ 3176 và 13 phụ lục QĐ 5937; kết quả giữ nguồn và mở đúng khu vực tra cứu tương ứng. Khu kiểm định có nút **Xóa hồ sơ** để kết thúc phiên Excel đã nạp mà không xóa file gốc trên máy.
+## 🌐 Sử dụng trực tiếp trên Web & Tải về Offline
 
-Khi import file `.xlsx`, `.xls` hoặc `.xlsm`, công cụ đọc sheet có độ khớp cấu trúc cao nhất, công bố mức độ tin cậy nhận diện và phân loại phát hiện thành **Lỗi**, **Cảnh báo** và **Thông tin**. Phạm vi rà soát gồm thiếu/trùng cột, thiếu dữ liệu lõi, độ dài, ngày `YYYYMMDD`, định dạng mã, tiền tệ/số liệu, ký tự ẩn, khoảng trắng, xuống dòng, công thức Excel, trùng khóa nghiệp vụ và một số quan hệ logic đặc thù từng mẫu.
+Người dùng có thể sử dụng ứng dụng ngay lập tức bằng một trong các phương thức sau mà không cần cài đặt:
 
-| Loại kiểm tra | Ví dụ áp dụng |
+1. **Sử dụng trực tiếp trên Web (GitHub Pages):**
+   - Truy cập: **[https://nsnnam.github.io/tt12-excel-validator/](https://nsnnam.github.io/tt12-excel-validator/)**
+   - Tự động đồng bộ và triển khai bản mới nhất từ nhánh `main` qua GitHub Actions.
+   
+2. **Sử dụng file Single HTML Offline (Không cần mạng, không cần cài đặt):**
+   - Tải file HTML tự chứa tại: [`releases/single-page/tt12-excel-validator.html`](./releases/single-page/tt12-excel-validator.html) (hoặc [`releases/TT12-Excel-Validator-v1.7.0-offline.html`](./releases/TT12-Excel-Validator-v1.7.0-offline.html)).
+   - Nhấp đúp chuột để mở trực tiếp trong bất kỳ trình duyệt nào (Chrome, Edge, Firefox, Cốc Cốc,...).
+   - Chạy offline hoàn toàn, độc lập không phụ thuộc máy chủ hay internet.
+
+3. **Bản EXE Portable (Windows 64-bit):**
+   - Tạo bằng lệnh `pnpm build:exe` (đóng gói kèm runtime Node 22, tự khởi động server cục bộ tại `http://localhost:3000`).
+
+---
+
+## ✨ Tính năng nổi bật
+
+- **Tổ chức tra cứu chuẩn hóa 8 mẫu:** Gồm 6 mẫu danh mục (Mẫu 01/DM đến 06/DM) và 2 mẫu thanh toán (Mẫu 01/BH, Mẫu 02/BH).
+- **Nhận diện chữ ký tiêu đề thông minh:** Tự động quét các sheet trong file Excel (`.xlsx`, `.xls`, `.xlsm`), tìm dòng tiêu đề và nhận diện mẫu có độ khớp cao nhất, không phụ thuộc vào tên tệp.
+- **Bộ tìm kiếm xuyên hồ sơ (Global Search):** Tìm kiếm tức thì theo mã trường, tên danh mục, diễn giải chỉ tiêu trên toàn bộ 8 mẫu TT12, 4 danh mục mã dùng chung, 15 bảng QĐ 3176 và 13 phụ lục QĐ 5937/QĐ-BYT.
+- **Kiểm định đa tầng & phân loại mức độ:** Phân nhóm phát hiện thành **Lỗi (Error)**, **Cảnh báo (Warning)** và **Thông tin (Info)**.
+- **Đối chiếu danh mục mã dùng chung:** Hỗ trợ nạp file mã khoa / mã khám bệnh để đối chiếu tên và mã trực tiếp trong phiên làm việc.
+- **Quy tắc cơ sở KCB tùy biến:** Thiết lập quy tắc kiểm tra cục bộ theo từng mã CSKCB (bắt buộc cột, giới hạn ký tự, cấm công thức).
+- **Xuất báo cáo đa chiều:** Tạo file Excel báo cáo gồm 3 sheet: `Tóm tắt`, `Chi tiết` và `Nhật ký`, ghi nhận thời gian theo múi giờ GMT+7.
+- **Xem trước & Xóa hồ sơ an toàn:** Xem trước bảng dữ liệu với tô màu trực quan ô lỗi/cảnh báo; nút **Xóa hồ sơ** giúp đặt lại phiên làm việc mà không chạm đến file gốc trên ổ cứng.
+
+---
+
+## 🔍 Phạm vi và quy tắc kiểm định
+
+| Nhóm kiểm tra | Quy tắc và phạm vi rà soát |
 |---|---|
-| **Văn bản** | Khoảng trắng đầu/cuối, nhiều khoảng trắng, xuống dòng, ký tự ẩn, khoảng trắng không ngắt. |
-| **Cấu trúc** | Thiếu/trùng cột, tên cột ngoài mẫu, hàng tiêu đề sai. |
-| **Định dạng** | Ngày `YYYYMMDD`/`YYYYMMDDHHMM[SS]`, mã được Excel đọc thành số, độ dài `MA_CSKCB`, giá trị số/tiền tệ âm hoặc chứa ký hiệu. |
-| **Logic mẫu** | Khoảng thời gian hiệu lực, khóa trùng, giường HSTC/HSCC so với tổng giường, đơn giá BHYT, tỷ lệ BHYT, năm sản xuất/sử dụng. |
-| **Báo cáo** | Xuất `.xlsx` gồm ba sheet: `Tóm tắt`, `Chi tiết`, `Nhật ký`. |
+| **Văn bản & Ký tự** | Phát hiện khoảng trắng đầu/cuối, nhiều khoảng trắng liên tiếp, ký tự xuống dòng `\n`, ký tự ẩn không in được, khoảng trắng không ngắt (`\u00A0`). |
+| **Cấu trúc & Cột** | Thiếu cột bắt buộc, trùng tên cột, cột ngoài danh mục chuẩn, sai vị trí hoặc sai lệch hàng tiêu đề. |
+| **Định dạng & Kiểu** | Kiểm tra định dạng ngày `YYYYMMDD`, ngày giờ `YYYYMMDDHHMM[SS]`, mã định danh bị ép kiểu số làm mất số `0` ở đầu, độ dài mã cơ sở KCB (`MA_CSKCB`), giá trị số hoặc tiền tệ âm, chứa ký tự chữ. |
+| **Công thức Excel** | Phát hiện các ô chứa công thức Excel (`=SUM(...)`, `=CONCAT(...)`,...) cần chuyển đổi thành giá trị tĩnh trước khi gửi cổng dữ liệu. |
+| **Khóa trùng nghiệp vụ** | Kiểm tra trùng lặp bản ghi dựa trên bộ chỉ tiêu khóa nghiệp vụ (cờ **Trùng**) của từng mẫu. |
+| **Logic nghiệp vụ mẫu** | - **Mẫu 01/DM:** Giường HSTC / HSCC không vượt quá tổng giường kế hoạch / thực kê; kiểm tra `TU_NGAY <= DEN_NGAY`.<br>- **Mẫu 02/DM:** Thời gian làm việc ngày <= 24h, tuần <= 168h; thời gian tuần không nhỏ hơn ngày.<br>- **Mẫu 03/DM:** Đơn giá BHYT không lớn hơn đơn giá khai báo; số lượng thuốc/máu > 0 khi còn hiệu lực.<br>- **Mẫu 04/DM:** Tỷ lệ thanh toán BHYT (0 - 100%); đơn giá BHYT vật tư không lớn hơn đơn giá khai báo.<br>- **Mẫu 05/DM:** Giá thanh toán DVKT không vượt đơn giá; số lượng chuyển giao kỹ thuật hợp lệ.<br>- **Mẫu 06/DM:** Năm sử dụng không nhỏ hơn năm sản xuất (`NAM_SD >= NAM_SX`); ngày hiệu lực hợp đồng.<br>- **Mẫu 01/BH:** Kiểm tra `NGAY_VAO <= NGAY_VAO_NOI_TRU <= NGAY_RA`; logic tổng chi BV = BHTT + BNCCT + BNTT + NGUONKHAC. |
 
-## Yêu cầu
+---
 
-Ứng dụng là web app React/TypeScript; cần Node.js 18+ và trình duyệt Chromium/Chrome/Edge/Firefox phiên bản hiện hành để phát triển. Việc đọc file chạy trên thiết bị người dùng trong phiên hiện tại; ứng dụng không có API lưu trữ file Excel.
+## 🚀 Cài đặt và phát triển cục bộ
 
-## Cài đặt và chạy
+Yêu cầu môi trường: **Node.js 18+** và trình quản lý gói **pnpm** (hoặc npm).
 
 ```bash
+# 1. Clone repository
 git clone https://github.com/Nsnnam/tt12-excel-validator.git
 cd tt12-excel-validator
+
+# 2. Cài đặt thư viện phụ thuộc
 pnpm install
+
+# 3. Khởi chạy máy chủ phát triển
 pnpm dev
 ```
 
-| Lệnh | Mục đích |
+### Các lệnh quản trị & đóng gói
+
+| Lệnh | Mô tả |
 |---|---|
-| `pnpm dev` | Chạy môi trường phát triển. |
-| `pnpm check` | Kiểm tra kiểu TypeScript. |
-| `pnpm vitest run client/src/lib/tt12.test.ts` | Chạy kiểm thử lõi kiểm định. |
-| `pnpm build` | Đóng gói bản web tĩnh. |
-| `pnpm build:offline` | Tạo một file HTML tự chứa tại `releases/`. |
-| `pnpm build:exe` | Tạo EXE portable Windows 64-bit tại `releases/`. |
+| `pnpm dev` | Khởi chạy máy chủ phát triển Vite với Hot Module Replacement. |
+| `pnpm check` | Kiểm tra kiểu dữ liệu tĩnh TypeScript (`tsc --noEmit`). |
+| `pnpm test` | Chạy toàn bộ bộ kiểm thử tự động với Vitest. |
+| `pnpm build` | Đóng gói bản web tĩnh và server Express vào thư mục `dist/`. |
+| `pnpm build:offline` | Đóng gói ra file HTML độc lập tại `releases/single-page/` và `releases/`. |
+| `pnpm build:exe` | Đóng gói thành file EXE portable chạy trên Windows 64-bit. |
 
-## Hướng dẫn sử dụng nhanh
+---
 
-Trước hết, có thể nhập mã trường, tên danh mục hoặc từ khóa diễn giải vào vùng **Tra cứu xuyên hồ sơ**; chọn **Toàn bộ dữ liệu TT12**, một mẫu hoặc một bảng để thu hẹp kết quả. Sau đó, mở kết quả cần xem hoặc dùng các ô tìm cục bộ trong Mẫu TT12, danh mục mã và QĐ 3176. Để kiểm định, vào **Kiểm định Excel** và chọn file Excel.
- Công cụ đọc các sheet, tự chọn sheet có chữ ký cột gần với một trong tám mẫu nhất, rồi lập bảng phát hiện theo dòng và cột.
+## 📖 Hướng dẫn sử dụng nhanh
 
-Người dùng nên xử lý toàn bộ **Lỗi** trước khi rà soát **Cảnh báo**. Sau khi đối chiếu, chọn **Xuất báo cáo** để tạo file có các sheet tóm tắt, chi tiết và nhật ký theo thời điểm GMT+7. Nút **Nạp file khác** chỉ xóa trạng thái của phiên hiện tại, không chỉnh sửa file gốc.
+1. **Tra cứu danh mục & Chỉ tiêu:**
+   - Sử dụng ô **Tra cứu xuyên hồ sơ** ở đầu trang để tìm kiếm nhanh chỉ tiêu, mã trường hoặc từ khóa diễn giải.
+   - Chuyển đổi giữa các tab mẫu để xem cấu trúc chi tiết, độ dài tối đa, định dạng, cờ Bắt buộc / Trùng.
+2. **Kiểm định file Excel:**
+   - Chuyển sang khu vực **Kiểm định Excel**, kéo thả hoặc chọn tệp `.xlsx` / `.xls` / `.xlsm`.
+   - Hệ thống tự động phân tích cấu trúc, xác định mẫu phù hợp và hiển thị bảng lỗi phân loại.
+3. **Rà soát & Xem trước:**
+   - Xem trước bảng tính trực quan, các ô vi phạm được tô màu nổi bật kèm hướng dẫn sửa chi tiết khi rê chuột.
+   - Xử lý các phát hiện theo mức độ: Ưu tiên xử lý toàn bộ **Lỗi**, sau đó xem xét **Cảnh báo**.
+4. **Xuất báo cáo kiểm định:**
+   - Nhấn **Xuất báo cáo Excel** để tải về file tổng hợp gồm 3 sheet: *Tóm tắt*, *Chi tiết lỗi/cảnh báo*, *Nhật ký kiểm định*.
+   - Nhấn nút **Xóa hồ sơ** để kết thúc phiên và dọn sạch dữ liệu hiển thị trên trình duyệt.
 
-## Cấu trúc rút gọn
+---
 
-| File / thư mục | Mô tả |
-|---|---|
-| `client/src/lib/tt12.ts` | Schema tám mẫu, nhận diện file, bộ quy tắc kiểm định và xuất báo cáo. |
-| `client/src/lib/tt12.test.ts` | Kiểm thử quy tắc logic/ô công thức trọng yếu. |
-| `client/src/lib/search.ts` | Chỉ mục tìm kiếm theo mẫu, danh mục mã, bảng QĐ 3176, phụ lục QĐ 5937 và tài liệu. |
-| `client/src/data/qd5937-danh-muc.json` | 13 tab dữ liệu nguồn từ các phụ lục Quyết định 5937/QĐ-BYT. |
-| `docs/SEARCH-UX-TEST.md` | Ghi nhận kiểm thử tìm kiếm desktop, mobile và các phạm vi dữ liệu. |
-| `.github/workflows/deploy-pages.yml` | Build và deploy bản web public lên GitHub Pages. |
-| `client/src/pages/HomeExpanded.tsx` | Giao diện tra cứu, import, preview và đối chiếu. |
-| `client/src/lib/meta.ts` | Nguồn sự thật cho version, tác giả, lịch sử và thông tin hỗ trợ. |
-| `scripts/build-offline.mjs` | Tạo bản HTML tự chứa để chạy không cần web server. |
-| `scripts/build-exe.mjs` | Đóng gói EXE portable Windows 64-bit. |
-| `releases/` | Đường dẫn artifact phát hành, không commit binary lớn. |
-| `client/src/index.css` | Hệ thống thiết kế Hồ sơ điều hành. |
-| `ideas.md` | Quyết định phong cách và nhận diện giao diện. |
-| `docs/HUONG-DAN.md` | Phạm vi kiểm tra, quy tắc và giới hạn. |
-| `CHANGELOG.md` | Lịch sử phiên bản. |
+## 🔒 Bảo mật và an toàn dữ liệu
 
-## Lưu ý nghiệp vụ và an toàn
+- Ứng dụng hoạt động theo cơ chế **100% Client-side Processing**: Toàn bộ thao tác đọc, phân tích tệp Excel và đối chiếu dữ liệu diễn ra hoàn toàn trong bộ nhớ RAM trình duyệt của người dùng.
+- **Không gửi hoặc lưu trữ:** Ứng dụng không có API máy chủ lưu trữ tệp, không gửi bất kỳ dữ liệu bệnh nhân, hồ sơ KCB hay nội dung file Excel lên Internet.
+- **Không ghi đè file gốc:** Ứng dụng chỉ đọc dữ liệu và xuất file báo cáo riêng biệt, bảo toàn nguyên vẹn tệp gốc của đơn vị.
 
-> **Công cụ hỗ trợ kiểm định sơ bộ, không thay thế tài liệu pháp lý hoặc việc đối chiếu với danh mục dùng chung đang hiệu lực.** Phiên bản `1.7.0` có thể đối chiếu cục bộ với danh mục mã do người dùng nạp; dữ liệu QĐ 5937 được dùng làm nguồn tham chiếu và vẫn cần được xác nhận theo văn bản chính thức đang hiệu lực.
+---
 
-Ứng dụng chỉ đọc file và xuất báo cáo, không tự sửa file gốc. Các ô có công thức được cảnh báo để người dùng chủ động chuyển về giá trị tĩnh khi quy trình nộp danh mục yêu cầu. Dữ liệu có tính nhạy cảm không được đưa vào issue tracker, commit hoặc kho công khai.
+## 📁 Cấu trúc dự án
 
-## Thông tin phiên bản
+```text
+tt12-excel-validator/
+├── .github/
+│   └── workflows/
+│       └── deploy-pages.yml       # Tự động build và deploy GitHub Pages
+├── client/
+│   ├── public/                    # Tài nguyên tĩnh
+│   └── src/
+│       ├── components/            # UI components (Radix UI / Tailwind)
+│       ├── data/                  # Dữ liệu nguồn QĐ 5937, QĐ 3176, TT12
+│       ├── lib/
+│       │   ├── tt12.ts            # Schema 8 mẫu, bộ quy tắc kiểm định & xuất XLSX
+│       │   ├── tt12.test.ts       # Kiểm thử tự động logic nghiệp vụ
+│       │   ├── search.ts          # Bộ máy tìm kiếm xuyên hồ sơ
+│       │   ├── meta.ts            # Nguồn thông tin phiên bản & tác giả
+│       │   └── reference.ts       # Dữ liệu đối chiếu danh mục dùng chung
+│       ├── pages/
+│       │   └── HomeExpanded.tsx   # Giao diện chính của ứng dụng
+│       └── App.tsx
+├── docs/                          # Tài liệu hướng dẫn chi tiết
+├── releases/
+│   ├── single-page/
+│   │   └── tt12-excel-validator.html   # File HTML standalone chạy offline
+│   ├── TT12-Excel-Validator-v1.7.0-offline.html
+│   └── README.md                  # Hướng dẫn sử dụng các bản phát hành
+├── scripts/
+│   ├── build-offline.mjs          # Script đóng gói HTML tự chứa
+│   └── build-exe.mjs              # Script đóng gói EXE Windows
+├── package.json
+└── vite.config.ts
+```
 
-Chi tiết thay đổi xem tại [CHANGELOG.md](./CHANGELOG.md).
+---
 
-| Ngày | Phiên bản | Nội dung |
-|---|---|---|
-| 2026-08-25 | `1.0.0` | Khởi tạo tra cứu TT12 và kiểm định Excel chạy cục bộ. |
-| 2026-08-25 | `1.1.0` | Tích hợp dữ liệu nguồn, preview Excel, chuẩn hóa an toàn và đối chiếu danh mục. |
-| 2026-08-25 | `1.2.0` | Chuẩn hóa NSN App Standard, thêm artifact HTML offline và EXE portable. |
-| 2026-08-25 | `1.3.0` | Bổ sung cờ nghiệp vụ, lọc theo cột và quy tắc cơ sở KCB. |
-| 2026-08-26 | `1.4.0` | Thay sáu file mẫu, thêm Mẫu 01/BH và 02/BH, nhận diện tám schema mới. |
-| 2026-08-26 | `1.5.0` | Ưu tiên metadata file validate chi tiết cho sáu mẫu DM; bổ sung CHITIET_HS01BH cho Mẫu 01/BH. |
-| 2026-08-26 | `1.5.1` | Sửa khóa React bị trùng trong thư viện tài liệu và bổ sung kiểm thử hồi quy ID duy nhất. |
-| 2026-08-28 | `1.6.0` | Thêm tìm kiếm toàn cục, thu hẹp theo mẫu/bảng và lọc trực tiếp trong QĐ 3176. |
+## ☕ Tác giả và ủng hộ
 
-## Ủng hộ
+- **Tác giả:** Nguyễn Sơn Nam (Nsnnam) · [GitHub Profile](https://github.com/Nsnnam)
+- **Ủng hộ dự án:** Nếu công cụ hữu ích cho công việc của bạn, hãy xem thông tin mời cà phê tại [SUPPORT.md](./SUPPORT.md).
 
-Xem [SUPPORT.md](./SUPPORT.md).
+---
 
-## Giấy phép
+## 📄 Giấy phép
 
-Private – dùng nội bộ đơn vị.
+Phát hành phục vụ nghiệp vụ y tế và kiểm định dữ liệu nội bộ.

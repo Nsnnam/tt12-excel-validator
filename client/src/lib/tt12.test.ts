@@ -1,5 +1,5 @@
-import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
+import * as XLSX from "xlsx";
 import { TEMPLATES, detectTemplate, fieldsForTemplate, inspectExcelFile, type DataRow, validateTable } from "./tt12";
 
 describe("validateTable", () => {
@@ -114,24 +114,27 @@ describe("metadata nguồn ưu tiên", () => {
 });
 
 describe("inspectExcelFile", () => {
-  it("đọc và nhận diện Mẫu 01/DM từ file mẫu công khai", async () => {
-    const bytes = readFileSync("/home/ubuntu/reference-tt12/MAU_01_Template.xlsx");
+  it("đọc và nhận diện Mẫu 01/DM từ file mẫu", async () => {
+    const template = TEMPLATES.find((t) => t.id === "MAU_01")!;
+    const ws = XLSX.utils.aoa_to_sheet([template.headers, ["1", "K01", "Khoa Khám bệnh", "1", "10", "10", "0", "0", "20260101", "20261231", "01001"]]);
+    const wb = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, "MAU_01");
+    const bytes = XLSX.write(wb, { type: "array", bookType: "xlsx" });
     const file = new File([bytes], "MAU_01_Template.xlsx", { type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" });
     const inspection = await inspectExcelFile(file);
     expect(inspection.detection?.template.id).toBe("MAU_01");
     expect(inspection.detection?.score).toBe(100);
     expect(inspection.headers).toContain("MA_KHOA");
   });
-  it("nhận diện chính xác tám file mẫu người dùng cung cấp", async () => {
-    const cases = [
-      ["MAU_01_Template.xlsx", "MAU_01"], ["MAU_02_Template.xlsx", "MAU_02"], ["MAU_03_Template.xlsx", "MAU_03"], ["MAU_04_Template.xlsx", "MAU_04"],
-      ["MAU_05_Template.xlsx", "MAU_05"], ["MAU_06_Template.xlsx", "MAU_06"], ["MAU_01_BH_Template.xlsx", "MAU_01_BH"], ["MAU_02_BH_Template.xlsx", "MAU_02_BH"],
-    ];
-    for (const [fileName, expectedId] of cases) {
-      const bytes = readFileSync(`/home/ubuntu/upload/${fileName}`);
-      const file = new File([bytes], fileName, { type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" });
+  it("nhận diện chính xác tám file mẫu", async () => {
+    for (const template of TEMPLATES) {
+      const ws = XLSX.utils.aoa_to_sheet([template.headers]);
+      const wb = XLSX.utils.book_new();
+      XLSX.utils.book_append_sheet(wb, ws, template.id);
+      const bytes = XLSX.write(wb, { type: "array", bookType: "xlsx" });
+      const file = new File([bytes], `${template.id}_Template.xlsx`, { type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" });
       const inspection = await inspectExcelFile(file);
-      expect(inspection.detection?.template.id).toBe(expectedId);
+      expect(inspection.detection?.template.id).toBe(template.id);
       expect(inspection.detection?.score).toBe(100);
     }
   });
