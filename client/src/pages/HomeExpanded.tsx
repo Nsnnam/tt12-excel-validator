@@ -226,13 +226,104 @@ export default function HomeExpanded() {
     </aside>
 
     <main className="main-workspace">
-      <header className="workspace-head">
+      <header className="workspace-head compact-head">
         {BRAND_ASSETS.texture && <img src={BRAND_ASSETS.texture} alt="" className="ledger-texture" />}
         <div className="head-content">
-          <div className="record-band"><div className="dossier-code"><span className="dossier-mark"><FileCheck2 size={15} /></span><div><span>HỒ SƠ KIỂM ĐỊNH</span><b>TT12 / 2026</b></div><i /></div><div className="record-slots"><div className="record-template"><span>MẪU ĐANG CHỌN</span><b>{template.label}</b></div><div className="record-source"><span>NGUỒN EXCEL</span><b>{inspection?.fileName ?? "Chưa nạp nguồn"}</b></div><div className="record-spec"><span>CĂN CỨ SCHEMA</span><b>{schemaSource}</b></div><div className={`record-status ${counts.error ? "record-status-error" : counts.warning ? "record-status-warning" : "record-status-idle"}`}><span>TRẠNG THÁI</span><b>{status}</b></div></div></div>
-          <div className="head-title-row"><div><p className="record-context">{view === "lookup" ? "TRA CỨU HỒ SƠ MẪU" : "BÀN LÀM VIỆC KIỂM ĐỊNH"}</p><h1>{title}</h1><p>{contextLine}</p></div><div className="head-actions"><Button className="button-outline" variant="outline" onClick={() => catalogInput.current?.click()}><FolderSearch size={16} />Nạp mã dùng chung</Button>{inspection && <Button className="button-danger-outline" variant="outline" onClick={clearInspection}><Trash2 size={16} />Xóa hồ sơ</Button>}<Button className="button-cobalt" onClick={() => excelInput.current?.click()}><Upload size={16} />Nạp hồ sơ Excel</Button></div>
-</div>
-          <section className="global-search" aria-label="Tìm kiếm dữ liệu TT12"><div className="global-search-heading"><div><p className="eyebrow"><Search size={13} />TRA CỨU XUYÊN HỒ SƠ</p><strong>Tìm mã, tên chỉ tiêu hoặc diễn giải trên toàn bộ dữ liệu TT12</strong></div><span>{globalQuery.trim() ? `${globalSearchResults.length} kết quả` : "Tìm toàn bộ hoặc thu hẹp theo mẫu/bảng"}</span></div><div className="global-search-controls"><label className="global-search-input"><Search size={19} /><input value={globalQuery} onChange={(event) => setGlobalQuery(event.target.value)} placeholder="Ví dụ: MA_KHOA, thuốc, dịch vụ, Bảng 1…" aria-label="Từ khóa tìm kiếm toàn bộ dữ liệu" /></label><label className="global-search-scope"><span>PHẠM VI</span><select value={globalScope} onChange={(event) => setGlobalScope(event.target.value as SearchScope)} aria-label="Chọn phạm vi tìm kiếm"><option value="all">Toàn bộ dữ liệu TT12</option><optgroup label="Theo mẫu TT12">{globalSearchScopes.filter((item) => item.group === "template").map((item) => <option key={item.value} value={item.value}>{item.label}</option>)}</optgroup><optgroup label="Theo bảng riêng biệt">{globalSearchScopes.filter((item) => item.group === "table").map((item) => <option key={item.value} value={item.value}>{item.label}</option>)}</optgroup></select></label></div>{globalQuery.trim() && <div className="global-search-results">{globalSearchResults.length ? globalSearchResults.map((result) => result.kind === "document" && result.url ? <a key={result.id} className="global-search-result" href={sourceUrl(result.url)} target="_blank" rel="noreferrer"><span className="global-search-result-kind">{resultKindLabel[result.kind]}</span><strong>{result.title}</strong><small>{result.subtitle}</small><p>{result.snippet}</p></a> : <button key={result.id} className="global-search-result" onClick={() => openSearchResult(result)}><span className="global-search-result-kind">{resultKindLabel[result.kind]}</span><strong>{result.title}</strong><small>{result.subtitle}</small><p>{result.snippet}</p></button>) : <div className="global-search-empty"><Info size={18} /><span>Không tìm thấy dữ liệu trong phạm vi đã chọn. Thử mã cột, tên danh mục hoặc một từ khóa ngắn hơn.</span></div>}</div>}</section>
+          <div className="compact-header-top">
+            <div className="compact-title-group">
+              <div className="compact-dossier-badge">
+                <FileCheck2 size={15} />
+                <span>TT12 / 2026</span>
+              </div>
+              <h1 className="compact-heading">{title}</h1>
+              <div className="compact-meta-chips">
+                <span className="meta-chip meta-chip-template" title="Mẫu đang chọn">
+                  <b>{template.label}</b>
+                </span>
+                <span className="meta-chip meta-chip-source" title="Nguồn Excel nạp vào">
+                  {inspection?.fileName ?? "Chưa nạp nguồn"}
+                </span>
+                <span className={`meta-chip meta-chip-status ${counts.error ? "status-error" : counts.warning ? "status-warning" : "status-idle"}`} title="Trạng thái kiểm định">
+                  {status}
+                </span>
+              </div>
+            </div>
+
+            <div className="compact-actions">
+              <Button className="button-outline button-compact" variant="outline" onClick={() => catalogInput.current?.click()} title="Nạp file danh mục mã khoa hoặc mã KCB để đối chiếu">
+                <FolderSearch size={14} />Nạp mã dùng chung
+              </Button>
+              {inspection && (
+                <Button className="button-danger-outline button-compact" variant="outline" onClick={clearInspection} title="Xóa dữ liệu Excel khỏi phiên làm việc">
+                  <Trash2 size={14} />Xóa hồ sơ
+                </Button>
+              )}
+              <Button className="button-cobalt button-compact" onClick={() => excelInput.current?.click()}>
+                <Upload size={14} />Nạp hồ sơ Excel
+              </Button>
+            </div>
+          </div>
+
+          <section className="compact-global-search" aria-label="Tìm kiếm dữ liệu TT12">
+            <div className="compact-search-bar">
+              <div className="compact-search-input">
+                <Search size={16} />
+                <input
+                  value={globalQuery}
+                  onChange={(event) => setGlobalQuery(event.target.value)}
+                  placeholder="Tra cứu xuyên hồ sơ: nhập mã chỉ tiêu (MA_KHOA, GIA_BHYT...), tên thuốc, dịch vụ, bảng QĐ 3176, QĐ 5937..."
+                  aria-label="Từ khóa tìm kiếm toàn bộ dữ liệu"
+                />
+                {globalQuery && (
+                  <button className="compact-search-clear" onClick={() => setGlobalQuery("")} title="Xóa tìm kiếm">
+                    <X size={14} />
+                  </button>
+                )}
+              </div>
+              <label className="compact-search-scope">
+                <span>PHẠM VI</span>
+                <select value={globalScope} onChange={(event) => setGlobalScope(event.target.value as SearchScope)} aria-label="Chọn phạm vi tìm kiếm">
+                  <option value="all">Toàn bộ dữ liệu TT12</option>
+                  <optgroup label="Theo mẫu TT12">
+                    {globalSearchScopes.filter((item) => item.group === "template").map((item) => <option key={item.value} value={item.value}>{item.label}</option>)}
+                  </optgroup>
+                  <optgroup label="Theo bảng riêng biệt">
+                    {globalSearchScopes.filter((item) => item.group === "table").map((item) => <option key={item.value} value={item.value}>{item.label}</option>)}
+                  </optgroup>
+                </select>
+              </label>
+              <div className="compact-search-badge">
+                {globalQuery.trim() ? `${globalSearchResults.length} kết quả` : "Tìm tức thì"}
+              </div>
+            </div>
+
+            {globalQuery.trim() && (
+              <div className="compact-search-dropdown">
+                <div className="global-search-results">
+                  {globalSearchResults.length ? globalSearchResults.map((result) => result.kind === "document" && result.url ? (
+                    <a key={result.id} className="global-search-result" href={sourceUrl(result.url)} target="_blank" rel="noreferrer">
+                      <span className="global-search-result-kind">{resultKindLabel[result.kind]}</span>
+                      <strong>{result.title}</strong>
+                      <small>{result.subtitle}</small>
+                      <p>{result.snippet}</p>
+                    </a>
+                  ) : (
+                    <button key={result.id} className="global-search-result" onClick={() => openSearchResult(result)}>
+                      <span className="global-search-result-kind">{resultKindLabel[result.kind]}</span>
+                      <strong>{result.title}</strong>
+                      <small>{result.subtitle}</small>
+                      <p>{result.snippet}</p>
+                    </button>
+                  )) : (
+                    <div className="global-search-empty">
+                      <Info size={16} />
+                      <span>Không tìm thấy dữ liệu trong phạm vi đã chọn. Thử mã cột, tên danh mục hoặc từ khóa ngắn hơn.</span>
+                    </div>
+                  )}
+                </div>
+              </div>
+            )}
+          </section>
         </div>
       </header>
 

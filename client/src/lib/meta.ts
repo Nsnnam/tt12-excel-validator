@@ -3,7 +3,7 @@
  */
 export const APP_META = {
   name: "TT12 Excel Validator",
-  version: "1.7.1",
+  version: "1.7.2",
   date: "2026-09-01",
   author: "Nguyễn Sơn Nam (Nsnnam)",
   authorShort: "NSN",
@@ -11,6 +11,7 @@ export const APP_META = {
   github: "https://github.com/Nsnnam/tt12-excel-validator",
   timezone: "Asia/Ho_Chi_Minh",
   changelog: [
+    { version: "1.7.2", date: "2026-09-01", changes: ["Tối ưu gọn gàng khu vực Header (Phần 1): tích hợp tiêu đề, trạng thái, nút thao tác và thanh tìm kiếm xuyên hồ sơ thành thanh điều khiển tinh gọn.", "Tối đa hóa không gian hiển thị cho bảng dữ liệu tra cứu và kiểm định Excel (Phần 2) tăng gấp 3 lần số dòng hiển thị trực tiếp."] },
     { version: "1.7.1", date: "2026-09-01", changes: ["Bổ sung file Excel QĐ 1227/QĐ-BYT (Định mức KT-KT kỹ thuật y tế) vào thư viện tài liệu và lưu trữ trực tiếp trên GitHub."] },
     { version: "1.7.0", date: "2026-08-28", changes: ["Thu gọn dải tiêu đề và khu TRA CỨU XUYÊN HỒ SƠ để ưu tiên vùng dữ liệu.", "Bổ sung thao tác Xóa hồ sơ để kết thúc phiên Excel đã nạp mà không xóa file gốc trên máy."] },
     { version: "1.6.0", date: "2026-08-28", changes: ["Bổ sung tìm kiếm toàn cục trên schema TT12, danh mục mã, 15 bảng QĐ 3176 và thư viện tài liệu.", "Cho phép thu hẹp theo từng mẫu TT12 hoặc từng bảng, đồng thời lọc trực tiếp trong bảng đang chọn."] },

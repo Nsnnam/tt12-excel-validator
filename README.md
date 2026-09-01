@@ -6,7 +6,7 @@
 
 | Thông tin | Chi tiết |
 |---|---|
-| **Phiên bản** | `1.7.1` |
+| **Phiên bản** | `1.7.2` |
 | **Ngày cập nhật** | 2026-09-01 |
 | **Tác giả** | [Nguyễn Sơn Nam (Nsnnam)](https://github.com/Nsnnam) |
 | **Múi giờ** | GMT+7 (`Asia/Ho_Chi_Minh`) |

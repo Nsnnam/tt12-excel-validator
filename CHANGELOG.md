@@ -6,6 +6,14 @@ Mọi thay đổi đáng chú ý của **TT12 Excel Validator** được ghi t�
 
 Chưa có thay đổi ngoài phiên bản phát hành đầu tiên.
 
+## [1.7.2] — 2026-09-01
+
+### Thay đổi & Tối ưu hóa UI
+
+- Tối ưu gọn gàng toàn diện khu vực Header (Phần 1): tích hợp tiêu đề, các chip metadata (mẫu, nguồn file, trạng thái), cụm nút hành động và thanh tìm kiếm xuyên hồ sơ thành thanh điều khiển tinh gọn (giảm chiều cao header từ ~330px xuống ~80px).
+- Tối đa hóa diện tích hiển thị cho bảng dữ liệu tra cứu và bàn làm việc kiểm định Excel (Phần 2): mở rộng chiều cao bảng hiển thị trực tiếp lên tới 75% màn hình, xem đồng thời 15–20 dòng dữ liệu không cần cuộn trang.
+- Kết quả tìm kiếm xuyên hồ sơ hiển thị dưới dạng dropdown menu nổi thông minh, không đẩy thụt lùi bảng dữ liệu.
+
 ## [1.7.1] — 2026-09-01
 
 ### Thêm mới
