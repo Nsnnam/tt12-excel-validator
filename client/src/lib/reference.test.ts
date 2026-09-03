@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { DOCUMENT_LIBRARY, QD3276_TABLES } from "./reference";
+import { COMMON_CATALOGS, DOCUMENT_LIBRARY, QD3276_TABLES } from "./reference";
 
 describe("DOCUMENT_LIBRARY", () => {
   it("có ID duy nhất để dùng ổn định làm khóa React", () => {
@@ -23,4 +23,14 @@ describe("QD3276_TABLES", () => {
     expect(pl2?.rows).toHaveLength(8);
   });
 });
+
+describe("COMMON_CATALOGS.maDoiTuong", () => {
+  it("được cập nhật theo Phụ lục 1 QĐ 3276/QĐ-BYT thay cho QĐ 2010", () => {
+    expect(COMMON_CATALOGS.maDoiTuong).toHaveLength(27);
+    const row33 = COMMON_CATALOGS.maDoiTuong.find((r) => r.ma === "3.3");
+    expect(row33).toBeDefined();
+    expect(row33?.ghiChu).toBe("Bổ sung");
+  });
+});
+
 

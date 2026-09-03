@@ -171,7 +171,7 @@ export default function Home() {
           </div>
 
           <p className="sidebar-label space-top">NHÓM 2 · MÃ DÙNG CHUNG</p>
-          {["Mã loại hình KCB", "Mã khám bệnh", "Mã đối tượng KCB", "Mã khoa"].map((item) => <button key={item} onClick={() => openPlaceholder(item)} className="supplement-button">{item}<ChevronRight size={14} /></button>)}
+          {["Mã loại hình KCB", "Mã khám bệnh", "Mã đối tượng KCB (QĐ 3276)", "Mã khoa"].map((item) => <button key={item} onClick={() => openPlaceholder(item)} className="supplement-button">{item}<ChevronRight size={14} /></button>)}
 
           <p className="sidebar-label space-top">NGUỒN THAM CHIẾU</p>
           <button onClick={() => openPlaceholder("15 bảng chỉ tiêu QĐ 3176")} className="supplement-button"><span>15 bảng chỉ tiêu QĐ 3176</span><ChevronRight size={14} /></button>

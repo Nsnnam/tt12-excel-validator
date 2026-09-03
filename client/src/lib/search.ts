@@ -29,7 +29,7 @@ export type SearchResult = {
 const catalogLabels: Record<string, string> = {
   maLoaiHinh: "Mã loại hình KCB",
   maKhamBenh: "Mã khám bệnh",
-  maDoiTuong: "Mã đối tượng KCB",
+  maDoiTuong: "Mã đối tượng KCB (QĐ 3276)",
   maKhoa: "Mã khoa",
 };
 

@@ -51,10 +51,20 @@ export const DOCUMENT_LIBRARY = [
   { id: "mau-02-bh", name: "Mẫu 02/BH - Báo cáo quyết toán KCB BHYT", type: "excel", url: "/manus-storage/MAU_02_BH_Template_0f545a41.xlsx" },
 ] as const;
 
+// Dữ liệu Mã đối tượng KCB chuẩn hóa thay thế theo Phụ lục 1 Quyết định 3276/QĐ-BYT (bãi bỏ Phụ lục 5 QĐ 2010/QĐ-BYT)
+const qd3276DoiTuongRows: CommonCode[] = (qd3276[0]?.rows ?? []).map((row) => ({
+  stt: row[0] ?? "",
+  ma: row[1] ?? "",
+  truongHop: row[2] ?? "",
+  quyDinh: row[3] ?? "",
+  mucHuong: row[4] ?? "",
+  ghiChu: row[5] ?? "",
+}));
+
 export const COMMON_CATALOGS: Record<"maLoaiHinh" | "maKhamBenh" | "maDoiTuong" | "maKhoa", CommonCode[]> = {
   maLoaiHinh: source._ ?? [],
   maKhamBenh: source.v ?? [],
-  maDoiTuong: source.x ?? [],
+  maDoiTuong: qd3276DoiTuongRows.length > 0 ? qd3276DoiTuongRows : (source.x ?? []),
   maKhoa: source.y ?? [],
 };
 

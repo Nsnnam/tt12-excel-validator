@@ -21,7 +21,7 @@ type View = "lookup" | "validate" | "catalog" | "qd" | "qd5937" | "qd3276" | "gu
 type CatalogId = keyof typeof COMMON_CATALOGS;
 type IssueFilter = Severity | "all";
 
-const catalogLabels: Record<CatalogId, string> = { maLoaiHinh: "Mã loại hình KCB", maKhamBenh: "Mã khám bệnh", maDoiTuong: "Mã đối tượng KCB", maKhoa: "Mã khoa" };
+const catalogLabels: Record<CatalogId, string> = { maLoaiHinh: "Mã loại hình KCB", maKhamBenh: "Mã khám bệnh", maDoiTuong: "Mã đối tượng KCB (QĐ 3276)", maKhoa: "Mã khoa" };
 const severityClass: Record<Severity, string> = { error: "error", warning: "warning", info: "info" };
 const severityLabel: Record<Severity, string> = { error: "Lỗi chặn", warning: "Cần đối chiếu", info: "Thông tin" };
 const formatBytes = (bytes: number) => `${new Intl.NumberFormat("vi-VN", { maximumFractionDigits: 1 }).format(bytes / 1024)} KB`;
@@ -99,7 +99,11 @@ export default function HomeExpanded() {
       const nextTemplate = TEMPLATES.find((item) => item.id === result.targetId);
       if (nextTemplate) { setTemplate(nextTemplate); setView("lookup"); setQuery(result.focus); }
     } else if (result.kind === "catalog" && result.targetId) {
-      setCatalogId(result.targetId as CatalogId); setView("catalog"); setQuery(result.focus);
+      if (result.targetId === "maDoiTuong") {
+        setQd3276Id("pl-01"); setView("qd3276"); setQuery(result.focus);
+      } else {
+        setCatalogId(result.targetId as CatalogId); setView("catalog"); setQuery(result.focus);
+      }
     } else if (result.kind === "qd" && result.targetId) {
       setQdId(result.targetId); setView("qd"); setQuery(result.focus);
     } else if (result.kind === "qd5937" && result.targetId) {
@@ -222,7 +226,30 @@ export default function HomeExpanded() {
         <p className="sidebar-label space-top">NHÓM 2 · TỔNG HỢP & QUYẾT TOÁN BHYT</p>
         <div className="template-stack">{bhTemplates.map((item, index) => <button key={item.id} className={`template-button ${template.id === item.id && view === "lookup" ? "template-button-active" : ""}`} onClick={() => { setTemplate(item); setView("lookup"); setQuery(""); }}><span>{String(index + 1).padStart(2, "0")}</span>{item.label.replace("Mẫu số ", "Mẫu ")}</button>)}</div>
         <p className="sidebar-label space-top">NHÓM 3 · MÃ DÙNG CHUNG</p>
-        {(Object.keys(catalogLabels) as CatalogId[]).map((item) => <button key={item} className={`supplement-button ${view === "catalog" && catalogId === item ? "supplement-button-active" : ""}`} onClick={() => { setCatalogId(item); setView("catalog"); setQuery(""); }}>{catalogLabels[item]}<ChevronRight size={14} /></button>)}
+        {(Object.keys(catalogLabels) as CatalogId[]).map((item) => (
+          <button
+            key={item}
+            className={`supplement-button ${
+              (item === "maDoiTuong" ? (view === "qd3276" && qd3276Id === "pl-01") : (view === "catalog" && catalogId === item))
+                ? "supplement-button-active"
+                : ""
+            }`}
+            onClick={() => {
+              if (item === "maDoiTuong") {
+                setView("qd3276");
+                setQd3276Id("pl-01");
+                setQuery("");
+              } else {
+                setCatalogId(item);
+                setView("catalog");
+                setQuery("");
+              }
+            }}
+          >
+            <span>{catalogLabels[item]}</span>
+            <ChevronRight size={14} />
+          </button>
+        ))}
         <p className="sidebar-label space-top">NGUỒN THAM CHIẾU</p>
         <button className={`supplement-button ${view === "qd" ? "supplement-button-active" : ""}`} onClick={() => setView("qd")}>15 bảng chỉ tiêu QĐ 3176<ChevronRight size={14} /></button>
         <button className={`supplement-button ${view === "qd5937" ? "supplement-button-active" : ""}`} onClick={() => { setView("qd5937"); setQuery(""); }}>13 bảng nguồn QĐ 5937<ChevronRight size={14} /></button>
@@ -352,7 +379,7 @@ export default function HomeExpanded() {
           <section className="library-section"><div><p className="eyebrow">THƯ VIỆN FILE MẪU & TÀI LIỆU</p><h2>{DOCUMENT_LIBRARY.length} tài liệu và file mẫu đang sử dụng</h2></div><div className="library-grid">{DOCUMENT_LIBRARY.map((document) => <a key={document.id} href={sourceUrl(document.url)} target="_blank" rel="noreferrer" className="library-link"><BookOpen size={17} /><span>{document.name}</span><ChevronRight size={16} /></a>)}</div></section>
         </>}
 
-        {view === "catalog" && <section className="catalog-layout"><aside className="source-card"><div className="source-card-head"><div><p className="eyebrow">BẢNG MÃ</p><h2>Danh mục</h2></div></div><div className="p-3">{(Object.keys(catalogLabels) as CatalogId[]).map((item) => <button key={item} className={`catalog-file ${catalogId === item ? "active" : ""}`} onClick={() => { setCatalogId(item); setQuery(""); }}><span>{catalogLabels[item]}</span><b>{COMMON_CATALOGS[item].length}</b></button>)}</div></aside><section className="source-card"><div className="source-card-head"><div><p className="eyebrow">DỮ LIỆU GỐC ĐÃ TÍCH HỢP</p><h2>{catalogLabels[catalogId]}</h2><p>{codeRows.length}/{COMMON_CATALOGS[catalogId].length} dòng khớp từ khóa.</p></div><label className="search-box"><Search size={16} /><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Tìm mã hoặc nội dung…" /></label></div><div className="source-table-wrap"><table className="source-table"><thead><tr>{codeHeaders.map((header) => <th key={header}>{header}</th>)}</tr></thead><tbody>{codeRows.map((row, index) => <tr key={`${index}-${JSON.stringify(row)}`}>{codeHeaders.map((header) => <td key={header}>{row[header]}</td>)}</tr>)}</tbody></table></div></section></section>}
+        {view === "catalog" && <section className="catalog-layout"><aside className="source-card"><div className="source-card-head"><div><p className="eyebrow">BẢNG MÃ</p><h2>Danh mục</h2></div></div><div className="p-3">{(Object.keys(catalogLabels) as CatalogId[]).map((item) => <button key={item} className={`catalog-file ${catalogId === item ? "active" : ""}`} onClick={() => { if (item === "maDoiTuong") { setView("qd3276"); setQd3276Id("pl-01"); setQuery(""); } else { setCatalogId(item); setQuery(""); } }}><span>{catalogLabels[item]}</span><b>{COMMON_CATALOGS[item].length}</b></button>)}</div></aside><section className="source-card"><div className="source-card-head"><div><p className="eyebrow">DỮ LIỆU GỐC ĐÃ TÍCH HỢP</p><h2>{catalogLabels[catalogId]}</h2><p>{codeRows.length}/{COMMON_CATALOGS[catalogId].length} dòng khớp từ khóa.</p></div><label className="search-box"><Search size={16} /><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Tìm mã hoặc nội dung…" /></label></div>{catalogId === "maDoiTuong" && <div className="normalize-note" style={{ margin: "12px 16px" }}><Info size={17} /><p><strong>Thay thế theo QĐ 3276/QĐ-BYT:</strong> Danh mục này áp dụng theo Phụ lục 1 Quyết định 3276/QĐ-BYT (thay thế và bãi bỏ Phụ lục 5 QĐ 2010/QĐ-BYT).</p><button className="button-outline" style={{ marginLeft: "auto", padding: "4px 10px", fontSize: "11px", fontWeight: "bold", background: "#fff", cursor: "pointer" }} onClick={() => { setView("qd3276"); setQd3276Id("pl-01"); setQuery(""); }}>Xem tại Nguồn tham chiếu QĐ 3276 →</button></div>}<div className="source-table-wrap"><table className="source-table"><thead><tr>{codeHeaders.map((header) => <th key={header}>{header}</th>)}</tr></thead><tbody>{codeRows.map((row, index) => <tr key={`${index}-${JSON.stringify(row)}`}>{codeHeaders.map((header) => <td key={header}>{row[header]}</td>)}</tr>)}</tbody></table></div></section></section>}
 
         {view === "qd" && <section className="source-card"><div className="source-card-head"><div><p className="eyebrow">CHUẨN ĐẦU RA</p><h2>{qd?.title}</h2><p>{query ? `${qdRows.length}/${qd?.rows.length ?? 0} dòng khớp từ khóa.` : `${qd?.rows.length ?? 0} dòng chỉ tiêu từ dữ liệu QĐ 3176 đã tải.`}</p></div><label className="search-box"><Search size={16} /><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Tìm trong bảng đang chọn…" aria-label="Tìm trong bảng QĐ 3176 đang chọn" /></label></div><div className="work-nav">{QD3176_TABLES.map((item) => <button key={item.id} className={qdId === item.id ? "active" : ""} onClick={() => { setQdId(item.id); setQuery(""); }}>{item.id.replace("bang-", "Bảng ")}</button>)}</div><div className="source-table-wrap"><table className="source-table"><thead><tr>{qd?.headers.map((header) => <th key={header}>{header}</th>)}</tr></thead><tbody>{qdRows.map((row, index) => <tr key={`${qd?.id}-${index}`}>{row.map((cell, column) => <td key={`${index}-${column}`}><pre>{cell}</pre></td>)}</tr>)}</tbody></table></div>{query && !qdRows.length && <div className="table-empty">Không có dòng nào trong bảng đang chọn khớp từ khóa.</div>}</section>}
         {view === "qd5937" && <section className="source-card"><div className="source-card-head"><div><p className="eyebrow">NGUỒN THAM CHIẾU · QUYẾT ĐỊNH 5937/QĐ-BYT · 30/12/2021</p><h2>{qd5937?.title}</h2><p>{query ? `${qd5937Rows.length}/${qd5937?.rows.length ?? 0} dòng khớp từ khóa.` : `${qd5937?.rows.length ?? 0} dòng dữ liệu từ PDF quyết định đã trích xuất.`}</p></div><label className="search-box"><Search size={16} /><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Tìm trong phụ lục đang chọn…" aria-label="Tìm trong bảng QĐ 5937 đang chọn" /></label></div><div className="work-nav">{QD5937_TABLES.map((item) => <button key={item.id} className={qd5937Id === item.id ? "active" : ""} onClick={() => { setQd5937Id(item.id); setQuery(""); }}>{item.id.replace("pl-", "PL ")}</button>)}</div><div className="source-table-wrap"><table className="source-table"><thead><tr>{qd5937?.headers.map((header) => <th key={header}>{header}</th>)}</tr></thead><tbody>{qd5937Rows.map((row, index) => <tr key={`${qd5937?.id}-${index}`}>{row.map((cell, column) => <td key={`${index}-${column}`}><pre>{cell}</pre></td>)}</tr>)}</tbody></table></div>{qd5937?.notes?.length ? <div className="normalize-note"><Info size={17} /><p><strong>Ghi chú nguồn:</strong> {qd5937.notes.join(" ")}</p></div> : null}{query && !qd5937Rows.length && <div className="table-empty">Không có dòng nào trong phụ lục đang chọn khớp từ khóa.</div>}</section>}
