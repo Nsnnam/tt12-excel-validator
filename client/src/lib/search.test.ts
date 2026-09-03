@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { COMMON_CATALOGS, QD3176_TABLES, QD5937_TABLES } from "./reference";
+import { COMMON_CATALOGS, QD3176_TABLES, QD5937_TABLES, QD3276_TABLES } from "./reference";
 import { searchReferenceData, searchScopeOptions } from "./search";
 
 /**
@@ -42,11 +42,22 @@ describe("searchReferenceData", () => {
     expect(searchReferenceData("NKT", "qd5937:pl-11-1").some((item) => item.kind === "qd5937")).toBe(true);
   });
 
+  it("tìm được mã đối tượng và mã nhiên liệu trong QĐ 3276", () => {
+    expect(QD3276_TABLES).toHaveLength(2);
+    const resPL1 = searchReferenceData("1.1", "qd3276:pl-01");
+    expect(resPL1.some((item) => item.kind === "qd3276" && item.targetId === "pl-01")).toBe(true);
+
+    const resPL2 = searchReferenceData("XEDIEN", "qd3276:pl-02");
+    expect(resPL2.some((item) => item.kind === "qd3276" && item.targetId === "pl-02")).toBe(true);
+  });
+
   it("cung cấp đủ lựa chọn toàn bộ, theo mẫu và theo bảng", () => {
     const scopes = searchScopeOptions();
     expect(scopes[0].value).toBe("all");
     expect(scopes.filter((item) => item.group === "template")).toHaveLength(8);
-    expect(scopes.filter((item) => item.group === "table").length).toBeGreaterThanOrEqual(32);
+    expect(scopes.filter((item) => item.group === "table").length).toBeGreaterThanOrEqual(34);
     expect(scopes.some((item) => item.value === "qd5937:pl-09")).toBe(true);
+    expect(scopes.some((item) => item.value === "qd3276:pl-01")).toBe(true);
+    expect(scopes.some((item) => item.value === "qd3276:pl-02")).toBe(true);
   });
 });

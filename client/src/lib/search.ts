@@ -2,11 +2,11 @@
  * Phong cách Hồ sơ điều hành: kết quả tìm kiếm là các dòng hồ sơ có nguồn,
  * định danh và đích đến rõ ràng; không dùng fuzzy match để tránh lệch nghiệp vụ.
  */
-import { COMMON_CATALOGS, DOCUMENT_LIBRARY, QD3176_TABLES, QD5937_TABLES, type CommonCode, type ReferenceTable } from "./reference";
+import { COMMON_CATALOGS, DOCUMENT_LIBRARY, QD3176_TABLES, QD5937_TABLES, QD3276_TABLES, type CommonCode, type ReferenceTable } from "./reference";
 import { TEMPLATES, fieldsForTemplate } from "./tt12";
 
-export type SearchScope = "all" | `template:${string}` | `catalog:${string}` | `qd:${string}` | `qd5937:${string}`;
-export type SearchResultKind = "field" | "catalog" | "qd" | "qd5937" | "document";
+export type SearchScope = "all" | `template:${string}` | `catalog:${string}` | `qd:${string}` | `qd5937:${string}` | `qd3276:${string}`;
+export type SearchResultKind = "field" | "catalog" | "qd" | "qd5937" | "qd3276" | "document";
 
 export type SearchScopeOption = {
   value: SearchScope;
@@ -66,6 +66,10 @@ function qd5937Scope(id: string): SearchScope {
   return `qd5937:${id}`;
 }
 
+function qd3276Scope(id: string): SearchScope {
+  return `qd3276:${id}`;
+}
+
 export function searchScopeOptions(): SearchScopeOption[] {
   return [
     { value: "all", label: "Toàn bộ dữ liệu TT12", group: "all" },
@@ -73,6 +77,7 @@ export function searchScopeOptions(): SearchScopeOption[] {
     ...Object.keys(COMMON_CATALOGS).map((id) => ({ value: catalogScope(id), label: catalogLabels[id] ?? id, group: "table" as const })),
     ...QD3176_TABLES.map((table) => ({ value: qdScope(table.id), label: `QĐ 3176 · ${compact(table.title).split("(")[0].trim()}`, group: "table" as const })),
     ...QD5937_TABLES.map((table) => ({ value: qd5937Scope(table.id), label: `QĐ 5937 · ${compact(table.title).split("·")[1]?.trim() ?? compact(table.title)}`, group: "table" as const })),
+    ...QD3276_TABLES.map((table) => ({ value: qd3276Scope(table.id), label: `QĐ 3276 · ${compact(table.title).split("·")[1]?.trim() ?? compact(table.title)}`, group: "table" as const })),
   ];
 }
 
@@ -172,6 +177,23 @@ export function searchReferenceData(query: string, scope: SearchScope = "all", l
       const values = row.map(compact);
       if (!matches(values.join(" "), normalizedQuery)) return;
       results.push({ id: `${currentScope}:${index}`, kind: "qd5937", title: `${values[1] || values[0] || `Dòng ${index + 1}`} · ${table.id.replace("pl-", "Phụ lục ")}`, subtitle: `QĐ 5937 · ${excerpt(compact(table.title), 100)}`, snippet: excerpt(values.filter(Boolean).join(" · ")), focus: values.find((value) => matches(value, normalizedQuery)) || values[1] || normalizedQuery, scope: currentScope, targetId: table.id });
+    });
+    if (results.length >= limit) return results;
+  }
+
+  for (const table of QD3276_TABLES as ReferenceTable[]) {
+    const currentScope = qd3276Scope(table.id);
+    if (!wants(currentScope)) continue;
+    const tableName = `${table.id} ${compact(table.title)}`;
+    if (matches(tableName, normalizedQuery)) {
+      results.push({ id: `${currentScope}:table`, kind: "qd3276", title: compact(table.title).split("·").slice(1).join("·").trim(), subtitle: `QĐ 3276 · ${table.rows.length} dòng dữ liệu`, snippet: "Mở bảng riêng để tiếp tục tra cứu theo mã và diễn giải.", focus: "", scope: currentScope, targetId: table.id });
+      if (results.length >= limit) return results;
+    }
+    table.rows.forEach((row, index) => {
+      if (results.length >= limit) return;
+      const values = row.map(compact);
+      if (!matches(values.join(" "), normalizedQuery)) return;
+      results.push({ id: `${currentScope}:${index}`, kind: "qd3276", title: `${values[1] || values[0] || `Dòng ${index + 1}`} · ${table.id.replace("pl-", "Phụ lục ")}`, subtitle: `QĐ 3276 · ${excerpt(compact(table.title), 100)}`, snippet: excerpt(values.filter(Boolean).join(" · ")), focus: values.find((value) => matches(value, normalizedQuery)) || values[1] || normalizedQuery, scope: currentScope, targetId: table.id });
     });
     if (results.length >= limit) return results;
   }

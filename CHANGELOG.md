@@ -6,6 +6,16 @@ Mọi thay đổi đáng chú ý của **TT12 Excel Validator** được ghi t�
 
 Chưa có thay đổi ngoài phiên bản phát hành đầu tiên.
 
+## [1.8.0] — 2026-09-03
+
+### Thêm mới
+
+- Bổ sung 2 bảng danh mục phụ lục theo **Quyết định số 3276/QĐ-BYT** (sửa đổi, bổ sung Quyết định số 2010/QĐ-BYT) vào phần **NGUỒN THAM CHIẾU**:
+  - **Phụ lục 1**: Danh mục mã đối tượng đến khám bệnh, chữa bệnh (27 mã từ 1.1 đến 10 kèm căn cứ quy định, mức hưởng BHYT và ghi chú áp dụng).
+  - **Phụ lục 2**: Danh mục mã nhiên liệu phục vụ gửi dữ liệu điện tử chi phí KCB BHYT (8 loại nhiên liệu: Xăng RON 95-IV, RON 95-III, E5 RON 92-II, Dầu DO 0,001S-V, DO 0,05S-II, Xăng RON 95-V, E10, Sử dụng điện mã `XEDIEN` theo Vùng 1 và Vùng 2).
+- Tích hợp tra cứu và tìm kiếm xuyên hồ sơ (Global Search) hỗ trợ đầy đủ các bảng phụ lục QĐ 3276.
+- Đưa file PDF gốc `BYT-3276.QĐ Sửa đổi bổ sung QĐ2010.pdf` lên GitHub repository (thư mục `docs/` và `client/public/documents/`) và thêm vào mục **THƯ VIỆN FILE MẪU & TÀI LIỆU** để hỗ trợ tải về đối chiếu trực tiếp.
+
 ## [1.7.2] — 2026-09-01
 
 ### Thay đổi & Tối ưu hóa UI

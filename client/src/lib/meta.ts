@@ -3,14 +3,15 @@
  */
 export const APP_META = {
   name: "TT12 Excel Validator",
-  version: "1.7.2",
-  date: "2026-09-01",
+  version: "1.8.0",
+  date: "2026-09-03",
   author: "Nguyễn Sơn Nam (Nsnnam)",
   authorShort: "NSN",
   role: "Tác giả · Tiện ích HIS / Excel / dữ liệu y tế",
   github: "https://github.com/Nsnnam/tt12-excel-validator",
   timezone: "Asia/Ho_Chi_Minh",
   changelog: [
+    { version: "1.8.0", date: "2026-09-03", changes: ["Tích hợp 2 bảng phụ lục Quyết định 3276/QĐ-BYT (sửa đổi bổ sung QĐ 2010): Phụ lục 1 (Mã đối tượng KCB BHYT) và Phụ lục 2 (Mã nhiên liệu) vào NGUỒN THAM CHIẾU.", "Lưu trữ file PDF gốc BYT-3276.QĐ Sửa đổi bổ sung QĐ2010.pdf trực tiếp trên kho GitHub và bổ sung vào THƯ VIỆN FILE MẪU & TÀI LIỆU hỗ trợ tải về đối chiếu."] },
     { version: "1.7.2", date: "2026-09-01", changes: ["Tối ưu gọn gàng khu vực Header (Phần 1): tích hợp tiêu đề, trạng thái, nút thao tác và thanh tìm kiếm xuyên hồ sơ thành thanh điều khiển tinh gọn.", "Tối đa hóa không gian hiển thị cho bảng dữ liệu tra cứu và kiểm định Excel (Phần 2) tăng gấp 3 lần số dòng hiển thị trực tiếp."] },
     { version: "1.7.1", date: "2026-09-01", changes: ["Bổ sung file Excel QĐ 1227/QĐ-BYT (Định mức KT-KT kỹ thuật y tế) vào thư viện tài liệu và lưu trữ trực tiếp trên GitHub."] },
     { version: "1.7.0", date: "2026-08-28", changes: ["Thu gọn dải tiêu đề và khu TRA CỨU XUYÊN HỒ SƠ để ưu tiên vùng dữ liệu.", "Bổ sung thao tác Xóa hồ sơ để kết thúc phiên Excel đã nạp mà không xóa file gốc trên máy."] },

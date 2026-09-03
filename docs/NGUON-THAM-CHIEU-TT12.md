@@ -46,3 +46,11 @@ Nguồn trích xuất `tt12-reference.json` có ba trường nghiệp vụ theo 
 File người dùng cung cấp `20260306_6bang_tt12_chitiet_valid_.xlsx` có sáu sheet `MS01DM` đến `MS06DM` với các cột **Chỉ tiêu**, **Định dạng**, **Kích thước tối đa**, **Diễn giải**, **Bắt buộc**, **Trùng/Key check trùng** và **Ghi chú bổ sung Diễn giải**. Từ phiên bản 1.5.0, đây là nguồn ưu tiên cho sáu schema Mẫu 01–06/DM: giá trị không trống trong file này ghi đè metadata cùng trường đã trích xuất trước đó; chỉ metadata không có trong file nguồn mới giữ lại từ nguồn kỹ thuật cũ. Điều kiện Bắt buộc được lưu nguyên văn để không suy diễn các ngoại lệ nghiệp vụ.
 
 Đối với Mẫu 01/BH, mô tả 20 chỉ tiêu được đối chiếu và cập nhật theo mục `CHITIET_HS01BH` tại trang 60 đến hết trang 63 của file `Tàiliệukỹthuật_TT12-2026-BTC.pdf` người dùng cung cấp. Phạm vi này gồm kích thước ngày/giờ 12 ký tự, các trường số tiền tối đa 15 ký tự, mã cơ sở KCB 5 ký tự và hướng dẫn `SO_NGAY_DTRI`. Các quy tắc kiểm định chỉ áp dụng quan hệ thời gian chắc chắn; công cụ không tự suy ra công thức thanh toán từ diễn giải.
+
+## Cập nhật Quyết định 3276/QĐ-BYT — 2026-09-03
+
+Theo Quyết định số 3276/QĐ-BYT của Bộ Y tế (ban hành kèm file `BYT-3276.QĐ Sửa đổi bổ sung QĐ2010.pdf`):
+- **Phụ lục 1**: Ban hành Danh mục mã đối tượng đến khám bệnh, chữa bệnh gồm 27 mã đối tượng (từ mã `1.1` đến mã `10`), kèm căn cứ quy định theo Luật BHYT và các Nghị định, Thông tư liên quan, mức hưởng chi phí KCB BHYT tương ứng. Bãi bỏ Phụ lục 5 Quyết định số 2010/QĐ-BYT ngày 19/6/2025.
+- **Phụ lục 2**: Ban hành Danh mục mã nhiên liệu (xăng, dầu, điện) phục vụ gửi dữ liệu điện tử thanh toán chi phí vận chuyển người bệnh theo Điều 14 Nghị định 188/2025/NĐ-CP (gồm 8 dòng mã theo Vùng 1 và Vùng 2). Bãi bỏ Phụ lục 5 Quyết định số 824/QĐ-BYT ngày 15/02/2023.
+- Cả 2 phụ lục đã được trích xuất thành tệp dữ liệu có cấu trúc `qd3276-phu-luc.json`, tích hợp vào **NGUỒN THAM CHIẾU**, kết nối với hệ thống tìm kiếm xuyên hồ sơ (Global Search) và lưu trữ file PDF gốc trực tiếp trên kho GitHub repository để người dùng tải về đối chiếu.
+

@@ -175,6 +175,7 @@ export default function Home() {
 
           <p className="sidebar-label space-top">NGUỒN THAM CHIẾU</p>
           <button onClick={() => openPlaceholder("15 bảng chỉ tiêu QĐ 3176")} className="supplement-button"><span>15 bảng chỉ tiêu QĐ 3176</span><ChevronRight size={14} /></button>
+          <button onClick={() => openPlaceholder("2 bảng phụ lục QĐ 3276")} className="supplement-button"><span>2 bảng phụ lục QĐ 3276</span><ChevronRight size={14} /></button>
         </div>
         <div className="sidebar-bottom">
           <NavLabel icon={CircleHelp} active={view === "guide"} onClick={() => setView("guide")}>Hướng dẫn</NavLabel>
