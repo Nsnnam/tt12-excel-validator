@@ -142,10 +142,10 @@
       [
         "17",
         "3.1",
-        "Tự đến KCB tại cơ sở KCB cấp chuyên sâu mà trước ngày 01/01/2025 đã được cơ quan có thẩm quyền xác định là tuyến trung ương (trừ đối tượng quy định tại mã 1.17)",
+        "1. Tự đến KCB tại cơ sở KCB cấp chuyên sâu mà trước ngày 01/01/2025 đã được cơ quan có thẩm quyền xác định là tuyến trung ương (trừ đối tượng quy định tại mã 1.17).\n2. Tự đến KCB tại cơ sở KCB cấp chuyên sâu được thành lập mới sau ngày 01/01/2025 (trừ đối tượng quy định tại mã 1.17).",
         "Điểm g khoản 4 Điều 22 Luật BHYT",
         "- 40% chi phí KCB nội trú theo phạm vi quyền lợi, mức hưởng\n- 0% chi phí KCB ngoại trú",
-        ""
+        "Sửa đổi, bổ sung theo QĐ 2917/QĐ-BYT ngày 15/09/2026"
       ],
       [
         "18",
@@ -231,7 +231,8 @@
     "notes": [
       "Mã đối tượng đến khám bệnh, chữa bệnh được cơ sở khám bệnh, chữa bệnh xác định sau khi kết thúc khám bệnh hoặc kết thúc điều trị đối với người bệnh để gửi dữ liệu điện tử XML lên Cổng tiếp nhận của cơ quan bảo hiểm xã hội.",
       "Trường hợp một người bệnh đến khám bệnh, chữa bệnh có thể áp dụng nhiều hơn 01 mã đối tượng thì cơ sở khám bệnh, chữa bệnh lựa chọn mã đối tượng theo thứ tự sắp xếp từ trên xuống dưới.",
-      "Quyết định số 3276/QĐ-BYT năm 2025 bãi bỏ Phụ lục 5 Quyết định số 2010/QĐ-BYT ngày 19/6/2025 của Bộ trưởng Bộ Y tế."
+      "Quyết định số 3276/QĐ-BYT năm 2025 bãi bỏ Phụ lục 5 Quyết định số 2010/QĐ-BYT ngày 19/6/2025 của Bộ trưởng Bộ Y tế.",
+      "Mã 3.1 được sửa đổi, bổ sung theo Quyết định số 2917/QĐ-BYT ngày 15/09/2026 của Bộ Y tế (bổ sung trường hợp tự đến KCB tại cơ sở KCB cấp chuyên sâu thành lập mới sau ngày 01/01/2025)."
     ]
   },
   {

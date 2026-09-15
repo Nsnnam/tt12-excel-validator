@@ -54,3 +54,15 @@ Theo Quyết định số 3276/QĐ-BYT của Bộ Y tế (ban hành kèm file `B
 - **Phụ lục 2**: Ban hành Danh mục mã nhiên liệu (xăng, dầu, điện) phục vụ gửi dữ liệu điện tử thanh toán chi phí vận chuyển người bệnh theo Điều 14 Nghị định 188/2025/NĐ-CP (gồm 8 dòng mã theo Vùng 1 và Vùng 2). Bãi bỏ Phụ lục 5 Quyết định số 824/QĐ-BYT ngày 15/02/2023.
 - Cả 2 phụ lục đã được trích xuất thành tệp dữ liệu có cấu trúc `qd3276-phu-luc.json`, tích hợp vào **NGUỒN THAM CHIẾU**, kết nối với hệ thống tìm kiếm xuyên hồ sơ (Global Search) và lưu trữ file PDF gốc trực tiếp trên kho GitHub repository để người dùng tải về đối chiếu.
 
+## Cập nhật Quyết định 2917/QĐ-BYT — 2026-09-15
+
+Theo Quyết định số 2917/QĐ-BYT ngày 15/09/2026 của Bộ trưởng Bộ Y tế (do Thứ trưởng thường trực Vũ Mạnh Hà ký):
+- **Sửa đổi, bổ sung trường hợp áp dụng Mã đối tượng đến KCB 3.1** tại Phụ lục 1 ban hành kèm theo Quyết định số 3276/QĐ-BYT:
+  - **Trường hợp 1**: Tự đến khám bệnh, chữa bệnh tại cơ sở khám bệnh, chữa bệnh cấp chuyên sâu mà trước ngày 01/01/2025 đã được cơ quan có thẩm quyền xác định là tuyến trung ương (trừ đối tượng quy định tại mã 1.17).
+  - **Trường hợp 2 (Bổ sung mới)**: Tự đến khám bệnh, chữa bệnh tại cơ sở khám bệnh, chữa bệnh cấp chuyên sâu **được thành lập mới sau ngày 01/01/2025** (trừ đối tượng quy định tại mã 1.17).
+- Mức hưởng giữ nguyên: 40% chi phí KCB nội trú theo phạm vi quyền lợi, mức hưởng; 0% chi phí KCB ngoại trú.
+- Căn cứ quy định: Điểm g khoản 4 Điều 22 Luật BHYT.
+- BHXH Việt Nam và các cơ sở KCB trên toàn quốc cập nhật điều chỉnh mã 3.1 trên Cổng giám định BHYT và phần mềm HIS. Các hồ sơ đã gửi trước ngày ban hành không phải gửi lại.
+- Dữ liệu `qd3276-phu-luc.json`, `COMMON_CATALOGS.maDoiTuong` và file PDF ký số `BYT-2917.QD-Sua-doi-bo-sung-QD3276.signed.pdf` đã được đồng bộ đầy đủ trên hệ thống và GitHub repository.
+
+

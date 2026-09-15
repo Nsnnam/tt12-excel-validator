@@ -6,6 +6,15 @@ Mọi thay đổi đáng chú ý của **TT12 Excel Validator** được ghi t�
 
 Chưa có thay đổi ngoài phiên bản phát hành đầu tiên.
 
+## [1.8.1] — 2026-09-15
+
+### Thay đổi & Cập nhật nghiệp vụ
+
+- Cập nhật danh mục **Mã đối tượng KCB** theo **Quyết định số 2917/QĐ-BYT ngày 15/09/2026** của Bộ trưởng Bộ Y tế (sửa đổi, bổ sung Quyết định số 3276/QĐ-BYT):
+  - **Mã đối tượng 3.1**: Bổ sung thêm trường hợp áp dụng đối với người bệnh tự đến khám bệnh, chữa bệnh tại cơ sở khám bệnh, chữa bệnh cấp chuyên sâu **được thành lập mới sau ngày 01/01/2025** (trừ đối tượng quy định tại mã 1.17).
+  - Đồng bộ cập nhật đồng thời trong **NGUỒN THAM CHIẾU (Phụ lục 1 QĐ 3276 & 2917)** và danh mục mã dùng chung `COMMON_CATALOGS.maDoiTuong`.
+- Lưu trữ file PDF gốc `BYT-2917.QD-Sua-doi-bo-sung-QD3276.signed.pdf` trên kho GitHub và thêm vào mục **THƯ VIỆN FILE MẪU & TÀI LIỆU** để hỗ trợ tải về đối chiếu.
+
 ## [1.8.0] — 2026-09-03
 
 ### Thêm mới

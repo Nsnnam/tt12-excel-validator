@@ -41,6 +41,7 @@ export const DOCUMENT_LIBRARY = [
   { id: "qd-5937-2021", name: "QĐ 5937/QĐ-BYT — 11 danh mục mã dùng chung", type: "pdf", url: "https://bvquan9.medinet.gov.vn/chuyen-muc/quyet-dinh-5937qd-byt-ban-hanh-bo-sung-cac-danh-muc-ma-dung-chung-ap-dung-trong-cmobile16640-62317.aspx" },
   { id: "qd-1227-byt", name: "QĐ 1227 — Định mức KT-KT kỹ thuật y tế", type: "excel", url: "https://raw.githubusercontent.com/Nsnnam/tt12-excel-validator/main/docs/QD_1227.xlsx" },
   { id: "qd-3276-byt", name: "QĐ 3276/QĐ-BYT — Mã đối tượng KCB & mã nhiên liệu (Sửa đổi QĐ 2010)", type: "pdf", url: "https://raw.githubusercontent.com/Nsnnam/tt12-excel-validator/main/docs/BYT-3276.QD-Sua-doi-bo-sung-QD2010.pdf" },
+  { id: "qd-2917-byt", name: "QĐ 2917/QĐ-BYT — Sửa đổi, bổ sung mã đối tượng KCB 3.1 tại QĐ 3276 (15/09/2026)", type: "pdf", url: "https://raw.githubusercontent.com/Nsnnam/tt12-excel-validator/main/docs/BYT-2917.QD-Sua-doi-bo-sung-QD3276.signed.pdf" },
   { id: "6", name: "Mẫu 01/DM - Bộ phận chuyên môn KCB BHYT", type: "excel", url: "/manus-storage/MAU_01_Template_b516b53b.xlsx" },
   { id: "7", name: "Mẫu 02/DM - Nhân lực thực hiện KCB BHYT", type: "excel", url: "/manus-storage/MAU_02_Template_0406dec0.xlsx" },
   { id: "8", name: "Mẫu 03/DM - Thuốc, máu, chế phẩm máu", type: "excel", url: "/manus-storage/MAU_03_Template_815ef4f9.xlsx" },

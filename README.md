@@ -6,12 +6,13 @@
 
 | Thông tin | Chi tiết |
 |---|---|
-| **Phiên bản** | `1.8.0` |
-| **Ngày cập nhật** | 2026-09-03 |
+| **Phiên bản** | `1.8.1` |
+| **Ngày cập nhật** | 2026-09-15 |
 | **Tác giả** | [Nguyễn Sơn Nam (Nsnnam)](https://github.com/Nsnnam) |
 | **Múi giờ** | GMT+7 (`Asia/Ho_Chi_Minh`) |
 | **Web trực tiếp** | [https://nsnnam.github.io/tt12-excel-validator/](https://nsnnam.github.io/tt12-excel-validator/) |
 | **Bản HTML Single-page** | [`releases/single-page/tt12-excel-validator.html`](./releases/single-page/tt12-excel-validator.html) |
+| **Tài liệu tham chiếu QĐ 2917** | [`docs/BYT-2917.QD-Sua-doi-bo-sung-QD3276.signed.pdf`](./docs/BYT-2917.QD-Sua-doi-bo-sung-QD3276.signed.pdf) |
 | **Tài liệu tham chiếu QĐ 3276** | [`docs/BYT-3276.QD-Sua-doi-bo-sung-QD2010.pdf`](./docs/BYT-3276.QD-Sua-doi-bo-sung-QD2010.pdf) |
 | **Tài liệu tham chiếu QĐ 1227** | [`docs/QD_1227.xlsx`](./docs/QD_1227.xlsx) |
 | **Nguồn tham chiếu** | [Tra cứu danh mục TT12](https://tracuu-danhmuc-tt12.web.app/) |
@@ -27,7 +28,7 @@ Người dùng có thể sử dụng ứng dụng ngay lập tức bằng một 
    - Tự động đồng bộ và triển khai bản mới nhất từ nhánh `main` qua GitHub Actions.
    
 2. **Sử dụng file Single HTML Offline (Không cần mạng, không cần cài đặt):**
-   - Tải file HTML tự chứa tại: [`releases/single-page/tt12-excel-validator.html`](./releases/single-page/tt12-excel-validator.html) (hoặc [`releases/TT12-Excel-Validator-v1.8.0-offline.html`](./releases/TT12-Excel-Validator-v1.8.0-offline.html)).
+   - Tải file HTML tự chứa tại: [`releases/single-page/tt12-excel-validator.html`](./releases/single-page/tt12-excel-validator.html) (hoặc [`releases/TT12-Excel-Validator-v1.8.1-offline.html`](./releases/TT12-Excel-Validator-v1.8.1-offline.html)).
    - Nhấp đúp chuột để mở trực tiếp trong bất kỳ trình duyệt nào (Chrome, Edge, Firefox, Cốc Cốc,...).
    - Chạy offline hoàn toàn, độc lập không phụ thuộc máy chủ hay internet.
 

@@ -12,6 +12,13 @@ describe("DOCUMENT_LIBRARY", () => {
     expect(doc?.type).toBe("pdf");
     expect(doc?.url).toContain("BYT-3276");
   });
+
+  it("chứa tài liệu QĐ 2917/QĐ-BYT (sửa đổi QĐ 3276) với link tải PDF", () => {
+    const doc = DOCUMENT_LIBRARY.find((d) => d.id === "qd-2917-byt");
+    expect(doc).toBeDefined();
+    expect(doc?.type).toBe("pdf");
+    expect(doc?.url).toContain("BYT-2917");
+  });
 });
 
 describe("QD3276_TABLES", () => {
@@ -30,6 +37,13 @@ describe("COMMON_CATALOGS.maDoiTuong", () => {
     const row33 = COMMON_CATALOGS.maDoiTuong.find((r) => r.ma === "3.3");
     expect(row33).toBeDefined();
     expect(row33?.ghiChu).toBe("Bổ sung");
+  });
+
+  it("mã 3.1 đã được cập nhật nội dung bổ sung theo QĐ 2917/QĐ-BYT", () => {
+    const row31 = COMMON_CATALOGS.maDoiTuong.find((r) => r.ma === "3.1");
+    expect(row31).toBeDefined();
+    expect(row31?.truongHop).toContain("sau ngày 01/01/2025");
+    expect(row31?.ghiChu).toContain("2917/QĐ-BYT");
   });
 });
 
