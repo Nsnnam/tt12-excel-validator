@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { COMMON_CATALOGS, DOCUMENT_LIBRARY, QD3276_TABLES } from "./reference";
+import { COMMON_CATALOGS, DOCUMENT_LIBRARY, QD3276_TABLES, HOI_DAP_BHYT_2026 } from "./reference";
 
 describe("DOCUMENT_LIBRARY", () => {
   it("có ID duy nhất để dùng ổn định làm khóa React", () => {
@@ -18,6 +18,36 @@ describe("DOCUMENT_LIBRARY", () => {
     expect(doc).toBeDefined();
     expect(doc?.type).toBe("pdf");
     expect(doc?.url).toContain("BYT-2917");
+  });
+
+  it("chứa cẩm nang 108 câu hỏi - đáp nghiệp vụ BHYT 2026 với link tải PDF", () => {
+    const doc = DOCUMENT_LIBRARY.find((d) => d.id === "hoi-dap-giam-dinh-bhyt-2026");
+    expect(doc).toBeDefined();
+    expect(doc?.type).toBe("pdf");
+    expect(doc?.url).toContain("hoi-dap-giam-dinh-bhyt-2026.pdf");
+  });
+});
+
+describe("HOI_DAP_BHYT_2026", () => {
+  it("chứa đầy đủ thông tin xuất bản và 6 chuyên đề", () => {
+    expect(HOI_DAP_BHYT_2026.publisher).toBe("Bảo hiểm xã hội Việt Nam");
+    expect(HOI_DAP_BHYT_2026.pageCount).toBe(86);
+    expect(HOI_DAP_BHYT_2026.sections).toHaveLength(6);
+  });
+
+  it("chứa đúng 108 câu hỏi có nội dung và trang đối chiếu", () => {
+    expect(HOI_DAP_BHYT_2026.questions).toHaveLength(108);
+    const q1 = HOI_DAP_BHYT_2026.questions[0];
+    expect(q1.id).toBe(1);
+    expect(q1.section).toBe("cong-tiep-nhan");
+    expect(q1.question).toContain("ký số");
+    expect(q1.page).toBe(12);
+
+    const q108 = HOI_DAP_BHYT_2026.questions[107];
+    expect(q108.id).toBe(108);
+    expect(q108.section).toBe("quyet-toan");
+    expect(q108.question).toContain("Biên bản quyết toán");
+    expect(q108.page).toBe(82);
   });
 });
 

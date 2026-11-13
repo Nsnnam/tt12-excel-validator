@@ -59,5 +59,16 @@ describe("searchReferenceData", () => {
     expect(scopes.some((item) => item.value === "qd5937:pl-09")).toBe(true);
     expect(scopes.some((item) => item.value === "qd3276:pl-01")).toBe(true);
     expect(scopes.some((item) => item.value === "qd3276:pl-02")).toBe(true);
+    expect(scopes.some((item) => item.value === "hoiDap")).toBe(true);
+    expect(scopes.some((item) => item.value === "hoiDap:cong-tiep-nhan")).toBe(true);
+  });
+
+  it("tìm được câu hỏi và đáp trong cẩm nang 108 câu BHYT 2026", () => {
+    const results = searchReferenceData("ký số", "hoiDap");
+    expect(results.length).toBeGreaterThan(0);
+    expect(results.some((item) => item.kind === "hoiDap" && item.title.includes("Câu 1"))).toBe(true);
+
+    const q108Results = searchReferenceData("câu 108");
+    expect(q108Results.some((item) => item.kind === "hoiDap" && item.targetId === "108")).toBe(true);
   });
 });

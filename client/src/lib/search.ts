@@ -2,11 +2,11 @@
  * Phong cách Hồ sơ điều hành: kết quả tìm kiếm là các dòng hồ sơ có nguồn,
  * định danh và đích đến rõ ràng; không dùng fuzzy match để tránh lệch nghiệp vụ.
  */
-import { COMMON_CATALOGS, DOCUMENT_LIBRARY, QD3176_TABLES, QD5937_TABLES, QD3276_TABLES, type CommonCode, type ReferenceTable } from "./reference";
+import { COMMON_CATALOGS, DOCUMENT_LIBRARY, QD3176_TABLES, QD5937_TABLES, QD3276_TABLES, HOI_DAP_BHYT_2026, type CommonCode, type ReferenceTable } from "./reference";
 import { TEMPLATES, fieldsForTemplate } from "./tt12";
 
-export type SearchScope = "all" | `template:${string}` | `catalog:${string}` | `qd:${string}` | `qd5937:${string}` | `qd3276:${string}`;
-export type SearchResultKind = "field" | "catalog" | "qd" | "qd5937" | "qd3276" | "document";
+export type SearchScope = "all" | `template:${string}` | `catalog:${string}` | `qd:${string}` | `qd5937:${string}` | `qd3276:${string}` | "hoiDap" | `hoiDap:${string}`;
+export type SearchResultKind = "field" | "catalog" | "qd" | "qd5937" | "qd3276" | "hoiDap" | "document";
 
 export type SearchScopeOption = {
   value: SearchScope;
@@ -70,6 +70,10 @@ function qd3276Scope(id: string): SearchScope {
   return `qd3276:${id}`;
 }
 
+function hoiDapScope(id: string): SearchScope {
+  return `hoiDap:${id}`;
+}
+
 export function searchScopeOptions(): SearchScopeOption[] {
   return [
     { value: "all", label: "Toàn bộ dữ liệu TT12", group: "all" },
@@ -78,6 +82,8 @@ export function searchScopeOptions(): SearchScopeOption[] {
     ...QD3176_TABLES.map((table) => ({ value: qdScope(table.id), label: `QĐ 3176 · ${compact(table.title).split("(")[0].trim()}`, group: "table" as const })),
     ...QD5937_TABLES.map((table) => ({ value: qd5937Scope(table.id), label: `QĐ 5937 · ${compact(table.title).split("·")[1]?.trim() ?? compact(table.title)}`, group: "table" as const })),
     ...QD3276_TABLES.map((table) => ({ value: qd3276Scope(table.id), label: `QĐ 3276 · ${compact(table.title).split("·")[1]?.trim() ?? compact(table.title)}`, group: "table" as const })),
+    { value: "hoiDap", label: "Hỏi đáp nghiệp vụ BHYT 2026 (108 câu)", group: "table" as const },
+    ...HOI_DAP_BHYT_2026.sections.map((section) => ({ value: hoiDapScope(section.id), label: `Hỏi đáp · ${section.title}`, group: "table" as const })),
   ];
 }
 
@@ -194,6 +200,35 @@ export function searchReferenceData(query: string, scope: SearchScope = "all", l
       const values = row.map(compact);
       if (!matches(values.join(" "), normalizedQuery)) return;
       results.push({ id: `${currentScope}:${index}`, kind: "qd3276", title: `${values[1] || values[0] || `Dòng ${index + 1}`} · ${table.id.replace("pl-", "Phụ lục ")}`, subtitle: `QĐ 3276 · ${excerpt(compact(table.title), 100)}`, snippet: excerpt(values.filter(Boolean).join(" · ")), focus: values.find((value) => matches(value, normalizedQuery)) || values[1] || normalizedQuery, scope: currentScope, targetId: table.id });
+    });
+    if (results.length >= limit) return results;
+  }
+
+  for (const question of HOI_DAP_BHYT_2026.questions) {
+    const currentScope = hoiDapScope(question.section);
+    const wantsHoiDap = scope === "all" || scope === "hoiDap" || scope === currentScope;
+    if (!wantsHoiDap) continue;
+    const section = HOI_DAP_BHYT_2026.sections.find((s) => s.id === question.section);
+    const sectionTitle = section?.title ?? question.section;
+    const qAliases = [`câu ${question.id}`, `cau ${question.id}`, `câu ${question.id}:`, `cau ${question.id}:`, `q${question.id}`, `q ${question.id}`];
+    const searchableText = [
+      `Câu ${question.id}`,
+      ...qAliases,
+      sectionTitle,
+      question.question,
+      ...question.answer,
+      `trang ${question.page}`,
+    ].join(" ");
+    if (!matches(searchableText, normalizedQuery)) continue;
+    results.push({
+      id: `hoiDap:${question.id}`,
+      kind: "hoiDap",
+      title: `Câu ${question.id}: ${question.question}`,
+      subtitle: `Hỏi đáp BHYT 2026 · ${sectionTitle} · Trang ${question.page}`,
+      snippet: excerpt(question.answer.join(" ")),
+      focus: String(question.id),
+      scope: currentScope,
+      targetId: String(question.id),
     });
     if (results.length >= limit) return results;
   }

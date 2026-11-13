@@ -1,0 +1,1665 @@
+{
+  "title": "Tài liệu hỏi - đáp về nghiệp vụ chế độ bảo hiểm y tế",
+  "edition": "Tháng 10/2026",
+  "publisher": "Bảo hiểm xã hội Việt Nam",
+  "circulation": "Tài liệu lưu hành nội bộ",
+  "pageCount": 86,
+  "sourceFile": "hoi-dap-giam-dinh-bhyt-2026.pdf",
+  "sourceSha256": "988b2daf41b3239812b340628686ab909db4266b742ec55979e71427a9a3e50a",
+  "sections": [
+    {
+      "id": "cong-tiep-nhan",
+      "title": "Cổng tiếp nhận dữ liệu",
+      "description": "Tài khoản, ký số và thông tin thẻ"
+    },
+    {
+      "id": "hop-dong",
+      "title": "Hợp đồng KCB BHYT",
+      "description": "Điều kiện, hồ sơ và phụ lục hợp đồng"
+    },
+    {
+      "id": "danh-muc",
+      "title": "Danh mục liên thông",
+      "description": "Nhân lực, thuốc, thiết bị và dịch vụ"
+    },
+    {
+      "id": "ho-so",
+      "title": "Hồ sơ đề nghị thanh toán",
+      "description": "Biểu mẫu, thời hạn và phản hồi hồ sơ"
+    },
+    {
+      "id": "giam-dinh",
+      "title": "Giám định chi phí",
+      "description": "Quyền lợi, chi phí và nghiệp vụ giám định"
+    },
+    {
+      "id": "quyet-toan",
+      "title": "Thanh toán, quyết toán",
+      "description": "Biên bản, điều chỉnh và thời hạn thanh toán"
+    }
+  ],
+  "questions": [
+    {
+      "id": 1,
+      "question": "Các tài liệu, dữ liệu khám bệnh, chữa bệnh (KCB) điện tử đề nghị thanh toán bảo hiểm y tế (BHYT) gửi đến Cổng tiếp nhận dữ liệu có phải ký số, xác thực hay không?",
+      "answer": [
+        "Các tài liệu, dữ liệu KCB điện tử đề nghị thanh toán BHYT gửi đến Cổng tiếp nhận dữ liệu phải được ký số, xác thực theo quy định của pháp luật về giao dịch điện tử theo quy định tại điểm c khoản 2 Điều 35 và khoản 9 Điều 69 Nghị định số 188/2025/NĐ-CP. Cổng tiếp nhận dữ liệu không tiếp nhận các tài liệu, dữ liệu không được ký số theo quy định.",
+        "Thời điểm gửi đến hoặc gửi đi được hiển thị trên Cổng tiếp nhận dữ liệu."
+      ],
+      "section": "cong-tiep-nhan",
+      "page": 12,
+      "endPage": 12
+    },
+    {
+      "id": 2,
+      "question": "Trách nhiệm của cơ quan bảo hiểm xã hội (BHXH) về việc thông báo thời gian bảo trì, thời điểm có sự cố và thời điểm hoạt động trở lại của Cổng tiếp nhận dữ liệu được quy định như thế nào?",
+      "answer": [
+        "- BHXH Việt Nam có trách nhiệm:",
+        "+ Thông báo thời gian bảo trì Cổng tiếp nhận dữ liệu tối thiểu 12 giờ trước thời điểm thực hiện theo quy định tại khoản 4 Điều 2 Thông tư số 12/2026/TT-BTC.",
+        "+ Thông báo thời điểm có sự cố và thời điểm hoạt động trở lại chậm nhất 01 giờ kể từ thời điểm sự cố được khắc phục và hiển thị lịch sử thông báo công khai trên Cổng tiếp nhận dữ liệu. Thời hạn gửi hồ sơ và thực hiện các giao dịch được gia hạn tương ứng với thời gian Cổng tiếp nhận dữ liệu ngừng hoạt động.",
+        "- BHXH tỉnh có trách nhiệm theo dõi thông báo sự cố trên Cổng tiếp nhận dữ liệu; thông tin kịp thời cho cơ sở KCB trên địa bàn; hướng dẫn cơ sở KCB gửi dữ liệu ngay sau khi hệ thống hoạt động trở lại; theo dõi thời gian gia hạn gửi hồ sơ tương ứng với thời gian hệ thống bị gián đoạn."
+      ],
+      "section": "cong-tiep-nhan",
+      "page": 12,
+      "endPage": 12
+    },
+    {
+      "id": 3,
+      "question": "Trách nhiệm của BHXH tỉnh khi nhận được yêu cầu tạo lập tài khoản quản trị từ cơ sở KCB như thế nào?",
+      "answer": [
+        "Tài khoản quản trị là tài khoản được BHXH tỉnh cấp cho cơ sở KCB ngay sau khi ký hợp đồng KCB BHYT lần đầu để tạo lập các tài khoản giao dịch thực hiện các quy định tại Thông tư số 12/2026/TT-BTC hoặc để thay đổi phân quyền, hủy quyền truy cập Cổng tiếp nhận dữ liệu của tài khoản giao dịch. Mỗi cơ sở KCB được cấp 01 tài khoản quản trị ngay sau khi ký hợp đồng KCB BHYT lần đầu.",
+        "Trong thời hạn 01 ngày làm việc kể từ ngày nhận được yêu cầu tạo lập tài khoản, BHXH tỉnh thực hiện đối chiếu thông tin do cơ sở KCB cung cấp với hồ sơ ký hợp đồng (tên cơ sở KCB, mã cơ sở KCB, người đại diện, địa chỉ thư điện tử, thông tin cán bộ quản trị và đối chiếu với hồ sơ hợp đồng KCB BHYT đã ký), gửi thông tin xác thực (tài khoản và mật khẩu) hoặc thông báo thông tin sai lệch cần điều chỉnh cho cơ sở KCB qua địa chỉ thư điện tử đã cung cấp.",
+        "BHXH tỉnh hướng dẫn cơ sở KCB quản lý chặt chẽ tài khoản quản trị;",
+        "không chia sẻ mật khẩu trái phép; phân quyền đúng chức năng nhiệm vụ; thu hồi quyền truy cập đối với cán bộ không còn nhiệm vụ; thay đổi mật khẩu định kỳ để bảo đảm an toàn thông tin."
+      ],
+      "section": "cong-tiep-nhan",
+      "page": 12,
+      "endPage": 13
+    },
+    {
+      "id": 4,
+      "question": "Cơ sở KCB phải thực hiện những gì sau khi nhận được thông tin xác thực tạo lập tài khoản từ cơ quan BHXH? Trường hợp cần thay đổi hoặc khôi phục tài khoản quản trị, cơ sở KCB phải thực hiện như thế nào?",
+      "answer": [
+        "Cơ sở KCB nhập thông tin xác thực (tài khoản và mật khẩu) để kích hoạt tài khoản quản trị trên Cổng tiếp nhận dữ liệu; sử dụng tài khoản quản trị để tạo lập các tài khoản giao dịch thực hiện các quy định tại Thông tư số 12/2026/TT-BTC hoặc để thay đổi phân quyền, hủy quyền truy cập Cổng tiếp nhận dữ liệu của tài khoản giao dịch.",
+        "Cơ sở KCB được thay thế hoặc khôi phục tài khoản quản trị trong các trường hợp sau:",
+        "- Thay thế tài khoản trong trường hợp người phụ trách tài khoản quản trị nghỉ việc hoặc không được giao nhiệm vụ quản trị tài khoản trên Cổng tiếp nhận dữ liệu của cơ sở KCB.",
+        "- Khôi phục tài khoản quản trị trong trường hợp cơ sở KCB đã ngừng hợp đồng, tài khoản quản trị đã hết hiệu lực, nay tiếp tục ký hợp đồng KCB BHYT và giao người phụ trách tài khoản quản trị cũ tiếp tục thực hiện nhiệm vụ hoặc người phụ trách tài khoản quản trị được điều chuyển công việc khác nay tiếp tục được phân công nhiệm vụ quản trị của cơ sở KCB.",
+        "Cơ sở KCB thực hiện khai báo thông tin thay đổi theo quy định để đề nghị thay đổi hoặc khôi phục tài khoản quản trị và kích hoạt lại tài khoản sau khi nhận thông tin xác thực của cơ quan BHXH."
+      ],
+      "section": "cong-tiep-nhan",
+      "page": 13,
+      "endPage": 13
+    },
+    {
+      "id": 5,
+      "question": "Trường hợp cơ sở KCB đề nghị cấp tài khoản quản trị khi ký hợp đồng KCB BHYT lần đầu, nhưng người đại diện của cơ sở KCB ghi trên Mẫu số 08/BH Phụ lục I Thông tư số 12/2026/TT-BTC đã nghỉ hưu, không tham gia BHXH thì cơ quan BHXH có cấp tài khoản để ký hợp đồng KCB BHYT không?",
+      "answer": [
+        "- Đối với cơ sở KCB công lập: cơ quan BHXH thông báo thông tin sai lệch cần điều chỉnh cho cơ sở KCB qua địa chỉ thư điện tử đã cung cấp do người đã nghỉ hưu không đủ điều kiện là người đại diện ký hợp đồng KCB BHYT. Trường hợp cơ sở KCB không điều chỉnh thông tin sai lệch thì không đủ điều kiện để ký hợp đồng KCB BHYT và không được cấp tài khoản quản trị.",
+        "- Đối với cơ sở KCB ngoài công lập: do không phân biệt người đại diện ký hợp đồng của cơ sở KCB là người nghỉ hưu hoặc đang làm việc, do đó tài khoản quản trị được cấp ngay sau khi ký hợp đồng KCB BHYT."
+      ],
+      "section": "cong-tiep-nhan",
+      "page": 13,
+      "endPage": 14
+    },
+    {
+      "id": 6,
+      "question": "Thông tin thẻ BHYT được tra cứu trên Cổng tiếp nhận dữ liệu gồm những thông tin gì? Thời điểm tra cứu là khi nào?",
+      "answer": [
+        "Khi cơ sở KCB tra cứu thông tin thẻ BHYT trên Cổng tiếp nhận dữ liệu, các thông tin được hiển thị như sau:",
+        "- Mã thẻ, họ và tên, giới tính, ngày sinh, địa chỉ, nơi đăng ký KCB ban đầu, mã khu vực, giá trị sử dụng của thẻ (Hệ thống không kiểm tra thông tin thẻ BHYT của các mã đối tượng thẻ do BHXH Công an nhân dân phát hành).",
+        "- Trạng thái check-in, trạng thái thẻ BHYT và các trường hợp thẻ bị thu hồi, tạm giữ hoặc tạm khóa giá trị sử dụng.",
+        "- Lịch sử KCB của người bệnh.",
+        "- Thông tin số tiền cùng chi trả lũy kế trong năm tài chính của người bệnh, thời điểm người bệnh tham gia BHYT đủ 05 năm liên tục trở lên theo quy định tại khoản 1 Điều 10 và điểm b khoản 2 Điều 18 Nghị định số 188/2025/NĐ-CP.",
+        "Cơ sở KCB tra cứu thông tin thẻ BHYT hoặc tra cứu lịch sử KCB ngay khi người bệnh đến khám bệnh, trong quá trình điều trị hoặc khi kết thúc lần KCB theo quy định tại khoản 1 Điều 4 Thông tư số 12/2026/TT-BTC.",
+        "Cơ sở KCB căn cứ số tiền cùng chi trả lũy kế và thời điểm người bệnh tham gia BHYT đủ 05 năm liên tục trở lên để xác định thời điểm người bệnh đủ điều kiện để được hưởng miễn cùng chi trả trong lần KCB của người bệnh.",
+        "BHXH tỉnh có trách nhiệm hướng dẫn cơ sở KCB sử dụng hệ thống; hỗ trợ xử lý lỗi phát sinh; phối hợp với cơ sở KCB bảo đảm truyền nhận dữ liệu thông suốt; theo dõi việc phân quyền, quản lý tài khoản."
+      ],
+      "section": "cong-tiep-nhan",
+      "page": 14,
+      "endPage": 14
+    },
+    {
+      "id": 7,
+      "question": "Khi cơ sở KCB đã xác định người bệnh đủ điều kiện miễn cùng chi trả thì cơ sở KCB thực hiện đảm bảo quyền lợi người bệnh và thực hiện gửi dữ liệu XML lên Cổng tiếp nhận dữ liệu như thế nào?",
+      "answer": [
+        "Cơ sở KCB có trách nhiệm cho người bệnh hưởng 100% chi phí KCB BHYT khi đã xác định đủ điều kiện miễn cùng chi trả theo quy định tại khoản 2 Điều 18 Nghị định số 188/2025/NĐ-CP; dữ liệu XML gửi theo chuẩn định dạng dữ liệu đầu ra quy định tại Quyết định số 3176/QĐ-BYT: cập nhật thông tin ngày người bệnh được hưởng miễn cùng chi trả tại trường thông tin NGAY_MIEN_CCT, thời điểm đủ 05 năm liên tục tại trường NAM_NAM_LIEN_TUC Bảng 1.",
+        "Trường hợp người bệnh đang điều trị trong đợt nhưng đã đủ điều kiện miễn cùng chi trả, cơ sở KCB xử lý dữ liệu XML cho người bệnh hưởng 100% chi phí đối với các chi phí có ngày y lệnh \"NGAY_YL\" từ thời điểm cơ sở KCB xác định người bệnh tham gia BHYT đủ điều kiện hưởng miễn cùng chi trả tại trường thông tin ngày miễn cùng chi trả \"NGAY_MIEN_CCT\" tại Bảng 1 (tính đến giờ phút).",
+        "Trường hợp 1 phần chi phí của 1 dịch vụ đủ điều kiện miễn cùng chi trả thì chưa có hướng dẫn chuẩn định dạng dữ liệu đầu ra, BHXH Việt Nam đã có văn bản đề nghị Bộ Y tế hướng dẫn."
+      ],
+      "section": "cong-tiep-nhan",
+      "page": 14,
+      "endPage": 15
+    },
+    {
+      "id": 8,
+      "question": "Khi Cổng tiếp nhận dữ liệu gặp sự cố không tra cứu được thông tin thẻ BHYT (bao gồm thông tin miễn cùng chi trả) thì cơ sở KCB xử lý như thế nào?",
+      "answer": [
+        "Khi Cổng tiếp nhận dữ liệu gặp sự cố không tra cứu được thông tin thẻ BHYT, cơ sở KCB truy cập Cổng Thông tin điện tử của BHXH Việt Nam tại đường link: https://baohiemxahoi.gov.vn/tracuu/pages/tra-cuu-thoi-han-su-dung-the-bhyt.aspx để tra cứu trực tuyến thông tin thẻ BHYT (Tra cứu trực tuyến/Tra cứu giá trị sử dụng thẻ BHYT). Trường hợp không tra cứu được thông tin theo cách thức trên đồng thời để xác định thông tin lũy kế số tiền cùng chi trả trong năm tài chính của người bệnh, cơ sở KCB đề nghị người bệnh cung cấp thẻ BHYT điện tử, lịch sử KCB trên ứng dụng VssID hoặc VNeID hoặc thông tin căn cước công dân, trường hợp người bệnh không cung cấp được thông tin thì cơ sở KCB liên hệ với cơ quan BHXH nơi ký hợp đồng KCB BHYT. Cơ sở KCB tiếp nhận người bệnh theo hướng dẫn tại điểm a khoản 2 Điều 38 Nghị định số 188/2025/NĐ-CP.",
+        "Sau khi tiếp nhận người bệnh vào KCB, cơ sở KCB thực hiện tra cứu thông tin thẻ BHYT trong quá trình người bệnh điều trị hoặc trước khi người bệnh ra viện khi Cổng tiếp nhận dữ liệu đã khắc phục được sự cố."
+      ],
+      "section": "cong-tiep-nhan",
+      "page": 15,
+      "endPage": 15
+    },
+    {
+      "id": 9,
+      "question": "Các điều kiện ký hợp đồng KCB BHYT?",
+      "answer": [
+        "Các điều kiện ký hợp đồng KCB BHYT theo quy định tại Điều 22 Nghị định số 188/2025/NĐ-CP như sau:",
+        "- Bảo đảm các điều kiện hoạt động của cơ sở KCB theo quy định tại Điều 49 Luật Khám bệnh, chữa bệnh phù hợp với phạm vi cung ứng dịch vụ KCB BHYT, cụ thể:",
+        "+ Đã được cơ quan có thẩm quyền cấp Giấy phép hoạt động KCB theo đúng quy định.",
+        "+ Bảo đảm tiêu chuẩn chất lượng cơ bản quy định tại điểm a khoản 1 Điều 57 Luật KCB. Từ ngày 01/01/2025, tiêu chuẩn chất lượng cơ bản đối với bệnh viện thực hiện theo quy định tại Thông tư số 35/2024/TT-BYT ngày 16/11/2024. Đối với các hình thức tổ chức khác của cơ sở KCB thực hiện từ ngày 01/10/2027 theo quy đinh của Bộ Y tế.",
+        "- Bảo đảm tiêu chuẩn kết nối, liên thông dữ liệu KCB BHYT với hệ thống thông tin, giám định BHYT của cơ quan BHXH theo quy định của Bộ trưởng Bộ Y tế và xác thực dữ liệu thanh toán chi phí KCB theo quy định của pháp luật.",
+        "Ủy ban nhân dân tỉnh/thành phố có trách nhiệm tổ chức thực hiện đúng quy hoạch hệ thống cơ sở KCB; đánh giá nhu cầu KCB BHYT của người dân và khả năng đáp ứng của hệ thống cơ sở KCB trên địa bàn và thực hiện các giải pháp để bảo đảm cân đối, phù hợp giữa số lượng cơ sở KCB BHYT với nhu cầu KCB của người dân trên địa bàn theo quy định tại điểm đ khoản 10 Điều 71 Nghị định số 188/2025/NĐ-CP."
+      ],
+      "section": "hop-dong",
+      "page": 16,
+      "endPage": 16
+    },
+    {
+      "id": 10,
+      "question": "Thành phần hồ sơ ký hợp đồng KCB BHYT bao gồm những tài liệu nào?",
+      "answer": [
+        "1. Theo quy định tại khoản 1 Điều 26 Nghị định số 188/2025/NĐ-CP, hồ sơ ký hợp đồng KCB BHYT bao gồm:",
+        "a) Văn bản đề nghị ký hợp đồng KCB BHYT của cơ sở KCB theo Mẫu số 7 Phụ lục ban hành kèm theo Nghị định số 188/2025/NĐ-CP;",
+        "b) Bản chụp giấy phép hoạt động KCB do cơ quan nhà nước có thẩm quyền cấp cho cơ sở KCB có đóng dấu treo của cơ sở KCB để xác nhận;",
+        "c) Bản chụp quyết định xếp cấp hoặc tạm xếp cấp chuyên môn kỹ thuật cho cơ sở KCB của cơ quan có thẩm quyền; đối với trường hợp quy định tại điểm đ và điểm h khoản 4 Điều 22 của Luật BHYT và khoản 3 và 4 Điều 19 Nghị định số 188/2025/NĐ-CP còn phải có bản chụp văn bản của cơ quan có thẩm quyền xác định cơ sở KCB đã được phân tuyến chuyên môn kỹ thuật trước ngày 01/01/2025.",
+        "Các văn bản này phải có đóng dấu treo của cơ sở KCB để xác nhận;",
+        "d) Bản chụp có đóng dấu treo của cơ sở KCB để xác nhận quyết định phê duyệt danh mục dịch vụ kỹ thuật y tế được cấp có thẩm quyền phê duyệt;",
+        "đ) Danh mục thuốc, thiết bị y tế sử dụng tại cơ sở KCB;",
+        "e) Bảng kê nhân lực, tổng số giường bệnh của cơ sở KCB theo từng khoa, phòng, bộ phận chuyên môn được cấp có thẩm quyền phê duyệt;",
+        "g) Bản chụp có đóng dấu treo của cơ sở KCB để xác nhận đối với quyết định phê duyệt giá dịch vụ KCB thuộc danh mục do quỹ BHYT thanh toán được cấp có thẩm quyền phê duyệt. Đối với trường hợp quy định tại Điều 47 Nghị định số 188/2025/NĐ-CP, cơ sở KCB có văn bản đề xuất giá dịch vụ KCB BHYT áp dụng để xác định mức thanh toán tại cơ sở;",
+        "h) Bảng kê danh mục các thiết bị phần mềm, phần cứng bảo đảm việc kết nối liên thông để trích chuyển dữ liệu điện tử trong thanh toán BHYT theo Mẫu số 8 Phụ lục ban hành kèm theo Nghị định số 188/2025/NĐ-CP;",
+        "Đối với các văn bản quy định tại các điểm b, c, d và g nêu trên, cơ sở KCB không phải nộp bản chụp trong trường hợp cơ quan có thẩm quyền khi ban hành văn bản đã gửi cho cơ quan BHXH hoặc trường hợp có thể tra cứu trên hệ thống trực tuyến của cơ quan có thẩm quyền nhưng cơ sở KCB phải dẫn chiếu địa chỉ trang thông tin điện tử có thể tra cứu trong văn bản đề nghị ký hợp đồng KCB BHYT quy định tại điểm a khoản này.",
+        "2. Trường hợp ký hợp đồng nối tiếp khi hợp đồng đã ký hết hạn hoặc hai bên thống nhất chấm dứt hợp đồng trước thời hạn mà các tài liệu không có sự thay đổi, cơ sở KCB không phải nộp lại và được sử dụng hồ sơ đã nộp khi ký hợp đồng liền kề trước đó. Trường hợp các tài liệu trong hồ sơ quy định đã nêu trên của cơ sở KCB có sự thay đổi thì cơ sở KCB chỉ phải nộp các tài liệu chứng minh nội dung thay đổi."
+      ],
+      "section": "hop-dong",
+      "page": 16,
+      "endPage": 17
+    },
+    {
+      "id": 11,
+      "question": "Những nội dung nào cần lưu ý ghi trong Hợp đồng KCB BHYT?",
+      "answer": [
+        "Khi ký hợp đồng KCB BHYT cần lưu ý những nội dung sau:",
+        "- Thông tin ghi trong Hợp đồng phải chính xác theo giấy phép hoạt động:",
+        "tên cơ sở KCB, số giấy phép hoạt động, địa chỉ hoạt động, hình thức tổ chức, thời gian làm việc hằng ngày, ngày cấp.",
+        "- Đối với các cơ sở KCB có giường bệnh, hợp đồng phải ghi số giường bệnh theo giấy phép hoạt động (hoặc văn bản điều chỉnh giấy phép hoạt động do thay đổi quy mô giường bệnh). Đối với cơ sở KCB đề nghị ký mới hợp đồng nếu không cung cấp số giường bệnh theo giấy phép hoạt động thì chưa đủ cơ sở để ký hợp đồng KCB BHYT;",
+        "- Bảng kê nhân lực hành nghề KCB theo đúng Mẫu 01 Phụ lục II ban hành kèm theo Nghị định số 96/2023/NĐ-CP và phải đúng với thông tin người hành nghề KCB tại cơ sở KCB được đăng tải trên Cổng thông tin điện tử của Bộ Y tế hoặc trang tin điện tử của Sở Y tế, trường hợp người hành nghề có đăng ký hành nghề tại cơ sở KCB khác thì phải có đầy đủ thông tin trên bảng kê và đăng tải theo quy định."
+      ],
+      "section": "hop-dong",
+      "page": 17,
+      "endPage": 18
+    },
+    {
+      "id": 12,
+      "question": "Điều kiện để thanh toán chi phí KCB BHYT ngoài giờ hành chính hoặc vào ngày nghỉ, ngày lễ được quy định như thế nào?",
+      "answer": [
+        "Theo quy định tại khoản 2 Điều 46 Nghị định số 188/2025/NĐ-CP, từ ngày 15/8/2025, cơ sở KCB khi triển khai KCB ngoài giờ hành chính hoặc vào ngày nghỉ, ngày lễ phải có văn bản thông báo cho cơ quan BHXH nơi ký hợp đồng KCB BHYT. Văn bản thông báo phải được gửi ít nhất 03 ngày làm việc trước khi thực hiện KCB ngoài giờ hành chính, ngày nghỉ, ngày lễ và được lưu trong hồ sơ ký hợp đồng KCB BHYT để làm cơ sở thực hiện và thanh toán chi phí KCB.",
+        "Cơ sở KCB phải bảo đảm đầy đủ nhân lực, điều kiện chuyên môn để thực hiện KCB; công khai các khoản chi phí mà người bệnh phải tự chi trả ngoài phạm vi được hưởng và mức hưởng BHYT và phải thông báo trước cho người bệnh.",
+        "Cơ sở KCB có trách nhiệm cập nhật thời gian thực hiện KCB ngoài giờ hành chính, ngày nghỉ, ngày lễ trên Cổng tiếp nhận dữ liệu phù hợp với nội dung đã thông báo cho cơ quan BHXH.",
+        "Cơ quan BHXH có trách nhiệm đối chiếu thông tin trên Hệ thống thông tin giám định BHYT (Hệ thống) với văn bản thông báo của cơ sở KCB, thực hiện áp dụng trên Hệ thống trong thời hạn tối đa không quá 05 ngày làm việc. Hằng tháng, hằng quý rà soát dữ liệu KCB BHYT ngoài giờ hành chính, ngày nghỉ, ngày lễ nhưng không có văn bản thông báo theo quy định hoặc thực hiện KCB BHYT trước khi có văn bản thông báo 03 ngày làm việc hoặc KCB BHYT ngoài thời gian thông báo thì từ chối thanh toán chi phí KCB BHYT.",
+        "Trường hợp ký hợp đồng nối tiếp khi hợp đồng đã ký hết hạn, cơ sở KCB vẫn tiếp tục thực hiện KCB ngoài giờ hành chính, ngày nghỉ, ngày lễ theo văn bản thông báo đã gửi cơ quan BHXH trước đó, thì bổ sung nội dung cơ sở KCB thực hiện KCB ngoài giờ hành chính, ngày nghỉ, ngày lễ trong hợp đồng mà không yêu cầu cơ sở KCB tiếp tục có văn bản thông báo."
+      ],
+      "section": "hop-dong",
+      "page": 18,
+      "endPage": 18
+    },
+    {
+      "id": 13,
+      "question": "Điều kiện thanh toán đối với dịch vụ cận lâm sàng chuyển đến cơ sở KCB khác để thực hiện được quy định như thế nào?",
+      "answer": [
+        "Theo quy định tại khoản 1 Điều 44 Nghị định số 188/2025/NĐ-CP, từ ngày 01/7/2025, các cơ sở KCB chỉ thực hiện chuyển người bệnh hoặc mẫu bệnh phẩm đến cơ sở tiếp nhận được cấp có thẩm quyền phê duyệt đủ điều kiện thực hiện dịch vụ cận lâm sàng. Cơ sở tiếp nhận người bệnh hoặc mẫu bệnh phẩm để thực hiện các dịch vụ cận lâm sàng không được chuyển tiếp người bệnh hoặc mẫu bệnh phẩm đến cơ sở thứ ba (khác).",
+        "- Đối với các dịch vụ cận lâm sàng đã được cấp có thẩm quyền phê duyệt thực hiện tại cơ sở KCB nhưng tại thời điểm chỉ định sử dụng cho người bệnh cơ sở KCB đó không thực hiện được hoặc không đủ để đáp ứng toàn bộ nhu cầu thực hiện: có văn bản thông báo của cơ sở KCB gửi cơ quan BHXH nơi ký Hợp đồng KCB BHYT kèm theo danh sách các dịch vụ cận lâm sàng đã thực hiện chuyển đến cơ sở thực hiện dịch vụ cận lâm sàng theo quy định tại điểm a khoản 2 Điều 44 Nghị định số 188/2025/NĐ-CP.",
+        "Quỹ BHYT từ chối thanh toán nếu cơ sở KCB không gửi danh sách các dịch vụ cận lâm sàng đã thực hiện chuyển đến cơ sở thực hiện dịch vụ cận lâm sàng hoặc dịch vụ cận lâm sàng không được cấp thẩm quyền phê duyệt thực hiện tại cơ sở thực hiện dịch vụ cận lâm sàng.",
+        "- Đối với các dịch vụ cận lâm sàng chưa được cấp có thẩm quyền phê duyệt thực hiện tại cơ sở KCB nhưng thực tế cần thiết cho các hoạt động chuyên môn và có trong danh mục được Bộ Y tế ban hành: có văn bản thông báo của cơ sở KCB gửi cơ quan BHXH nơi ký Hợp đồng KCB BHYT kèm theo danh sách các dịch vụ cận lâm sàng cần chuyển, bản sao hợp đồng nguyên tắc ký kết giữa cơ sở KCB và cơ sở thực hiện dịch vụ cận lâm sàng trước khi thực hiện theo quy định tại điểm b khoản 2 Điều 44 Nghị định số 188/2025/NĐ-CP.",
+        "Quỹ BHYT từ chối thanh toán nếu cơ sở KCB không gửi cơ quan BHXH danh sách các dịch vụ cận lâm sàng cần chuyển và hợp đồng nguyên tắc ký kết giữa cơ sở KCB và cơ sở thực hiện dịch vụ cận lâm sàng hoặc dịch vụ cận lâm sàng không được cấp thẩm quyền phê duyệt thực hiện tại cơ sở thực hiện dịch vụ cận lâm sàng.",
+        "- Cơ sở KCB nơi chuyển dịch vụ cận lâm sàng phải cung cấp văn bản của cấp có thẩm quyền phê duyệt danh mục dịch vụ kỹ thuật, bảng giá dịch vụ KCB và danh mục thiết bị y tế, nhân lực để thực hiện dịch vụ cận lâm sàng tại cơ sở y tế nơi thực hiện dịch vụ cận lâm sàng không ký hợp đồng KCB BHYT để BHXH tỉnh thực hiện giám định chủ động."
+      ],
+      "section": "hop-dong",
+      "page": 19,
+      "endPage": 19
+    },
+    {
+      "id": 14,
+      "question": "Các trường hợp nào phải ký phụ lục hợp đồng KCB BHYT? Hồ sơ ký phụ lục hợp đồng bao gồm những gì?",
+      "answer": [
+        "- Theo quy định tại Điều 24 Nghị định số 188/2025/NĐ-CP, trong quá trình thực hiện hợp đồng KCB BHYT, nếu có phát sinh, thay đổi các nội dung liên quan đến việc thực hiện hợp đồng thì cơ quan BHXH và cơ sở KCB thực hiện thủ tục ký phụ lục hợp đồng KCB BHYT làm cơ sở thanh toán BHYT, gồm các thay đổi sau:",
+        "+ Thay đổi tên gọi, con dấu, tài khoản, chủ tài khoản của cơ sở KCB hoặc cơ quan BHXH.",
+        "+ Cơ sở KCB thay đổi cấp chuyên môn kỹ thuật, thay đổi số giường bệnh mà phải điều chỉnh giấy phép hoạt động.",
+        "+ Thay đổi phương thức thanh toán chi phí KCB BHYT.",
+        "- Theo quy định tại Điều 27 và Điều 29 Nghị định số 188/2025/NĐ-CP, trong thời hạn 03 ngày làm việc kể từ ngày có văn bản của cấp có thẩm quyền về sự thay đổi đối với các trường hợp phải ký phụ lục hợp đồng, cơ sở KCB hoặc cơ quan BHXH gửi hồ sơ ký phụ lục hợp đồng cho bên còn lại. Hồ sơ bao gồm:",
+        "+ Văn bản đề nghị ký phụ lục hợp đồng KCB BHYT của cơ sở KCB, cơ quan BHXH theo Mẫu số 7 Phụ lục ban hành kèm theo Nghị định số 188/2025/NĐ-CP.",
+        "+ Bản chụp văn bản chứng minh sự thay đổi đối với các trường hợp phải ký phụ lục hợp đồng có đóng dấu treo của cơ sở KCB hoặc cơ quan BHXH để xác nhận.",
+        "Hồ sơ được nộp bằng bản điện tử trên cổng dịch vụ công quốc gia hoặc qua ứng dụng của cơ quan BHXH. Trong thời hạn chưa hoàn thành hệ thống dịch vụ công trực tuyến và tại các đơn vị hành chính ở vùng có điều kiện kinh tế xã hội khó khăn hoặc đặc biệt khó khăn thì nộp hồ sơ trực tiếp tại bộ phận một cửa của cơ quan BHXH được giao nhiệm vụ tiếp nhận hoặc gửi qua dịch vụ bưu chính công ích đến cơ quan BHXH được giao nhiệm vụ tiếp nhận.",
+        "- Trong thời hạn 05 ngày làm việc kể từ ngày nhận được hồ sơ, cơ sở KCB và cơ quan BHXH hoàn thành việc ký phụ lục hợp đồng."
+      ],
+      "section": "hop-dong",
+      "page": 20,
+      "endPage": 20
+    },
+    {
+      "id": 15,
+      "question": "Điều kiện để Trạm y tế xã ký Hợp đồng KCB BHYT trực tiếp với cơ quan BHXH là gì?",
+      "answer": [
+        "Khoản 15 Điều 4 Thông tư số 43/2025/TT-BYT ngày 15/11/2025 của Bộ Y tế quy định về nhiệm vụ, quyền hạn của Trạm Y tế xã như sau: “Trạm Y tế ký hợp đồng với cơ quan BHXH để tổ chức KCB BHYT tại Trạm Y tế cấp xã theo quy định của pháp luật về BHYT”. Theo đó các Trạm Y tế nếu thực hiện ký hợp đồng KCB BHYT phải đáp ứng đủ điều kiện quy định tại Điều 22 Nghị định số 188/2025/NĐ-CP, bao gồm:",
+        "1. Bảo đảm các điều kiện hoạt động của cơ sở KCB theo quy định tại Điều 49 Luật KCB phù hợp với phạm vi cung ứng dịch vụ KCB BHYT.",
+        "2. Bảo đảm tiêu chuẩn kết nối, liên thông dữ liệu KCB BHYT với hệ thống thông tin, giám định BHYT của cơ quan BHXH theo quy định của Bộ trưởng Bộ Y tế và xác thực dữ liệu thanh toán chi phí KCB theo quy định của pháp luật."
+      ],
+      "section": "hop-dong",
+      "page": 20,
+      "endPage": 21
+    },
+    {
+      "id": 16,
+      "question": "Cơ sở KCB ký hợp đồng lần đầu thì phải đối chiếu hồ sơ ký hợp đồng với điều kiện thực tế tại cơ sở trong kỳ giám định chi phí KCB BHYT gần nhất. Đối với cơ sở KCB đang thực hiện hợp đồng nếu có phát sinh, thay đổi liên quan đến hợp đồng thì có cần đối chiếu với điều kiện thực tế không?",
+      "answer": [
+        "Đối với cơ sở đang thực hiện hợp đồng hoặc tiếp tục ký hợp đồng KCB BHYT sau khi hợp đồng cũ đã hết hạn, nếu có phát sinh, thay đổi thông tin liên quan đến việc thực hiện hợp đồng thì phải có văn bản thông báo gửi cơ quan BHXH kèm theo hồ sơ, tài liệu liên quan, đồng thời cập nhật thông tin thay đổi tại các danh mục theo Phụ lục II Thông tư số 12/2026/TT-BTC. Cơ quan BHXH thực hiện đối chiếu với điều kiện thực hiện trong kỳ giám định gần nhất và ghi nhận tại Biên bản giám định chi phí KCB BHYT (Mẫu số 03/BH)."
+      ],
+      "section": "hop-dong",
+      "page": 21,
+      "endPage": 21
+    },
+    {
+      "id": 17,
+      "question": "Sau khi ký hợp đồng lần đầu, cơ sở KCB phải gửi danh mục gì lên Hệ thống? Trường hợp có phát sinh, thay đổi thông tin về danh mục sử dụng trong liên thông dữ liệu trong quá trình thực hiện hợp đồng, cơ sở KCB thực hiện như thế nào?",
+      "answer": [
+        "- Sau khi ký hợp đồng lần đầu, cơ sở KCB tạo lập danh mục sử dụng trong liên thông dữ liệu KCB BHYT theo quy định tại khoản 1 Điều 7 Thông tư số 12/2026/TT-BTC, ký số xác thực dữ liệu gửi cơ quan BHXH qua Cổng tiếp nhận dữ liệu, đảm bảo khớp đúng với hồ sơ ký hợp đồng (06 danh mục ban hành tại Phụ lục II của Thông tư số 12/2026/TT-BTC), bao gồm:",
+        "(1) Danh mục bộ phận chuyên môn KCB BHYT (Mẫu số 01/DM) (2) Danh mục nhân lực thực hiện KCB BHYT (Mẫu số 02/DM) (3) Danh mục thuốc, máu, chế phẩm máu áp dụng trong thanh toán BHYT (Mẫu số 03/DM) (4) Danh mục thiết bị y tế áp dụng trong thanh toán BHYT (Mẫu số 04/DM) (5) Danh mục dịch vụ KCB áp dụng trong thanh toán BHYT (Mẫu số 05/DM) (6) Danh mục thiết bị y tế để thực hiện dịch vụ kỹ thuật áp dụng trong thanh toán BHYT (Mẫu số 06/DM) Danh mục sử dụng trong liên thông dữ liệu KCB BHYT phải được mã hóa theo bộ mã danh mục dùng chung áp dụng trong quản lý KCB và thanh toán BHYT do Bộ Y tế ban hành tại Quyết định số 7603/QĐ-BYT ngày 25/12/2018 và các quyết định sửa đổi, bổ sung; chuẩn định dạng dữ liệu theo quy định tại Phụ lục II Thông tư số 12/2026/TT-BTC.",
+        "- Trường hợp có phát sinh, thay đổi trong quá trình thực hiện hợp đồng, cơ sở KCB gửi thông tin đề nghị cập nhật, điều chỉnh danh mục sử dụng trong liên thông dữ liệu đến Cổng tiếp nhận dữ liệu, đồng thời gửi văn bản thông báo và các tài liệu kèm theo cho cơ quan BHXH (qua Cổng tiếp nhận dữ liệu) trong các trường hợp ký phụ lục hợp đồng và thông báo thông tin thay đổi trong thực hiện hợp đồng theo quy định tại khoản 2 và khoản 3 Điều 24 Nghị định số 188/2025/NĐ-CP.",
+        "Trường hợp cơ sở KCB mua sắm thuốc, thiết bị y tế để cấp cứu người bệnh trong tình trạng cấp cứu theo quy định tại điểm đ khoản 1 Điều 78 Nghị định số 214/2025/NĐ-CP và khoản 4 Điều 6 Nghị định số 349/2026/NĐ-CP ngày 09/9/2026 của Chính phủ sửa đổi, bổ sung một số điều của các Nghị định quy định chi tiết một số điều và biện pháp thi hành Luật Đấu thầu về lựa chọn nhà thầu nhưng chưa có văn bản thông báo cho cơ quan BHXH, cơ sở KCB ghi rõ các trường hợp đã sử dụng thuốc, thiết bị y tế trong văn bản gửi cơ quan BHXH.",
+        "Trong thời hạn tối đa không quá 05 ngày làm việc kể từ ngày nhận được đề nghị cập nhật, điều chỉnh danh mục sử dụng trong liên thông dữ liệu của cơ sở KCB, cơ quan BHXH thực hiện áp dụng danh mục, trường hợp không áp dụng danh mục thì phản hồi cho cơ sở KCB qua Cổng tiếp nhận dữ liệu và nêu rõ lý do, căn cứ không áp dụng.",
+        "Trong thời hạn tối đa không quá 15 ngày kể từ ngày nhận được phản hồi của cơ quan BHXH về việc không thống nhất cập nhật, điều chỉnh danh mục, cơ sở KCB gửi lại danh mục và bổ sung tài liệu chứng minh việc thay đổi (nếu có)."
+      ],
+      "section": "danh-muc",
+      "page": 22,
+      "endPage": 23
+    },
+    {
+      "id": 18,
+      "question": "Thời điểm áp dụng danh mục sử dụng trong liên thông dữ liệu được quy định như thế nào?",
+      "answer": [
+        "- Đối với danh mục tạo lập mới sau khi ký hợp đồng lần đầu: được cơ sở KCB lập đúng quy định tại khoản 1 Điều 7 Thông tư số 12/2026/TT-BTC và cung cấp đủ tài liệu liên quan đến việc sử dụng danh mục thuốc, thiết bị y tế, dịch vụ KCB tại cơ sở KCB, thời điểm áp dụng danh mục được thực hiện như sau:",
+        "+ Đối với danh mục bộ phận chuyên môn, nhân lực, dịch vụ KCB: thời điểm áp dụng danh mục từ ngày hợp đồng có hiệu lực.",
+        "+ Đối với danh mục thuốc, thiết bị y tế: không sớm hơn thời điểm có hiệu lực của hợp đồng mua sắm hoặc thời điểm mua sắm theo quy định tại Điều 49 Nghị định số 188/2025/NĐ-CP hoặc khoản 4 Điều 6 Nghị định số 349/2026/NĐ-CP.",
+        "- Đối với danh mục cập nhật, điều chỉnh trong quá trình thực hiện hợp đồng:",
+        "được cơ sở KCB lập đúng quy định tại khoản 1 Điều 7 Thông tư số 12/2026/TT-BTC và đủ tài liệu để chứng minh.",
+        "+ Thời điểm áp dụng danh mục kể từ ngày nhận được văn bản thông báo của cơ sở KCB hoặc từ ngày cơ sở KCB đề nghị áp dụng nếu thời điểm đề nghị sau ngày gửi văn bản thông báo. Riêng thuốc, thiết bị y tế mua sắm để cấp cứu người bệnh trong tình trạng cấp cứu theo quy định tại điểm đ khoản 1 Điều 78 Nghị định số 214/2025/NĐ-CP và khoản 4 Điều 6 Nghị định số 349/2026/NĐ-CP, thời điểm áp dụng theo ngày ghi trên hóa đơn của cơ sở KCB.",
+        "+ Cơ quan BHXH xử lý yêu cầu cập nhật, điều chỉnh danh mục của cơ sở KCB trong thời hạn tối đa không quá 05 ngày làm việc kể từ ngày nhận được đề nghị của cơ sở KCB hoặc từ ngày nhận được danh mục và tài liệu bổ sung của cơ sở KCB."
+      ],
+      "section": "danh-muc",
+      "page": 23,
+      "endPage": 23
+    },
+    {
+      "id": 19,
+      "question": "Cơ quan BHXH xử lý như thế nào đối với trường hợp danh mục sử dụng trong liên thông dữ liệu gửi chưa đúng định dạng, chưa cung cấp đủ tài liệu hoặc phát hiện danh mục trên Cổng tiếp nhận dữ liệu có sai lệch? Khi áp dụng danh mục trên Hệ thống do cơ sở KCB tạo lập, cập nhật, điều chỉnh thông tin, cơ quan BHXH có cần thông báo hay lập biên bản với cơ sở KCB không?",
+      "answer": [
+        "Trường hợp cơ sở KCB gửi danh mục sử dụng trong liên thông dữ liệu chưa đúng quy định mã hóa danh mục hoặc chưa đúng định dạng quy định tại khoản 1 Điều 7 Thông tư số 12/2026/TT-BTC, chưa cung cấp đủ tài liệu liên quan, cơ quan BHXH trả lại danh mục, đồng thời thông báo cho cơ sở KCB qua Cổng tiếp nhận dữ liệu các thông tin danh mục cần điều chỉnh, tài liệu cần cung cấp bổ sung. Thời điểm áp dụng danh mục sau khi cơ sở KCB đã điều chỉnh, cung cấp đủ tài liệu thực hiện theo quy định tại khoản 3 Điều 7 và điểm a khoản 2 Điều 8 Thông tư số 12/2026/TT-BTC.",
+        "Trường hợp phát hiện danh mục trên Cổng tiếp nhận dữ liệu có nội dung sai lệch so với danh mục dùng chung đã được Bộ Y tế ban hành hoặc không đúng với văn bản được cấp có thẩm quyền phê duyệt, cơ quan BHXH và cơ sở KCB phối hợp thực hiện điều chỉnh hoặc hủy áp dụng thông tin trong danh mục trong thời hạn 05 ngày làm việc kể từ ngày nhận được văn bản thông báo của bên phát hiện. Thời điểm điều chỉnh hoặc hủy áp dụng thông tin kể từ ngày tạo lập danh mục hoặc cập nhật, điều chỉnh thông tin danh mục trên Cổng tiếp nhận dữ liệu; cơ quan BHXH không thanh toán các chi phí KCB BHYT phát sinh do danh mục sai lệch hoặc không đúng với văn bản được cấp thẩm quyền phê duyệt.",
+        "Trường hợp cơ sở KCB tạo lập, cập nhật, điều chỉnh thông tin trong danh mục và mã hóa đúng các quy định về danh mục dùng chung của Bộ Y tế, theo chuẩn, định dạng quy định tại Phụ lục II Thông tư số 12/2026/TT-BTC và thông tin đúng với các hồ sơ, tài liệu do cơ sở KCB cung cấp thì cơ quan BHXH áp dụng danh mục theo quy định tại khoản 3 Điều 7 và điểm a khoản 2 Điều 8 Thông tư số 12/2026/TT-BTC, không phải lập biên bản hoặc thông báo bằng văn bản cho cơ sở KCB."
+      ],
+      "section": "danh-muc",
+      "page": 24,
+      "endPage": 24
+    },
+    {
+      "id": 20,
+      "question": "Khi rà soát danh mục bộ phận chuyên môn KCB (Mẫu số 01/DM) cần đối chiếu với hồ sơ, tài liệu nào?",
+      "answer": [
+        "Khi rà soát danh mục bộ phận chuyên môn KCB (Mẫu số 01/DM) cần đối chiếu với các hồ sơ, tài liệu sau:",
+        "- Bảng kê tổng số giường bệnh của cơ sở KCB theo từng khoa, phòng, bộ phận chuyên môn theo giấy phép hoạt động trong hồ sơ ký hợp đồng KCB BHYT.",
+        "- Văn bản phê duyệt hoặc điều chỉnh quy mô hoạt động (hoặc hồ sơ cấp hoặc điều chỉnh giấy phép hoạt động).",
+        "- Văn bản báo cáo cơ quan quản lý trực tiếp về số giường thay đổi của các khoa, phòng kèm theo bản kê khai cơ sở vật chất, thiết bị y tế và hồ sơ nhân sự chứng minh đáp ứng đủ điều kiện thay đổi quy mô giường bệnh đối với trường hợp cơ sở tự điều chỉnh số giường bệnh dưới 10% tổng số quy mô giường bệnh đã được ghi trong giấy phép hoạt động và số giường điều chỉnh không vượt quá 30 giường bệnh.",
+        "- Văn bản của cơ sở KCB thông báo về việc phát sinh, thay đổi các nội dung liên quan đến các bộ phận chuyên môn, bàn khám, giường bệnh.",
+        "Đảm bảo:",
+        "- Số giường phê duyệt (GIUONG_PD) tại danh mục khớp đúng với số giường tại bảng kê và số giường được cấp có thẩm quyền phê duyệt, tổng số giường phê duyệt (GIUONG_PD) của các khoa phòng bằng số giường bệnh theo giấy phép hoạt động.",
+        "- Số giường chênh lệch giữa giường thực kê (GIUONG_TK) và giường phê duyệt (GIUONG_PD) của cơ sở KCB tại danh mục dưới 10% tổng số giường bệnh theo giấy phép hoạt động và không vượt quá 30 giường bệnh.",
+        "- Các khoa, phòng, bộ phận chuyên môn trong danh mục khớp đúng với khoa, phòng, bộ phận chuyên môn tại hồ sơ ký hợp đồng và các tài liệu nêu trên."
+      ],
+      "section": "danh-muc",
+      "page": 24,
+      "endPage": 25
+    },
+    {
+      "id": 21,
+      "question": "Những nội dung nào tại Mẫu số 01/DM được thực hiện giám định theo phương thức tự động?",
+      "answer": [
+        "Các nội dung sau đây được giám định theo phương thức tự động:",
+        "- Định dạng dữ liệu, cấu trúc file dữ liệu đầu ra và tính logic, đồng bộ giữa các trường thông tin.",
+        "- Đối chiếu, xác thực thông tin tại danh mục của cơ sở KCB với danh mục dùng chung do Bộ Y tế ban hành.",
+        "- Đối chiếu tổng số giường bệnh thực kê (GIUONG_TK) tại bệnh viện thay đổi so với tổng số giường bệnh được cấp có thẩm quyền phê duyệt (GIUONG_PD).",
+        "Hệ thống sẽ tự động trả cơ sở KCB qua Cổng tiếp nhận dữ liệu các danh mục:",
+        "- Không đúng định dạng, cấu trúc, logic giữa các trường thông tin;",
+        "- Không đủ thông tin, không đúng tên bàn khám hoặc mã bàn khám, mã khoa trong danh mục dùng chung theo quy định của Bộ Y tế;",
+        "- Số giường chênh lệch giữa tổng giường thực kê (GIUONG_TK) và tổng giường phê duyệt (GIUONG_PD) của cơ sở KCB từ 10% trở lên hoặc quá 30 giường bệnh (hoặc tổng số giường thực kê tại bệnh viện cao hơn tổng số giường bệnh được cấp có thẩm quyền phê duyệt đối với cơ sở KCB thuộc lực lượng vũ trang nhân dân).",
+        "Hệ thống đánh dấu trạng thái “giám định chủ động” trong trường hợp số giường chênh lệch giữa giường thực kê (GIUONG_TK) và giường phê duyệt (GIUONG_PD) của cơ sở KCB dưới 10% tổng số giường bệnh theo giấy phép hoạt động và không vượt quá 30 giường bệnh."
+      ],
+      "section": "danh-muc",
+      "page": 25,
+      "endPage": 26
+    },
+    {
+      "id": 22,
+      "question": "Khi giám định theo phương thức chủ động danh mục bộ phận chuyên môn KCB BHYT (Mẫu số 01/DM), những nội dung nào được cơ quan BHXH trả lại cơ sở KCB qua Cổng tiếp nhận dữ liệu?",
+      "answer": [
+        "1. Trên cơ sở Hệ thống đánh dấu trạng thái “giám định chủ động” đối với trường hợp tổng số giường bệnh thực kê tại bệnh viện thay đổi so với tổng số giường bệnh được cấp có thẩm quyền phê duyệt dưới 10% và không vượt quá 30 giường, cơ quan BHXH đối chiếu thông tin với hồ sơ ký hợp đồng và tài liệu gửi kèm, trả lại qua Cổng tiếp nhận dữ liệu nếu cơ sở KCB không có văn bản báo cáo cấp có thẩm quyền về số giường thay đổi của các khoa, phòng hoặc không có bản kê khai cơ sở vật chất, thiết bị y tế và hồ sơ nhân sự hoặc cơ sở vật chất, thiết bị y tế và nhân lực thực tế được bổ sung không tương ứng với số giường bệnh thay đổi theo quy định tại khoản 3 Điều 67 Nghị định số 96/2023/NĐ-CP.",
+        "2. Cơ quan BHXH đối chiếu thông tin danh mục bộ phận chuyên môn KCB BHYT với hồ sơ ký hợp đồng và tài liệu gửi kèm, trả lại qua Cổng tiếp nhận dữ liệu trong các trường hợp sau:",
+        "- Tổng số giường bệnh phê duyệt (GIUONG_PD) của cơ sở KCB và của từng khoa, phòng, bộ phận chuyên môn không khớp đúng với số lượng giường bệnh theo giấy phép hoạt động.",
+        "- Thông tin các khoa, phòng, bộ phận chuyên môn không có hoặc không trùng khớp với hồ sơ ký hợp đồng, biên bản thẩm định cấp hoặc điều chỉnh giấy phép hoạt động), văn bản của cơ sở KCB thông báo về việc phát sinh, thay đổi các nội dung liên quan đến các bộ phận chuyên môn, số bàn khám, số giường bệnh.",
+        "- Số giường bệnh hồi sức tích cực không đáp ứng đầy đủ các điều kiện để hoạt động theo quy định của Bộ trưởng Bộ Y tế tại Quyết định số 01/2008/QĐ-BYT và Thông tư số 03/2023/TT-BYT theo quy định tại khoản 5 Điều 4c Thông tư số 35/2016/TT-BYT ngày 28/9/2016 được sửa đổi, bổ sung tại điểm a, b khoản 4 Điều 1 Thông tư số 39/2024/TT-BYT."
+      ],
+      "section": "danh-muc",
+      "page": 26,
+      "endPage": 26
+    },
+    {
+      "id": 23,
+      "question": "Khi rà soát Danh mục nhân lực thực hiện KCB BHYT (Mẫu số 02/DM) cần đối chiếu với hồ sơ, tài liệu nào?",
+      "answer": [
+        "Khi rà soát danh mục nhân lực thực hiện KCB BHYT (Mẫu số 02/DM) cần đối chiếu với hồ sơ, tài liệu sau:",
+        "1. Bảng kê nhân lực theo từng khoa, phòng, bộ phận chuyên môn tại hồ sơ ký hợp đồng;",
+        "2. Danh sách đăng ký hành nghề tại cơ sở KCB trên Cổng thông tin điện tử của Bộ Y tế hoặc trang tin điện tử của Sở Y tế và trên Hệ thống thông tin về quản lý hoạt động KCB;",
+        "3. Giấy phép hành nghề của người hành nghề KCB, quyết định điều chỉnh phạm vi hành nghề của cấp có thẩm quyền, văn bản cho phép thực hiện kỹ thuật của người chịu trách nhiệm chuyên môn kỹ thuật của cơ sở KCB (kèm theo chứng chỉ/chứng nhận đào tạo kỹ thuật chuyên môn);",
+        "4. Văn bản của cơ sở KCB thông báo về việc phát sinh, thay đổi các nội dung liên quan đến nhân lực thực hiện KCB BHYT theo quy định tại điểm a khoản 3 Điều 24 Nghị định số 188/2025/NĐ-CP."
+      ],
+      "section": "danh-muc",
+      "page": 26,
+      "endPage": 27
+    },
+    {
+      "id": 24,
+      "question": "Những nội dung nào tại Danh mục nhân lực thực hiện KCB BHYT (Mẫu số 02/DM) được thực hiện giám định theo phương thức tự động?",
+      "answer": [
+        "Các nội dung sau đây được giám định theo phương thức tự động:",
+        "- Định dạng dữ liệu, cấu trúc, logic giữa các trường thông tin;",
+        "- Đối chiếu với mã danh mục dùng chung do Bộ Y tế ban hành;",
+        "- Đối chiếu thông tin tại danh mục (họ tên, số giấy phép hành nghề, thời gian đăng ký hành nghề, phạm vi hoạt động chuyên môn của người hành nghề, vị trí chuyên môn) với thông tin tại danh mục cơ sở dữ liệu nhân viên y tế trên Hệ thống thông tin giám định BHYT. Trường hợp Bộ Y tế chưa liên thông dữ liệu người hành nghề với với BHXH Việt Nam, BHXH tỉnh cập nhật thông tin người hành nghề đăng tải trên Cổng thông tin điện tử của Bộ Y tế hoặc Trang thông tin điện tử của Sở Y tế hoặc Hệ thống thông tin về quản lý hoạt động KCB vào phần mềm Giám định;",
+        "- Số lượng người hành nghề toàn thời gian tại từng khoa của bệnh viện;",
+        "- Phạm vi hành nghề của người chịu trách nhiệm chuyên môn kỹ thuật;",
+        "Người phụ trách bộ phận chuyên môn, đơn vị chuyên môn;",
+        "- Người thực hiện chuyển giao kỹ thuật.",
+        "Hệ thống tự động trả lại về Cổng tiếp nhận dữ liệu các trường hợp sau:",
+        "- Không đúng định dạng dữ liệu, cấu trúc, logic giữa các trường thông tin;",
+        "- Ghi không đủ thông tin, không đúng tên bàn khám hoặc mã bàn khám, mã khoa trong danh mục dùng chung theo quy định của Bộ Y tế;",
+        "- Thông tin tại danh mục (Họ tên, số giấy phép hành nghề, thời gian đăng ký hành nghề, phạm vi hoạt động chuyên môn của người hành nghề, vị trí chuyên môn) không trùng khớp với thông tin tại danh mục cơ sở dữ liệu nhân viên y tế trên Hệ thống thông tin giám định BHYT;",
+        "- Số lượng người hành nghề toàn thời gian tại từng khoa của bệnh viện không đạt tỷ lệ tối thiểu 70% theo quy định tại điểm a khoản 5 Điều 41 Nghị định số 96/2023/NĐ-CP (hoặc 50% theo quy định tại điểm a khoản 5 Điều 23 Nghị định số 109/2016/NĐ-CP được sửa đổi, bổ sung tại khoản 5 Điều 11 Nghị định số 155/2018/NĐ-CP đối với cơ sở KCB có giấy phép hoạt động được cấp trước ngày 01/01/2024); từng khoa của bệnh viện thuộc lực lượng vũ trang nhân dân không đạt tỷ lệ tối thiểu 50% theo quy định tại điểm a khoản 5 Điều 19 Nghị định số 16/2024/NĐ-CP;",
+        "- Thời gian đăng ký hành nghề của người hành nghề KCB không trong thời gian hoạt động của cơ sở KCB; người hành nghề đăng ký hành nghề tại nhiều cơ sở KCB có thời gian đăng ký hành nghề trùng lặp;",
+        "- Người chịu trách nhiệm chuyên môn kỹ thuật có phạm vi hành nghề không phù hợp với phạm vi hoạt động chuyên môn của cơ sở KCB hoặc không phù hợp với một trong các chuyên khoa của cơ sở KCB gồm nhiều chuyên khoa, hoặc không làm việc toàn thời gian tại cơ sở KCB theo quy định tại điểm b khoản 4 Điều 40 Nghị định số 96/2023/NĐ-CP;",
+        "- Người phụ trách bộ phận chuyên môn, đơn vị chuyên môn hoặc người phụ trách từng phòng khám chuyên khoa trong phòng khám liên chuyên khoa có phạm vi hành nghề không phù hợp với phạm vi hoạt động chuyên môn của chuyên khoa được giao phụ trách, hoặc chuyên khoa của phòng khám chuyên khoa mà mình phụ trách, hoặc không làm việc toàn thời gian tại cơ sở KCB theo quy định tại điểm c khoản 4 Điều 40, điểm d khoản 4 và điểm b khoản 5 Điều 41, khoản 4 Điều 44 Nghị định số 96/2023/NĐ-CP;",
+        "- Người thực hiện chuyển giao kỹ thuật không có trong danh sách nhân lực KCB BHYT của cơ sở thực hiện chuyển giao kỹ thuật."
+      ],
+      "section": "danh-muc",
+      "page": 27,
+      "endPage": 28
+    },
+    {
+      "id": 25,
+      "question": "Cơ quan BHXH thực hiện giám định theo phương thức chủ động các nội dung nào tại Danh mục nhân lực thực hiện KCB BHYT (Mẫu số 02/DM)?",
+      "answer": [
+        "Cơ quan BHXH thực hiện đối chiếu các thông tin tại danh mục nhân lực KCB BHYT với hồ sơ ký hợp đồng và hồ sơ, tài liệu gửi kèm gồm:",
+        "- Bảng kê nhân lực theo từng khoa, phòng, bộ phận chuyên môn tại hồ sơ ký hợp đồng;",
+        "- Danh sách đăng ký hành nghề tại cơ sở KCB trên Cổng thông tin điện tử của Bộ Y tế hoặc trang tin điện tử của Sở Y tế và trên Hệ thống thông tin về quản lý hoạt động KCB;",
+        "- Giấy phép hành nghề của người hành nghề KCB, quyết định điều chỉnh phạm vi hành nghề của cấp có thẩm quyền, văn bản cho phép thực hiện kỹ thuật của người chịu trách nhiệm chuyên môn kỹ thuật của cơ sở KCB (kèm theo chứng chỉ/chứng nhận đào tạo kỹ thuật chuyên môn);",
+        "- Văn bản của cơ sở KCB về việc phát sinh, thay đổi các nội dung liên quan đến nhân lực thực hiện KCB BHYT theo quy định tại điểm a khoản 3 Điều 24 Nghị định số 188/2025/NĐ-CP.",
+        "Trả về Cổng tiếp nhận dữ liệu trong các trường hợp sau:",
+        "- Thông tin không trùng khớp với Bảng kê nhân lực của cơ sở KCB theo từng khoa, phòng, bộ phận chuyên môn tại hồ sơ ký hợp đồng.",
+        "- Dịch vụ kỹ thuật ngoài phạm vi hành nghề trên giấy phép hành nghề hoặc quyết định điều chỉnh phạm vi hành nghề được phân công thực hiện nhưng:",
+        "+ Không có văn bản phân công thực hiện của người chịu trách nhiệm chuyên môn kỹ thuật; hoặc văn bản phân công thực hiện dịch vụ kỹ thuật không phù hợp với chứng chỉ đào tạo kỹ thuật chuyên môn;",
+        "+ Không có chứng nhận đủ năng lực thực hiện kỹ thuật đối với người hành nghề được chuyển giao kỹ thuật theo quy định tại khoản 3 Điều 10, điểm g khoản 4 Điều 40 Nghị định số 96/2023/NĐ-CP;",
+        "+ Người tham gia vào quá trình KCB nhưng không phải cấp giấy phép hành nghề mà không có văn bản phân công thực hiện kỹ thuật của người chịu trách nhiệm chuyên môn kỹ thuật."
+      ],
+      "section": "danh-muc",
+      "page": 28,
+      "endPage": 29
+    },
+    {
+      "id": 26,
+      "question": "Xác định phạm vi hành nghề của người hành nghề trong Danh mục nhân lực thực hiện KCB BHYT (Mẫu số 02/DM) căn cứ vào các hồ sơ, tài liệu nào?",
+      "answer": [
+        "Theo quy định tại khoản 9 Điều 2 Nghị định số 96/2023/NĐ-CP, phạm vi hành nghề là nội dung công việc mà người hành nghề được làm, được thể hiện trong một hoặc các văn bản sau đây:",
+        "a) Phạm vi hành nghề trên giấy phép hành nghề;",
+        "b) Quyết định điều chỉnh phạm vi hành nghề do cơ quan có thẩm quyền quy định tại Điều 28 của Luật KCB;",
+        "c) Văn bản cho phép thực hiện kỹ thuật của người chịu trách nhiệm chuyên môn kỹ thuật của cơ sở KCB theo quy định tại khoản 3 Điều 10 và khoản 3 Điều 125 Nghị định số 96/2023/NĐ-CP;",
+        "Phạm vi hành nghề tại các văn bản nêu trên phải phù hợp với phạm vi hành nghề trong danh sách người hành nghề đăng tải trên Cổng thông tin điện tử của Bộ Y tế hoặc trang tin điện tử của Sở Y tế và trên Hệ thống thông tin về quản lý hoạt động KCB theo quy định tại Điều 28, Điều 29 Nghị định số 96/2023/NĐ-CP.",
+        "Trường hợp thông tin đăng tải người hành nghề trên trang thông tin điện tử của Bộ Y tế/Sở Y tế và trên Hệ thống thông tin về quản lý hoạt động KCB không khớp với thông tin trên giấy phép hành nghề của người hành nghề thì thực hiện theo khoản 5 Điều 8 Thông tư số 12/2026/TT-BTC, đề nghị cơ sở KCB báo cáo Bộ Y tế/Sở Y tế điều chỉnh thông tin đăng tải người hành nghề."
+      ],
+      "section": "danh-muc",
+      "page": 29,
+      "endPage": 30
+    },
+    {
+      "id": 27,
+      "question": "Cơ sở KCB có nhiều cơ sở trực thuộc thì cập nhật Danh mục nhân lực thực hiện KCB BHYT (Mẫu số 02/DM) như thế nào?",
+      "answer": [
+        "Mỗi cơ sở cập nhật 01 Danh mục nhân lực thực hiện KCB BHYT (Mẫu số 02/DM) và phải khớp đúng với danh sách người hành nghề KCB được đăng tải trên Cổng thông tin điện tử của Bộ Y tế hoặc trang tin điện tử của Sở Y tế và trên Hệ thống thông tin về quản lý hoạt động KCB.",
+        "Theo quy định tại khoản 8 Điều 27 Nghị định số 96/2023/NĐ-CP, người hành nghề thuộc cơ sở KCB có nhiều địa điểm KCB được đăng ký là người hành nghề tại tất cả các địa điểm của cơ sở KCB đó, nhưng không được trùng thời gian KCB giữa các cơ sở KCB."
+      ],
+      "section": "danh-muc",
+      "page": 30,
+      "endPage": 30
+    },
+    {
+      "id": 28,
+      "question": "Khi rà soát danh mục thuốc (Mẫu số 03/DM) cần đối chiếu với hồ sơ, tài liệu nào?",
+      "answer": [
+        "Khi rà soát danh mục thuốc, máu, chế phẩm máu (Mẫu số 03/DM), cơ quan BHXH đối chiếu dữ liệu danh mục của cơ sở KCB với các hồ sơ, tài liệu sau:",
+        "1. Danh mục thuốc sử dụng tại cơ sở KCB tại hồ sơ ký hợp đồng;",
+        "2. Trường hợp cơ sở KCB sử dụng thuốc bào chế hoặc pha chế hoặc chế biến: văn bản của người đứng đầu cơ sở KCB phê duyệt quy trình bào chế hoặc pha chế hoặc chế biến, tiêu chuẩn chất lượng, giá hoặc chi phí của thuốc theo quy định tại khoản 2 Điều 13 Thông tư số 37/2024/TT-BYT hoặc khoản 2 Điều 15, khoản 3 Điều 16 và khoản 3 Điều 18 Thông tư số 27/2025/TT-BYT;",
+        "3. Trường hợp cơ sở có sử dụng thuốc phóng xạ, chất đánh dấu: văn bản của cấp có thẩm quyền cho phép thực hiện việc chẩn đoán, điều trị bằng thuốc phóng xạ và chất đánh dấu theo quy định tại khoản 2 Điều 2 Thông tư số 20/2022/TT-BYT.",
+        "Trường hợp cơ sở KCB sử dụng thuốc phóng xạ tự sản xuất, pha chế: giấy phép tiến hành công việc bức xạ của cơ quan có thẩm quyền theo quy định tại khoản 5 Điều 13 Thông tư số 37/2024/TT-BYT;",
+        "4. Văn bản của cấp có thẩm quyền phê duyệt kế hoạch lựa chọn nhà thầu, phê duyệt kết quả lựa chọn nhà thầu nếu cơ sở KCB tự tổ chức đấu thầu theo quy định tại điểm a khoản 5 Điều 19 Thông tư số 37/2024/TT-BYT; hợp đồng mua sắm thuốc, hóa đơn mua thuốc để cấp cứu người bệnh trong tình trạng cấp cứu;",
+        "5. Văn bản của cơ sở KCB thông báo về việc phát sinh, thay đổi các nội dung liên quan đến thông tin thuốc, máu, chế phẩm máu theo quy định tại điểm a khoản 3 Điều 24 Nghị định số 188/2025/NĐ-CP."
+      ],
+      "section": "danh-muc",
+      "page": 30,
+      "endPage": 31
+    },
+    {
+      "id": 29,
+      "question": "Danh mục thuốc áp dụng trong thanh toán BHYT (Mẫu số 03/DM) được giám định theo phương thức tự động các nội dung nào?",
+      "answer": [
+        "Các nội dung sau được giám định theo phương thức tự động:",
+        "- Định dạng dữ liệu, cấu trúc, logic giữa các trường thông tin.",
+        "- Thông tin danh mục:",
+        "+ Đối chiếu với thông tin tại danh mục dùng chung của Bộ Y tế; thông tin tại danh mục thuốc được cấp phép lưu hành cập nhật trên Hệ thống; Thuốc mua sắm theo kết quả đấu thầu tập trung hoặc đàm phán giá: đối chiếu với Danh mục thuốc đấu thầu tập trung;",
+        "+ Các hoạt chất có quy định điều kiện, tỷ lệ thanh toán phù hợp với điều kiện của cơ sở KCB;",
+        "+ Thuốc phóng xạ, chất đánh dấu sử dụng trong các dịch vụ kỹ thuật được cấp có thẩm quyền cho phép thực hiện.",
+        "- Số lượng thuốc: Số lượng thuốc tùy chọn mua thêm không vượt 30% số lượng trúng thầu; số lượng thuốc nhận điều chuyển không vượt quá số lượng của cơ sở KCB chuyển đi.",
+        "- Đơn giá thuốc:",
+        "+ Đơn giá mua sắm không cao hơn đơn giá theo kết quả lựa chọn nhà thầu;",
+        "+ Đối với vị thuốc cổ truyền: đơn giá thanh toán BHYT theo đơn giá mua sắm cộng với chi phí hao hụt trong bảo quản, cân chia;",
+        "+ Đối với cơ sở KCB tư nhân, cơ sở KCB nhà nước là đơn vị sự nghiệp công lập tự đảm bảo chi thường xuyên và chi đầu tư, đơn vị sự nghiệp công lập tự đảm bảo chi thường xuyên không tổ chức đấu thầu: đơn giá theo kết quả lựa chọn nhà thầu còn hiệu lực tại thời điểm thanh toán;",
+        "+ Đối với thuốc nhận điều chuyển: đơn giá thanh toán của cơ sở KCB điều chuyển thuốc;",
+        "+ Dược liệu, vị thuốc cổ truyền sau sơ chế, chế biến, bảo quản, cân chia: tỷ lệ hao hụt không cao hơn tỷ lệ do Bộ Y tế quy định.",
+        "Hệ thống tự động trả lại về Cổng tiếp nhận dữ liệu các trường hợp sau:",
+        "- Tên hoạt chất, tên thuốc phóng xạ và chất đánh dấu, đường dùng hoặc dạng dùng không đúng với thông tin tại danh mục thuốc do Bộ Y tế ban hành hoặc thông tin tại danh mục thuốc được cấp phép lưu hành;",
+        "- Các hoạt chất có quy định điều kiện thanh toán không phù hợp với điều kiện về cơ sở KCB hoặc cấp chuyên môn kỹ thuật;",
+        "- Thuốc có quy định tỷ lệ thanh toán không tương ứng với dạng bào chế;",
+        "- Thuốc phóng xạ, chất đánh dấu sử dụng trong các dịch vụ kỹ thuật chưa được cấp có thẩm quyền cho phép thực hiện;",
+        "- Thành phần và đường dùng của thuốc đông y, thuốc từ dược liệu, tên và nguồn gốc của vị thuốc y học cổ truyền không đúng với danh mục do Bộ Y tế ban hành;",
+        "- Thuốc đông y, thuốc từ dược liệu sử dụng tại cơ sở KCB không phải là bệnh viện hoặc viện y học cổ truyền theo quy định tại Danh mục thuốc do Bộ Y tế ban hành;",
+        "- Thuốc có số đăng ký hoặc giấy phép lưu hành sản phẩm không đúng với thông tin thuốc còn hiệu lực hoặc hết hiệu lực nhưng được đánh dấu trạng thái được tiếp tục sử dụng giấy đăng ký lưu hành trong danh mục công bố trên Trang thông tin điện tử của Cục Quản lý Dược - Bộ Y tế hoặc Trang thông tin điện tử của Cục Quản lý Y, Dược cổ truyền - Bộ Y tế;",
+        "- Thuốc tân dược tự bào chế, pha chế mà toàn bộ các hoạt chất không có trong danh mục thuốc thuộc phạm vi được hưởng của người tham gia BHYT;",
+        "không phù hợp về đường dùng;",
+        "- Thuốc đấu thầu tập trung không trùng khớp toàn bộ thông tin với danh mục thuốc đấu thầu tập trung hoặc đàm phán giá nếu mua sắm theo kết quả đấu thầu tập trung hoặc đàm phán giá (trừ số lượng phân bổ);",
+        "- Thuốc tại cơ sở KCB là đơn vị sự nghiệp công lập tự đảm bảo chi thường xuyên và chi đầu tư, đơn vị sự nghiệp công lập tự đảm bảo chi thường xuyên và cơ sở KCB tư nhân mua theo quy định tại khoản 3 Điều 55 Luật Đấu thầu số 22/2023/QH15 được sửa đổi, bổ sung tại Luật số 90/2025/QH15 không trùng khớp các thông tin tên thương mại, hãng sản xuất, xuất xứ, nồng độ, hàm lượng, đường dùng, nhóm tiêu chí kỹ thuật, dạng bào chế, đơn vị tính của mặt hàng thuốc đã trúng thầu theo quy định tại Điều 49 Nghị định số 188/2025/NĐ-CP ;",
+        "- Số lượng thuốc tùy chọn mua thêm vượt 30% số lượng trúng thầu hoặc nhận điều chuyển vượt quá số lượng của cơ sở KCB chuyển đi;",
+        "- Đơn giá mua sắm cao hơn kết quả lựa chọn nhà thầu quy định tại khoản 1 Điều 8 Thông tư số 37/2024/TT-BYT (trừ trường hợp cơ sở KCB là đơn vị sự nghiệp công lập tự đảm bảo chi thường xuyên và chi đầu tư, đơn vị sự nghiệp công lập tự đảm bảo chi thường xuyên và cơ sở KCB tư nhân mua sắm theo quy định tại Điều 49 Nghị định số 188/2025/NĐ-CP) hoặc cao hơn giá bán buôn thuốc dự kiến đã công bố, công bố lại đối với thuốc kê đơn được công bố trên Trang thông tin điện tử của Cục Quản lý Dược - Bộ Y tế ;",
+        "- Đơn giá thanh toán BHYT: cao hơn đơn giá mua sắm hoặc cao hơn đơn giá mua sắm cộng với chi phí hao hụt trong bảo quản, cân chia đối với vị thuốc cổ truyền; hoặc cao hơn đơn giá theo kết quả lựa chọn nhà thầu còn hiệu lực tại thời điểm thanh toán theo thứ tự ưu tiên tại Điều 49 Nghị định số 188/2025/NĐ-CP đối với cơ sở KCB là đơn vị sự nghiệp công lập tự đảm bảo chi thường xuyên và chi đầu tư, đơn vị sự nghiệp công lập tự đảm bảo chi thường xuyên và cơ sở KCB tư nhân mua theo quy định tại khoản 3 Điều 55 Luật Đấu thầu số 22/2023/QH15 được sửa đổi, bổ sung tại Luật số 90/2025/QH15; hoặc cao hơn đơn giá thanh toán của cơ sở KCB điều chuyển thuốc đối với trường hợp thuốc nhận điều chuyển từ cơ sở KCB khác;",
+        "- Dược liệu, vị thuốc cổ truyền sau sơ chế, chế biến, bảo quản, cân chia có tỷ lệ hao hụt cao hơn tỷ lệ quy định tại khoản 5 Điều 6 Thông tư số 43/2017/TT-BYT."
+      ],
+      "section": "danh-muc",
+      "page": 31,
+      "endPage": 33
+    },
+    {
+      "id": 30,
+      "question": "Các nội dung nào tại Danh mục thuốc, máu, chế phẩm máu áp dụng trong thanh toán BHYT (Mẫu số 03/DM) được giám định theo phương thức chủ động?",
+      "answer": [
+        "Cơ quan BHXH thực hiện đối chiếu chủ động các nội dung sau:",
+        "1. Đối chiếu sự khớp đúng thông tin thuốc (tên, hoạt chất, nồng độ/hàm lượng, đường dùng, quy cách, nhà sản xuất...) với Danh mục thuốc tại hồ sơ ký hợp đồng và các văn bản thông báo thay đổi, bổ sung.",
+        "2. Đối chiếu thông tin thầu, số lượng, đơn giá trên Hệ thống với quyết định phê duyệt kết quả lựa chọn nhà thầu, quyết định phân bổ/điều tiết thuốc đấu thầu tập trung hoặc hợp đồng/hóa đơn mua sắm (đối với thuốc cấp cứu).",
+        "3. Kiểm tra sự khớp đúng của danh mục thuốc đề nghị thanh toán với văn bản phê duyệt sử dụng thuốc vượt hạng (theo khoản 2 Điều 8 Thông tư số 37/2024/TT-BYT).",
+        "4. Thuốc phóng xạ, chất đánh dấu: kiểm tra sự phù hợp với phạm vi được cấp có thẩm quyền cho phép thực hiện chẩn đoán, điều trị; đối chiếu giấy phép tiến hành công việc bức xạ đối với thuốc tự sản xuất, pha chế.",
+        "5. Thuốc tự bào chế, pha chế, chế biến: đối chiếu với văn bản của người đứng đầu cơ sở KCB phê duyệt quy trình, tiêu chuẩn chất lượng.",
+        "6. Rà soát đơn giá thanh toán BHYT:",
+        "- Thuốc áp dụng theo Điều 49 Nghị định số 188/2025/NĐ-CP: đối chiếu đơn giá thanh toán trên Mẫu số 03/DM với đơn giá tại kết quả lựa chọn nhà thầu còn hiệu lực do cơ sở KCB đề nghị và trình tự áp dụng đơn giá theo các kết quả lựa chọn nhà thầu quy định tại Điều 49 Nghị định số 188/2025/NĐ-CP",
+        "- Thuốc tân dược tự bào chế, pha chế: rà soát sự phù hợp của giá thanh toán qua bảng thuyết minh giá thành.",
+        "- Dược liệu sơ chế: Rà soát đơn giá bằng (=) Giá mua sắm + các khoản chi phí theo khoản 1 Điều 15 Thông tư số 27/2025/TT-BYT.",
+        "- Vị thuốc cổ truyền: Rà soát đơn giá bằng (=) Giá mua sắm + các khoản chi phí theo khoản 2 Điều 16 Thông tư số 27/2025/TT-BYT.",
+        "- Chế phẩm y học cổ truyền tự chế biến, bào chế: Rà soát đơn giá bằng (=) Giá dược liệu/vị thuốc + các khoản chi phí theo khoản 1 và 2 Điều 18 Thông tư số 27/2025/TT-BYT.",
+        "- Rà soát thuyết minh giá thành bao bì (chỉ áp dụng đối với trường hợp cơ sở KCB không thực hiện sắc thuốc cho người bệnh).",
+        "Trả lại cơ sở KCB qua Cổng tiếp nhận dữ liệu các trường hợp sau:",
+        "- Thông tin trong danh mục thuốc, máu, chế phẩm máu áp dụng trong thanh toán BHYT (Mẫu số 03/DM) sai lệch với danh mục thuốc sử dụng tại cơ sở KCB tại hồ sơ ký hợp đồng và hồ sơ, tài liệu.",
+        "- Thuốc phóng xạ, chất đánh dấu nhưng chưa có văn bản của cấp có thẩm quyền cho phép thực hiện việc chẩn đoán, điều trị bằng phóng xạ.",
+        "- Thuốc tự bào chế, pha chế nhưng cơ sở KCB chưa phê duyệt quy trình bào chế hoặc pha chế, tiêu chuẩn chất lượng, giá hoặc chi phí của thuốc.",
+        "- Trường hợp phát hiện giá thanh toán của các thuốc, bao bì đóng gói, thuốc tự bào chế, pha chế, chế biến chưa hợp lý thì đề nghị cơ sở KCB có văn bản làm rõ các chi phí để xác định giá thành của thuốc, bao bì đóng gói."
+      ],
+      "section": "danh-muc",
+      "page": 33,
+      "endPage": 34
+    },
+    {
+      "id": 31,
+      "question": "Đối với thuốc tân dược do cơ sở KCB tự bào chế, pha chế, BHXH tỉnh cần rà soát những nội dung nào?",
+      "answer": [
+        "- Thuốc do cơ sở KCB tự bào chế, pha chế phải có thành phần được quy định trong danh mục thuốc được ban hành theo quy định của Bộ Y tế. Trường hợp thuốc được bào chế, pha chế cấu thành bởi nhiều hoạt chất, mỗi thành phần hoạt chất của chế phẩm phải có trong danh mục thuốc được ban hành dưới dạng đơn chất hoặc dạng phối hợp; Trường hợp thuốc được bào chế, pha chế cấu thành bởi nhiều hoạt chất, nhưng có thành phần không có trong danh mục thuốc được ban hành theo quy định của Bộ Y tế, thực hiện theo hướng dẫn tại khoản 4 Điều 13 Thông tư số 37/2024/TT-BYT.",
+        "- Phù hợp về đường dùng, điều kiện thanh toán trong danh mục thuốc do Bộ Y tế ban hành;",
+        "- Có quy trình bào chế hoặc pha chế, tiêu chuẩn chất lượng, chi phí của thuốc theo quy định tại khoản 3 Điều 13 Thông tư số 37/2024/TT-BYT do người đứng đầu cơ sở KCB ban hành và gửi cơ quan BHXH;",
+        "- Giá thanh toán BHYT: theo quy định tại khoản 3 Điều 13 Thông tư số 37/2024/TT-BYT trừ chi phí hoạt chất không có trong danh mục thuốc do Bộ Y tế ban hành (nếu có);",
+        "- Chi phí thuốc được pha chế, bào chế được quỹ BHYT thanh toán không cao hơn giá mua sắm thông qua đấu thầu thuốc thương mại trên thị trường có cùng thành phần, hàm lượng, dạng bào chế với thuốc được pha chế, bào chế."
+      ],
+      "section": "danh-muc",
+      "page": 34,
+      "endPage": 35
+    },
+    {
+      "id": 32,
+      "question": "Trường hợp cơ sở KCB mua máu, chế phẩm máu từ cơ sở KCB khác thì Danh mục thuốc, máu, chế phẩm máu áp dụng trong thanh toán BHYT (Mẫu số 03/DM) được lập như thế nào? Trường hợp cơ sở KCB mua máu, chế phẩm máu từ cơ sở KCB khác và có chế phẩm máu đó có kèm theo cả thiết bị y tế là bộ kít gạn tách tiểu cầu thì thiết bị y tế này cơ sở KCB lập danh mục như thế nào?",
+      "answer": [
+        "1. Cơ sở KCB lập danh mục máu, chế phẩm máu mua từ cơ sở KCB khác danh mục theo hướng dẫn tại Danh mục thuốc, máu, chế phẩm máu áp dụng trong thanh toán BHYT (Mẫu số 03/DM); lưu ý: chỉ tiêu SO_LUONG: ghi số lượng máu tương ứng với quyết định mua sắm hoặc hợp đồng mua sắm, NHA_SX: ghi tên cơ sở sản xuất máu, NUOC_SX: ghi “Việt Nam”, NHA_THAU: ghi tên cơ sở sản xuất máu. Không bắt buộc các chỉ tiêu sau: TEN_HOAT_CHAT, DANG_BAO_CHE, SO_DANG_KY, QUY_CACH, TT_THAU, LOAI_THAU, HT_THAU, MA_DVKT, TCCL, BO_PHAN_VT, TEN_KHOA_HOC, NGUON_GOC, PP_CHEBIEN, MA_DL_NHAP, MA_DL_CB, TLHH_CB, TLHH_BQ, MA_CSKCB_THUOC, DEN_NGAY.",
+        "2. Trường hợp cơ sở KCB mua máu, chế phẩm máu từ cơ sở KCB khác và có chế phẩm máu đó có kèm theo cả thiết bị y tế là bộ kít gạn tách tiểu cầu: Trường hợp bộ kít gạn tách tiểu cầu đã được tính trong giá máu/chế phẩm máu hoặc giá do đơn vị cung ứng xác định và cơ sở KCB không đề nghị thanh toán riêng thì không lập, thanh toán thêm như một thiết bị y tế riêng. Trường hợp bộ kít được mua, sử dụng và đề nghị thanh toán riêng thuộc phạm vi thanh toán BHYT thì cơ sở KCB phải tạo lập/cập nhật danh mục thiết bị y tế theo Mẫu số 04/DM và cung cấp hồ sơ mua sắm, chứng từ theo quy định."
+      ],
+      "section": "danh-muc",
+      "page": 35,
+      "endPage": 36
+    },
+    {
+      "id": 33,
+      "question": "Cơ sở KCB đấu thầu, mua sắm chung số lượng thuốc, thiết bị y tế áp dụng trong thanh toán BHYT cho các cơ sở KCB khác (không có số lượng phân bổ cho các cơ sở trong quyết định) thì các cơ sở KCB lập danh mục với số lượng ghi như thế nào?",
+      "answer": [
+        "- Trường hợp cơ sở KCB thực hiện đấu thầu, mua sắm thuốc, thiết bị y tế chung cho các cơ sở có chia số lượng cụ thể cho từng cơ sở KCB thì ghi số lượng tương ứng với từng cơ sở KCB.",
+        "- Trường hợp không xác định được số lượng cụ thể cho từng cơ sở KCB thì đối với cơ sở KCB thực hiện đấu thầu, mua sắm ghi số lượng chung của tất cả các cơ sở KCB, các cơ sở KCB còn lại ghi số lượng là “0”.",
+        "Sau khi lập danh mục, ký số xác thực, cơ sở KCB gửi cơ quan BHXH qua Cổng tiếp nhận dữ liệu, ghi mã cơ sở KCB thực hiện đấu thầu, mua sắm tại màn hình khai báo Mã CSKCB đấu thầu."
+      ],
+      "section": "danh-muc",
+      "page": 36,
+      "endPage": 36
+    },
+    {
+      "id": 34,
+      "question": "Khi rà soát danh mục thiết bị y tế thuộc phạm vi thanh toán BHYT (Mẫu số 04/DM) cần đối chiếu với hồ sơ, tài liệu nào?",
+      "answer": [
+        "Khi rà soát danh mục thiết bị y tế thuộc phạm vi thanh toán BHYT (Mẫu số 04/DM), cơ quan BHXH đối chiếu dữ liệu danh mục của cơ sở KCB với các hồ sơ, tài liệu sau:",
+        "- Danh mục thiết bị y tế sử dụng tại cơ sở KCB tại hồ sơ ký hợp đồng;",
+        "- Văn bản thông báo cập nhật, điều chỉnh hoặc hóa đơn mua sắm thiết bị y tế nếu mua trong trường hợp cấp cứu tại điểm đ khoản 1 Điều 78 Nghị định số 214/2025/NĐ-CP và khoản 4 Điều 6 Nghị định số 349/2026/NĐ-CP",
+        "- Văn bản của cấp có thẩm quyền phê duyệt kế hoạch lựa chọn nhà thầu và kết quả lựa chọn nhà thầu nếu cơ sở KCB tự tổ chức đấu thầu kèm file điện tử;",
+        "Bảng kê danh mục thiết bị y tế chưa được tính chi phí vào giá của dịch vụ kỹ thuật, khám bệnh, ngày giường điều trị hoặc thu trọn gói theo trường hợp bệnh sử dụng tại cơ sở KCB theo mẫu tại Phụ lục số 02 ban hành kèm theo Thông tư số 04/2017/TT-BYT kèm file điện tử theo quy định tại khoản 2 Điều 2 Thông tư số 04/2017/TT-BYT; Đối với cơ sở KCB áp dụng thanh toán thiết bị y tế theo quy định tại Điều 49 Nghị định số 188/2025/NĐ-CP: cơ sở KCB lập bảng kê danh mục thiết bị y tế chưa được tính chi phí vào giá của dịch vụ kỹ thuật, khám bệnh, ngày giường điều trị hoặc thu trọn gói theo trường hợp bệnh sử dụng tại cơ sở KCB đó theo mẫu tại Phụ lục số 03 theo quy định tại Khoản 3 Điều 2 Thông tư số 04/2017/TT-BYT.",
+        "- Văn bản thông báo định mức và tài liệu xây dựng định mức đối với thiết bị y tế khó định lượng khi sử dụng;",
+        "- Văn bản thông báo số lần sử dụng tối đa và tài liệu xác định giá thanh toán, quy trình tái sử dụng đối với từng loại thiết bị y tế tái sử dụng do người đứng đầu cơ sở KCB phê duyệt;",
+        "- Văn bản của người đứng đầu cơ sở KCB phê duyệt quy trình sản xuất, tiêu chuẩn chất lượng, giá thành sản phẩm đối với thiết bị y tế tự sản xuất;",
+        "- Văn bản của cơ sở KCB về việc phát sinh, thay đổi các nội dung liên quan đến thông tin thiết bị y tế thuộc phạm vi thanh toán BHYT theo quy định tại điểm a khoản 3 Điều 24 Nghị định số 188/2025/NĐ-CP."
+      ],
+      "section": "danh-muc",
+      "page": 36,
+      "endPage": 37
+    },
+    {
+      "id": 35,
+      "question": "Những nội dung nào tại Danh mục thiết bị y tế áp dụng trong thanh toán BHYT (Mẫu số 04/DM) được thực hiện giám định theo phương thức tự động?",
+      "answer": [
+        "Các nội dung sau đây được giám định theo phương thức tự động:",
+        "- Định dạng dữ liệu, cấu trúc, logic giữa các trường thông tin;",
+        "- Đối chiếu với danh mục thiết bị y tế do Bộ Y tế ban hành và thông tin tại kết quả lựa chọn nhà thầu;",
+        "- Số lượng thiết bị y tế tùy chọn mua thêm;",
+        "- Số lượng thiết bị y tế nhận điều chuyển;",
+        "- Đối chiếu đơn giá đề nghị thanh toán BHYT với đơn giá tại kết quả lựa chọn nhà thầu hoặc mức thanh toán đối với các thiết bị y tế có quy định mức thanh toán tại cột 5 Phụ lục 01 ban hành kèm theo Thông tư số 04/2017/TT-BYT;",
+        "Đối với cơ sở KCB là đơn vị sự nghiệp công lập tự đảm bảo chi thường xuyên và chi đầu tư, đơn vị sự nghiệp công lập tự đảm bảo chi thường xuyên và cơ sở KCB tư nhân mua theo quy định tại khoản 3 Điều 55 Luật Đấu thầu số 22/2023/QH15 được sửa đổi, bổ sung bởi Luật số 90/2025/QH15: đối chiếu với đơn giá theo kết quả lựa chọn nhà thầu còn hiệu lực tại thời điểm thanh toán theo thứ tự ưu tiên tại Điều 49 Nghị định số 188/2025/NĐ-CP.",
+        "Hệ thống tự động trả lại về Cổng tiếp nhận dữ liệu các trường hợp:",
+        "- Không đúng định dạng, cấu trúc, logic giữa các trường thông tin;",
+        "- Thiết bị y tế có mã nhóm, tên nhóm hoặc đơn vị tính không đúng với thông tin tại danh mục thiết bị y tế ban hành kèm theo Thông tư số 04/2017/TT-BYT được sửa đổi, bổ sung tại khoản 6 Điều 1 Thông tư số 24/2025/TT-BYT, khoản 2 Điều 1 Quyết định số 2192/QĐ-BYT ngày 31/5/2017 của Bộ trưởng Bộ Y tế về việc đính chính Thông tư số 04/2017/TT-BYT hoặc các thông tin khác không trùng khớp với kết quả lựa chọn nhà thầu theo quy định tại khoản 1 Điều 55 Luật Đấu thầu số 22/2023/QH15;",
+        "- Thiết bị y tế tại cơ sở KCB là đơn vị sự nghiệp công lập tự đảm bảo chi thường xuyên và chi đầu tư, đơn vị sự nghiệp công lập tự đảm bảo chi thường xuyên và cơ sở KCB tư nhân mua theo quy định tại khoản 3 Điều 55 Luật Đấu thầu số 22/2023/QH15 được sửa đổi, bổ sung tại Luật số 90/2025/QH15 nhưng không trùng khớp các thông tin tên thương mại, hãng sản xuất, xuất xứ, tiêu chí kỹ thuật của mặt hàng đã trúng thầu theo quy định tại Điều 49 Nghị định số 188/2025/NĐ-CP;",
+        "- Danh mục thiết bị y tế không trùng khớp toàn bộ thông tin với danh mục thiết bị y tế đấu thầu tập trung đối với mua sắm theo kết quả đấu thầu tập trung (trừ số lượng phân bổ);",
+        "- Số lượng tùy chọn mua thêm vượt 30% số lượng trúng thầu hoặc nhận điều chuyển vượt quá số lượng của cơ sở KCB chuyển đi;",
+        "- Đơn giá thanh toán BHYT:",
+        "+ Cao hơn đơn giá trúng thầu;",
+        "+ Cao hơn mức thanh toán đối với các thiết bị y tế có quy định mức thanh toán tại cột 5 Phụ lục 01 ban hành kèm theo Thông tư số 04/2017/TT-BYT;",
+        "+ Cao hơn đơn giá theo kết quả lựa chọn nhà thầu còn hiệu lực tại thời điểm thanh toán theo thứ tự ưu tiên tại Điều 49 Nghị định số 188/2025/NĐ-CP đối với cơ sở KCB là đơn vị sự nghiệp công lập tự đảm bảo chi thường xuyên và chi đầu tư, đơn vị sự nghiệp công lập tự đảm bảo chi thường xuyên và cơ sở KCB tư nhân mua theo quy định tại khoản 3 Điều 55 Luật Đấu thầu số 22/2023/QH15 được sửa đổi, bổ sung bởi Luật số 90/2025/QH15."
+      ],
+      "section": "danh-muc",
+      "page": 37,
+      "endPage": 38
+    },
+    {
+      "id": 36,
+      "question": "Các nội dung nào tại Danh mục thiết bị y tế áp dụng trong thanh toán BHYT (Mẫu số 04/DM) được giám định theo phương thức chủ động?",
+      "answer": [
+        "Cơ quan BHXH thực hiện đối chiếu chủ động các nội dung sau:",
+        "- Thông tin dữ liệu tại Danh mục thiết bị y tế áp dụng trong thanh toán BHYT (Mẫu số 04/DM) với danh mục thiết bị y tế sử dụng tại cơ sở KCB tại hồ sơ đề nghị ký hợp đồng, bảng kê danh mục thiết bị y tế đề nghị thanh toán theo Khoản 2 và Khoản 3 Điều 2 Thông tư số 04/2017/TT-BYT, trả lại danh mục để cơ sở KCB điều chỉnh nếu sai lệch;",
+        "- Các thông tin về hình thức đấu thầu, tên thiết bị y tế trong danh mục với kết quả lựa chọn nhà thầu, đảm bảo trùng khớp thông tin trên dữ liệu danh mục và hồ sơ, tài liệu kèm theo, trả lại cơ sở KCB để điều chỉnh nếu sai lệch;",
+        "- Đối với thiết bị y tế khó định lượng khi sử dụng: căn cứ tài liệu gửi kèm, số lượng, tần suất thực hiện dịch vụ kỹ thuật và số lượng thiết bị y tế đã sử dụng để rà soát định mức xây dựng, đề nghị điều chỉnh nếu phát hiện định mức chưa phù hợp;",
+        "- Đối với các thiết bị y tế có thể tái sử dụng mà chưa có hướng dẫn về quy trình tái sử dụng, số lần tái sử dụng của Bộ Y tế hoặc của nhà sản xuất: căn cứ văn bản thông báo của cơ sở KCB kèm theo quy trình tái sử dụng, số lần tái sử dụng đã được cơ sở KCB phê duyệt để rà soát giá thanh toán theo quy định tại khoản 2 và 3 Điều 5 Thông tư số 04/2017/TT-BYT, đề nghị điều chỉnh nếu phát hiện giá chưa phù hợp;",
+        "- Đối với thiết bị y tế tự sản xuất: rà soát tài liệu gửi kèm; trường hợp phát hiện giá thanh toán chưa phù hợp thì đề nghị cơ sở KCB làm rõ các chi phí để xác định giá thiết bị y tế."
+      ],
+      "section": "danh-muc",
+      "page": 38,
+      "endPage": 39
+    },
+    {
+      "id": 37,
+      "question": "Khi giám định danh mục dịch vụ KCB áp dụng trong thanh toán BHYT (Mẫu số 05/DM) cần đối chiếu với hồ sơ, tài liệu nào?",
+      "answer": [
+        "Khi rà soát danh mục dịch vụ KCB áp dụng trong thanh toán BHYT (Mẫu số 05/DM), cơ quan BHXH đối chiếu dữ liệu danh mục của cơ sở KCB với các hồ sơ, tài liệu sau:",
+        "1. Quyết định phê duyệt danh mục dịch vụ kỹ thuật y tế của cấp có thẩm quyền hoặc Quyết định điều chỉnh giấy phép hoạt động của cơ sở KCB khi thay đổi phạm vi hoạt động chuyên môn: bổ sung, giảm bớt danh mục dịch vụ kỹ thuật;",
+        "2. Quyết định phê duyệt giá dịch vụ KCB thuộc danh mục do quỹ BHYT thanh toán của cấp có thẩm quyền hoặc văn bản đề xuất giá dịch vụ KCB BHYT đối với cơ sở KCB tư nhân;",
+        "3. Quy trình kỹ thuật hoặc hướng dẫn chuyên môn do Bộ Y tế hoặc người đứng đầu cơ sở KCB ban hành;",
+        "4. Trường hợp dịch vụ cận lâm sàng cần chuyển thực hiện tại cơ sở khác:",
+        "a) Văn bản thông báo kèm danh sách các dịch vụ cận lâm sàng đã thực hiện chuyển đến cơ sở thực hiện dịch vụ cận lâm sàng đối với dịch vụ cận lâm sàng được cấp có thẩm quyền phê duyệt và đang thực hiện tại cơ sở KCB nhưng tại thời điểm chỉ định cho người bệnh, cơ sở KCB không thực hiện được hoặc không đủ để đáp ứng toàn bộ nhu cầu thực hiện;",
+        "b) Văn bản thông báo kèm danh sách các dịch vụ cận lâm sàng cần chuyển và hợp đồng nguyên tắc giữa cơ sở KCB nơi chuyển người bệnh hoặc mẫu bệnh phẩm và cơ sở thực hiện dịch vụ cận lâm sàng đối với dịch vụ cận lâm sàng chưa được cấp có thẩm quyền phê duyệt nhưng thực tế cần thiết cho các hoạt động chuyên môn;",
+        "c) Văn bản của cấp có thẩm quyền phê duyệt danh mục dịch vụ kỹ thuật cho cơ sở thực hiện dịch vụ cận lâm sàng; bảng giá dịch vụ KCB (nếu có); danh mục thiết bị y tế, nhân lực để thực hiện dịch vụ cận lâm sàng của cơ sở y tế nơi thực hiện dịch vụ cận lâm sàng không ký hợp đồng KCB BHYT.",
+        "5. Trường hợp nhận chuyển giao kỹ thuật: văn bản của cơ sở KCB gửi cơ quan BHXH thông báo về các dịch vụ KCB được thực hiện theo đề án, hợp đồng chuyển giao, kèm theo đề án, hợp đồng chuyển giao kỹ thuật, văn bản phê duyệt của cấp có thẩm quyền đối với các kỹ thuật loại đặc biệt.",
+        "6. Văn bản của cơ sở KCB thông báo về việc phát sinh, thay đổi các nội dung liên quan đến thông tin dịch vụ KCB áp dụng trong thanh toán BHYT theo quy định tại điểm a khoản 3 Điều 24 Nghị định số 188/2025/NĐ-CP."
+      ],
+      "section": "danh-muc",
+      "page": 39,
+      "endPage": 40
+    },
+    {
+      "id": 38,
+      "question": "Những nội dung nào tại Danh mục dịch vụ KCB áp dụng trong thanh toán BHYT (Mẫu số 05/DM) được thực hiện giám định theo phương thức tự động?",
+      "answer": [
+        "Các nội dung sau đây được giám định theo phương thức tự động:",
+        "- Thông tin không đầy đủ, không đúng tên hoặc mã trong danh mục dịch vụ KCB dùng chung theo quy định của Bộ Y tế;",
+        "- Dịch vụ kỹ thuật có quy định điều kiện về chuyên khoa và hình thức KCB không phù hợp với cơ cấu tổ chức của cơ sở KCB;",
+        "- Giá thanh toán BHYT đối với dịch vụ KCB",
+        "+ Giá thanh toán BHYT tại cơ sở KCB không vượt quá giá dịch vụ KCB tương ứng do Bộ trưởng Bộ Y tế quy định.",
+        "+ Giá thanh toán BHYT tại cơ sở KCB tư nhân không cao hơn giá quy định tại điểm b khoản 2 Điều 39 và khoản 2 Điều 47 Nghị định số 188/2025/NĐ-CP;",
+        "+ Giá thanh toán BHYT đối với dịch vụ cận lâm sàng chuyển thực hiện tại cơ sở KCB khác cao hơn giá quy định tại khoản 4 Điều 44 Nghị định số 188/2025/NĐ-CP;",
+        "+ Giá thanh toán BHYT đối với dịch vụ chuyển giao kỹ thuật không cao hơn giá quy định tại khoản 3 Điều 45 Nghị định số 188/2025/NĐ-CP;",
+        "- Dịch vụ cận lâm sàng chuyển thực hiện tại cơ sở KCB khác nhưng không có trong danh mục dịch vụ KCB của nơi thực hiện;",
+        "- Dịch vụ kỹ thuật chuyển giao không có trong danh mục KCB của nơi chuyển giao kỹ thuật hoặc không phù hợp với thời gian hoặc phạm vi hành nghề của người được phân công chuyển giao."
+      ],
+      "section": "danh-muc",
+      "page": 40,
+      "endPage": 40
+    },
+    {
+      "id": 39,
+      "question": "Những nội dung nào tại Danh mục dịch vụ KCB áp dụng trong thanh toán BHYT (Mẫu số 05/DM) được thực hiện giám định theo phương thức chủ động?",
+      "answer": [
+        "Cơ quan BHXH thực hiện đối chiếu chủ động các nội dung sau:",
+        "- Thông tin danh mục dịch vụ KCB áp dụng trong thanh toán BHYT (Mẫu số 05/DM) với hồ sơ ký hợp đồng, văn bản của cơ sở KCB thông báo về việc phát sinh, thay đổi các nội dung liên quan đến thông tin dịch vụ KCB áp dụng trong thanh toán BHYT.",
+        "- Tên dịch vụ kỹ thuật tại danh mục với tên trong quyết định phê duyệt danh mục dịch vụ kỹ thuật y tế hoặc quyết định phê duyệt giá dịch vụ KCB thuộc danh mục do quỹ BHYT thanh toán hoặc văn bản đề xuất giá dịch vụ KCB BHYT đối với cơ sở KCB tư nhân hoặc quy trình kỹ thuật do người đứng đầu cơ sở KCB ban hành;",
+        "- Đối với dịch vụ kỹ thuật có sử dụng thuốc phóng xạ, chất đánh dấu, đối chiếu thông tin và giá đề nghị thanh toán BHYT tại Mẫu số 05/DM với hồ sơ, chứng từ mua sắm, hóa đơn hợp pháp và các tài liệu có liên quan tương ứng với kỳ mua sắm, sử dụng thuốc phóng xạ, chất đánh dấu làm căn cứ xác định giá đề nghị thanh toán.",
+        "Trả lại cơ sở KCB qua Cổng tiếp nhận dữ liệu các trường hợp sau:",
+        "- Các dịch vụ KCB có thông tin không trùng khớp với hồ sơ ký hợp đồng và các văn bản gửi kèm.",
+        "- Các dịch vụ kỹ thuật không được cơ sở KCB cung cấp đầy đủ tài liệu.",
+        "- Đơn giá dịch vụ KCB cao hơn đơn giá tại quyết định phê duyệt giá dịch vụ KCB thuộc danh mục do quỹ BHYT thanh toán;",
+        "- Đơn giá giường bệnh thanh toán BHYT tại các khoa chưa được quy định giá cao hơn mức giá của giường bệnh nội khoa thấp nhất đã được cấp có thẩm quyền phê duyệt theo quy định tại khoản 11 Điều 4c Thông tư số 35/2016/TT-BYT được sửa đổi, bổ sung tại khoản 4 Điều 1 Thông tư số 39/2024/TT-BYT.",
+        "- Dịch vụ kỹ thuật không có thiết bị y tế tại danh mục thiết bị y tế để thực hiện dịch vụ kỹ thuật của cơ sở KCB (Mẫu số 06/DM) hoặc không có người hành nghề đủ điều kiện để thực hiện tại danh mục nhân lực thực hiện KCB BHYT (Mẫu số 02/DM) để thực hiện dịch vụ kỹ thuật của cơ sở KCB.",
+        "- Đối với dịch vụ kỹ thuật có sử dụng thuốc phóng xạ, chất đánh dấu: thông tin, số lượng, đơn giá hoặc giá trị thuốc phóng xạ, chất đánh dấu được sử dụng làm căn cứ xác định giá đề nghị thanh toán BHYT tại Mẫu số 05/DM không phù hợp với hồ sơ, chứng từ mua sắm, hóa đơn và tài liệu có liên quan tương ứng với kỳ, lô thuốc hoặc chất đánh dấu thực tế được sử dụng.",
+        "- Giá đề nghị thanh toán BHYT dịch vụ kỹ thuật có sử dụng thuốc phóng xạ và chất đánh dấu tại Mẫu số 05/DM:",
+        "+ Tổng tiền thuốc phóng xạ đề nghị thanh toán trong dịch vụ kỹ thuật cao hơn tổng tiền thuốc phóng xạ đó trên hóa đơn của quý trước;",
+        "+ Tổng tiền chất đánh dấu đề nghị thanh toán trong dịch vụ kỹ thuật cao hơn tổng tiền chất đánh dấu đó trên hóa đơn của quý trước."
+      ],
+      "section": "danh-muc",
+      "page": 41,
+      "endPage": 42
+    },
+    {
+      "id": 40,
+      "question": "Hướng dẫn giám định chi phí dịch vụ kỹ thuật nhận chuyển giao kỹ thuật?",
+      "answer": [
+        "Điều kiện chuyển giao kỹ thuật và thanh toán dịch vụ kỹ thuật chuyển giao được quy định tại Điều 84 Nghị định số 96/2023/NĐ-CP và Điều 45 Nghị định số 188/2025/NĐ-CP.",
+        "1. Điều kiện chuyển giao và nhận chuyển giao kỹ thuật:",
+        "- Điều kiện đối với cơ sở KCB nơi chuyển giao kỹ thuật:",
+        "+ Kỹ thuật dự kiến chuyển giao phải thuộc phạm vi hoạt động chuyên môn đã được cấp có thẩm quyền phê duyệt cho cơ sở KCB nơi chuyển giao kỹ thuật;",
+        "+ Người chuyển giao kỹ thuật phải có kinh nghiệm thực hiện kỹ thuật dự kiến chuyển giao và phải có văn bản giao thực hiện chuyển giao kỹ thuật của người chịu trách nhiệm chuyên môn kỹ thuật của cơ sở KCB nơi chuyển giao kỹ thuật.",
+        "- Điều kiện đối với cơ sở KCB nơi tiếp nhận chuyển giao kỹ thuật:",
+        "+ Có phạm vi hoạt động chuyên môn phù hợp với kỹ thuật dự kiến tiếp nhận chuyển giao;",
+        "+ Có đủ điều kiện về nhân lực, cơ sở vật chất, thiết bị y tế để có thể tiếp nhận kỹ thuật dự kiến chuyển giao.",
+        "2. Hồ sơ, tài liệu cơ sở KCB cung cấp:",
+        "- Đề án chuyển giao kỹ thuật, hợp đồng chuyển giao kỹ thuật theo quy định của pháp luật về KCB;",
+        "- Văn bản thông báo của cơ sở KCB nhận chuyển giao kỹ thuật về các dịch vụ KCB được thực hiện theo đề án, hợp đồng chuyển giao, văn bản phê duyệt của cấp có thẩm quyền đối với các kỹ thuật loại đặc biệt.",
+        "- Cơ sở KCB cập nhật thông tin dịch vụ nhận chuyển giao tại Mẫu số 05/DM và thông tin người thực hiện chuyển giao kỹ thuật tại Mẫu số 02/DM.",
+        "3. Giám định chi phí:",
+        "- Dịch vụ KCB chuyển giao, người thực hiện chuyển giao, cơ sở KCB nhận chuyển giao phải đáp ứng điều kiện tại khoản 1 nêu trên.",
+        "- Mức thanh toán theo giá dịch vụ KCB BHYT được cấp có thẩm quyền phê duyệt cho cơ sở KCB chuyển giao kỹ thuật. Trường hợp cơ sở KCB chuyển giao kỹ thuật là cơ sở KCB tư nhân thì thực hiện theo quy định tại điểm b khoản 2 Điều 39 Nghị định số 188/2025/NĐ-CP.",
+        "- Đối với các chi phí KCB thuộc phạm vi thanh toán của quỹ BHYT chưa được tính trong kết cấu giá dịch vụ KCB, thanh toán theo số lượng thực tế sử dụng, giá mua theo quy định của pháp luật về đấu thầu hoặc theo mức thanh toán chi phí KCB của quỹ BHYT đối với cơ sở KCB tư nhân; chi phí máu, chế phẩm máu thanh toán theo quy định của Bộ Y tế..",
+        "- Quỹ BHYT thanh toán theo số lượng dịch vụ KCB trong đề án, hợp đồng;",
+        "chuyển giao hoặc văn bản phê duyệt của cấp có thẩm quyền đối với các kỹ thuật loại đặc biệt.",
+        "Sau khi hoàn thành việc thực hiện hợp đồng chuyển giao cơ sở KCB phải trình cấp có thẩm quyền phê duyệt danh mục kỹ thuật và phê duyệt giá theo quy định của pháp luật về giá dịch vụ KCB để làm cơ sở thanh toán đối với dịch vụ kỹ thuật đó."
+      ],
+      "section": "danh-muc",
+      "page": 42,
+      "endPage": 43
+    },
+    {
+      "id": 41,
+      "question": "Những nội dung nào tại Danh mục thiết bị y tế để thực hiện dịch vụ kỹ thuật (Mẫu số 06/DM) được thực hiện giám định theo phương thức tự động?",
+      "answer": [
+        "Các nội dung sau đây được giám định theo phương thức tự động:",
+        "- Định dạng dữ liệu, cấu trúc, logic giữa các trường thông tin;",
+        "- Thông tin mã máy.",
+        "Hệ thống tự động trả về Cổng tiếp nhận dữ liệu các thiết bị y tế không đúng định dạng dữ liệu, cấu trúc, logic giữa các trường thông tin, không đầy đủ các trường thông tin hoặc mã hóa không đúng hướng dẫn."
+      ],
+      "section": "danh-muc",
+      "page": 43,
+      "endPage": 43
+    },
+    {
+      "id": 42,
+      "question": "Những nội dung nào tại Danh mục thiết bị y tế để thực hiện dịch vụ kỹ thuật (Mẫu số 06/DM) được thực hiện giám định theo phương thức chủ động?",
+      "answer": [
+        "Cơ quan BHXH thực hiện đối chiếu chủ động các nội dung sau:",
+        "- Thông tin Danh mục thiết bị y tế để thực hiện dịch vụ kỹ thuật (Mẫu số 06/DM) với hồ sơ ký hợp đồng và hồ sơ, tài liệu gửi kèm.",
+        "- Đối chiếu Danh mục thiết bị y tế để thực hiện dịch vụ kỹ thuật (Mẫu số 06/DM) với điều kiện thực tế tại cơ sở KCB, thời hạn kiểm định về an toàn và tính năng kỹ thuật, an toàn bức xạ đối với các thiết bị y tế bắt buộc phải kiểm định an toàn và tính năng kỹ thuật, an toàn bức xạ; chứng chỉ kiểm định cấp cho phương tiện đo còn thời hạn đối với các thiết bị thuộc Danh mục phương tiện đo quy định tại khoản 1 Điều 4 Thông tư số 07/2019/TT-BKHCN ngày 26/7/2019 của Bộ trưởng Bộ Khoa học và Công nghệ sửa đổi, bổ sung một số điều của Thông tư số 23/2013/TT-BKHCN Trả lại cơ sở KCB qua Cổng tiếp nhận dữ liệu các trường hợp sau:",
+        "- Thông tin thiết bị y tế không trùng khớp với danh mục thiết bị y tế tại hồ sơ ký hợp đồng.",
+        "- Thiết bị y tế có tên trong Mẫu số 06/DM nhưng thực tế không có tại cơ sở KCB hoặc chưa được kiểm định về an toàn và tính năng kỹ thuật, an toàn bức xạ đối với các thiết bị y tế bắt buộc phải kiểm định an toàn và tính năng kỹ thuật, an toàn bức xạ hoặc giấy kiểm định về an toàn và tính năng kỹ thuật, an toàn bức xạ hết thời hạn kiểm định."
+      ],
+      "section": "danh-muc",
+      "page": 43,
+      "endPage": 44
+    },
+    {
+      "id": 43,
+      "question": "Trong quá trình thực hiện hợp đồng KCB BHYT, cơ sở KCB triển khai thiết bị y tế mới để thực hiện dịch vụ kỹ thuật thì cơ quan BHXH có phải thẩm định hồ sơ thiết bị y tế không?",
+      "answer": [
+        "Theo quy định tại điểm a khoản 3 Điều 24 Nghị định số 188/2025/NĐ-CP, trường hợp cơ sở KCB triển khai thiết bị y tế mới để thực hiện dịch vụ kỹ thuật phải gửi văn bản có thông tin, tài liệu liên quan đến việc triển khai thiết bị y tế mới cho cơ quan BHXH nơi ký hợp đồng; đồng thời cập nhật thông tin thiết bị y tế tại Danh mục thiết bị y tế để thực hiện dịch vụ kỹ thuật áp dụng trong thanh toán BHYT (Mẫu số 06/DM) của cơ sở KCB.",
+        "Cơ quan BHXH kiểm tra danh mục được cập nhật đảm bảo theo đúng danh mục dùng chung do Bộ Y tế ban hành, chuẩn, định dạng quy định tại Phụ lục II Thông tư số 12/2026/TT-BTC để thực hiện áp dụng danh mục trên Hệ thống theo quy định tại khoản 2 và khoản 4 Điều 8 Thông tư số 12/2026/TT-BTC.",
+        "Cơ quan BHXH không có trách nhiệm thẩm định hồ sơ thiết bị y tế. Cơ sở KCB phải chịu trách nhiệm về quản lý các thiết bị y tế sử dụng tại cơ sở theo quy định tại Nghị định số 98/2021/NĐ-CP.",
+        "Trong kỳ giám định gần nhất, cơ quan BHXH thực hiện đối chiếu, kiểm tra các thông tin như tên thiết bị y tế, ký hiệu (model), nguồn gốc tài sản tại sổ theo dõi thiết bị y tế tại khoa, phòng, bộ phận chuyên môn được giao sử dụng thiết bị y tế khớp đúng với thông tin tại Danh mục thiết bị y tế để thực hiện dịch vụ kỹ thuật áp dụng trong thanh toán BHYT (Mẫu số 06/DM). Trường hợp không có thiết bị y tế hoặc thông tin thiết bị y tế không đúng với thông tin tại danh mục Mẫu số 06/DM đã cập nhật trên Hệ thống thì thực hiện theo quy định tại khoản 5 Điều 8 Thông tư số 12/2026/TT-BTC."
+      ],
+      "section": "danh-muc",
+      "page": 44,
+      "endPage": 44
+    },
+    {
+      "id": 44,
+      "question": "Biểu mẫu đề nghị thanh toán, Biểu mẫu tổng hợp thanh toán, quyết toán chi chi phí KCB BHYT được lập như thế nào?",
+      "answer": [
+        "1. Biểu mẫu đề nghị thanh toán chi phí KCB BHYT do cơ sở KCB lập dưới dạng dữ liệu điện tử, ký số xác thực gửi cơ quan BHXH qua Cổng tiếp nhận dữ liệu, bao gồm:",
+        "- Bảng kê đề nghị thanh toán chi phí KCB BHYT (Bảng kê chi tiết) được lập theo chuẩn và định dạng dữ liệu do Bộ trưởng Bộ Y tế quy định tại Quyết định số 130/QĐ-BYT ngày 18/01/2023 quy định chuẩn và định dạng dữ liệu đầu ra phục vụ việc quản lý, giám định, thanh toán chi phí KCB và giải quyết các chế độ liên quan được sửa đổi, bổ sung bởi Quyết định số 4750/QĐ-BYT ngày 29/12/2023, Quyết định số 3176/QĐ-BYT ngày 29/10/2024 và Quyết định số 1931/QĐ-BYT ngày 29/6/2026;",
+        "- Bảng tổng hợp đề nghị thanh toán chi phí KCB BHYT được lập hằng tháng theo chuẩn và định dạng dữ liệu theo Mẫu số 01/BH Phụ lục I ban hành kèm theo Thông tư số 12/2026/TT-BTC;",
+        "- Báo cáo quyết toán chi phí KCB BHYT được lập hằng quý theo Mẫu số 02/BH Phụ lục I ban hành kèm theo Thông tư số 12/2026/TT-BTC.",
+        "2. Biểu mẫu tổng hợp thanh toán, quyết toán chi phí KCB BHYT do cơ quan BHXH lập dưới dạng điện tử, ký số xác thực gửi cơ sở KCB qua Cổng tiếp nhận dữ liệu, bao gồm:",
+        "- Biên bản giám định chi phí KCB BHYT theo Mẫu số 03/BH Phụ lục I ban hành kèm theo Thông tư số 12/2026/TT-BTC.",
+        "- Thông báo kết quả giám định chi phí KCB BHYT theo Mẫu số 05/BH Phụ lục I ban hành kèm theo Thông tư số 12/2026/TT-BTC.",
+        "- Biên bản quyết toán, thanh toán chi phí KCB BHYT theo Mẫu số 06/BH Phụ lục I ban hành kèm theo Thông tư số 12/2026/TT-BTC."
+      ],
+      "section": "ho-so",
+      "page": 45,
+      "endPage": 45
+    },
+    {
+      "id": 45,
+      "question": "Thời điểm cơ sở KCB gửi hồ sơ đề nghị thanh toán chi phí KCB BHYT được quy định như thế nào?",
+      "answer": [
+        "Thời điểm cơ sở KCB gửi hồ sơ đề nghị thanh toán chi phí KCB BHYT được quy định như sau:",
+        "- Bảng kê đề nghị thanh toán chi phí KCB BHYT (Bảng kê chi tiết): gửi trong thời gian 07 ngày làm việc kể từ ngày kết thúc việc KCB hoặc hồ sơ phát sinh vào những ngày cuối tháng gửi trước ngày 05 tháng sau theo quy định tại khoản 1 Điều 7 Thông tư số 48/2017/TT-BYT.",
+        "- Bảng tổng hợp đề nghị thanh toán chi phí KCB BHYT (Mẫu số 01/BH):",
+        "gửi bản tổng hợp đề nghị thanh toán chi phí khám bệnh, chữa bệnh bảo hiểm y tế của tháng trước trong thời hạn 15 ngày đầu của mỗi tháng theo quy định tại điểm a khoản 2 Điều 32 Luật BHYT.",
+        "- Báo cáo quyết toán chi KCB BHYT (Mẫu số 02/BH) được lập hằng quý:",
+        "gửi báo cáo quyết toán chi phí khám bệnh, chữa bệnh bảo hiểm y tế của quý trước trong thời hạn 15 ngày đầu của mỗi quý theo quy định tại điểm a khoản 2 Điều 32 Luật BHYT.",
+        "Hệ thống phản hồi tự động hồ sơ đề nghị thanh toán chi phí KCB BHYT gửi không đúng thời hạn nêu trên."
+      ],
+      "section": "ho-so",
+      "page": 45,
+      "endPage": 46
+    },
+    {
+      "id": 46,
+      "question": "Cổng tiếp nhận dữ liệu gửi phản hồi đối với hồ sơ đề nghị thanh toán chi phí KCB BHYT trong các trường hợp nào, thời gian gửi phản hồi được quy định như thế nào?",
+      "answer": [
+        "Cổng tiếp nhận dữ liệu gửi phản hồi tự động hồ sơ đề nghị thanh toán chi phí KCB BHYT cho cơ sở KCB như sau:",
+        "- Chậm nhất 06 giờ kể từ thời điểm nhận được hồ sơ đề nghị thanh toán không gửi đúng thời hạn quy định.",
+        "- Chậm nhất 24 giờ kể từ thời điểm nhận được hồ sơ đề nghị đề nghị thanh toán sai cấu trúc hoặc định dạng dữ liệu và ghi rõ lỗi sai của từng trường thông tin.",
+        "- Chậm nhất 48 giờ kể từ thời điểm nhận được Bảng tổng hợp sai lệch so với Bảng kê chi tiết hoặc chậm nhất 48 giờ kể từ thời điểm nhận được Báo cáo quyết toán không khớp với Bảng tổng hợp.",
+        "- Trong thời hạn 07 ngày làm việc kể từ ngày tiếp nhận hồ sơ đề nghị thanh toán, kết quả giám định bằng phương thức tự động các nội dung quy định tại khoản 1 Điều 10 Thông tư số 12/2026/TT-BTC được gửi cho cơ sở KCB."
+      ],
+      "section": "ho-so",
+      "page": 46,
+      "endPage": 46
+    },
+    {
+      "id": 47,
+      "question": "Sau khi nhận được phản hồi của cơ quan BHXH từ Cổng tiếp nhận dữ liệu đối với hồ sơ đề nghị thanh toán, cơ sở KCB thực hiện như thế nào?",
+      "answer": [
+        "- Trong thời hạn 02 ngày làm việc kể từ ngày nhận được phản hồi từ Cổng tiếp nhận dữ liệu đối với hồ sơ sai cấu trúc, định dạng dữ liệu hoặc Bảng tổng hợp sai lệch so với Bảng kê chi tiết hoặc Báo cáo quyết toán không khớp với Bảng tổng hợp, cơ sở KCB gửi cơ quan BHXH qua Cổng tiếp nhận dữ liệu Bảng kê chi tiết, Bảng tổng hợp hoặc Báo cáo quyết toán điều chỉnh kèm theo văn bản ghi rõ thông tin số liệu sửa chữa, điều chỉnh.",
+        "- Trong thời hạn 03 ngày làm việc kể từ ngày nhận được phản hồi từ Cổng tiếp nhận dữ liệu về kết quả giám định bằng phương thức tự động các nội dung quy định tại khoản 1 Điều 10 Thông tư số 12/2026/TT-BTC, cơ sở KCB có trách nhiệm rà soát, cung cấp, bổ sung văn bản kèm tài liệu chứng minh đủ điều kiện thanh toán đối với nội dung quy định tại điểm b, điểm c khoản 2 Điều 10 Thông tư số 12/2026/TT-BTC hoặc bản sao nội dung trong hồ sơ bệnh án khi cơ sở KCB phát hiện Bảng kê chi tiết không khớp đúng hồ sơ bệnh án và Bảng kê chi tiết điều chỉnh được lập theo Mẫu số 09/BH Phụ lục I Thông tư số 12/2026/TT-BTC đối với nội dung quy định tại điểm b hoặc điểm c khoản 2 Điều 10 Thông tư số 12/2026/TT-BTC.",
+        "BHXH tỉnh/BHXH cơ sở phân công cán bộ thực hiện rà soát, đối chiếu hằng ngày Bảng kê chi tiết điều chỉnh (theo Mẫu số 09/BH) đã được cơ sở KCB gửi lại trên Hệ thống và được Hệ thống đánh dấu “giám định chủ động” với hồ sơ, tài liệu cơ sở KCB cung cấp theo quy định tại khoản 2 Điều 11 Thông tư số 12/2026/TT-BTC và hướng dẫn của BHXH Việt Nam tại khoản 3 Công văn số 2274/BHXH-TTKS ngày 30/6/2026."
+      ],
+      "section": "ho-so",
+      "page": 46,
+      "endPage": 47
+    },
+    {
+      "id": 48,
+      "question": "Trường hợp cơ sở KCB có nhiều cơ sở trực thuộc trên cùng địa bàn ký chung 01 hợp đồng KCB BHYT thì thực hiện gửi hồ sơ đề nghị thanh toán như thế nào?",
+      "answer": [
+        "- Đối với Bảng kê chi tiết: cơ sở KCB ký hợp đồng KCB BHYT và các cơ sở KCB trực thuộc thực hiện gửi dữ liệu Bảng kê chi tiết theo nơi phát sinh chi phí KCB.",
+        "- Đối với Bảng tổng hợp đề nghị thanh toán chi phí KCB BHYT (Mẫu số 01/BH) và Báo cáo quyết toán chi phí KCB BHYT (Mẫu số 02/BH): cơ sở KCB ký hợp đồng tổng hợp chi phí KCB phát sinh tại cơ sở KCB đó và các cơ sở KCB trực thuộc có tên trong hợp đồng, lập theo Mẫu số 01/BH và Mẫu số 02/BH gửi cơ quan BHXH nơi ký hợp đồng KCB BHYT."
+      ],
+      "section": "ho-so",
+      "page": 47,
+      "endPage": 47
+    },
+    {
+      "id": 49,
+      "question": "Trường hợp cơ sở KCB không gửi được dữ liệu đề nghị thanh toán chi phí KCB BHYT đúng thời hạn do nguyên nhân khách quan, bất khả kháng như thiên tai, bão lụt, mất điện, mất kết nối Internet,…hoặc sự cố Cổng tiếp nhận dữ liệu thì thực hiện như thế nào?",
+      "answer": [
+        "Theo quy định tại Điều 8 Thông tư số 48/2017/TT-BYT và khoản 4 Điều 2 Thông tư số 12/2026/TT-BTC, việc gửi dữ liệu điện tử đề nghị giám định, thanh toán chi phí KCB BHYT chậm so với thời hạn quy định được thực hiện như sau:",
+        "1. Trường hợp sự cố khách quan, bất khả kháng:",
+        "Cơ sở KCB được phép gửi chậm dữ liệu điện tử khi xảy ra sự cố khách quan, bất khả kháng làm cho hệ thống hạ tầng kỹ thuật công nghệ thông tin không đáp ứng được việc trích chuyển hoặc tiếp nhận dữ liệu. Bên xảy ra sự cố có trách nhiệm thông báo ngay cho bên còn lại về nguyên nhân xảy ra sự cố bằng điện thoại, thư điện tử hoặc văn bản. Dữ liệu điện tử phải được tiếp tục gửi, nhận ngay sau khi sự cố được khắc phục.",
+        "2. Trường hợp không có điện hoặc đường truyền Internet:",
+        "Trường hợp hệ thống hạ tầng kỹ thuật công nghệ thông tin không đáp ứng được việc trích chuyển hoặc tiếp nhận dữ liệu do không có điện hoặc không có đường truyền Internet, hình thức và thời gian gửi dữ liệu điện tử do thủ trưởng cơ sở KCB và thủ trưởng cơ quan BHXH ký hợp đồng KCB BHYT thống nhất quyết định, ghi rõ trong hợp đồng KCB BHYT và có trách nhiệm báo cáo bằng văn bản với cơ quan quản lý trực tiếp theo quy định tại khoản 3 Điều 8 Thông tư số 48/2017/TT-BYT.",
+        "3. Trường hợp Cổng tiếp nhận dữ liệu của cơ quan BHXH bảo trì hoặc gặp sự cố:",
+        "BHXH Việt Nam có trách nhiệm thông báo thời gian bảo trì Cổng tiếp nhận dữ liệu tối thiểu 12 giờ trước thời điểm thực hiện; thông báo thời điểm xảy ra sự cố và thời điểm Cổng tiếp nhận dữ liệu hoạt động trở lại chậm nhất 01 giờ kể từ thời điểm sự cố được khắc phục, đồng thời công khai lịch sử thông báo trên Cổng tiếp nhận dữ liệu.",
+        "Thời hạn gửi hồ sơ và thực hiện các giao dịch được gia hạn tương ứng với thời gian Cổng tiếp nhận dữ liệu ngừng hoạt động theo quy định tại khoản 4 Điều 2 Thông tư số 12/2026/TT-BTC."
+      ],
+      "section": "ho-so",
+      "page": 47,
+      "endPage": 48
+    },
+    {
+      "id": 50,
+      "question": "Trước khi thực hiện giám định chi phí KCB BHYT tại cơ sở KCB, cơ quan BHXH cần phải chuẩn bị những nội dung gì?",
+      "answer": [
+        "Trước khi tổ chức giám định chi phí KCB BHYT tại cơ sở KCB, cơ quan BHXH thực hiện như sau:",
+        "1. Xây dựng kế hoạch, đề cương giám định hằng tháng hoặc hằng quý:",
+        "a) Xác định nội dung cần giám định",
+        "- Đối với cơ sở KCB lần đầu ký hợp đồng, việc thực hiện đối chiếu hồ sơ ký hợp đồng với điều kiện thực tế tại cơ sở KCB BHYT được thực hiện trong kỳ giám định chi phí KCB BHYT gần nhất. Đối với các phát sinh, thay đổi liên quan đến nội dung thực hiện hợp đồng theo văn bản thông báo của cơ sở KCB, việc đối chiếu với điều kiện thực tế được thực hiện trong kỳ giám định gần nhất;",
+        "- Kết quả phân tích dữ liệu chủ động theo các nội dung tại khoản 1 Điều 10 Thông tư số 12/2026/TT-BTC nhưng chưa được Hệ thống xử lý tự động;",
+        "- Kết quả phân tích, đánh giá mức độ cảnh báo chi phí KCB BHYT và thuyết minh kết quả rà soát, kiểm tra các chi phí KCB tăng cao, nguyên nhân khách quan, chủ quan của cơ sở KCB.",
+        "b) Xây dựng kế hoạch:",
+        "- Xác định thời gian giám định tại từng cơ sở KCB",
+        "- Xác định thành viên các Tổ giám định tại cơ sở KCB.",
+        "- Xác định số lượng hồ sơ cần giám định: Giám đốc BHXH tỉnh/cơ sở căn cứ nội dung cần giám định, nhân lực thực hiện công tác giám định của địa phương để quyết định lựa chọn số lượng hồ sơ đề nghị thanh toán cần giám định trực tiếp trên hồ sơ bệnh án, thời gian giám định, thành viên các Tổ giám định tại từng cơ sở KCB; xác định số lượng hồ sơ đề nghị cơ sở KCB tự kiểm tra.",
+        "2. Thông báo bằng văn bản cho cơ sở KCB:",
+        "- Thông báo cho các cơ sở KCB kế hoạch giám định trước 15 ngày thực hiện.",
+        "- Thông báo thời gian làm việc, người thực hiện, các tài liệu, hồ sơ bệnh án đề nghị cung cấp tối thiểu 03 ngày làm việc trước khi thực hiện.",
+        "3. Phân công nhiệm vụ giám định tại cơ sở KCB: phân công các Tổ hoặc Nhóm giám định gắn trách nhiệm cụ thể cho từng viên chức, cán bộ với cơ sở KCB BHYT.",
+        "4. Tiếp nhận và bảo quản tài liệu, hồ sơ bệnh án: thành viên tổ giám định tiếp nhận và ghi sổ bàn giao các tài liệu, hồ sơ do cơ sở KCB cung cấp, có xác nhận của người giao; hồ sơ bệnh án phải được bảo quản theo đúng quy định của pháp luật trong quá trình tổ chức giám định tại cơ sở KCB.",
+        "5. Thực hiện giám định tại cơ sở KCB."
+      ],
+      "section": "giam-dinh",
+      "page": 49,
+      "endPage": 50
+    },
+    {
+      "id": 51,
+      "question": "Các nội dung phải thực hiện khi giám định chi phí KCB BHYT tại cơ sở KCB?",
+      "answer": [
+        "Khi giám định chi phí KCB BHYT tại cơ sở KCB, cơ quan BHXH thực hiện các nội dung sau:",
+        "1. Đối chiếu các phát sinh, thay đổi liên quan đến nội dung thực hiện hợp đồng theo văn bản thông báo của cơ sở KCB với điều kiện thực tế tại cơ sở KCB, ghi nhận các nội dung trùng khớp hoặc không trùng khớp; ghi nhận các chi phí không đủ điều kiện đề nghị quỹ BHYT thanh toán và căn cứ, lý do vào Biên bản làm việc.",
+        "2. Giám định chi phí KCB BHYT theo các nội dung tại đề cương giám định (bao gồm các trường hợp chi phí KCB BHYT chưa được rà soát theo phương thức tự động trên Hệ thống, BHXH tỉnh/cơ sở chủ động phân tích dữ liệu và giám định chủ động theo quy định tại khoản 3 Điều 11 Thông tư số 12/2026/TT-BTC).",
+        "Thực hiện đối chiếu các nội dung cần giám định trực tiếp với hồ sơ bệnh án, tài liệu do cơ sở KCB cung cấp. Từ chối thanh toán các chi phí KCB BHYT không đúng quy định của pháp luật về KCB và BHYT theo quy định tại Điều 51 Nghị định số 188/2025/NĐ-CP, lưu ý một số nội dung sau:",
+        "+ Đối với tiền giường bệnh: xác định số giường bệnh theo giấy phép hoạt động (hoặc quyết định điều chỉnh giấy phép hoạt động khi thay đổi quy mô giường bệnh) và số giường bệnh được phép thay đổi theo quy định tại khoản 3 Điều 67 Nghị định số 96/2023/NĐ-CP (nếu có) tại các khoa, phòng làm căn cứ để giám định và thanh toán theo đúng quy định tại Điều 4c Thông tư số 35/2016/TT-BYT được sửa đổi, bổ sung tại khoản 4 Điều 1 Thông tư số 39/2024/TT-BYT; trường hợp cơ sở KCB không cung cấp được số giường theo quy định, đề nghị cơ sở KCB báo cáo cơ quan có thẩm quyền cấp giấy phép hoạt động xem xét, giải quyết.",
+        "+ Đối với dịch vụ chẩn đoán hình ảnh (chụp X quang, CT-scanner, Cộng hưởng từ (MRI), PET/CT...): Thanh toán theo đúng giá được cấp có thẩm quyền phê duyệt; đối với giá dịch vụ chẩn đoán hình ảnh được phê duyệt có in phim thực hiện giám định BHYT theo quy định tại khoản 1 Điều 1 Thông tư số 50/2017/TT-BYT.",
+        "+ Đối chiếu các chi phí KCB BHYT do cán bộ, nhân viên y tế thực hiện KCB trong thời gian nghỉ ốm, thai sản, nghỉ phép,...; thực hiện từ chối thanh toán theo Điều 51 Nghị định số 188/2025/NĐ-CP.",
+        "3. Rà soát chi phí KCB BHYT tăng cao: căn cứ cảnh báo của cơ quan BHXH, văn bản thuyết minh kết quả rà soát, kiểm tra các chi phí KCB tăng cao và hồ sơ tài liệu của cơ sở KCB cung cấp để thực hiện đối chiếu các nội dung cần giám định trực tiếp với hồ sơ bệnh án, tài liệu do cơ sở KCB cung cấp.",
+        "4. Lập Biên bản làm việc theo Mẫu số 04/BH để ghi nhận nội dung các lần làm việc trực tiếp với cơ sở KCB."
+      ],
+      "section": "giam-dinh",
+      "page": 50,
+      "endPage": 51
+    },
+    {
+      "id": 52,
+      "question": "Các nội dung nào được thực hiện giám định theo phương thức tự động trên Hệ thống?",
+      "answer": [
+        "Các nội dung được thực hiện giám định theo phương thức tự động do Hệ thống xử lý, bao gồm:",
+        "1. Thông tin thẻ BHYT;",
+        "2. Mức hưởng và quyền lợi hưởng của người bệnh BHYT;",
+        "3. Phạm vi thanh toán đối với thuốc, thiết bị y tế, dịch vụ KCB theo danh mục sử dụng tại cơ sở KCB;",
+        "4. Mức thanh toán chi phí thuốc, máu và chế phẩm máu, thiết bị y tế, dịch vụ kỹ thuật, khám bệnh, ngày giường, vận chuyển người bệnh;",
+        "5. Chi phí thuốc, thiết bị y tế, dịch vụ KCB có quy định tỷ lệ, điều kiện thanh toán;",
+        "6. Phạm vi hoạt động chuyên môn, thời gian KCB của cơ sở KCB;",
+        "7. Phạm vi hành nghề, thời gian làm việc của người hành nghề;",
+        "8. Thời gian giữa các lần KCB của một người bệnh;",
+        "9. Cung cấp dịch vụ KCB hợp lý theo tiêu chuẩn, tiêu chí được Bộ trưởng Bộ Y tế ban hành theo quy định tại khoản 3 Điều 6 Luật BHYT;",
+        "10. Số liệu thống nhất trên Bảng kê chi tiết;",
+        "11. Số lượng thuốc, thiết bị y tế sử dụng theo số lượng được mua sắm theo quy định của pháp luật về đấu thầu hoặc được điều chuyển theo quy định tại Điều 43 Nghị định số 188/2025/NĐ-CP."
+      ],
+      "section": "giam-dinh",
+      "page": 51,
+      "endPage": 51
+    },
+    {
+      "id": 53,
+      "question": "Kết quả giám định chi phí KCB BHYT theo phương thức tự động được phản hồi cho cơ sở KCB như thế nào?",
+      "answer": [
+        "1. Trong thời hạn 07 ngày làm việc kể từ ngày tiếp nhận hồ sơ đề nghị thanh toán, kết quả giám định bằng phương thức tự động được gửi cho cơ sở KCB trên Cổng tiếp nhận dữ liệu như sau:",
+        "- Hồ sơ đề nghị thanh toán đúng quy định của pháp luật đối với các nội dung tại khoản 1 Điều 10 Thông tư số 12/2026/TT-BTC;",
+        "- Bảng kê chi tiết có chi phí từ chối thanh toán do không đúng quy định của pháp luật đối với nội dung tại khoản 1 Điều 10 Thông tư số 12/2026/TT-BTC;",
+        "- Bảng kê chi tiết có nội dung quy định tại điểm đ hoặc điểm i khoản 1 Điều 10 Thông tư số 12/2026/TT-BTC nhưng không đủ thông tin để xác định chi phí KCB đủ điều kiện thanh toán.",
+        "2. Trong thời hạn 03 ngày làm việc kể từ ngày nhận được phản hồi từ Cổng tiếp nhận dữ liệu, cơ sở KCB có trách nhiệm rà soát, cung cấp, bổ sung tài liệu, dữ liệu như sau:",
+        "- Văn bản kèm theo tài liệu chứng minh đủ điều kiện thanh toán đối với nội dung từ chối hoặc không đủ thông tin để xác định chi phí đủ điều kiện thanh toán hoặc bản sao nội dung trong hồ sơ bệnh án khi cơ sở KCB phát hiện Bảng kê chi tiết không khớp đúng hồ sơ bệnh án;",
+        "- Bảng kê chi tiết điều chỉnh được lập theo Mẫu số 09/BH",
+        "3. Hệ thống không tiếp nhận Bảng kê chi tiết hiệu chỉnh (Mẫu số 09/BH) trong các trường hợp sau:",
+        "- Không đủ thông tin tại các cột T, R, S và cột (1) Bảng kê chi tiết hiệu chỉnh (Mẫu số 09/BH) hoặc lập không đúng hướng dẫn;",
+        "- Không cung cấp hồ sơ, tài liệu chứng minh (trừ trường hợp các thông tin điều chỉnh không phải chứng minh bằng tài liệu hoặc tài liệu chứng minh liên quan đến hồ sơ bệnh án).",
+        "Hệ thống từ chối thanh toán đối với trường hợp đã điều chỉnh nhưng không đúng quy định của pháp luật đối với các nội dung quy định tại khoản 1 Điều 10 Thông tư số 12/2026/TT-BTC. Đánh dấu “giám định chủ động” đối với các hồ sơ, chi phí cơ sở KCB đã đề nghị điều chỉnh đúng quy định của pháp luật để thực hiện giám định theo phương thức chủ động."
+      ],
+      "section": "giam-dinh",
+      "page": 51,
+      "endPage": 52
+    },
+    {
+      "id": 54,
+      "question": "Viên chức thực hiện chế độ BHYT có phải thực hiện giám định các hồ sơ cơ sở KCB đề nghị điều chỉnh tại Mẫu số 09/BH không?",
+      "answer": [
+        "Có. BHXH tỉnh/BHXH cơ sở phân công viên chức/cán bộ thực hiện rà soát, đối chiếu hằng ngày bảng kê chi tiết cơ sở KCB đã điều chỉnh và gửi lại trên Hệ thống (theo Mẫu số 09/BH) theo quy định tại khoản 2 Điều 11 Thông tư số 12/2026/TT-BTC và hướng dẫn của BHXH Việt Nam tại khoản 3 Công văn số 2274/BHXH-TTKS ngày 30/6/2026:",
+        "- Chấp nhận thông tin điều chỉnh của cơ sở KCB nếu thông tin đề nghị điều chỉnh đúng với hồ sơ, tài liệu chứng minh;",
+        "- Không chấp nhận thông tin điều chỉnh của cơ sở KCB trong trường hợp thông tin đề nghị điều chỉnh không đúng với hồ sơ, tài liệu chứng minh hoặc không đủ tài liệu để chứng minh đủ điều kiện thanh toán."
+      ],
+      "section": "giam-dinh",
+      "page": 52,
+      "endPage": 52
+    },
+    {
+      "id": 55,
+      "question": "Thông tin thẻ BHYT trên Bảng kê chi tiết được rà soát theo phương thức tự động như thế nào?",
+      "answer": [
+        "Thông tin thẻ BHYT trên Bảng kê chi tiết được đối chiếu với thông tin trong dữ liệu phát hành thẻ BHYT, bao gồm: mã thẻ, họ và tên, giới tính, ngày sinh, nơi đăng ký KCB ban đầu, mã khu vực, giá trị sử dụng của thẻ, mức hưởng và quyền lợi hưởng của người bệnh BHYT.",
+        "Trả lại qua Cổng tiếp nhận dữ liệu các hồ sơ có thông tin thẻ BHYT không khớp với dữ liệu phát hành thẻ BHYT (Hệ thống không kiểm tra thông tin thẻ BHYT các mã đối tượng thẻ do BHXH Công an nhân dân phát hành)."
+      ],
+      "section": "giam-dinh",
+      "page": 53,
+      "endPage": 53
+    },
+    {
+      "id": 56,
+      "question": "Thẻ BHYT hết hạn khi người bệnh đang điều trị thì có được hưởng BHYT đến khi ra viện không?",
+      "answer": [
+        "Theo quy định tại khoản 4 Điều 50 Nghị định số 188/2025/NĐ-CP, trường hợp người bệnh đang điều trị nội trú hoặc đang điều trị ban ngày hoặc đang điều trị ngoại trú tại cơ sở KCB thẻ BHYT hết hạn sử dụng, quỹ BHYT thanh toán chi phí KCB trong phạm vi được hưởng và mức hưởng cho đến khi ra viện tối đa 15 ngày kể từ ngày thẻ BHYT hết hạn sử dụng. Hệ thống sẽ từ chối thanh toán các chi phí phát sinh từ ngày thứ 16 kể từ khi thẻ BHYT hết hạn sử dụng nếu cơ sở KCB đề nghị thanh toán BHYT."
+      ],
+      "section": "giam-dinh",
+      "page": 53,
+      "endPage": 53
+    },
+    {
+      "id": 57,
+      "question": "Khi nào mức hưởng và quyền lợi hưởng BHYT của người bệnh được tự động điều chỉnh?",
+      "answer": [
+        "Mức hưởng, quyền lợi hưởng BHYT của người bệnh thực hiện theo quy định tại Điều 22 Luật BHYT và Điều 19 Nghị định số 188/2025/NĐ-CP. Trường hợp mức hưởng, quyền lợi hưởng của người bệnh không phù hợp với đối tượng tham gia BHYT, khu vực nơi sinh sống, hình thức KCB, lý do vào viện, chẩn đoán xác định hoặc sử dụng dịch vụ kỹ thuật cao, cấp chuyên môn kỹ thuật, số điểm xếp cấp, tuyến chuyên môn kỹ thuật được xác định trước ngày 01/01/2025, điều kiện miễn cùng chi trả chi phí KCB BHYT, thời gian điều trị, thời điểm xuất trình thông tin thẻ BHYT và giá trị sử dụng của thẻ BHYT, Hệ thống tự động điều chỉnh về mức hưởng, quyền lợi hưởng đúng quy định."
+      ],
+      "section": "giam-dinh",
+      "page": 53,
+      "endPage": 53
+    },
+    {
+      "id": 58,
+      "question": "Các nội dung rà soát thanh toán chi phí thuốc theo quy định tại điểm c khoản 1 Điều 10 Thông tư số 12/2026/TT-BTC gồm những gì?",
+      "answer": [
+        "- Các thông tin thuốc đề nghị thanh toán BHYT được đối chiếu với danh mục thuốc sử dụng trong liên thông dữ liệu KCB BHYT (Mẫu số 03/DM) do cơ sở KCB cập nhật lên Hệ thống; các chi phí đề nghị thanh toán được trả lại cơ sở KCB qua Cổng tiếp nhận dữ liệu nếu không có thông tin hoặc thông tin không đúng với danh mục sử dụng trong liên thông dữ liệu, hoặc điều chỉnh đơn giá nếu cơ sở KCB đề nghị cao hơn.",
+        "- Một số nội dung cần lưu ý gồm:",
+        "+ Thuốc chưa tính trong giá dịch vụ kỹ thuật: phải được ghi chú thanh toán riêng trong quyết định/nghị quyết quy định hoặc phê duyệt giá dịch vụ KCB, quỹ BHYT thanh toán theo số lượng thực tế người bệnh được sử dụng và giá mua theo quy định của pháp luật về đấu thầu.",
+        "+ Thuốc đã kết cấu trong giá dịch vụ kỹ thuật: chỉ thanh toán trong trường hợp dịch vụ kỹ thuật đã được cơ sở KCB chỉ định và thực hiện nhưng vì nguyên nhân diễn biến bệnh hoặc thể trạng người bệnh nên không thể tiếp tục thực hiện được kỹ thuật, quỹ BHYT thanh toán theo số lượng thực tế sử dụng và giá mua theo quy định của pháp luật về đấu thầu;",
+        "+ Thuốc có quy định điều kiện, tỷ lệ thanh toán cụ thể: thanh toán theo điều kiện, tỷ lệ quy định tại cột ghi chú của danh mục thuốc thuộc phạm vi thanh toán BHYT do Bộ Y tế ban hành.",
+        "+ Thuốc được chỉ định theo đúng một trong các tài liệu quy định tại khoản 3 Điều 8 Thông tư số 37/2024/TT-BYT gồm: Tờ hướng dẫn sử dụng thuốc kèm theo hồ sơ đăng ký thuốc đã được Bộ Y tế cấp phép; Tờ hướng dẫn sử dụng thuốc kèm theo hồ sơ đăng ký thuốc của thuốc biệt dược gốc, sinh phẩm tham chiếu đã được Bộ Y tế cấp phép; Hướng dẫn chẩn đoán và điều trị của Bộ Y tế; Dược thư Quốc gia Việt Nam phiên bản mới nhất.",
+        "+ Thuốc không có chỉ định hoặc chống chỉ định trong các tài liệu quy định tại khoản 3 Điều 8 Thông tư số 37/2024/TT-BYT, thuốc chống chỉ định thuộc danh mục tại Quyết định số 5948/QĐ-BYT ngày 30/12/2021 của Bộ Y tế: chỉ thanh toán nếu được sử dụng trong trường hợp cấp cứu người bệnh và không có thuốc khác thay thế sau khi đã được hội chẩn.",
+        "Đối với các trường hợp điều kiện thanh toán chi phí thuốc chưa được rà soát theo phương thức tự động trên Hệ thống, cơ quan BHXH thực hiện phân tích dữ liệu và giám định chủ động theo quy định tại khoản 3 Điều 11 Thông tư số 12/2026/TT-BTC."
+      ],
+      "section": "giam-dinh",
+      "page": 53,
+      "endPage": 54
+    },
+    {
+      "id": 59,
+      "question": "Cơ sở KCB cấp thuốc bệnh mạn tính cho người bệnh khi đang điều trị nội trú tại cơ sở KCB khác có cần yêu cầu giấy xác nhận của cơ sở KCB nơi người bệnh đang điều trị nội trú hay không?",
+      "answer": [
+        "Theo quy định tại điểm b khoản 2 Điều 17 Thông tư số 37/2024/TT-BYT, trường hợp cơ sở y tế nơi người bệnh điều trị nội trú khác với cơ sở y tế nơi người bệnh đang điều trị bệnh mạn tính và cơ sở y tế nơi người bệnh đang điều trị nội trú không phải là cơ sở có phạm vi chuyên môn điều trị bệnh mạn tính mà người bệnh đang điều trị thì người đại diện của người bệnh thực hiện việc lĩnh thuốc tại cơ sở y tế nơi đang điều trị bệnh mạn tính cho người bệnh. Khi nhận thuốc người đại diện của người bệnh phải xuất trình giấy tờ tùy thân (chứng minh nhân dân, căn cước công dân, căn cước, hộ chiếu hoặc giấy tờ chứng minh nhân thân khác còn thời hạn) và giấy chứng nhận điều trị nội trú theo mẫu quy định tại Phụ lục 2 ban hành kèm theo Thông tư số 37/2024/TT-BYT."
+      ],
+      "section": "giam-dinh",
+      "page": 54,
+      "endPage": 55
+    },
+    {
+      "id": 60,
+      "question": "Cơ quan BHXH đánh giá tình hình các cơ sở KCB cấp thuốc ngoại trú trên 30 ngày đối với bệnh, nhóm bệnh thuộc Phụ lục VII ban hành kèm theo Thông tư số 26/2025/TT-BYT ngày 30/6/2025 của Bộ Y tế như thế nào?",
+      "answer": [
+        "Theo quy định tại điểm b khoản 8 Điều 6 Thông tư số 26/2025/TT-BYT, đối với bệnh, nhóm bệnh thuộc Phụ lục VII: “người kê đơn thuốc quyết định số ngày sử dụng của mỗi thuốc trong đơn thuốc căn cứ vào tình trạng lâm sàng, mức độ ổn định của người bệnh để kê đơn thuốc với số ngày sử dụng của mỗi thuốc tối đa không quá chín mươi (90) ngày.”",
+        "Việc cấp thuốc theo quy định tại Thông tư số 26/2025/TT-BYT tạo thuận lợi cho người bệnh, giảm thời gian đi lại, chi phí của người bệnh và nâng cao hiệu quả sử dụng quỹ BHYT. Do vậy, cơ quan BHXH phải thường xuyên đánh giá và đề nghị cơ sở KCB thực hiện kê đơn và cấp thuốc theo quy định tại Thông tư số 26/2025/TT-BYT, cụ thể:",
+        "- Thống kê các trường hợp kê đơn thuốc từ 30 ngày trở xuống đối với người bệnh có bệnh, nhóm bệnh thuộc Phụ lục VII, đã điều trị ổn định, không thay đổi thuốc điều trị tại từng cơ sở KCB trên địa bàn.",
+        "- So sánh tỷ lệ người bệnh được kê đơn thuốc từ 30 ngày trở xuống đối với người bệnh có bệnh, nhóm bệnh thuộc Phụ lục VII, đã điều trị ổn định giữa các cơ sở KCB cùng cấp chuyên môn kỹ thuật, cùng chuyên khoa trên địa bàn trong cùng kỳ đánh giá.",
+        "Đối với cơ sở KCB có tỷ lệ kê đơn từ 30 ngày trở xuống cao hơn so với tỷ lệ bình quân chung trên địa bàn, đề nghị cơ sở KCB rà soát việc tổ chức KCB, kê đơn; có giải pháp phù hợp để hạn chế người bệnh phải đi khám nhiều lần không cần thiết."
+      ],
+      "section": "giam-dinh",
+      "page": 55,
+      "endPage": 55
+    },
+    {
+      "id": 61,
+      "question": "Các nội dung rà soát chi phí thiết bị y tế theo quy định tại điểm c khoản 1 Điều 10 Thông tư số 12/2026/TT-BTC gồm những gì?",
+      "answer": [
+        "- Các thông tin thiết bị y tế đề nghị thanh toán được đối chiếu với danh mục thiết bị y tế sử dụng trong liên thông dữ liệu KCB BHYT (Mẫu số 04/DM) do cơ sở KCB cập nhật lên Hệ thống; các chi phí đề nghị thanh toán được trả lại cơ sở KCB qua Cổng tiếp nhận dữ liệu nếu không có thông tin hoặc thông tin không đúng với danh mục sử dụng trong liên thông dữ liệu hoặc điều chỉnh đơn giá nếu cơ sở KCB đề nghị thanh toán cao hơn.",
+        "- Một số nội dung cần lưu ý gồm:",
+        "+ Thiết bị y tế chưa tính trong giá dịch vụ kỹ thuật: phải được ghi chú thanh toán riêng trong quyết định/nghị quyết quy định hoặc phê duyệt giá dịch vụ KCB, quỹ BHYT thanh toán theo số lượng thực tế người bệnh được sử dụng và giá mua theo quy định của pháp luật về đấu thầu.",
+        "+ Thiết bị y tế đã kết cấu trong giá dịch vụ kỹ thuật: chỉ thanh toán trong trường hợp dịch vụ kỹ thuật đã được cơ sở KCB chỉ định và thực hiện nhưng vì nguyên nhân diễn biến bệnh hoặc thể trạng người bệnh nên không thể tiếp tục thực hiện được kỹ thuật, quỹ BHYT thanh toán theo thực tế sử dụng và giá mua theo quy định của pháp luật về đấu thầu.",
+        "+ Thiết bị y tế có quy định điều kiện, tỷ lệ thanh toán: thanh toán theo điều kiện, tỷ lệ quy định tại cột ghi chú của danh mục thiết bị y tế thuộc phạm vi thanh toán BHYT do Bộ Y tế ban hành.",
+        "+ Thiết bị y tế quy định mức thanh toán tối đa: thanh toán theo giá thiết bị y tế mua vào của cơ sở KCB theo quy định của pháp luật về đấu thầu nhưng không cao hơn mức thanh toán tối đa theo quy định của Bộ Y tế.",
+        "+ Mức thanh toán tổng chi phí thiết bị y tế cho một lần sử dụng dịch vụ kỹ thuật: không vượt quá 45 tháng lương cơ sở, trừ các trường hợp thiết bị y tế có quy định tỷ lệ thanh toán tại cột 5 Phụ lục 01 ban hành kèm theo Thông tư số 04/2017/TT-BYT.",
+        "Đối với các trường hợp điều kiện thanh toán chi phí thiết bị y tế chưa được rà soát theo phương thức tự động trên Hệ thống, cơ quan BHXH thực hiện phân tích dữ liệu và giám định chủ động theo quy định tại khoản 3 Điều 11 Thông tư số 12/2026/TT-BTC."
+      ],
+      "section": "giam-dinh",
+      "page": 56,
+      "endPage": 56
+    },
+    {
+      "id": 62,
+      "question": "Khi người bệnh sử dụng nhiều stent phủ thuốc trong cùng 1 lần đặt stent động mạch vành thì thanh toán như thế nào?",
+      "answer": [
+        "Theo quy định tại điểm c khoản 2 Điều 3 Thông tư số 04/2017/TT-BYT được sửa đổi, bổ sung tại khoản 3 Điều 1 Thông tư số 24/2025/TT-BYT, đối với dịch vụ kỹ thuật đặt stent động mạch vành phải sử dụng nhiều hơn một stent phủ thuốc, mức thanh toán cho tổng chi phí thiết bị y tế bao gồm:",
+        "- Stent thứ nhất và tổng thiết bị y tế khác ngoài stent trong một lần sử dụng dịch vụ kỹ thuật thực hiện theo hướng dẫn thanh toán tại điểm b khoản 2 Điều 3 Thông tư số 04/2017/TT-BYT được sửa đổi, bổ sung tại khoản 3 Điều 1 Thông tư số 24/2025/TT-BYT;",
+        "- Thanh toán thêm một phần hai (1/2) chi phí đối với stent thứ hai theo giá mua vào của cơ sở KCB nhưng không cao hơn 18.000.000 đồng;",
+        "- Thanh toán thêm một phần ba (1/3) chi phí đối với stent thứ ba và một phần ba (1/3) chi phí đối với stent thứ tư theo giá mua vào của cơ sở KCB nhưng không cao hơn 12.000.000 đồng đối với mỗi stent thứ ba và thứ tư."
+      ],
+      "section": "giam-dinh",
+      "page": 56,
+      "endPage": 57
+    },
+    {
+      "id": 63,
+      "question": "Đối với cơ sở KCB chưa thực hiện việc tái sử dụng thiết bị y tế hoặc chỉ thực hiện tái sử dụng một số thiết bị y tế trong thanh toán BHYT, cơ quan BHXH cần phải thực hiện những nội dung nào?",
+      "answer": [
+        "Cơ quan BHXH phối hợp với Sở Y tế làm việc với các cơ sở KCB BHYT chưa thực hiện hoặc mới thực hiện tái sử dụng một số ít thiết bị y tế để rà soát, thống nhất việc thực hiện tái sử dụng thiết bị y tế làm cơ sở thanh toán chi phí KCB BHYT theo quy định tại Thông tư số 04/2017/TT-BYT và các quy định có liên quan, cụ thể:",
+        "- Đối với các thiết bị y tế có thể tái sử dụng mà có hướng dẫn về quy trình tái sử dụng, số lần tái sử dụng của Bộ Y tế thì thực hiện theo hướng dẫn của Bộ Y tế.",
+        "- Đối với các thiết bị y tế có thể tái sử dụng mà chưa có hướng dẫn về quy trình tái sử dụng, số lần tái sử dụng của Bộ Y tế hoặc của nhà sản xuất thì Giám đốc cơ sở KCB giao Hội đồng khoa học hoặc Hội đồng thuốc và điều trị căn cứ vào yêu cầu chuyên môn, thực tế sử dụng để xây dựng quy trình tái sử dụng, số lần tái sử dụng để phê duyệt và thông báo bằng văn bản với cơ quan BHXH (trong đó có cụ thể mức giá thanh toán thiết bị y tế cho mỗi lần tái sử dụng), đồng thời cập nhật đầy đủ thông tin tái sử dụng thiết bị y tế lên Hệ thống thông tin giám định BHYT tại Danh mục thiết bị y tế áp dụng trong thanh toán BHYT theo Mẫu số 04/DM Phụ lục II ban hành kèm theo Thông tư số 12/2026/TT-BTC ngày 10/02/2026 của Bộ Tài chính để làm cơ sở thanh toán BHYT.",
+        "- Yêu cầu cơ sở KCB phải xây dựng, ban hành quy trình tiệt khuẩn, khử khuẩn thiết bị y tế tái sử dụng theo đúng hướng dẫn của Bộ Y tế, bảo đảm quy trình kiểm soát nhiễm khuẩn, an toàn cho người bệnh và chất lượng điều trị."
+      ],
+      "section": "giam-dinh",
+      "page": 57,
+      "endPage": 58
+    },
+    {
+      "id": 64,
+      "question": "Các điều kiện thanh toán dịch vụ kỹ thuật theo chế độ BHYT là gì?",
+      "answer": [
+        "Điều kiện thanh toán dịch vụ kỹ thuật theo chế độ BHYT như sau:",
+        "1. Dịch vụ kỹ thuật phải được cấp có thẩm quyền phê duyệt thực hiện tại cơ sở KCB.",
+        "2. Dịch vụ kỹ thuật phải được cấp có thẩm quyền phê duyệt giá dịch vụ KCB BHYT.",
+        "Đối với cơ sở KCB tư nhân phải có văn bản đề nghị áp dụng mức giá dịch vụ KCB BHYT được cấp có thẩm quyền phê duyệt cho cơ sở KCB công lập theo quy định tại điểm b khoản 2 Điều 39 Nghị định số 188/2025/NĐ-CP và theo nguyên tắc quy định tại các điểm a, b, c và d khoản 2 Điều 47 Nghị định số 188/2025/NĐ-CP.",
+        "3. Dịch vụ kỹ thuật được thực hiện theo quy trình chuyên môn do cấp có thẩm quyền phê duyệt, cụ thể:",
+        "- Các cơ sở KCB phải áp dụng thực hiện các tài liệu chuyên môn hướng dẫn về chẩn đoán, điều trị và quy trình kỹ thuật do Bộ Y tế ban hành hoặc do người đứng đầu cơ sở KCB ban hành áp dụng tại cơ sở (trên cơ sở căn cứ vào các tài liệu chuyên môn hướng dẫn và quy trình kỹ thuật do Bộ Y tế ban hành và điều kiện thực tế của cơ sở).",
+        "- Đối với các dịch vụ KCB chưa được Bộ Y tế ban hành các hướng dẫn chuyên môn hoặc quy trình kỹ thuật, người đứng đầu cơ sở KCB xây dựng và ban hành các hướng dẫn chuyên môn hoặc quy trình kỹ thuật để thực hiện tại cơ sở trên cơ sở tham khảo các nguồn tài liệu chính thống, có bằng chứng khoa học và phù hợp với điều kiện của cơ sở.",
+        "- Khi ban hành các hướng dẫn chuyên môn hoặc quy trình kỹ thuật để thực hiện tại cơ sở KCB, người đứng đầu cơ sở KCB có trách nhiệm gửi hướng dẫn hoặc quy trình đã ban hành đến cơ quan BHXH tỉnh nơi cơ sở KCB đặt trụ sở.",
+        "Trường hợp cơ sở KCB thực hiện dịch vụ kỹ thuật theo quy trình chuyên môn do cơ sở tự phê duyệt, cơ sở KCB phải gửi quy trình đã ban hành đến cơ quan BHXH tỉnh nơi ký hợp đồng KCB BHYT trước khi thực hiện. Việc phê duyệt quy trình chuyên môn kỹ thuật của cơ sở KCB được thực hiện theo nguyên tắc nêu trên."
+      ],
+      "section": "giam-dinh",
+      "page": 58,
+      "endPage": 58
+    },
+    {
+      "id": 65,
+      "question": "Thẩm quyền phê duyệt giá dịch vụ KCB BHYT được quy định như thế nào?",
+      "answer": [
+        "Theo khoản 5, khoản 6 Điều 110, điểm đ khoản 3 Điều 108 Luật KCB, thẩm quyền quy định giá dịch vụ KCB BHYT được quy định như sau:",
+        "1. Bộ trưởng Bộ Y tế có trách nhiệm quy định giá cụ thể dịch vụ KCB thuộc danh mục do quỹ BHYT thanh toán đối với các cơ sở KCB thuộc Bộ Y tế và các Bộ khác.",
+        "2. Hội đồng nhân dân cấp tỉnh quy định giá cụ thể dịch vụ KCB thuộc danh mục do quỹ BHYT thanh toán đối với các cơ sở KCB của Nhà nước trên địa bàn quản lý thuộc phạm vi được phân quyền nhưng không được vượt quá giá dịch vụ KCB tương ứng do Bộ trưởng Bộ Y tế quy định.",
+        "3. Cơ sở KCB tự bảo đảm chi đầu tư và chi thường xuyên được quyết định giá dịch vụ KCB BHYT nhưng không vượt quá giá dịch vụ KCB tương ứng do Bộ trưởng Bộ Y tế quy định.",
+        "4. Đối với cơ sở KCB tư nhân tham gia KCB BHYT được thanh toán chi phí KCB theo giá dịch vụ KCB thuộc danh mục do quỹ BHYT thanh toán được cấp có thẩm quyền phê duyệt cho các cơ sở KCB của nhà nước trên địa bàn và mức thanh toán theo quy định tại điểm b khoản 2 Điều 39 Nghị định số 188/2025/NĐ-CP."
+      ],
+      "section": "giam-dinh",
+      "page": 58,
+      "endPage": 59
+    },
+    {
+      "id": 66,
+      "question": "Trường hợp thực hiện nhiều can thiệp trong một lần phẫu thuật thì thanh toán BHYT như thế nào?",
+      "answer": [
+        "Theo quy định tại khoản 2 Điều 4d Thông tư số 35/2016/TT-BYT được sửa đổi, bổ sung tại khoản 4 Điều 1 Thông tư số 39/2024/TT-BYT, trường hợp thực hiện nhiều can thiệp trong cùng một lần phẫu thuật: thanh toán theo giá của phẫu thuật phức tạp nhất, có mức giá cao nhất, các dịch vụ kỹ thuật khác phát sinh ngoài quy trình kỹ thuật của phẫu thuật nêu trên được thanh toán như sau:",
+        "a) Bằng 50% giá của các phẫu thuật phát sinh nếu kỹ thuật đó vẫn do một kíp phẫu thuật thực hiện;",
+        "b) Bằng 80% giá của các phẫu thuật phát sinh nếu kỹ thuật đó phải thay kíp phẫu thuật khác để thực hiện;",
+        "c) Trường hợp thực hiện dịch vụ phát sinh là các thủ thuật thì thanh toán 80% giá của dịch vụ kỹ thuật phát sinh."
+      ],
+      "section": "giam-dinh",
+      "page": 59,
+      "endPage": 59
+    },
+    {
+      "id": 67,
+      "question": "Định mức thanh toán một số dịch vụ kỹ thuật chẩn đoán hình ảnh được quy định như thế nào?",
+      "answer": [
+        "Định mức thanh toán một số dịch vụ chẩn đoán hình ảnh: Chụp X-quang thường, Chụp X-quang số hóa, Chụp CT Scanner đến 32 dãy, siêu âm, Chụp cộng hưởng từ (MRI) được quy định tại khoản 6 Điều 4d Thông tư số 35/2016/TT-BYT được sửa đổi, bổ sung tại khoản 4 Điều 1 Thông tư số 39/2024/TT-BYT. Cách xác định như sau:",
+        "a) Xác định số ca tối đa được thanh toán theo mức giá mà cơ sở đã được duyệt bằng (=) số ca trung bình theo định mức tính giá chia (:) cho 8, lấy kết quả này nhân (X) với số giờ làm việc thực tế của đơn vị, sau đó nhân (X) số ngày làm việc thực tế trong quý, lấy kết quả này nhân (X) với số máy thực tế hoạt động của cơ sở KCB trong quý và nhân (X) với 120%;",
+        "b) Định mức tính giá (số ca/máy/ngày làm việc 8 giờ): dịch vụ siêu âm là 48 ca; chụp X-quang thường, chụp X-quang số hóa là 58 ca; chụp CT Scanner đến 32 dãy là 29 ca; chụp cộng hưởng từ (MRI) là 19 ca;",
+        "c) Trường hợp số ca đề nghị thanh toán nhỏ hơn hoặc bằng số ca tối đa theo cách tính quy định tại điểm a: thanh toán theo số ca thực tế và mức giá mà cơ sở đã được duyệt;",
+        "d) Trường hợp số ca đề nghị thanh toán cao hơn số ca tối đa theo cách tính quy định tại điểm a: Đối với số ca bằng số ca tối đa theo cách tính tại điểm a nêu trên, thanh toán theo mức giá mà cơ sở đã được duyệt. Đối với số ca lớn hơn số ca tối đa theo cách tính tại điểm a, thanh toán theo mức giá không bao gồm chi phí tiền lương, mức giá thanh toán cụ thể như sau:",
+        "- Dịch vụ Siêu âm (chẩn đoán): bằng 55% mức giá quy định;",
+        "- Chụp X-quang thường; Chụp X-quang số hóa: bằng 85% mức giá quy định;",
+        "- Dịch vụ Chụp CT Scanner đến 32 dãy: bằng 95% mức giá quy định;",
+        "- Dịch vụ Chụp cộng hưởng từ (MRI): bằng 97% mức giá quy định."
+      ],
+      "section": "giam-dinh",
+      "page": 59,
+      "endPage": 60
+    },
+    {
+      "id": 68,
+      "question": "Các trường hợp cần rà soát thanh toán tiền khám bệnh?",
+      "answer": [
+        "Một số trường hợp cần rà soát thanh toán tiền khám bệnh gồm:",
+        "1. Hồ sơ đề nghị thanh toán nhiều lần tiền khám bệnh:",
+        "- Hồ sơ đề nghị thanh toán nhiều lần tiền khám cùng một chuyên khoa: từ chối thanh toán tiền khám từ lần thứ hai trở lên theo quy định tại khoản 3 Điều 4b Thông tư số 35/2016/TT-BYT được sửa đổi, bổ sung tại khoản 4 Điều 1 Thông tư số 39/2024/TT-BYT.",
+        "- Hồ sơ đề nghị thanh toán nhiều lần tiền khám khác chuyên khoa: nếu tiền khám đề nghị không đúng quy định tại khoản 3 Điều 4b Thông tư số 35/2016/TT-BYT được sửa đổi, bổ sung tại khoản 4 Điều 1 Thông tư số 39/2024/TT-BYT, điều chỉnh tỷ lệ thanh toán tiền khám bệnh theo đúng quy định nếu trong một lần đến KCB xác định sai tiền khám nhiều chuyên khoa hoặc khi số tiền khám bệnh lớn hơn 02 lần mức giá của 01 lần khám bệnh hoặc khám lại ngay trong ngày (trừ trường hợp cấp cứu) trong trường hợp đã được khám bệnh, cấp thuốc về điều trị nhưng sau đó có biểu hiện bất thường, cụ thể:",
+        "+ Lần khám thứ nhất: thanh toán 100%;",
+        "+ Lần khám thứ 2 trở đi thanh toán 30%;",
+        "+ Tổng chi phí tiền khám không cao hơn 02 lần mức giá của 01 lần khám bệnh.",
+        "2. Hồ sơ điều trị nội trú đề nghị thanh toán tiền khám bệnh:",
+        "- Tiền khám bệnh đề nghị thanh toán sau khi người bệnh vào điều trị nội trú.",
+        "- Tiền khám bệnh đối với trường hợp người bệnh vào thẳng khoa điều trị nội trú không qua khoa khám bệnh.",
+        "- Tổng chi phí tiền khám cao hơn 02 lần mức giá của 01 lần khám bệnh.",
+        "- Tiền khám bệnh tại cơ sở cấp thuốc bệnh mạn tính trong thời gian người bệnh điều trị nội trú tại cơ sở KCB theo quy định tại điểm b khoản 2 Điều 17 Thông tư số 37/2024/TT-BYT: không thanh toán tiền khám bệnh.",
+        "3. Số lượt khám trên 1 bàn khám trong ngày vượt định mức (vượt quá 65 lượt khám/1 bàn khám/8 giờ) theo quy định tại khoản 5 Điều 4b Thông tư số 35/2016/TT-BYT được sửa đổi bổ sung tại Điều 1 Thông tư số 39/2024/TT-BYT:",
+        "chỉ thanh toán bằng 50% mức giá khám bệnh từ lượt khám thứ 66 trở lên của bàn khám đó. Trong thời gian tối đa 03 tháng liên tiếp, cơ sở KCB vẫn còn có bàn khám bệnh trên 65 lượt/ngày thì không thanh toán tiền khám bệnh từ lượt khám thứ 66 trở lên của bàn khám bệnh đó.",
+        "Ví dụ: trường hợp cơ sở KCB có bàn khám thực hiện KCB 10 giờ (do đăng ký KCB 02 giờ ngoài giờ hành chính) thì số lượt khám tối đa của bàn khám đó trong ngày là 81 lượt (65 lượt : 8 giờ x 10 giờ).",
+        "4. Nhiều hồ sơ khác nhau của một mã thẻ đề nghị thanh toán tiền khám trong cùng một ngày: thanh toán tổng tiền khám bệnh của các hồ sơ không cao hơn 02 lần mức giá của 01 lần khám bệnh theo quy định tại khoản 3 Điều 4b Thông tư số 35/2016/TT-BYT được sửa đổi, bổ sung tại khoản 4 Điều 1 Thông tư số 39/2024/TT-BYT."
+      ],
+      "section": "giam-dinh",
+      "page": 60,
+      "endPage": 61
+    },
+    {
+      "id": 69,
+      "question": "Các trường hợp cần rà soát thanh toán chi phí tiền giường bệnh?",
+      "answer": [
+        "1. Số ngày giường: được thanh toán theo quy định tại khoản 1 Điều 4c Thông tư số 35/2016/TT-BYT được sửa đổi, bổ sung tại khoản 4 Điều 1 Thông tư số 39/2024/TT-BYT:",
+        "a) Số ngày điều trị nội trú bằng ngày ra viện trừ (-) ngày vào viện cộng (+) 1: áp dụng đối với các trường hợp:",
+        "- Người bệnh đang điều trị nội trú tử vong hoặc diễn biến nặng lên và gia đình xin về hoặc chuyển cơ sở khám bệnh, chữa bệnh;",
+        "- Người bệnh đã được điều trị qua giai đoạn cấp cứu nhưng vẫn cần tiếp tục điều trị nội trú được chuyển đến cơ sở khám bệnh, chữa bệnh khác;",
+        "b) Số ngày điều trị nội trú bằng ngày ra viện trừ (-) ngày vào viện: áp dụng đối với các trường hợp còn lại;",
+        "c) Trường hợp người bệnh vào viện và ra viện trong cùng một ngày (hoặc vào viện ngày hôm trước, ra ngày hôm sau) có thời gian điều trị trên 04 giờ đến dưới 24 giờ thì được tính là 01 ngày điều trị. Trường hợp người bệnh vào khoa cấp cứu, không qua khoa khám bệnh, có thời gian cấp cứu, điều trị từ 04 giờ trở xuống (kể cả trường hợp ra viện, vào viện hoặc chuyển viện, tử vong) được thanh toán tiền khám bệnh, tiền thuốc, thiết bị y tế và các dịch vụ kỹ thuật, không thanh toán tiền ngày giường bệnh hồi sức cấp cứu;",
+        "d) Trường hợp người bệnh vào viện và ra viện có thời gian điều trị từ 04 giờ trở xuống thì được thanh toán tiền khám bệnh, tiền thuốc, thiết bị y tế và các dịch vụ kỹ thuật mà người bệnh đã sử dụng, không được tính tiền ngày giường bệnh điều trị nội trú.",
+        "2. Số ngày giường điều trị sau phẫu thuật: thanh toán theo quy định tại khoản 3 Điều 4c Thông tư số 35/2016/TT-BYT được sửa đổi, bổ sung tại khoản 4 Điều 1 Thông tư số 39/2024/TT-BYT:",
+        "- Giá dịch vụ ngày giường bệnh ngoại khoa: áp dụng tối đa không quá 10 ngày sau phẫu thuật áp dụng cả với trường hợp người bệnh được điều trị tại một cơ sở KCB hoặc chuyển người bệnh đến các cơ sở KCB khác. Từ ngày thứ 11 sau phẫu thuật trở đi thì áp dụng mức giá ngày giường nội khoa của khoa tương ứng.",
+        "- Trong thời gian 10 ngày sau phẫu thuật, người bệnh được chuyển đến cơ sở KCB khác thì cơ sở KCB nơi tiếp nhận người bệnh được áp dụng giá dịch vụ ngày giường bệnh ngoại khoa theo loại phẫu thuật thực hiện trên người bệnh. Số ngày cơ sở KCB nơi tiếp nhận người bệnh được thanh toán bằng 10 ngày trừ đi số ngày người bệnh đã điều trị tại cơ sở KCB nơi chuyển đi.",
+        "- Trường hợp người bệnh sau phẫu thuật cần tiếp tục điều trị hậu phẫu đồng thời cần điều trị nội trú tại khoa lâm sàng khác thì được được áp dụng mức giá ngày giường ngoại khoa tối đa không quá 10 ngày sau phẫu thuật.",
+        "3. Số giường bệnh: thanh toán theo số giường bệnh được cấp có thẩm quyền phê duyệt theo giấy phép hoạt động hoặc quyết định điều chỉnh giấy phép hoạt động, được ghi nhận trong hợp đồng KCB BHYT và danh mục bộ phận chuyên môn KCB BHYT (Mẫu số 01/DM).",
+        "Quỹ BHYT từ chối thanh toán tiền giường bệnh đối với các giường bệnh chưa được cấp có thẩm quyền phê duyệt hoặc điều chỉnh giấy phép hoạt động theo quy định tại khoản 1, 2 và 4 Điều 67 Nghị định số 96/2023/NĐ-CP hoặc giường bệnh kê thêm nhưng không có văn bản báo cáo cơ quan quản lý trực tiếp theo quy định tại khoản 3 Điều 67 Nghị định số 96/2023/NĐ-CP.",
+        "4. Giá giường bệnh nội khoa: thanh toán theo mức giá được cấp có thẩm quyền phê duyệt cho các khoa, phòng, bộ phận chuyên môn của cơ sở KCB.",
+        "5. Giá giường bệnh ngoại khoa: thanh toán phù hợp với phân loại phẫu thuật quy định tại Thông tư số 50/2014/TT-BYT ngày 26/12/2014 của Bộ Y tế quy định việc phân loại phẫu thuật, thủ thuật và định mức nhân lực trong từng ca phẫu thuật, thủ thuật. Trường hợp một phẫu thuật nhưng được phân loại khác nhau theo các chuyên khoa (trừ chuyên khoa nhi) thì áp dụng mức giá dịch vụ ngày giường bệnh ngoại khoa, bỏng theo phân loại phẫu thuật thấp nhất. Trường hợp sau khi thực hiện “Phẫu thuật đục thủy tinh thể bằng phương pháp Phaco” áp dụng mức giá dịch vụ ngày giường bệnh ngoại khoa, bỏng của loại 3 tương ứng được cấp có thẩm quyền phê duyệt.",
+        "Trường hợp người bệnh đã thực hiện một lần phẫu thuật, trong 10 ngày tiếp theo được thực hiện một phẫu thuật khác thì tiền giường bệnh sau phẫu thuật được xác định và thanh toán như sau:",
+        "+ Phẫu thuật sau được xếp loại thấp hơn phẫu thuật trước thì thanh toán tối đa không quá 10 ngày mức giá ngày giường đang áp dụng đối với phẫu thuật trước và thanh toán số ngày giường còn lại sau phẫu thuật thứ hai (tối đa 10 ngày sau phẫu thuật thứ hai và đã trừ số ngày giường áp dụng mức giá của phẫu thuật trước) theo mức giá ngày giường áp dụng đối với phẫu thuật thứ hai Ví dụ: Ngày 01/01/2026 người bệnh được phẫu thuật loại 1, đến ngày 05/01 người bệnh tiếp tục được phẫu thuật loại 2, BHYT thanh toán từ ngày 01-10/1 theo giá giường ngoại khoa loại 2, từ ngày 11-15/1 BHYT thanh toán theo giá giường ngoại khoa loại 3.",
+        "+ Phẫu thuật sau được xếp loại cao hơn phẫu thuật trước thì thanh toán giá ngày giường của phẫu thuật trước đến ngày phẫu thuật lần thứ hai và thanh toán tối đa 10 ngày theo mức giá ngày giường của phẫu thuật thứ hai.",
+        "Ví dụ: Ngày 01/01/2026 người bệnh được phẫu thuật loại 2, đến ngày 05/01 người bệnh tiếp tục được phẫu thuật loại 1, BHYT thanh toán từ ngày 01-05/01 theo giá giường ngoại khoa loại 3, từ ngày 06-15/01 BHYT thanh toán theo giá giường ngoại khoa loại 2.",
+        "Giá giường bệnh bỏng: thanh toán phù hợp theo độ bỏng và diện tích bỏng theo mức giá được cấp có thẩm quyền phê duyệt cho các khoa, phòng, bộ phận chuyên môn của cơ sở KCB",
+        "6. Giá giường bệnh tại khoa tổ chức theo hình thức liên chuyên khoa: thanh toán theo mức giá dịch vụ ngày giường bệnh nội khoa mà người bệnh điều trị tương ứng quy định tại khoản 12 Điều 4c Thông tư số 35/2016/TT-BYT được sửa đổi, bổ sung tại khoản 4 Điều 1 Thông tư số 39/2024/TT-BYT. Trường hợp người bệnh điều trị nhiều bệnh cùng lúc thì áp theo mức giá dịch vụ ngày giường bệnh của khoa điều trị bệnh chính của người bệnh.",
+        "7. Tiền giường nằm ghép, băng ca, giường gấp: thanh toán theo quy định tại điểm b khoản 4 và khoản 13 Điều 4c Thông tư số 35/2016/TT-BYT được sửa đổi, bổ sung tại khoản 4 Điều 1 Thông tư số 39/2024/TT-BYT, cụ thể:",
+        "- Trường hợp ở cùng một thời điểm phải nằm ghép 02 người/01 giường thì chỉ được thanh toán 1/2 mức giá dịch vụ ngày giường bệnh tương ứng. Trường hợp nằm ghép từ 03 người trở lên thì chỉ được thanh toán 1/3 mức giá ngày giường bệnh tương ứng;",
+        "- Trường hợp người bệnh nằm trên băng ca, giường gấp: áp dụng mức bằng 50% giá dịch vụ ngày giường bệnh theo từng loại chuyên khoa.",
+        "Lưu ý: giường băng ca, giường gấp đựơc tính trong quy mô giường bệnh được cấp có thẩm quyền phê duyệt theo giấy phép hoạt động và số giường kê thêm (nếu có) theo quy định tại khoản 3 Điều 67 Nghị định số 96/2023/NĐ-CP.",
+        "8. Tiền giường đối với người bệnh chuyển nhiều khoa trong ngày: thanh toán theo quy định tại khoản 2, điểm b khoản 4 và khoản 13 Điều 4c Thông tư số 35/2016/TT-BYT được sửa đổi, bổ sung tại khoản 4 Điều 1 Thông tư số 39/2024/TT-BYT, cụ thể:",
+        "- Trường hợp trong cùng một ngày người bệnh chuyển 02 khoa thì mỗi khoa chỉ được tính 1/2 ngày.",
+        "- Trường hợp trong cùng một ngày người bệnh chuyển từ 03 khoa trở lên thì giá dịch vụ ngày giường bệnh hôm đó được tính bằng trung bình cộng tiền ngày giường bệnh tại khoa có thời gian nằm điều trị trên 04 giờ có mức giá tiền ngày giường bệnh cao nhất và tại khoa có thời gian nằm điều trị trên 04 giờ có mức giá tiền ngày giường bệnh thấp nhất."
+      ],
+      "section": "giam-dinh",
+      "page": 61,
+      "endPage": 64
+    },
+    {
+      "id": 70,
+      "question": "Cơ sở KCB kê thêm dưới 10% số giường phê duyệt theo giấy phép hoạt động và không vượt quá 30 giường bệnh nhưng cơ sở KCB không đáp ứng định mức nhân lực tối thiểu quy định tại Thông tư số 03/2023/TT-BYT thì BHXH tỉnh có được từ chối số lượng giường tăng thêm của cơ sở KCB không?",
+      "answer": [
+        "Khoản 3 Điều 67 Nghị định số 96/2023/NĐ-CP quy định: \"3. Bệnh viện được phép thay đổi quy mô giường bệnh của các khoa, phòng nếu quy mô thay đổi dưới 10% tổng số quy mô giường bệnh đã được ghi trong giấy phép hoạt động nhưng số giường điều chỉnh không được vượt quá 30 giường bệnh và phải báo cáo bằng văn bản với cơ quan quản lý trực tiếp, trong đó phải nêu rõ:",
+        "a) Số giường bệnh thay đổi của các khoa, phòng;",
+        "b) Bản kê khai cơ sở vật chất, thiết bị y tế và hồ sơ nhân sự chứng minh đáp ứng đủ điều kiện thay đổi quy mô giường bệnh.\"",
+        "Theo quy định tại điểm b khoản 2 Điều 11 Thông tư số 03/2023/TT-BYT, cơ sở KCB phải có phương án tuyển dụng, bố trí, sắp xếp viên chức để bảo đảm định mức nhân lực quy định tại Thông tư số 03/2023/TT-BYT, hoàn thành trước 31/12/2025.",
+        "Như vậy, nhân lực của các khoa phòng phải đáp ứng đủ điều kiện khi thay đổi quy mô giường bệnh. Trường hợp nhân lực không đáp ứng thì không chấp nhận thanh toán tiền giường bệnh đối với số giường bệnh tăng thêm."
+      ],
+      "section": "giam-dinh",
+      "page": 64,
+      "endPage": 65
+    },
+    {
+      "id": 71,
+      "question": "Tiền giường hồi sức tích cực được thanh toán như thế nào?",
+      "answer": [
+        "Thực hiện thanh toán theo quy định tại khoản 5 Điều 4c Thông tư số 35/2016/TT-BYT được sửa đổi, bổ sung tại khoản 4 Điều 1 Thông tư số 39/2024/TT-BYT, đảm bảo:",
+        "- Giường bệnh đáp ứng đầy đủ các điều kiện để hoạt động theo Quyết định số 01/2008/QĐ-BYT ngày 21/01/2008 của Bộ Y tế về việc ban hành quy chế cấp cứu, hồi sức tích cực và chống độc, trong đó lưu ý phải có nhân lực được đào tạo về cấp cứu.",
+        "- Định mức người làm việc thuộc nhóm chức danh nghề nghiệp chuyên ngành y tế và liên quan quy định tại Bảng 1 Thông tư số 03/2023/TT-BYT: 2,0 người/giường bệnh của khoa đối với cơ sở khám bệnh, chữa bệnh hạng I trở lên;",
+        "1,5 người/giường bệnh của khoa đối với cơ sở khám bệnh, chữa bệnh hạng II trở lên; 1,2 người/giường bệnh của khoa đối với cơ sở khám bệnh, chữa bệnh hạng III trở lên.",
+        "- Người bệnh nằm điều trị với các bệnh lý phải được chăm sóc, điều trị và theo dõi theo quy chế cấp cứu, hồi sức tích cực và chống độc."
+      ],
+      "section": "giam-dinh",
+      "page": 65,
+      "endPage": 65
+    },
+    {
+      "id": 72,
+      "question": "Tiền giường điều trị ban ngày được quy định thanh toán như thế nào?",
+      "answer": [
+        "- Tiền giường điều trị ban ngày được thanh toán theo mức giá dịch vụ khám bệnh, chữa bệnh được cấp có thẩm quyền phê duyệt cho bệnh viện:",
+        "- Thanh toán tối đa không quá 03 (ba) người trên 01 (một) giường bệnh trong một ngày đối với điều trị ban ngày bằng y học cổ truyền, phục hồi chức năng theo quy định tại khoản 2 Điều 3 Thông tư số 56/2024/TT-BYT và điểm c khoản 6 Điều 4a Thông tư số 46/2013/TT-BYT được sửa đổi, bổ sung tại khoản 5 Điều 1 Thông tư số 24/2021/TT-BYT. Trường hợp người bệnh điều trị ban ngày trên cùng một giường bệnh tại cùng một thời điểm thì thanh toán giường ghép theo quy định tại điểm b khoản 4 Điều 4c Thông tư số 35/2016/TT-BYT được sửa đổi, bổ sung tại khoản 4 Điều 1 Thông tư số 39/2024/TT-BYT.",
+        "- Trường hợp người bệnh nằm điều trị từ 4 giờ trong 1 ngày thì thanh toán tiền khám bệnh, tiền thuốc, thiết bị y tế và các dịch vụ kỹ thuật mà người bệnh đã sử dụng, không được tính tiền ngày giường bệnh theo quy định tại điểm d khoản 1 Điều 4c Thông tư số 35/2016/TT-BYT được sửa đổi, bổ sung tại khoản 4 Điều 1 Thông tư số 39/2024/TT-BYT."
+      ],
+      "section": "giam-dinh",
+      "page": 65,
+      "endPage": 66
+    },
+    {
+      "id": 73,
+      "question": "Theo Thông tư số 56/2024/TT-BYT ngày 31/12/2024 của Bộ Y tế quy định về điều trị ban ngày bằng y học cổ truyền tại bệnh viện, trường hợp người bệnh điều trị ban ngày tại các khoa khác không phải là khoa Y học cổ truyền (khoa phụ ngoại) trong Bệnh viện y dược cổ truyền – Phục hồi chức năng có được thanh toán giường nội trú ban ngày không?",
+      "answer": [
+        "- Điều 1 Thông tư số 56/2024/TT-BYT ngày 31/12/2024 của Bộ Y tế quy định về điều trị ban ngày bằng y học cổ truyền tại bệnh viện: “ áp dụng đối với cơ sở khám bệnh, chữa bệnh có giường bệnh điều trị về y học cổ truyền,...” . Theo đó, việc điều trị ban ngày được áp dụng tại các giường bệnh điều trị về Y học cổ truyền của các cơ sở KCB.",
+        "- Khoản 3 Điều 3 Thông tư số 46/2013/TT-BYT được sửa đổi, bổ sung tại Khoản 3 Điều 1 Thông tư số 24/2021/TT-BYT ngày 12/12/2021 của Bộ Y tế quy định: “điều trị nội trú ban ngày về phục hồi chức năng là hình thức điều trị nội trú tại cơ sở phục hồi chức năng theo yêu cầu chuyên môn trong giờ làm việc ban ngày kể cả ngày nghỉ, ngày lễ”. Do đó, giường điều trị ban ngày bằng phục hồi chức năng được áp dụng tại các Khoa Phục hồi chức năng, Trung tâm Phục hồi chức năng thuộc cơ sở khám bệnh, chữa bệnh hoặc Bệnh viện Phục hồi chức năng theo quy định tại Điều 2 Thông tư số 46/2013/TT-BYT."
+      ],
+      "section": "giam-dinh",
+      "page": 66,
+      "endPage": 66
+    },
+    {
+      "id": 74,
+      "question": "Tiền giường lưu của các cơ sở KCB được thanh toán như thế nào?",
+      "answer": [
+        "- Giường lưu được thanh toán tại cơ sở KCB là:",
+        "+ Phòng khám đa khoa tư nhân tại vùng có điều kiện kinh tế - xã hội khó khăn, vùng có điều kiện kinh tế - xã hội đặc biệt khó khăn, khu vực biên giới, hải đảo.",
+        "+ Phòng khám đa khoa khu vực của Nhà nước, nhà hộ sinh và trạm y tế xã.",
+        "- Tiền giường lưu thanh toán không vượt quá 72 giờ (trừ trường hợp bất khả kháng do thiên tai, thảm họa, dịch bệnh) theo quy định tại khoản 2 Điều 77 Luật KCB.",
+        "- Mức giá thanh toán theo đơn giá do cấp có thẩm quyền phê duyệt."
+      ],
+      "section": "giam-dinh",
+      "page": 66,
+      "endPage": 66
+    },
+    {
+      "id": 75,
+      "question": "Có được thanh toán giường bệnh nội trú tại các phòng khám đa khoa khu vực không?",
+      "answer": [
+        "Giường nội trú chỉ được thanh toán tại các phòng khám đa khoa khu vực đã được thành lập và hoạt động trước ngày Nghị định số 155/2018/NĐ-CP có hiệu lực (ngày 12/11/2018) và tại các khu vực miền núi, vùng sâu, vùng xa, được Ủy ban nhân dân tỉnh, thành phố và Sở Y tế cho phép bằng văn bản theo quy định tại khoản 12 Điều 11 Nghị định số 155/2018/NĐ-CP và khoản 2 Điều 144 Nghị định số 96/2023/NĐ-CP."
+      ],
+      "section": "giam-dinh",
+      "page": 67,
+      "endPage": 67
+    },
+    {
+      "id": 76,
+      "question": "Các nội dung nào được giám định theo phương thức tự động đối với người hành nghề tham gia vào KCB?",
+      "answer": [
+        "Hệ thống tự động đối chiếu người chỉ định thuốc, dịch vụ KCB, người thực hiện dịch vụ kỹ thuật trên Bảng kê chi tiết với danh mục nhân lực thực hiện KCB BHYT (Mẫu số 02/DM) do cơ sở KCB cập nhật trên Hệ thống để kiểm tra các nội dung sau:",
+        "1. Thông tin người hành nghề: Người chỉ định thuốc, dịch vụ KCB hoặc thực hiện dịch vụ kỹ thuật phải có tên trong danh mục nhân lực thực hiện KCB BHYT (Mẫu số 02/DM) của cơ sở KCB.",
+        "2. Thời gian hành nghề: Việc chỉ định, thực hiện dịch vụ kỹ thuật phải trong thời gian đăng ký hành nghề của người hành nghề tại cơ sở KCB và trong thời gian làm việc của cơ sở KCB, trừ trường hợp cấp cứu.",
+        "3. Chức danh chuyên môn, phạm vi hành nghề: việc chỉ định, thực hiện dịch vụ kỹ thuật phải phù hợp với chức danh chuyên môn, phạm vi hành nghề được ghi trên giấy phép hành nghề hoặc quyết định điều chỉnh phạm vi hành nghề của cấp có thẩm quyền. Trường hợp thực hiện dịch vụ kỹ thuật ngoài phạm vi hành nghề thì phải có văn bản phân công của người chịu trách nhiệm chuyên môn kỹ thuật của cơ sở KCB phù hợp với chứng chỉ, chứng nhận đào tạo kỹ thuật chuyên môn, trừ trường hợp cấp cứu.",
+        "4. Thời gian thực hiện:",
+        "- Trong cùng thời điểm, một người hành nghề không thực hiện nhiều dịch vụ kỹ thuật cho người bệnh (trừ trường hợp thực hiện dịch vụ kỹ thuật gây mê hồi sức trong phẫu thuật, thủ thuật theo quy định tại điểm m khoản 2 Điều 10 Thông tư số 13/2012/TT-BYT ngày 20/8/2012 của Bộ Y tế).",
+        "- Không thực hiện việc chỉ định, thực hiện dịch vụ kỹ thuật cho người bệnh trong thời gian người hành nghề đang điều trị nội trú hoặc đang trong thời gian nghỉ hưởng chế độ ốm đau, thai sản, dưỡng sức, phục hồi sức khỏe và các trường hợp khác theo quy định.",
+        "Trường hợp thông tin trên Bảng kê chi tiết không đáp ứng các điều kiện nêu trên, Hệ thống tự động cảnh báo hoặc từ chối thanh toán chi phí thuốc, dịch vụ KCB do người hành nghề chỉ định hoặc chi phí dịch vụ kỹ thuật do người hành nghề thực hiện theo quy định."
+      ],
+      "section": "giam-dinh",
+      "page": 67,
+      "endPage": 68
+    },
+    {
+      "id": 77,
+      "question": "Người hành nghề có được thực hiện KCB ngoài thời gian đăng ký hành nghề hoặc ngoài thời gian hoạt động của cơ sở KCB không?",
+      "answer": [
+        "Người hành nghề thực hiện KCB trong thời gian hoạt động của cơ sở KCB ghi trên giấy phép hoạt động và trong thời gian làm việc đã đăng ký trong danh sách người hành nghề đăng tải trên trang thông tin điện tử của Bộ Y tế/Sở Y tế;",
+        "đồng thời thời gian làm việc của người hành nghề phải thực hiện theo quy định tại Bộ luật Lao động.",
+        "Như vậy, người hành nghề không được KCB ngoài thời gian đăng ký hành nghề đã đăng ký hoặc ngoài thời gian hoạt động của cơ sở KCB, trừ trường hợp quy định tại khoản 3 Điều 36 của Luật KCB.",
+        "Lưu ý: trường hợp người hành nghề bắt đầu thực hiện KCB cho người bệnh trong thời gian làm việc hành chính và thời gian làm việc đã đăng ký nhưng việc KCB kết thúc sau thời gian này thì không từ chối thanh toán chi phí KCB."
+      ],
+      "section": "giam-dinh",
+      "page": 68,
+      "endPage": 68
+    },
+    {
+      "id": 78,
+      "question": "Thông tin thời gian làm việc của người hành nghề tại Danh mục nhân lực KCB BHYT (Mẫu số 02/DM) có phải ghi thời gian trực không?",
+      "answer": [
+        "- Cơ sở KCB không phải ghi thông tin thời gian trực của người hành nghề tại Danh mục nhân lực KCB BHYT (Mẫu số 02/DM). Quỹ BHYT không từ chối thanh toán chi phí KCB trong thời gian trực của người hành nghề; cơ quan BHXH căn cứ dữ liệu và lịch phân công trực của cơ sở KCB để giám định, thanh toán theo đúng quy định.",
+        "Trường hợp cơ sở KCB tổ chức KCB BHYT ngoài giờ hành chính hoặc vào ngày nghỉ, ngày lễ thì thực hiện theo Điều 46 Nghị định số 188/2025/NĐ-CP và có văn bản thông báo cho cơ quan quản lý nhà nước về y tế trên địa bàn và cơ quan BHXH ít nhất 03 ngày làm việc trước khi thực hiện. Thời gian người hành nghề làm việc ngoài giờ hành chính hoặc ngày nghỉ, ngày lễ phải có trong danh sách đăng tải người hành nghề trên Cổng thông tin điện tử của Bộ Y tế hoặc Trang thông tin điện tử của Sở Y tế hoặc Hệ thống thông tin về quản lý hoạt động KCB và cập nhật thông tin thời gian làm việc (THOIGIAN_TUAN, THOIGIAN_NGAY) tại Mẫu số 02/DM."
+      ],
+      "section": "giam-dinh",
+      "page": 68,
+      "endPage": 68
+    },
+    {
+      "id": 79,
+      "question": "Theo quy định tại Thông tư số 32/2023/TT-BYT, phạm vi hành nghề khám bệnh của bác sỹ được quy định như thế nào?",
+      "answer": [
+        "Phạm vi hành nghề khám bệnh của bác sỹ được quy định tại Điều 11 Thông tư số 32/2023/TT-BYT cụ thể như sau:",
+        "- Bác sĩ có phạm vi hành nghề y khoa: được khám bệnh theo quy định tại tất cả các chuyên khoa theo quy định tại Phụ lục số V (tất cả các mã khám bệnh quy định tại Phụ lục 02 Quyết định số 2010/QĐ-BYT trừ mã khám Y học cổ truyền).",
+        "- Bác sĩ chuyên khoa dinh dưỡng: được khám bệnh theo quy định tại tất cả các chuyên khoa theo quy định Phụ lục số V và Phụ lục số XV (tất cả các mã khám bệnh quy định tại Phụ lục 02 Quyết định số 2010/QĐ-BYT)",
+        "- Bác sĩ có phạm vi hành nghề Y học cổ truyền được khám bệnh theo quy định tại Phụ lục VI (được khám bệnh và điều trị bằng phương pháp Y học cổ truyền cho các bệnh, mã khám bệnh Y học cổ truyền là 08.16)",
+        "- Bác sĩ có phạm vi hành nghề răng hàm mặt: được khám bệnh theo quy định tại Phụ lục số VIII (Mã khám bệnh 16.29)",
+        "- Bác sĩ có phạm vi hành nghề chuyên khoa khác: được khám bệnh theo quy định tại tất cả các chuyên khoa theo quy định Phụ lục số V và Phụ lục số IX (tất cả các mã khám bệnh quy định tại Phụ lục 02 Quyết định số 2010/QĐ-BYT trừ mã khám Y học cổ truyền)"
+      ],
+      "section": "giam-dinh",
+      "page": 69,
+      "endPage": 69
+    },
+    {
+      "id": 80,
+      "question": "Bác sĩ được cấp giấy phép hành nghề có phạm vi hành nghề chuyên khoa Nhi và có quyết định bổ sung phạm vi hành nghề chuyên khoa Nội; phạm vi hành nghề trong danh sách người hành nghề đăng tải trên Trang thông tin điện tử của Sở Y tế là chuyên khoa nội thì bác sĩ đó có được khám Nhi không?",
+      "answer": [
+        "Người hành nghề thực hiện KCB theo phạm vi hành nghề ghi trên giấy phép hành nghề, quyết định điều chỉnh giấy phép hành nghề và phân công của người chịu trách nhiệm chuyên môn kỹ thuật của cơ sở KCB; cơ sở KCB phải gửi danh sách người hành nghề tại cơ sở KCB để đăng tải trên Trang thông tin điện tử của Sở Y tế/Bộ Y tế. Trường hợp người hành nghề thực hiện khám bệnh chuyên khoa Nhi nhưng trên Trang thông tin điện tử của Sở Y tế chỉ đăng tải KCB chuyên khoa nội thì quỹ BHYT không thanh toán chi phí KCB của chuyên khoa nhi do người hành nghề vi phạm khoản 4 Điều 7 Luật KCB.",
+        "chi phí phát sinh trong thời gian này tại cơ s"
+      ],
+      "section": "giam-dinh",
+      "page": 69,
+      "endPage": 69
+    },
+    {
+      "id": 81,
+      "question": "Bác sĩ không có phạm vi hành nghề chuyên khoa lao, nhưng có chứng chỉ đào tạo, tập huấn điều trị bệnh lao có được khám, điều trị lao và kê đơn thuốc lao không?",
+      "answer": [
+        "Theo quy định tại điểm b khoản 1 Điều 5 Thông tư số 36/2021/TT-BYT ngày 31/12/2021 của Bộ Y tế, người có chứng chỉ hành nghề khám bệnh, chữa bệnh không thuộc trường hợp có phạm vi hành nghề chuyên khoa lao vẫn được khám, chẩn đoán, điều trị bệnh lao nếu đã được tập huấn điều trị bệnh lao theo Hướng dẫn chẩn đoán, điều trị và dự phòng bệnh lao của Bộ Y tế.",
+        "Trường hợp người bệnh đang điều trị ngoại trú bằng thuốc chống lao mà phải vào điều trị nội trú các bệnh liên quan đến lao hoặc các bệnh không liên quan đến lao, trong quá trình điều trị nội trú hết thuốc hoặc không sẵn có thuốc chống lao, người kê đơn thuốc chống lao phải đáp ứng các điều kiện quy định tại Điều 6 Thông tư số 36/2021/TT-BYT."
+      ],
+      "section": "giam-dinh",
+      "page": 70,
+      "endPage": 70
+    },
+    {
+      "id": 82,
+      "question": "Bác sĩ có chứng chỉ đào tạo kỹ thuật chuyên môn không có trong phạm vi hành nghề tại giấy phép hành nghề thì có được khám chuyên khoa của kỹ thuật đó không?",
+      "answer": [
+        "Theo quy định tại khoản 9 Điều 2 Nghị định số 96/2023/NĐ-CP, phạm vi hành nghề của người hành nghề được thể hiện trong một hoặc các văn bản sau đây:",
+        "Phạm vi hành nghề trên giấy phép hành nghề; Quyết định điều chỉnh phạm vi hành nghề do cơ quan có thẩm quyền quy định tại Điều 28 của Luật Khám bệnh, chữa bệnh cấp; Văn bản cho phép thực hiện kỹ thuật của người chịu trách nhiệm chuyên môn kỹ thuật của cơ sở khám bệnh, chữa bệnh Theo quy định tại khoản 3 Điều 10 Nghị định số 96/2023/NĐ-CP, người hành nghề được cấp chứng chỉ đào tạo kỹ thuật chuyên môn nhưng chưa có trong phạm vi hành nghề đã được cấp thì không phải thực hiện thủ tục điều chỉnh phạm vi hành nghề mà căn cứ chứng nhận đào tạo kỹ thuật chuyên môn và năng lực thực hiện kỹ thuật chuyên môn của người hành nghề, người chịu trách nhiệm chuyên môn của cơ sở KCB quyết định việc cho phép người hành nghề thực hiện kỹ thuật đã được đào tạo bằng văn bản, không đủ điều kiện để thực hiện việc KCB của chuyên khoa khác với chuyên khoa ghi trên Giấy phép hành nghề.",
+        "Ví dụ: Bác sỹ có Phạm vi hành nghề KCB Y học cổ truyền, tham gia khóa đào tạo và được cấp chứng chỉ đào tạo dịch vụ kỹ thuật Phục hồi chức năng. Bác sỹ được thực hiện các dịch vụ kỹ thuật Phục hồi chức năng do người chịu trách nhiệm chuyên môn của cơ sở phân công thực hiện nhưng chưa đủ điều kiện thực hiện việc khám bệnh chuyên khoa Phục hồi chức năng."
+      ],
+      "section": "giam-dinh",
+      "page": 70,
+      "endPage": 70
+    },
+    {
+      "id": 83,
+      "question": "Trường hợp người hành nghề được cấp giấy chứng nhận tham gia cập nhật kiến thức y khoa liên tục trong KCB thì có được người chịu trách nhiệm chuyên môn phân công thực hiện dịch vụ kỹ thuật ngoài phạm vi hành nghề ghi trên giấy phép hành nghề không? Đối với chứng chỉ đào tạo không ghi cụ thể các kỹ thuật chuyên môn được đào tạo thì xác định các kỹ thuật đó như thế nào?",
+      "answer": [
+        "Giấy chứng nhận tham gia cập nhật kiến thức y khoa liên tục trong KCB theo mẫu tại Phụ lục 2 ban hành kèm theo Thông tư số 32/2023/TT-BYT ngày 31/12/2023 của Bộ Y tế được cấp cho người hành nghề đã hoàn thành việc bổ sung kiến thức, kỹ năng về y khoa phù hợp với phạm vi hành nghề, do đó không sử dụng làm căn cứ để phân công thực hiện kỹ thuật chưa có trong phạm vi hành nghề.",
+        "Trường hợp chứng chỉ, chứng nhận đào tạo không ghi cụ thể các kỹ thuật chuyên môn được đào tạo: cơ sở KCB cần cung cấp tài liệu xác định rõ các kỹ thuật cụ thể được đào tạo."
+      ],
+      "section": "giam-dinh",
+      "page": 71,
+      "endPage": 71
+    },
+    {
+      "id": 84,
+      "question": "Hiện nay Trạm Y tế xã có 2 mô hình: các điểm trạm và Phòng khám đa khoa khu vực trực thuộc Trạm Y tế. Bác sĩ KCB tại Phòng khám đa khoa khu vực có được khám nhiều chuyên khoa không?",
+      "answer": [
+        "Phạm vi hành nghề của bác sỹ khám bệnh được quy định cụ thể tại Điều 11 Thông tư số 32/2023/TT-BYT. Theo đó, bác sĩ khám bệnh tại Phòng khám đa khoa khu vực trực thuộc Trạm y tế xã thực hiện khám chữa bệnh theo đúng phạm vi hành nghề và sử dụng các mã khám bệnh tương ứng với từng bàn khám chuyên khoa theo quy định tại Phụ lục 2 Quyết định số 2010/QĐ-BYT ngày 19/6/2025 của Bộ Y tế.",
+        "Đối với Trạm Y tế xã, bác sĩ khám bệnh, chữa bệnh theo đúng phạm vi hành nghề và sử dụng mã khám bệnh chung là “TYT.1899” theo quy định tại Phụ lục 2 Quyết định 2010/QĐ-BYT."
+      ],
+      "section": "giam-dinh",
+      "page": 71,
+      "endPage": 71
+    },
+    {
+      "id": 85,
+      "question": "Phạm vi hành nghề trên giấy phép hành nghề là \"Bác sĩ chuyên khoa Phục hồi chức năng; Bác sĩ chuyên khoa Gây mê hồi sức\", có chứng chỉ đào tạo liên tục 9 tháng chuyên khoa xét nghiệm nhưng không bổ sung phạm vi chuyên môn trên giấy phép hành nghề thì có được ký xét nghiệm không?",
+      "answer": [
+        "Theo quy định tại điểm đ khoản 4 Điều 40 Nghị định số 96/2023/NĐ-CP, trường hợp cơ sở khám bệnh, chữa bệnh không có người hành nghề đã được cấp giấy phép hành nghề với một trong các chức danh là bác sĩ chuyên khoa xét nghiệm y học hoặc chức danh kỹ thuật y với phạm vi hành nghề xét nghiệm y học có trình độ đại học thì bác sỹ chỉ định xét nghiệm đọc và ký kết quả xét nghiệm. Do đó, bác sĩ nêu trên chưa được cấp giấy phép hành nghề có phạm vi hành nghề là xét nghiệm thì không được đọc và ký kết quả xét nghiệm."
+      ],
+      "section": "giam-dinh",
+      "page": 71,
+      "endPage": 72
+    },
+    {
+      "id": 86,
+      "question": "Tại cơ sở KCB cấp ban đầu (trạm y tế xã và phòng khám đa khoa khu vực), người hành nghề có chứng chỉ đào tạo các kỹ thuật siêu âm, siêu âm tổng quát, xét nghiệm đường huyết mao mạch và xét nghiệm nước tiểu 10 thông số, được người chịu trách nhiệm chuyên môn kỹ thuật của cơ sở có văn bản phân công thực hiện các kỹ thuật đó, thì có được thanh toán chi phí KCB BHYT không?",
+      "answer": [
+        "Các dịch vụ kỹ thuật được thanh toán nếu đảm bảo điều kiện theo quy định tại khoản 1 Điều 3 Thông tư số 35/2016/TT-BYT ngày 28/9/2016 của Bộ Y tế được sửa đổi bổ sung tại khoản 1 Điều 7 Thông tư số 50/2017/TT-BYT ngày 29/12/2017:",
+        "- Được cấp có thẩm quyền phê duyệt thực hiện tại cơ sở KCB.",
+        "- Được thực hiện theo quy trình chuyên môn do cấp có thẩm quyền phê duyệt.",
+        "- Được cấp có thẩm quyền phê duyệt giá dịch vụ KCB BHYT.",
+        "Đồng thời cơ sở KCB phải đảm bảo cơ sở vật chất (bộ phận xét nghiệm, chẩn đoán hình ảnh); Nhân lực thực hiện phải có chứng chỉ đào tạo thực hiện các kỹ thuật này và được người chịu trách nhiệm chuyên môn kỹ thuật phân công thực hiện bằng văn bản;",
+        "Cơ sở KCB phải cập nhật mã các dịch vụ kỹ thuật này tại chỉ tiêu DVKT_KHAC và văn bản phân công của người chịu trách nhiệm chuyên môn kỹ thuật của cơ sở KCB tại chỉ tiêu VB_PHANCONG tại Mẫu số 02/DM Phụ lục II Thông tư số 12/2026/TT-BTC."
+      ],
+      "section": "giam-dinh",
+      "page": 72,
+      "endPage": 72
+    },
+    {
+      "id": 87,
+      "question": "Trên giấy phép hành nghề ghi chức danh chuyên môn là Điều dưỡng trung học, phạm vi hoạt động chuyên môn là “Thực hiện các kỹ thuật xét nghiệm y học theo y lệnh của bác sĩ điều trị”, có mã hóa phạm vi chuyên môn tại Mẫu số 02/DM là 505; 506; 507 được không?",
+      "answer": [
+        "Theo quy định tại khoản 1 Điều 10 Thông tư số 32/2023/TT-BYT, việc xác định phạm vi hành nghề của người hành nghề phải phù hợp với văn bằng, chứng chỉ chuyên môn liên quan đến y tế mà người đó đã được cấp hoặc công nhận tại Việt Nam. Đối với chức danh chuyên môn là điều dưỡng, phạm vi hành nghề được quy định tại Phụ lục XXII ban hành kèm theo Thông tư số 32/2023/TT-BYT.",
+        "Trường hợp nêu trên, phạm vi chuyên môn ghi trên giấy phép hành nghề chưa phù hợp giữa văn bằng chuyên môn và phạm vi hành nghề theo quy định nêu trên. Đề nghị cơ sở KCB báo cáo cơ quan có thẩm quyền để cấp lại giấy phép hành nghề theo đúng quy định."
+      ],
+      "section": "giam-dinh",
+      "page": 72,
+      "endPage": 73
+    },
+    {
+      "id": 88,
+      "question": "Khi cơ sở KCB đề nghị thanh toán hồ sơ trùng thời gian KCB, hệ thống sẽ xử lý như thế nào?",
+      "answer": [
+        "Hệ thống sẽ từ chối thanh toán các hồ sơ trùng lặp thời gian giữa các lần KCB của một người bệnh trong các trường hợp sau:",
+        "a) Tiếp nhận 01 hồ sơ và từ chối thanh toán các hồ sơ còn lại đối với trường hợp có nhiều hồ sơ của một người bệnh tại một cơ sở KCB trùng toàn bộ thời gian và chi phí;",
+        "b) Từ chối thanh toán các hồ sơ đối với trường hợp có nhiều hồ sơ của một người bệnh tại một cơ sở KCB trùng toàn bộ thời gian nhưng không trùng chi phí hoặc trùng một phần chi phí;",
+        "c) Từ chối thanh toán các hồ sơ đối với trường hợp có nhiều hồ sơ của một người bệnh tại một cơ sở KCB trùng một phần thời gian;",
+        "d) Từ chối thanh toán các hồ sơ trùng một phần hoặc toàn bộ thời gian điều trị giữa các cơ sở KCB; riêng trường hợp cấp thuốc ngoại trú điều trị bệnh mạn tính khi người bệnh đang trong thời gian điều trị nội trú tại cơ sở KCB khác chỉ từ chối thanh toán các chi phí trùng."
+      ],
+      "section": "giam-dinh",
+      "page": 73,
+      "endPage": 73
+    },
+    {
+      "id": 89,
+      "question": "Mã bệnh trong bảng kê chi tiết được rà soát nội dung gì?",
+      "answer": [
+        "Mã bệnh của người bệnh trong Bảng kê chi tiết được đối chiếu với Danh mục mã bệnh tật, nguyên nhân tử vong theo ICD-10 tại Thông tư số 06/2026/TT-BYT ngày 02/4/2026. Từ chối các hồ sơ đề nghị thanh toán trong các trường hợp sau:",
+        "- Mã bệnh chính, mã bệnh kèm theo không có trong danh mục dùng chung do Bộ Y tế ban hành;",
+        "- Mã bệnh không phù hợp với tuổi, giới tính;",
+        "- Có nhiều mã bệnh chính;",
+        "- Có trên 12 mã bệnh kèm theo;",
+        "- Mã bệnh không được sử dụng là mã bệnh chính, mã bệnh kèm theo;",
+        "- Các mã bệnh bắt buộc phải đi kèm với nhau."
+      ],
+      "section": "giam-dinh",
+      "page": 73,
+      "endPage": 73
+    },
+    {
+      "id": 90,
+      "question": "Trường hợp quá 7 ngày nhưng bệnh nhân không đến làm thủ tục thanh toán thì cơ sở KCB gửi hồ sơ đó đề nghị thanh toán như thế nào?",
+      "answer": [
+        "Cơ sở KCB vẫn phải gửi dữ liệu đề nghị thanh toán lên Cổng tiếp nhận dữ liệu theo thời hạn quy định tại Điều 6, Điều 7 Thông tư số 48/2017/TT-BYT.",
+        "Theo hướng dẫn của Bộ Y tế tại chỉ tiêu số 44 (NGAY_TTOAN) Bảng 1 Quyết định số 3176/QĐ-BYT, trường hợp người bệnh ra viện nhưng chưa thực hiện thanh toán thì để trống trường thông tin này khi chuyển dữ liệu lên Cổng tiếp nhận dữ liệu. Khi người bệnh hoàn tất thủ tục thanh toán hoặc cơ sở KCB hoàn tất thủ tục thanh toán (do người bệnh không thực hiện hoặc không thể thực hiện nghĩa vụ thanh toán) thì cơ sở KCB có trách nhiệm bổ sung thông tin ngày thanh toán và có văn bản gửi BHXH tỉnh đề nghị hiệu chỉnh dữ liệu theo quy định tại khoản 9 Điều 13 Thông tư số 48/2017/TT-BYT."
+      ],
+      "section": "giam-dinh",
+      "page": 73,
+      "endPage": 74
+    },
+    {
+      "id": 91,
+      "question": "Các trường hợp sau có phải điều chỉnh giấy phép hoạt động không: bổ sung dịch vụ kỹ thuật mới, khoa phòng mới; phạm vi hoạt động chuyên môn có chuyên khoa sản, trong quá trình hoạt động bác sĩ có phạm vi hành nghề sản khoa nghỉ việc?",
+      "answer": [
+        "Trường hợp cơ sở bổ sung dịch vụ kỹ thuật, khoa phòng mới là trường hợp phải thay đổi quy mô hoạt động, phạm vi hoạt động chuyên môn, cơ sở KCB phải điều chỉnh giấy phép hoạt động theo quy định tại khoản 1 Điều 54 Luật KCB và Điều 66, 67 Nghị định số 96/2023/NĐ-CP.",
+        "Trường hợp cơ sở KCB có chuyên khoa sản nhưng trong quá trình hoạt động bác sĩ có phạm vi hành nghề sản khoa nghỉ việc là không đảm bảo nhân lực hành nghề phù hợp với phạm vi hoạt động chuyên môn, đề nghị cơ sở KCB kiến nghị cơ quan có thẩm quyền điều chỉnh giấy phép hoạt động theo đúng quy định."
+      ],
+      "section": "giam-dinh",
+      "page": 74,
+      "endPage": 74
+    },
+    {
+      "id": 92,
+      "question": "Tại trạm y tế xã, người chịu trách nhiệm chuyên môn kỹ thuật là y sĩ. Trường hợp trạm y tế được tăng cường 01 bác sĩ thì có phải đổi người chịu trách nhiệm chuyên môn kỹ thuật không?",
+      "answer": [
+        "Theo quy định tại Điều 40, 50 Nghị định số 96/2023/NĐ-CP, người chịu trách nhiệm chuyên môn kỹ thuật của trạm y tế phải là người hành nghề có chức danh bác sỹ hoặc y sĩ, hành nghề toàn thời gian tại cơ sở và có phạm vi hành nghề phù hợp phạm vi hoạt động chuyên môn của cơ sở, có thời gian hành nghề ở phạm vi đó tối thiểu 36 tháng. Như vậy, trạm y tế xã có người chịu trách nhiệm chuyên môn kỹ thuật là y sĩ và đáp ứng điều kiện trên thì không bắt buộc phải đổi người chịu trách nhiệm chuyên môn kỹ thuật."
+      ],
+      "section": "giam-dinh",
+      "page": 74,
+      "endPage": 74
+    },
+    {
+      "id": 93,
+      "question": "Cơ sở KCB thực hiện KCB cho người bệnh không cấp cứu vào ngày nghỉ, ngày lễ thì có được thanh toán BHYT không?",
+      "answer": [
+        "Theo quy định tại Điều 43, 44 Thông tư số 32/2023/TT-BYT, trực ngoài giờ hành chính, ngày nghỉ, ngày lễ phải được cơ sở KCB có giường bệnh nội trú, cơ sở KCB có giường lưu tổ chức bảo đảm hoạt động khám bệnh, chữa bệnh liên tục 24/24 giờ trong ngày để tiếp nhận người bệnh đến cấp cứu, theo dõi xử lý người bệnh được bàn giao (người bệnh mới đến và người bệnh nặng đang điều trị có diễn biến bất thường).",
+        "Trường hợp cơ sở KCB tổ chức KCB BHYT ngoài giờ hành chính hoặc vào ngày nghỉ, ngày lễ thì thực hiện theo Điều 46 Nghị định số 188/2025/NĐ-CP thì mới được thanh toán theo chế độ BHYT, cụ thể:",
+        "- Cơ sở phải đảm bảo nhân lực, điều kiện chuyên môn;",
+        "- Công khai những khoản chi phí mà người bệnh phải chi trả ngoài phạm vi được hưởng và mức hưởng BHYT và phải thông báo trước cho người bệnh;",
+        "- Thông báo bằng văn bản cho cơ quan quản lý nhà nước về y tế trên địa bàn và cơ quan BHXH ít nhất 03 ngày làm việc trước khi thực hiện. Người có thẻ bảo hiểm y tế đến khám bệnh, chữa bệnh được quỹ bảo hiểm y tế thanh toán trong phạm vi được hưởng và mức hưởng bảo hiểm y tế."
+      ],
+      "section": "giam-dinh",
+      "page": 74,
+      "endPage": 75
+    },
+    {
+      "id": 94,
+      "question": "Trường hợp người bệnh khám nhiều chuyên khoa trong cùng một lần đến khám tại cơ sở KCB và đều được kê đơn thuốc tại từng chuyên khoa thì tại dữ liệu XML ghi thông tin bác sĩ nào?",
+      "answer": [
+        "Khoản 2 Điều 4 Thông tư số 26/2025/TT-BYT quy định người bệnh khám bệnh nhiều chuyên khoa trong cùng một lần khám tại cơ sở khám bệnh, chữa bệnh thì được kê một (01) đơn thuốc bao gồm chỉ định thuốc của một hoặc nhiều chuyên khoa.",
+        "Trên dữ liệu bảng kê chi tiết (XML), chỉ tiêu MA_BAC_SI tại Bảng 2 Chỉ tiêu chi tiết thuốc ban hành kèm theo Quyết định số 3176/QĐ-BYT, ghi mã bác sĩ khám, chỉ định thuốc (mã hóa theo số giấy phép hành nghề). Mỗi dòng chi phí thuốc ghi mã bác sĩ đã chỉ định loại thuốc đó."
+      ],
+      "section": "giam-dinh",
+      "page": 75,
+      "endPage": 75
+    },
+    {
+      "id": 95,
+      "question": "Trường hợp cơ sở KCB A mới ký hợp đồng KCB BHYT, trong thời gian kể từ lúc ký hợp đồng đến khi cơ sở tạo lập danh mục trên Cổng tiếp nhận dữ liệu thì bác sĩ chịu trách nhiệm chuyên môn kỹ thuật của cơ sở A đang đăng ký hành nghề tại cơ sở KCB B nhưng không phát sinh chi phí tại cơ sở B. Như vậy chi phí phát sinh trong thời gian này tại cơ sở KCB A có được thanh toán BHYT không?",
+      "answer": [
+        "Theo quy định tại điểm b khoản 4 Điều 40 Nghị định số 96/2023/NĐ-CP, người chịu trách nhiệm chuyên môn kỹ thuật của cơ sở phải là người hành nghề toàn thời gian tại cơ sở KCB (trong toàn bộ thời gian làm việc theo giờ làm việc hành chính của cơ sở KCB).",
+        "Theo quy định tại Điều 27 Nghị định số 96/2023/NĐ-CP, người chịu trách nhiệm chuyên môn kỹ thuật của cơ sở được đăng ký hành nghề tại cơ sở KCB khác hoặc là người chịu trách nhiệm chuyên môn kỹ thuật của một cơ sở KCB khác nhưng không cùng thời gian hoạt động hành chính.",
+        "Theo quy định nêu trên, trường hợp người chịu trách nhiệm chuyên môn kỹ thuật của cơ sở KCB đăng ký hành nghề tại cơ sở khác trùng thời gian hoạt động hành chính của cơ sở KCB mà người đó là người chịu trách nhiệm chuyên môn kỹ thuật thì chưa đảm bảo điều kiện cấp giấy phép hoạt động. Cơ quan BHXH kiến nghị cơ quan có thẩm quyền cấp giấy phép hoạt động xem xét, xử lý theo thẩm quyền; trường hợp bác sĩ chịu trách nhiệm chuyên môn kỹ thuật chỉ định và thực hiện trùng thời gian y lệnh tại cả 2 cơ sở KCB thì từ chối chi phí KCB phát sinh của bác sĩ đó."
+      ],
+      "section": "giam-dinh",
+      "page": 75,
+      "endPage": 76
+    },
+    {
+      "id": 96,
+      "question": "Cơ quan BHXH thực hiện thông báo qua Cổng tiếp nhận dữ liệu các thông tin cảnh báo nào?",
+      "answer": [
+        "Theo quy định tại khoản 1 Điều 1 Quyết định số 879/QĐ-BHXH ngày 01/10/2026 của BHXH Việt Nam ban hành các tiêu chí phân loại mức độ cảnh báo gia tăng chi KCB BHYT bình quân, Hệ thống tự động cảnh báo qua Cổng tiếp nhận dữ liệu trước ngày 15 hằng tháng theo quy định tại khoản 1 Điều 13 Thông tư số 12/2026/TT-BTC đối với cơ sở KCB BHYT có chi bình quân trong kỳ tăng cao theo quy định tại điểm b khoản 1 Điều 35 Nghị định số 188/2025/NĐ-CP khi có tiêu chí cảnh báo tương ứng với các hình thức khám bệnh, điều trị ngoại trú, điều trị nội trú, điều trị ban ngày. Các tiêu chí cảnh báo gồm:",
+        "- Chi bình quân trong kỳ tăng so với chi bình quân cùng kỳ năm trước tại cơ sở khám bệnh, chữa bệnh đó.",
+        "- Chi bình quân trong kỳ tăng so với chi bình quân của các cơ sở khám bệnh, chữa bệnh cùng cấp chuyên môn kỹ thuật, cùng loại hình cơ sở khám bệnh, chữa bệnh đa khoa hoặc chuyên khoa trên địa bàn tỉnh, thành phố.",
+        "- Chi bình quân trong kỳ tăng so với chi bình quân của các cơ sở khám bệnh, chữa bệnh cùng cấp chuyên môn kỹ thuật, cùng loại hình cơ sở khám bệnh, chữa bệnh đa khoa hoặc chuyên khoa trên địa bàn toàn quốc."
+      ],
+      "section": "giam-dinh",
+      "page": 76,
+      "endPage": 76
+    },
+    {
+      "id": 97,
+      "question": "Mức độ cảnh báo gia tăng chi KCB BHYT bình quân được phân loại như thế nào?",
+      "answer": [
+        "Mức độ cảnh báo gia tăng chi KCB BHYT bình quân được phân loại theo các mức độ sau:",
+        "1. Tăng rất cao",
+        "- Khi có đủ 03 tiêu chí quy định tại điểm 1.1 khoản 1 Điều 1 Quyết định số 879/QĐ-BHXH, đồng thời chi bình quân của cơ sở KCB cao hơn mức chi bình quân chung của tất cả các cơ sở KCB có đủ 03 tiêu chí trên.",
+        "- Khi có ít nhất 01 tiêu chí quy định tại điểm 1.1 khoản 1 Điều 1 Quyết định số 879/QĐ-BHXH, đồng thời số tiền tăng do tăng chi bình quân so với tổng chi KCB BHYT của tiêu chí đó lớn hơn 50%.",
+        "2. Tăng cao",
+        "- Khi có ít nhất 02 tiêu chí quy định tại điểm 1.1 khoản 1 Điều 1 Quyết định số 879/QĐ-BHXH, đồng thời chi bình quân của cơ sở KCB cao hơn mức chi bình quân chung của các cơ sở KCB có ít nhất 02 tiêu chí (không bao gồm các cơ sở KCB đã xác định cảnh báo mức \"Tăng rất cao\" tại điểm 1 nêu trên).",
+        "- Khi có ít nhất 01 tiêu chí quy định tại điểm 1.1 khoản 1 Điều 1 Quyết định số 879/QĐ-BHXH, đồng thời số tiền tăng do tăng chi bình quân so với tổng chi KCB BHYT của tiêu chi đó từ 30% đến 50%.",
+        "3. Tăng thấp: khi có ít nhất 01 tiêu chí quy định tại khoản 1 Điều 1 Quyết định số 879/QĐ-BHXH và không thuộc trường hợp quy định tại điểm 1, điểm 2 nêu trên."
+      ],
+      "section": "giam-dinh",
+      "page": 76,
+      "endPage": 77
+    },
+    {
+      "id": 98,
+      "question": "Các thông tin cảnh báo được hiển thị ở chức năng nào trên Hệ thống?",
+      "answer": [
+        "Các thông tin cảnh báo được hiển thị tại Menu chức năng \"Cảnh báo\" trên phần mềm Giám sát thuộc Hệ thống thông tin giám định BHYT.",
+        "- Biểu đồ M01: Chi KCB BHYT bình quân của cơ sở KCB tăng cao hơn khi so sánh chính cơ sở KCB đó với cùng kỳ năm trước hoặc kỳ trước liền kề (tháng trước liền kề).",
+        "- Biểu đồ M03: Chi phí KCB BHYT bình quân của cơ sở KCB tăng cao hơn so với các cơ sở KCB cùng cấp CMKT, cùng loại hình cơ sở KCB đa khoa hoặc chuyên khoa trên địa bàn tỉnh/thành phố hoặc toàn quốc.",
+        "- Biểu đồ M04: Chi KCB BHYT bình quân theo mã chẩn đoán của cơ sở KCB tăng cao hơn so với chi bình quân mã chẩn đoán chính của chính cơ sở KCB đó cùng kỳ năm trước hoặc kỳ trước liền kề.",
+        "- Biểu đồ M05: Chi KCB BHYT bình quân theo mã chẩn đoán chính của cơ sở KCB tăng cao hơn so với chi KCB BHYT bình quân mã chẩn đoán chính của các cơ sở KCB cùng cấp chuyên môn kỹ thuật, cùng loại hình cơ sở KCB đa khoa hoặc chuyên khoa trên địa bàn tỉnh hoặc toàn quốc."
+      ],
+      "section": "giam-dinh",
+      "page": 77,
+      "endPage": 77
+    },
+    {
+      "id": 99,
+      "question": "Sau khi nhận được thông báo của cơ quan BHXH về các chi KCB BHYT bình quân tăng cao, cơ sở KCB có trách nhiệm làm gì?",
+      "answer": [
+        "Theo quy định tại khoản 3 Điều 13 Thông tư số 12/2026/TT-BTC, trong thời hạn 10 ngày kể từ ngày nhận được thông báo của cơ quan BHXH về chi KCB BHYT bình quân tăng cao, cơ sở KCB phải rà soát, kiểm tra các chi phí đã được cảnh báo và xác định nguyên nhân chủ quan, khách quan dẫn đến gia tăng chi phí, thực hiện các giải pháp khắc phục các nguyên nhân chủ quan, bất cập gửi cơ quan BHXH.",
+        "Cơ sở KCB có trách nhiệm thuyết minh các nguyên nhân chủ quan, khách quan, giải pháp khắc phục các nguyên nhân chủ quan, bất cập làm gia tăng chi KCB BHYT bình quân gửi cơ quan BHXH bằng văn bản theo quy định tại điểm đ khoản 2 Điều 35 Nghị định số 188/2025/NĐ-CP. Việc gửi văn bản cho cơ quan BHXH được thực hiện trên Cổng tiếp nhận dữ liệu."
+      ],
+      "section": "giam-dinh",
+      "page": 77,
+      "endPage": 78
+    },
+    {
+      "id": 100,
+      "question": "Sau khi nhận được văn bản thuyết minh của cơ sở KCB xác định nguyên nhân chủ quan, khách quan làm gia tăng chi KCB BHYT bình quân và các giải pháp khắc phục nguyên nhân chủ quan, bất cập, cơ quan BHXH thực hiện như thế nào?",
+      "answer": [
+        "Cơ quan BHXH thực hiện phân tích dữ liệu, đánh giá các nội dung cơ sở KCB thuyết minh, các giải pháp khắc phục nguyên nhân chủ quan, bất cập, đề nghị cơ sở KCB bổ sung tài liệu làm rõ các nội dung thuyết minh, giải pháp khắc phục chưa hợp lý.",
+        "- Trường hợp cơ sở KCB không có các giải pháp khắc phục nguyên nhân chủ quan không hợp lý, tiếp tục đề nghị cơ sở KCB có các giải pháp khắc phục.",
+        "Đồng thời báo cáo Ủy ban nhân dân tỉnh/thành phố, Sở Y tế đối với các cơ sở KCB BHYT không thực hiện điều chỉnh, vẫn gia tăng chi phí; đề nghị Sở Y tế phối hợp tổ chức kiểm tra đột xuất, xác định hành vi vi phạm pháp luật về BHYT để kiến nghị cơ quan chức năng xử lý nghiêm theo quy định của pháp luật.",
+        "- Xác định số lượng hồ sơ và nội dung thông báo đề nghị cơ sở KCB tự rà soát hằng tháng; xác định nội dung, số lượng hồ sơ cần giám định trực tiếp tại cơ sở KCB theo quy định tại điểm a khoản 3 Điều 11 Thông tư số 12/2026/TT-BTC."
+      ],
+      "section": "giam-dinh",
+      "page": 78,
+      "endPage": 78
+    },
+    {
+      "id": 101,
+      "question": "Đối với các cơ sở KCB có chi phí KCB BHYT tăng cao theo điểm b khoản 1 Điều 35 Nghị định số 188/2025/NĐ-CP, cơ quan BHXH cần thực hiện những nội dung gì để kiểm soát chi phí?",
+      "answer": [
+        "1. Cơ quan BHXH phân tích, đánh giá các cơ sở KCB có chi phí KCB BHYT gia tăng, các nội dung cần tập trung phân tích như:",
+        "- Kéo dài ngày điều trị.",
+        "- Cấp thuốc điều trị bệnh mạn tính không đúng quy định của Thông tư số 26/2025/TT-BYT.",
+        "- Tỷ lệ chỉ định vào điều trị nội trú tăng cao.",
+        "- Tách lượt điều trị ngoại trú, nội trú; việc gia tăng chỉ định, thực hiện dịch vụ cận lâm sàng (CT-Scanner, MRI, X-quang, xét nghiệm...).",
+        "- Tăng chỉ định dịch vụ kỹ thuật, nhất là nhóm thủ thuật y học cổ truyền, phục hồi chức năng.",
+        "- Nhân viên y tế đi KCB tại chính cơ sở KCB đang công tác; nhân viên y tế trong thời gian nghỉ ốm, nghỉ phép vẫn có phát sinh chi phí KCB đề nghị thanh toán",
+        "- Cấp giấy chuyển viện nhiều, cấp giấy chứng nhận hưởng chế độ BHXH số lượng lớn và các trường hợp có dấu hiệu bất thường khác.",
+        "2. Tổ chức làm việc trực tiếp với từng cơ sở KCB có chi phí KCB BHYT gia tăng, tập trung vào các cơ sở thường xuyên có chi phí gia tăng cao, đã được cơ quan BHXH cảnh báo nhưng chưa thực hiện điều chỉnh, theo trình tự sau:",
+        "- Bước 1: Xác định cơ sở KCB có chi phí KCB BHYT gia tăng;",
+        "- Bước 2: Xác định cụ thể nhóm chi phí KCB BHYT tăng cao của cơ sở KCB tại Bước 1",
+        "- Bước 3: Tổ chức làm việc với cơ sở KCB, chỉ rõ các chi phí KCB BHYT tăng cao, chỉ định quá mức cần thiết (lãng phí, lạm dụng), đề nghị cơ sở KCB giải trình nguyên nhân và thực hiện các biện pháp điều chỉnh phù hợp."
+      ],
+      "section": "giam-dinh",
+      "page": 78,
+      "endPage": 79
+    },
+    {
+      "id": 102,
+      "question": "Thời điểm cơ quan BHXH lập Biên bản giám định chi phí KCB BHYT và thông báo kết quả giám định chi phí KCB BHYT được quy định như thế nào?",
+      "answer": [
+        "- Theo quy định tại khoản 1 Điều 12 Thông tư số 12/2026/TT-BTC: Trong thời hạn 03 ngày làm việc kể từ ngày kết thúc giám định chi phí KCB BHYT trong quý, cơ quan BHXH lập Biên bản giám định chi phí KCB BHYT theo Mẫu số 03/BH gửi cơ sở KCB qua Cổng tiếp nhận dữ liệu.",
+        "- Theo quy định tại khoản 3 Điều 12 Thông tư số 12/2026/TT-BTC: Cơ quan BHXH thông báo kết quả giám định chi phí KCB BHYT theo Mẫu số 05/BH, gửi cơ sở KCB trực tiếp ký hợp đồng qua Cổng tiếp nhận dữ liệu trong thời hạn 05 ngày làm việc kể từ ngày gửi Biên bản giám định chi phí KCB BHYT."
+      ],
+      "section": "quyet-toan",
+      "page": 80,
+      "endPage": 80
+    },
+    {
+      "id": 103,
+      "question": "Khi cơ sở KCB đề nghị điều chỉnh, thu hồi chi phí tại Bảng kê chi tiết điều chỉnh (Mẫu số 09/BH) thì có phải lập, gửi lại Bảng tổng hợp đề nghị thanh toán chi phí KCB BHYT (Mẫu số 01/BH) không?",
+      "answer": [
+        "Theo quy định tại Điều 9, Điều 10 và hướng dẫn lập Mẫu số 09/BH Phụ lục I ban hành kèm theo Thông tư số 12/2026/TT-BTC, cơ sở KCB thực hiện điều chỉnh, thu hồi chi phí đề nghị thanh toán thông qua Bảng kê chi tiết điều chỉnh (Mẫu số 09/BH). Việc xử lý số liệu trên Hệ thống thông tin giám định BHYT và Bảng tổng hợp đề nghị thanh toán chi phí KCB BHYT (Mẫu số 01/BH) được thực hiện tùy theo thời điểm cơ sở KCB gửi đề nghị điều chỉnh, cụ thể:",
+        "1. Trường hợp cơ sở KCB đã lập Mẫu số 01/BH, ký số và đề nghị thanh toán BHYT (đã gửi biểu đề nghị thanh toán theo quy định của Luật BHYT): Hệ thống xử lý trả lại hồ sơ XML, không ghi nhận từ chối thanh toán tại Thông báo kết quả giám định chi phí KCB BHYT (Mẫu số 05/BH), đồng thời trả lại mẫu số 01/BH về Cổng tiếp nhận dữ liệu.",
+        "2. Trường hợp cơ sở KCB chưa lập, ký số và gửi Mẫu số 01/BH (chưa gửi biểu đề nghị thanh toán theo quy định của Luật BHYT):",
+        "- Đối với đề nghị thu hồi cả hồ sơ, Hệ thống xử lý trả lại hồ sơ XML đã đề nghị về Cổng tiếp nhận dữ liệu, không ghi nhận chi phí từ chối thanh toán ở Thông báo kết quả giám định chi phí KCB BHYT (Mẫu số 05/BH) và cơ sở KCB không lập mẫu 01/BH",
+        "- Đối với đề nghị thu hồi 1 phần chi phí trong hồ sơ, Hệ thống xử lý trả lại chi phí của hồ sơ XML đã đề nghị, không ghi nhận chi phí từ chối thanh toán ở Thông báo kết quả giám định chi phí KCB BHYT (Mẫu số 05/BH), cơ sở KCB lập Bảng tổng hợp (Mẫu số 01/BH) trên cơ sở dữ liệu đã điều chỉnh gửi đề nghị sang phần mềm Giám định."
+      ],
+      "section": "quyet-toan",
+      "page": 80,
+      "endPage": 81
+    },
+    {
+      "id": 104,
+      "question": "Khi cơ sở KCB đã có văn bản thông báo thay đổi về nhân lực, khoa phòng... trong thời gian thực hiện hợp đồng thì có phải đối chiếu điều kiện thực tế tại cơ sở KCB không, kết quả đối chiếu ghi như thế nào?",
+      "answer": [
+        "Mục 1 Phần II Biên bản giám định chi phí KCB BHYT Mẫu số 03/BH Phụ lục I ban hành kèm theo Thông tư số 12/2026/TT-BTC hướng dẫn ghi các thay đổi trong thời gian thực hiện hợp đồng theo văn bản thông báo của mỗi bên trong kỳ quyết toán, kết quả đối chiếu với điều kiện thực tế tại cơ sở KCB, bao gồm cả thay đổi thông tin về nhân lực, khoa phòng."
+      ],
+      "section": "quyet-toan",
+      "page": 81,
+      "endPage": 81
+    },
+    {
+      "id": 105,
+      "question": "Đối với các nội dung do cơ sở KCB tự rà soát theo thông báo của cơ quan BHXH, kết quả rà soát gửi cho cơ quan BHXH khi nào?",
+      "answer": [
+        "Tại điểm a khoản 2 Mục II Biên bản giám định chi phí KCB BHYT (Mẫu số 03/BH) về nội dung và kết quả giám định chi phí KCB BHYT quy định:",
+        "“Ghi các nội dung và kết quả cơ sở KCB đã rà soát theo thông báo của cơ quan BHXH…”. Theo đó cơ sở KCB gửi kết quả tự rà soát cho cơ quan BHXH trước thời điểm lập Biên bản giám định chi phí KCB BHYT theo Mẫu số 03/BH và chịu trách nhiệm về các chi phí tự rà soát để ghi nhận tại Biên bản giám định."
+      ],
+      "section": "quyet-toan",
+      "page": 81,
+      "endPage": 81
+    },
+    {
+      "id": 106,
+      "question": "Khi kết thúc giám định chi phí KCB hằng tháng, có phải lập Biên bản tổng hợp các vấn đề tại các Biên bản làm việc (Mẫu số 04/BH) không?",
+      "answer": [
+        "Thông tư số 12/2026/TT-BTC không quy định lập Biên bản tổng hợp sau khi kết thúc giám định hằng tháng. Tại khoản 1 Điều 12 Thông tư số 12/2026/TT-BTC quy định: trong thời hạn 03 ngày làm việc kể từ ngày kết thúc giám định chi phí KCB BHYT trong quý, cơ quan BHXH lập Biên bản giám định chi phí KCB BHYT theo Mẫu số 03/BH gửi cơ sở KCB qua Cổng tiếp nhận dữ liệu. Nội dung Biên bản giám định chi phí KCB BHYT hằng quý tổng hợp các nội dung đã được ghi nhận tại các Biên bản làm việc hằng tháng."
+      ],
+      "section": "quyet-toan",
+      "page": 81,
+      "endPage": 81
+    },
+    {
+      "id": 107,
+      "question": "Tại Điều 12 Thông tư số 12/2026/TT-BTC quy định về lập Biên bản giám định chi phí KCB BHYT gửi cơ sở KCB qua Cổng tiếp nhận dữ liệu; trường hợp cơ sở KCB không thống nhất nội dung từ chối và có ý kiến, cơ quan BHXH không thống nhất với ý kiến thuyết minh của cơ sở KCB thì cần phải làm gì?",
+      "answer": [
+        "Theo quy định tại khoản 2 Điều 12 Thông tư số 12/2026/TT-BTC, trong thời hạn 02 ngày làm việc kể từ ngày nhận được Biên bản giám định chi phí KCB BHYT (Mẫu số 03/BH), cơ sở KCB thực hiện ký và gửi lại cơ quan BHXH qua Cổng tiếp nhận dữ liệu.",
+        "Trường hợp không thống nhất với nội dung từ chối thanh toán, cơ sở KCB ghi rõ căn cứ pháp lý đề nghị thanh toán hoặc ý kiến đề nghị cấp có thẩm quyền xem xét, giải quyết theo quy định tại khoản 3 Điều 51 Nghị định số 188/2025/NĐ-CP trong Biên bản giám định, ký và gửi lại cơ quan BHXH qua Cổng tiếp nhận dữ liệu.",
+        "Trường hợp cơ quan BHXH không thống nhất với ý kiến giải trình của cơ sở KCB, các nội dung còn có ý kiến khác nhau được ghi nhận trong Biên bản giám định để làm cơ sở xem xét, giải quyết theo thẩm quyền và quy định của pháp luật."
+      ],
+      "section": "quyet-toan",
+      "page": 81,
+      "endPage": 82
+    },
+    {
+      "id": 108,
+      "question": "Thời hạn cơ quan BHXH lập Biên bản quyết toán, thanh toán chi phí KCB BHYT theo Mẫu số 06/BH và thời hạn cơ sở KCB gửi lại Biên bản quyết toán đã ký là khi nào?",
+      "answer": [
+        "Theo quy định tại khoản 2, khoản 3 Điều 14 và khoản 1 Điều 15 Thông tư số 12/2026/TT-BTC:",
+        "Đối với cơ quan BHXH: Lập Biên bản quyết toán, thanh toán chi phí KCB BHYT theo Mẫu số 06/BH Phụ lục I ban hành kèm theo Thông tư số 12/2026/TT-BTC, gửi cơ sở KCB trực tiếp ký hợp đồng qua Cổng tiếp nhận dữ liệu cùng thời điểm thông báo kết quả giám định chi phí KCB BHYT (Mẫu số 05/BH) theo quy định tại khoản 3 Điều 12 Thông tư số 12/2026/TT-BTC.",
+        "Đối với cơ sở KCB: Trong thời hạn 02 ngày làm việc kể từ ngày nhận được Biên bản quyết toán, cơ sở KCB ký, gửi lại Biên bản quyết toán và hóa đơn điện tử khớp đúng số chi phí KCB BHYT được quyết toán; hoàn trả kinh phí đã tạm ứng lớn hơn kinh phí quyết toán (nếu có) cho cơ quan BHXH. Trường hợp có ý kiến, cơ sở KCB ghi nhận nội dung trên Biên bản quyết toán, ký số và gửi cơ quan BHXH.",
+        "Hoàn tất Biên bản quyết toán: Trong thời hạn 01 ngày làm việc kể từ ngày nhận được Biên bản quyết toán do cơ sở KCB gửi lại, cơ quan BHXH ký số Biên bản quyết toán và gửi cơ sở KCB qua Cổng tiếp nhận dữ liệu.",
+        "Thời hạn thanh toán: Trong thời hạn 03 ngày làm việc kể từ ngày nhận được Biên bản quyết toán đã ký và hóa đơn điện tử của cơ sở KCB, cơ quan BHXH hoàn thành việc thanh toán theo quy định tại khoản 1 Điều 15 Thông tư số 12/2026/TT-BTC, bảo đảm thời hạn thanh toán theo quy định tại điểm c khoản 2 Điều 32 Luật BHYT./."
+      ],
+      "section": "quyet-toan",
+      "page": 82,
+      "endPage": 82
+    }
+  ]
+}

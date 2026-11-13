@@ -739,3 +739,407 @@ body { color: var(--readable-ink); font-size: 16px; }
     max-height: 500px;
   }
 }
+
+/* ==========================================================================
+   Hỏi - Đáp nghiệp vụ BHYT 2026 (BHXH Việt Nam 10/2026 - 108 câu hỏi)
+   ========================================================================== */
+.hoidap-hero {
+  background: linear-gradient(135deg, #0e2a47 0%, #153e66 60%, #1b4e80 100%);
+  color: #ffffff;
+  padding: 22px 26px;
+  border-radius: 4px;
+  margin-bottom: 14px;
+  border: 1px solid #0b223a;
+  box-shadow: 0 2px 8px rgba(10, 34, 58, 0.12);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.hoidap-hero-left {
+  flex: 1;
+  min-width: 320px;
+}
+
+.hoidap-hero-badges {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+
+.hoidap-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  padding: 3px 9px;
+  border-radius: 2px;
+  font-size: 11px;
+  font-weight: 750;
+  letter-spacing: 0.04em;
+  color: #d8e8f8;
+}
+
+.hoidap-hero-badge-accent {
+  background: #ffb833;
+  color: #1a202c;
+  border-color: #f6ad26;
+  font-weight: 850;
+}
+
+.hoidap-hero-title {
+  font-size: 20px;
+  font-weight: 850;
+  line-height: 1.35;
+  margin: 0 0 8px;
+  color: #ffffff;
+}
+
+.hoidap-hero-desc {
+  font-size: 13px;
+  line-height: 1.55;
+  color: #c7d9e8;
+  margin: 0;
+  max-width: 900px;
+}
+
+.hoidap-hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  align-self: center;
+}
+
+.hoidap-hero-download {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #ffffff;
+  color: #0e3e92;
+  font-size: 12.5px;
+  font-weight: 800;
+  padding: 9px 16px;
+  border-radius: 3px;
+  text-decoration: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.hoidap-hero-download:hover {
+  background: #f0f6ff;
+  color: #082963;
+  transform: translateY(-1px);
+}
+
+.hoidap-section-tabs {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+  margin-bottom: 12px;
+}
+
+.hoidap-section-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 13px;
+  font-size: 12px;
+  font-weight: 750;
+  color: #3b5368;
+  background: #ffffff;
+  border: 1px solid #c9d8e4;
+  border-radius: 3px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.12s ease;
+}
+
+.hoidap-section-tab:hover {
+  background: #f0f6fb;
+  color: #0e3e92;
+  border-color: #a8bfd3;
+}
+
+.hoidap-section-tab-active {
+  background: #1457c8 !important;
+  color: #ffffff !important;
+  border-color: #0f449e !important;
+  box-shadow: 0 1px 3px rgba(20, 87, 200, 0.25);
+}
+
+.hoidap-section-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  font-size: 10.5px;
+  font-weight: 800;
+  border-radius: 9px;
+  background: #e2ecf5;
+  color: #274762;
+}
+
+.hoidap-section-tab-active .hoidap-section-badge {
+  background: rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+}
+
+.hoidap-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: #f8fafc;
+  border: 1px solid #d4e1ec;
+  padding: 8px 14px;
+  border-radius: 3px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.hoidap-count-summary {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #274762;
+}
+
+.hoidap-count-summary strong {
+  color: #1457c8;
+}
+
+.hoidap-toggle-btns {
+  display: flex;
+  gap: 8px;
+}
+
+.hoidap-toggle-btn {
+  background: transparent;
+  border: 1px solid #c0d3e2;
+  color: #3b5368;
+  font-size: 11.5px;
+  font-weight: 750;
+  padding: 4px 10px;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.12s ease;
+}
+
+.hoidap-toggle-btn:hover {
+  background: #ffffff;
+  color: #1457c8;
+  border-color: #1457c8;
+}
+
+.hoidap-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.hoidap-item {
+  background: #ffffff;
+  border: 1px solid #d4e1ec;
+  border-radius: 3px;
+  overflow: hidden;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.hoidap-item:hover {
+  border-color: #a3c2de;
+  box-shadow: 0 1px 4px rgba(14, 42, 71, 0.06);
+}
+
+.hoidap-item-open {
+  border-color: #79a7d3;
+  box-shadow: 0 2px 6px rgba(14, 42, 71, 0.08);
+}
+
+.hoidap-header-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 16px;
+  cursor: pointer;
+  background: #ffffff;
+  transition: background 0.12s ease;
+  user-select: none;
+}
+
+.hoidap-header-row:hover {
+  background: #f7fafc;
+}
+
+.hoidap-item-open .hoidap-header-row {
+  background: #f0f6fb;
+  border-bottom: 1px solid #d9e6f1;
+}
+
+.hoidap-qnum {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  min-width: 66px;
+  padding: 3px 8px;
+  background: #eaf1f8;
+  color: #0e3e92;
+  border: 1px solid #c1d5e7;
+  border-radius: 2px;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.03em;
+}
+
+.hoidap-item-open .hoidap-qnum {
+  background: #1457c8;
+  color: #ffffff;
+  border-color: #0e3e92;
+}
+
+.hoidap-header-main {
+  flex: 1;
+}
+
+.hoidap-header-tags {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  color: #5a7388;
+  font-weight: 650;
+  margin-bottom: 4px;
+}
+
+.hoidap-tag-section {
+  color: #1457c8;
+  font-weight: 750;
+}
+
+.hoidap-tag-page {
+  background: #eef3f7;
+  padding: 1px 6px;
+  border-radius: 2px;
+  font-weight: 700;
+  color: #274762;
+}
+
+.hoidap-qtitle {
+  font-size: 14.5px;
+  font-weight: 800;
+  line-height: 1.45;
+  color: #102a43;
+  margin: 0;
+}
+
+.hoidap-chevron {
+  flex-shrink: 0;
+  color: #728a9c;
+  margin-top: 2px;
+  transition: transform 0.18s ease;
+}
+
+.hoidap-item-open .hoidap-chevron {
+  transform: rotate(180deg);
+  color: #1457c8;
+}
+
+.hoidap-body {
+  padding: 16px 20px;
+  background: #ffffff;
+  color: #1e293b;
+  font-size: 13.5px;
+  line-height: 1.65;
+}
+
+.hoidap-body p {
+  margin: 0 0 10px;
+}
+
+.hoidap-body p:last-child {
+  margin-bottom: 0;
+}
+
+.hoidap-body-footer {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px dashed #d5e2ec;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.hoidap-pdf-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 750;
+  color: #1457c8;
+  text-decoration: none;
+  padding: 4px 10px;
+  background: #edf4fc;
+  border: 1px solid #c9dff5;
+  border-radius: 2px;
+  transition: all 0.12s ease;
+}
+
+.hoidap-pdf-link:hover {
+  background: #1457c8;
+  color: #ffffff;
+  border-color: #0e3e92;
+}
+
+.hoidap-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 14px 0 6px;
+}
+
+.hoidap-page-btn {
+  min-width: 32px;
+  height: 32px;
+  padding: 0 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  border: 1px solid #cbd8e2;
+  border-radius: 2px;
+  font-size: 12.5px;
+  font-weight: 750;
+  color: #274762;
+  cursor: pointer;
+  transition: all 0.12s ease;
+}
+
+.hoidap-page-btn:hover:not(:disabled) {
+  background: #f0f6fb;
+  color: #1457c8;
+  border-color: #1457c8;
+}
+
+.hoidap-page-btn-active {
+  background: #1457c8 !important;
+  color: #ffffff !important;
+  border-color: #0e3e92 !important;
+  font-weight: 850;
+}
+
+.hoidap-page-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}

@@ -65,4 +65,24 @@ Theo Quyết định số 2917/QĐ-BYT ngày 15/09/2026 của Bộ trưởng B�
 - BHXH Việt Nam và các cơ sở KCB trên toàn quốc cập nhật điều chỉnh mã 3.1 trên Cổng giám định BHYT và phần mềm HIS. Các hồ sơ đã gửi trước ngày ban hành không phải gửi lại.
 - Dữ liệu `qd3276-phu-luc.json`, `COMMON_CATALOGS.maDoiTuong` và file PDF ký số `BYT-2917.QD-Sua-doi-bo-sung-QD3276.signed.pdf` đã được đồng bộ đầy đủ trên hệ thống và GitHub repository.
 
+## Cập nhật Cẩm nang 108 câu Hỏi - Đáp nghiệp vụ BHYT 2026 — 2026-11-13
+
+Rà soát toàn diện nguồn công khai `https://tracuu-danhmuc-tt12.web.app/` ngày 13/11/2026 (GMT+7). Trang nguồn đã bổ sung tài liệu mới trong thư viện: **Hỏi đáp nghiệp vụ BHYT 2026** kèm file PDF gốc `hoi-dap-giam-dinh-bhyt-2026.pdf`.
+
+- **Cơ quan ban hành:** Bảo hiểm xã hội Việt Nam — Ban hành Tháng 10/2026 (Tài liệu lưu hành nội bộ, 86 trang).
+- **Căn cứ pháp lý chủ đạo:** Luật Bảo hiểm y tế, Nghị định số 188/2025/NĐ-CP của Chính phủ, Thông tư số 12/2026/TT-BTC của Bộ Tài chính và các văn bản chỉ đạo nghiệp vụ liên quan.
+- **Phân loại 6 chuyên đề nghiệp vụ:**
+  1. **Cổng tiếp nhận dữ liệu:** 20 câu (Câu 1 đến Câu 20, Trang 12–25) về tài khoản, chữ ký số, xác thực dữ liệu KCB điện tử, hiển thị thời điểm gửi/nhận, kiểm tra thẻ BHYT và tiếp nhận hồ sơ.
+  2. **Hợp đồng KCB BHYT:** 15 câu (Câu 21 đến Câu 35, Trang 26–37) về điều kiện ký hợp đồng, mẫu hồ sơ, phụ lục hợp đồng, thay đổi bổ sung phạm vi hoạt động chuyên môn và nhân lực.
+  3. **Danh mục liên thông:** 23 câu (Câu 36 đến Câu 58, Trang 38–53) về ánh xạ mã thuốc, vật tư y tế, thiết bị y tế, dịch vụ kỹ thuật, nhân lực hành nghề KCB và liên thông dữ liệu.
+  4. **Hồ sơ đề nghị thanh toán:** 16 câu (Câu 59 đến Câu 74, Trang 54–65) về biểu mẫu đề nghị thanh toán (Mẫu 01/BH, Mẫu 02/BH), thời hạn nộp dữ liệu và xử lý hồ sơ bị từ chối/phản hồi.
+  5. **Giám định chi phí KCB BHYT:** 23 câu (Câu 75 đến Câu 97, Trang 66–77) về quyền lợi người bệnh, mức hưởng, kiểm tra tính hợp lý của chỉ định thuốc, dịch vụ, ngày giường và nghiệp vụ giám định điện tử.
+  6. **Thanh toán, quyết toán:** 11 câu (Câu 98 đến Câu 108, Trang 78–82) về tạm ứng kinh phí, lập Biên bản quyết toán theo Mẫu số 06/BH, thời hạn ký duyệt của cơ sở KCB và thời hạn thanh toán của cơ quan BHXH.
+- **Tích hợp vào hệ thống:**
+  - File JSON dữ liệu chuẩn hóa `hoi-dap-bhyt-2026.json` (231 KB) lưu trữ đầy đủ 108 câu hỏi - đáp, phân đoạn văn bản và số trang đối chiếu.
+  - Giao diện tra cứu chuyên sâu với bộ lọc theo từng chuyên đề, tìm kiếm tức thì theo số câu & từ khóa, nút mở rộng/thu gọn và nút mở xem trang tài liệu đối chiếu trực tiếp trên file PDF gốc.
+  - Mở rộng công cụ tìm kiếm toàn cục (Global Search) hỗ trợ truy vấn trực tiếp nội dung 108 câu hỏi - đáp.
+  - Lưu trữ file PDF gốc `hoi-dap-giam-dinh-bhyt-2026.pdf` (1.48 MB) trên kho GitHub và bổ sung vào Thư viện tài liệu tham chiếu để tải về sử dụng ngoại tuyến.
+
+
 

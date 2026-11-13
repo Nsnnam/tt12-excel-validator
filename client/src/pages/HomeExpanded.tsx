@@ -6,18 +6,18 @@ import { useMemo, useRef, useState, type ReactNode } from "react";
 import "../inspection.css";
 import "../expanded.css";
 import { toast } from "sonner";
-import { AlertTriangle, BookOpen, CheckCircle2, ChevronRight, Download, FileCheck2, FileSpreadsheet, Filter, FolderSearch, Info, Search, ShieldCheck, Trash2, Upload, X } from "lucide-react";
+import { AlertTriangle, BookOpen, CheckCircle2, ChevronDown, ChevronRight, Download, ExternalLink, FileCheck2, FileSpreadsheet, FileText, Filter, FolderSearch, HelpCircle, Info, Search, ShieldCheck, Trash2, Upload, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ReleaseLedger } from "@/components/ReleaseLedger";
 import { APP_META, BRAND_ASSETS } from "@/lib/meta";
 import { TEMPLATES, exportReport, fieldsForTemplate, inspectExcelFile, issueCounts, sourceTemplateUrl, type Inspection, type Severity, type TemplateSchema, type ValidationIssue } from "@/lib/tt12";
-import { COMMON_CATALOGS, DOCUMENT_LIBRARY, QD3176_TABLES, QD5937_TABLES, QD3276_TABLES, sourceUrl } from "@/lib/reference";
+import { COMMON_CATALOGS, DOCUMENT_LIBRARY, QD3176_TABLES, QD5937_TABLES, QD3276_TABLES, HOI_DAP_BHYT_2026, sourceUrl, type HoiDapQuestion } from "@/lib/reference";
 import { importCatalogFile, validateCatalogIssues, type ImportedCatalog } from "@/lib/catalog";
 import { downloadHighlightedWorkbook, downloadNormalizedWorkbook } from "@/lib/normalize";
 import { applyFacilityRules, loadFacilityRules, makeFacilityRule, persistFacilityRules, type FacilityRule, type FacilityRuleKind } from "@/lib/facility-rules";
 import { searchReferenceData, searchScopeOptions, type SearchResult, type SearchScope } from "@/lib/search";
 
-type View = "lookup" | "validate" | "catalog" | "qd" | "qd5937" | "qd3276" | "guide" | "rules";
+type View = "lookup" | "validate" | "catalog" | "qd" | "qd5937" | "qd3276" | "hoiDap" | "guide" | "rules";
 type CatalogId = keyof typeof COMMON_CATALOGS;
 type IssueFilter = Severity | "all";
 
@@ -56,6 +56,10 @@ export default function HomeExpanded() {
   const [qdId, setQdId] = useState(QD3176_TABLES[0]?.id ?? "bang-1");
   const [qd5937Id, setQd5937Id] = useState(QD5937_TABLES[0]?.id ?? "pl-01");
   const [qd3276Id, setQd3276Id] = useState(QD3276_TABLES[0]?.id ?? "pl-01");
+  const [hoiDapSection, setHoiDapSection] = useState<string>("all");
+  const [expandedQuestionIds, setExpandedQuestionIds] = useState<Set<number>>(new Set([1]));
+  const [hoiDapPage, setHoiDapPage] = useState<number>(1);
+  const HOI_DAP_PAGE_SIZE = 15;
   const [filter, setFilter] = useState<IssueFilter>("all");
   const [categoryFilter, setCategoryFilter] = useState("all");
   const [columnFilter, setColumnFilter] = useState("all");
@@ -85,6 +89,21 @@ export default function HomeExpanded() {
   const qd5937Rows = useMemo(() => qd5937?.rows.filter((row) => row.some((cell) => searchable(cell, query))) ?? [], [qd5937, query]);
   const qd3276 = QD3276_TABLES.find((item) => item.id === qd3276Id) ?? QD3276_TABLES[0];
   const qd3276Rows = useMemo(() => qd3276?.rows.filter((row) => row.some((cell) => searchable(cell, query))) ?? [], [qd3276, query]);
+  const filteredHoiDapQuestions = useMemo(() => {
+    return HOI_DAP_BHYT_2026.questions.filter((q) => {
+      const inSection = hoiDapSection === "all" || q.section === hoiDapSection;
+      if (!inSection) return false;
+      if (!query.trim()) return true;
+      const qAliases = [`câu ${q.id}`, `cau ${q.id}`, `q${q.id}`, `${q.id}`];
+      const searchSource = [`Câu ${q.id}`, ...qAliases, q.question, ...q.answer, `trang ${q.page}`].join(" ");
+      return searchable(searchSource, query);
+    });
+  }, [hoiDapSection, query]);
+  const totalHoiDapPages = Math.max(1, Math.ceil(filteredHoiDapQuestions.length / HOI_DAP_PAGE_SIZE));
+  const currentPageHoiDapQuestions = useMemo(() => {
+    const start = (hoiDapPage - 1) * HOI_DAP_PAGE_SIZE;
+    return filteredHoiDapQuestions.slice(start, start + HOI_DAP_PAGE_SIZE);
+  }, [filteredHoiDapQuestions, hoiDapPage]);
   const ruleColumns = inspection?.headers.length ? inspection.headers : template.headers;
   const dmTemplates = TEMPLATES.filter((item) => !item.id.endsWith("_BH"));
   const bhTemplates = TEMPLATES.filter((item) => item.id.endsWith("_BH"));
@@ -110,11 +129,26 @@ export default function HomeExpanded() {
       setQd5937Id(result.targetId); setView("qd5937"); setQuery(result.focus);
     } else if (result.kind === "qd3276" && result.targetId) {
       setQd3276Id(result.targetId); setView("qd3276"); setQuery(result.focus);
+    } else if (result.kind === "hoiDap" && result.targetId) {
+      const qId = parseInt(result.targetId, 10);
+      const question = HOI_DAP_BHYT_2026.questions.find((item) => item.id === qId);
+      if (question) {
+        setView("hoiDap");
+        setHoiDapSection(question.section);
+        setExpandedQuestionIds((prev) => {
+          const next = new Set(prev);
+          next.add(qId);
+          return next;
+        });
+        setQuery(question.question);
+        const targetIndex = HOI_DAP_BHYT_2026.questions.filter((item) => item.section === question.section).findIndex((item) => item.id === qId);
+        setHoiDapPage(Math.floor(Math.max(0, targetIndex) / HOI_DAP_PAGE_SIZE) + 1);
+      }
     }
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  const resultKindLabel: Record<SearchResult["kind"], string> = { field: "Chỉ tiêu", catalog: "Mã dùng chung", qd: "Bảng QĐ 3176", qd5937: "Bảng QĐ 5937", qd3276: "Bảng QĐ 3276", document: "Tài liệu" };
+  const resultKindLabel: Record<SearchResult["kind"], string> = { field: "Chỉ tiêu", catalog: "Mã dùng chung", qd: "Bảng QĐ 3176", qd5937: "Bảng QĐ 5937", qd3276: "Bảng QĐ 3276", hoiDap: "Hỏi đáp BHYT", document: "Tài liệu" };
 
   const loadExcel = async (file?: File) => {
     if (!file) return;
@@ -197,6 +231,23 @@ export default function HomeExpanded() {
     persistFacilityRules(next);
   };
 
+  const toggleQuestion = (id: number) => {
+    setExpandedQuestionIds((prev) => {
+      const next = new Set(prev);
+      if (next.has(id)) next.delete(id);
+      else next.add(id);
+      return next;
+    });
+  };
+
+  const expandAllHoiDap = () => {
+    setExpandedQuestionIds(new Set(currentPageHoiDapQuestions.map((q) => q.id)));
+  };
+
+  const collapseAllHoiDap = () => {
+    setExpandedQuestionIds(new Set());
+  };
+
   const clearInspection = () => {
     if (!inspection) return;
     if (!window.confirm(`Xóa hồ sơ “${inspection.fileName}” khỏi phiên làm việc? Dữ liệu trên máy không bị xóa.`)) return;
@@ -209,7 +260,7 @@ export default function HomeExpanded() {
     toast.success("Đã xóa hồ sơ khỏi phiên làm việc.");
   };
 
-  const title = view === "lookup" ? "Tra cứu cấu trúc danh mục" : view === "validate" ? "Kiểm định và xem trước Excel" : view === "catalog" ? "Danh mục mã dùng chung" : view === "qd" ? "15 bảng chỉ tiêu QĐ 3176" : view === "qd5937" ? "13 bảng nguồn tham chiếu QĐ 5937" : view === "qd3276" ? "2 bảng phụ lục QĐ 3276" : view === "rules" ? "Quản lý quy tắc cơ sở KCB" : "Hướng dẫn vận hành";
+  const title = view === "lookup" ? "Tra cứu cấu trúc danh mục" : view === "validate" ? "Kiểm định và xem trước Excel" : view === "catalog" ? "Danh mục mã dùng chung" : view === "qd" ? "15 bảng chỉ tiêu QĐ 3176" : view === "qd5937" ? "13 bảng nguồn tham chiếu QĐ 5937" : view === "qd3276" ? "2 bảng phụ lục QĐ 3276" : view === "hoiDap" ? "108 câu hỏi - đáp nghiệp vụ BHYT 2026" : view === "rules" ? "Quản lý quy tắc cơ sở KCB" : "Hướng dẫn vận hành";
   const status = inspection ? (counts.error ? `${counts.error} lỗi chặn` : counts.warning ? `${counts.warning} mục cần đối chiếu` : "Không có lỗi chặn") : "Chưa có file Excel";
 
   return <div className="app-shell">
@@ -254,6 +305,7 @@ export default function HomeExpanded() {
         <button className={`supplement-button ${view === "qd" ? "supplement-button-active" : ""}`} onClick={() => setView("qd")}>15 bảng chỉ tiêu QĐ 3176<ChevronRight size={14} /></button>
         <button className={`supplement-button ${view === "qd5937" ? "supplement-button-active" : ""}`} onClick={() => { setView("qd5937"); setQuery(""); }}>13 bảng nguồn QĐ 5937<ChevronRight size={14} /></button>
         <button className={`supplement-button ${view === "qd3276" ? "supplement-button-active" : ""}`} onClick={() => { setView("qd3276"); setQuery(""); }}>2 bảng phụ lục QĐ 3276 & 2917<ChevronRight size={14} /></button>
+        <button className={`supplement-button ${view === "hoiDap" ? "supplement-button-active" : ""}`} onClick={() => { setView("hoiDap"); setQuery(""); setHoiDapPage(1); }}>108 câu hỏi - đáp BHYT 2026<ChevronRight size={14} /></button>
       </div>
       <div className="sidebar-bottom"><SideButton active={view === "rules"} onClick={() => setView("rules")}>Quy tắc cơ sở KCB</SideButton><SideButton active={view === "guide"} onClick={() => setView("guide")}>Hướng dẫn & phạm vi</SideButton><ReleaseLedger /><p className="footer-meta">v{APP_META.version} · Nguyễn Sơn Nam</p></div>
     </aside>
@@ -370,7 +422,7 @@ export default function HomeExpanded() {
       </header>
 
       <div className="workspace-body">
-        <div className="work-nav"><button className={view === "lookup" ? "active" : ""} onClick={() => { setView("lookup"); setQuery(""); }}>Mẫu TT12</button><button className={view === "validate" ? "active" : ""} onClick={() => { setView("validate"); setQuery(""); }}>Kiểm định & preview</button><button className={view === "catalog" ? "active" : ""} onClick={() => { setView("catalog"); setQuery(""); }}>Mã dùng chung</button><button className={view === "qd" ? "active" : ""} onClick={() => { setView("qd"); setQuery(""); }}>QĐ 3176</button><button className={view === "qd5937" ? "active" : ""} onClick={() => { setView("qd5937"); setQuery(""); }}>QĐ 5937</button><button className={view === "qd3276" ? "active" : ""} onClick={() => { setView("qd3276"); setQuery(""); }}>QĐ 3276</button></div>
+        <div className="work-nav"><button className={view === "lookup" ? "active" : ""} onClick={() => { setView("lookup"); setQuery(""); }}>Mẫu TT12</button><button className={view === "validate" ? "active" : ""} onClick={() => { setView("validate"); setQuery(""); }}>Kiểm định & preview</button><button className={view === "catalog" ? "active" : ""} onClick={() => { setView("catalog"); setQuery(""); }}>Mã dùng chung</button><button className={view === "qd" ? "active" : ""} onClick={() => { setView("qd"); setQuery(""); }}>QĐ 3176</button><button className={view === "qd5937" ? "active" : ""} onClick={() => { setView("qd5937"); setQuery(""); }}>QĐ 5937</button><button className={view === "qd3276" ? "active" : ""} onClick={() => { setView("qd3276"); setQuery(""); }}>QĐ 3276</button><button className={view === "hoiDap" ? "active" : ""} onClick={() => { setView("hoiDap"); setQuery(""); setHoiDapPage(1); }}>Hỏi đáp BHYT 2026</button></div>
 
         {view === "lookup" && <>
           <section className="notice-strip"><Info size={18} /><p><strong>Quy tắc cập nhật:</strong> dòng cũ ghi <code>DEN_NGAY</code>; dòng thay đổi ghi <code>TU_NGAY</code> và để trống <code>DEN_NGAY</code>.</p></section>
@@ -384,6 +436,196 @@ export default function HomeExpanded() {
         {view === "qd" && <section className="source-card"><div className="source-card-head"><div><p className="eyebrow">CHUẨN ĐẦU RA</p><h2>{qd?.title}</h2><p>{query ? `${qdRows.length}/${qd?.rows.length ?? 0} dòng khớp từ khóa.` : `${qd?.rows.length ?? 0} dòng chỉ tiêu từ dữ liệu QĐ 3176 đã tải.`}</p></div><label className="search-box"><Search size={16} /><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Tìm trong bảng đang chọn…" aria-label="Tìm trong bảng QĐ 3176 đang chọn" /></label></div><div className="work-nav">{QD3176_TABLES.map((item) => <button key={item.id} className={qdId === item.id ? "active" : ""} onClick={() => { setQdId(item.id); setQuery(""); }}>{item.id.replace("bang-", "Bảng ")}</button>)}</div><div className="source-table-wrap"><table className="source-table"><thead><tr>{qd?.headers.map((header) => <th key={header}>{header}</th>)}</tr></thead><tbody>{qdRows.map((row, index) => <tr key={`${qd?.id}-${index}`}>{row.map((cell, column) => <td key={`${index}-${column}`}><pre>{cell}</pre></td>)}</tr>)}</tbody></table></div>{query && !qdRows.length && <div className="table-empty">Không có dòng nào trong bảng đang chọn khớp từ khóa.</div>}</section>}
         {view === "qd5937" && <section className="source-card"><div className="source-card-head"><div><p className="eyebrow">NGUỒN THAM CHIẾU · QUYẾT ĐỊNH 5937/QĐ-BYT · 30/12/2021</p><h2>{qd5937?.title}</h2><p>{query ? `${qd5937Rows.length}/${qd5937?.rows.length ?? 0} dòng khớp từ khóa.` : `${qd5937?.rows.length ?? 0} dòng dữ liệu từ PDF quyết định đã trích xuất.`}</p></div><label className="search-box"><Search size={16} /><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Tìm trong phụ lục đang chọn…" aria-label="Tìm trong bảng QĐ 5937 đang chọn" /></label></div><div className="work-nav">{QD5937_TABLES.map((item) => <button key={item.id} className={qd5937Id === item.id ? "active" : ""} onClick={() => { setQd5937Id(item.id); setQuery(""); }}>{item.id.replace("pl-", "PL ")}</button>)}</div><div className="source-table-wrap"><table className="source-table"><thead><tr>{qd5937?.headers.map((header) => <th key={header}>{header}</th>)}</tr></thead><tbody>{qd5937Rows.map((row, index) => <tr key={`${qd5937?.id}-${index}`}>{row.map((cell, column) => <td key={`${index}-${column}`}><pre>{cell}</pre></td>)}</tr>)}</tbody></table></div>{qd5937?.notes?.length ? <div className="normalize-note"><Info size={17} /><p><strong>Ghi chú nguồn:</strong> {qd5937.notes.join(" ")}</p></div> : null}{query && !qd5937Rows.length && <div className="table-empty">Không có dòng nào trong phụ lục đang chọn khớp từ khóa.</div>}</section>}
         {view === "qd3276" && <section className="source-card"><div className="source-card-head"><div><p className="eyebrow">NGUỒN THAM CHIẾU · QUYẾT ĐỊNH 3276/QĐ-BYT & 2917/QĐ-BYT · SỬA ĐỔI BỔ SUNG QĐ 2010</p><h2>{qd3276?.title}</h2><p>{query ? `${qd3276Rows.length}/${qd3276?.rows.length ?? 0} dòng khớp từ khóa.` : `${qd3276?.rows.length ?? 0} dòng dữ liệu từ QĐ 3276 & QĐ 2917/QĐ-BYT đã trích xuất.`}</p></div><label className="search-box"><Search size={16} /><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Tìm trong phụ lục đang chọn…" aria-label="Tìm trong bảng QĐ 3276 đang chọn" /></label></div><div className="work-nav">{QD3276_TABLES.map((item) => <button key={item.id} className={qd3276Id === item.id ? "active" : ""} onClick={() => { setQd3276Id(item.id); setQuery(""); }}>{item.id.replace("pl-", "PL ")}</button>)}</div><div className="source-table-wrap"><table className="source-table"><thead><tr>{qd3276?.headers.map((header) => <th key={header}>{header}</th>)}</tr></thead><tbody>{qd3276Rows.map((row, index) => <tr key={`${qd3276?.id}-${index}`}>{row.map((cell, column) => <td key={`${index}-${column}`}><pre>{cell}</pre></td>)}</tr>)}</tbody></table></div>{qd3276?.notes?.length ? <div className="normalize-note"><Info size={17} /><p><strong>Ghi chú nguồn:</strong> {qd3276.notes.join(" ")}</p></div> : null}{query && !qd3276Rows.length && <div className="table-empty">Không có dòng nào trong phụ lục đang chọn khớp từ khóa.</div>}</section>}
+
+        {view === "hoiDap" && (
+          <section className="hoidap-container">
+            <div className="hoidap-hero">
+              <div className="hoidap-hero-left">
+                <div className="hoidap-hero-badges">
+                  <span className="hoidap-hero-badge hoidap-hero-badge-accent">
+                    {HOI_DAP_BHYT_2026.publisher.toUpperCase()}
+                  </span>
+                  <span className="hoidap-hero-badge">
+                    {HOI_DAP_BHYT_2026.edition}
+                  </span>
+                  <span className="hoidap-hero-badge">
+                    {HOI_DAP_BHYT_2026.circulation}
+                  </span>
+                  <span className="hoidap-hero-badge">
+                    {HOI_DAP_BHYT_2026.pageCount} TRANG · 108 CÂU HỎI - ĐÁP
+                  </span>
+                </div>
+                <h2 className="hoidap-hero-title">{HOI_DAP_BHYT_2026.title}</h2>
+                <p className="hoidap-hero-desc">
+                  Bộ cẩm nang nghiệp vụ do Bảo hiểm xã hội Việt Nam ban hành, hướng dẫn chi tiết các tình huống xử lý về Cổng tiếp nhận dữ liệu, hợp đồng KCB, danh mục liên thông, hồ sơ đề nghị thanh toán, giám định chi phí và quyết toán BHYT theo Luật BHYT, Nghị định 188/2025/NĐ-CP và Thông tư 12/2026/TT-BTC.
+                </p>
+              </div>
+              <div className="hoidap-hero-actions">
+                <a
+                  className="hoidap-hero-download"
+                  href={sourceUrl("hoi-dap-giam-dinh-bhyt-2026.pdf")}
+                  target="_blank"
+                  rel="noreferrer"
+                  title="Mở toàn văn file PDF gốc 86 trang từ BHXH Việt Nam"
+                >
+                  <Download size={16} />
+                  <span>Tải file PDF gốc (86 trang)</span>
+                </a>
+              </div>
+            </div>
+
+            <div className="hoidap-section-tabs">
+              <button
+                className={`hoidap-section-tab ${hoiDapSection === "all" ? "hoidap-section-tab-active" : ""}`}
+                onClick={() => { setHoiDapSection("all"); setHoiDapPage(1); }}
+              >
+                <span>Tất cả chuyên đề</span>
+                <span className="hoidap-section-badge">{HOI_DAP_BHYT_2026.questions.length}</span>
+              </button>
+              {HOI_DAP_BHYT_2026.sections.map((sec) => {
+                const count = HOI_DAP_BHYT_2026.questions.filter((q) => q.section === sec.id).length;
+                return (
+                  <button
+                    key={sec.id}
+                    className={`hoidap-section-tab ${hoiDapSection === sec.id ? "hoidap-section-tab-active" : ""}`}
+                    onClick={() => { setHoiDapSection(sec.id); setHoiDapPage(1); }}
+                    title={sec.description}
+                  >
+                    <span>{sec.title}</span>
+                    <span className="hoidap-section-badge">{count}</span>
+                  </button>
+                );
+              })}
+            </div>
+
+            <div className="validate-toolbar" style={{ margin: "8px 0" }}>
+              <label className="search-box" style={{ flex: 1 }}>
+                <Search size={18} />
+                <input
+                  value={query}
+                  onChange={(event) => { setQuery(event.target.value); setHoiDapPage(1); }}
+                  placeholder="Tìm kiếm câu hỏi: nhập số câu (1, câu 108), từ khóa nghiệp vụ (ký số, biên bản quyết toán, NĐ 188)..."
+                  aria-label="Tìm kiếm trong 108 câu hỏi - đáp BHYT"
+                />
+              </label>
+              {query && (
+                <Button variant="outline" className="button-outline" onClick={() => setQuery("")}>
+                  <X size={15} /> Xóa tìm kiếm
+                </Button>
+              )}
+            </div>
+
+            <div className="hoidap-controls">
+              <span className="hoidap-count-summary">
+                {query ? (
+                  <>Tìm thấy <strong>{filteredHoiDapQuestions.length}</strong> / {HOI_DAP_BHYT_2026.questions.length} câu hỏi khớp từ khóa</>
+                ) : (
+                  <>Đang hiển thị <strong>{filteredHoiDapQuestions.length}</strong> câu hỏi {hoiDapSection !== "all" ? `thuộc chuyên đề “${HOI_DAP_BHYT_2026.sections.find(s => s.id === hoiDapSection)?.title}”` : "toàn bộ cẩm nang"}</>
+                )}
+                {totalHoiDapPages > 1 && ` · Trang ${hoiDapPage}/${totalHoiDapPages}`}
+              </span>
+              <div className="hoidap-toggle-btns">
+                <button className="hoidap-toggle-btn" onClick={expandAllHoiDap}>
+                  Mở rộng trang này
+                </button>
+                <button className="hoidap-toggle-btn" onClick={collapseAllHoiDap}>
+                  Thu gọn tất cả
+                </button>
+              </div>
+            </div>
+
+            <div className="hoidap-list">
+              {currentPageHoiDapQuestions.length > 0 ? (
+                currentPageHoiDapQuestions.map((q) => {
+                  const isOpen = expandedQuestionIds.has(q.id);
+                  const sec = HOI_DAP_BHYT_2026.sections.find((s) => s.id === q.section);
+                  return (
+                    <article
+                      key={q.id}
+                      className={`hoidap-item ${isOpen ? "hoidap-item-open" : ""}`}
+                    >
+                      <div
+                        className="hoidap-header-row"
+                        onClick={() => toggleQuestion(q.id)}
+                        role="button"
+                        tabIndex={0}
+                        onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") toggleQuestion(q.id); }}
+                      >
+                        <span className="hoidap-qnum">CÂU {String(q.id).padStart(2, "0")}</span>
+                        <div className="hoidap-header-main">
+                          <div className="hoidap-header-tags">
+                            <span className="hoidap-tag-section">{sec?.title ?? q.section}</span>
+                            <span>•</span>
+                            <span className="hoidap-tag-page">Trang {q.page}{q.endPage > q.page ? `–${q.endPage}` : ""}</span>
+                          </div>
+                          <h3 className="hoidap-qtitle">{q.question}</h3>
+                        </div>
+                        <div className="hoidap-chevron">
+                          <ChevronDown size={18} />
+                        </div>
+                      </div>
+
+                      {isOpen && (
+                        <div className="hoidap-body">
+                          {q.answer.map((paragraph, pIdx) => (
+                            <p key={pIdx}>{paragraph}</p>
+                          ))}
+                          <div className="hoidap-body-footer">
+                            <span style={{ fontSize: "11.5px", color: "#627d98" }}>
+                              Nguồn: <em>{HOI_DAP_BHYT_2026.title}</em> ({HOI_DAP_BHYT_2026.edition})
+                            </span>
+                            <a
+                              href={`${sourceUrl("hoi-dap-giam-dinh-bhyt-2026.pdf")}#page=${q.page}`}
+                              target="_blank"
+                              rel="noreferrer"
+                              className="hoidap-pdf-link"
+                              title={`Mở file PDF gốc đến đúng trang ${q.page}`}
+                            >
+                              <ExternalLink size={13} />
+                              <span>Đối chiếu tài liệu gốc: Trang {q.page}{q.endPage > q.page ? `–${q.endPage}` : ""} (PDF)</span>
+                            </a>
+                          </div>
+                        </div>
+                      )}
+                    </article>
+                  );
+                })
+              ) : (
+                <div className="table-empty">
+                  Không tìm thấy câu hỏi nào khớp với từ khóa tìm kiếm trong chuyên đề đã chọn.
+                </div>
+              )}
+            </div>
+
+            {totalHoiDapPages > 1 && (
+              <div className="hoidap-pagination">
+                <button
+                  className="hoidap-page-btn"
+                  onClick={() => setHoiDapPage((p) => Math.max(1, p - 1))}
+                  disabled={hoiDapPage === 1}
+                >
+                  ← Trước
+                </button>
+                {Array.from({ length: totalHoiDapPages }, (_, i) => i + 1).map((p) => (
+                  <button
+                    key={p}
+                    className={`hoidap-page-btn ${hoiDapPage === p ? "hoidap-page-btn-active" : ""}`}
+                    onClick={() => { setHoiDapPage(p); window.scrollTo({ top: 300, behavior: "smooth" }); }}
+                  >
+                    {p}
+                  </button>
+                ))}
+                <button
+                  className="hoidap-page-btn"
+                  onClick={() => setHoiDapPage((p) => Math.min(totalHoiDapPages, p + 1))}
+                  disabled={hoiDapPage === totalHoiDapPages}
+                >
+                  Sau →
+                </button>
+              </div>
+            )}
+          </section>
+        )}
 
         {view === "validate" && <>
           <section className="validate-toolbar"><div className="catalog-drop"><Button variant="outline" className="button-outline" onClick={() => catalogInput.current?.click()}><FolderSearch size={16} />Nạp mã khoa/mã KCB</Button>{catalogs.map((catalog) => <span className="uploaded-catalog" key={catalog.id}>{catalog.kind === "maKhoa" ? "Mã khoa" : catalog.kind === "maKhamBenh" ? "Mã khám bệnh" : "Danh mục"} · {catalog.count} mã<button onClick={() => setCatalogs((items) => items.filter((item) => item.id !== catalog.id))}><X size={13} /></button></span>)}</div>{inspection && <div className="head-actions"><Button variant="outline" className="button-outline" onClick={normalize} disabled={normalizing}>{normalizing ? "Đang chuẩn hóa…" : "Tạo file chuẩn hóa"}</Button><Button variant="outline" className="button-outline" onClick={() => void exportHighlighted()} disabled={highlighting}>{highlighting ? "Đang tạo file…" : "Xuất Excel tô màu"}</Button><Button className="button-cobalt" onClick={() => exportReport({ ...inspection, issues: allIssues })}><Download size={16} />Xuất báo cáo</Button></div>}</section>

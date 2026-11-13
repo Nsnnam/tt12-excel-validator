@@ -3,14 +3,15 @@
  */
 export const APP_META = {
   name: "TT12 Excel Validator",
-  version: "1.8.1",
-  date: "2026-09-15",
+  version: "1.9.0",
+  date: "2026-11-13",
   author: "Nguyễn Sơn Nam (Nsnnam)",
   authorShort: "NSN",
   role: "Tác giả · Tiện ích HIS / Excel / dữ liệu y tế",
   github: "https://github.com/Nsnnam/tt12-excel-validator",
   timezone: "Asia/Ho_Chi_Minh",
   changelog: [
+    { version: "1.9.0", date: "2026-11-13", changes: ["Tích hợp bộ Cẩm nang 108 câu hỏi - đáp nghiệp vụ chế độ bảo hiểm y tế (BHXH Việt Nam, Tháng 10/2026, 86 trang) phân loại theo 6 chuyên đề vào NGUỒN THAM CHIẾU.", "Bổ sung giao diện tra cứu chuyên sâu 108 câu hỏi - đáp với bộ lọc chuyên đề, tìm kiếm tức thì theo số câu & từ khóa, và liên kết đối chiếu trực tiếp từng trang của file PDF gốc.", "Mở rộng công cụ tìm kiếm toàn cục (Global Search) hỗ trợ truy vấn xuyên suốt nội dung 108 câu hỏi và đáp.", "Lưu trữ file PDF gốc hoi-dap-giam-dinh-bhyt-2026.pdf (1.48 MB) trên kho GitHub và bổ sung vào THƯ VIỆN FILE MẪU & TÀI LIỆU hỗ trợ tải về và đối chiếu ngoại tuyến."] },
     { version: "1.8.1", date: "2026-09-15", changes: ["Cập nhật Quyết định 2917/QĐ-BYT ngày 15/09/2026 sửa đổi, bổ sung trường hợp áp dụng mã đối tượng KCB 3.1 tại Phụ lục 1 QĐ 3276/QĐ-BYT (bổ sung cơ sở KCB cấp chuyên sâu thành lập mới sau ngày 01/01/2025).", "Lưu trữ file PDF gốc BYT-2917.QD-Sua-doi-bo-sung-QD3276.signed.pdf vào kho GitHub và bổ sung vào THƯ VIỆN FILE MẪU & TÀI LIỆU hỗ trợ tải về đối chiếu trực tiếp."] },
     { version: "1.8.0", date: "2026-09-03", changes: ["Tích hợp 2 bảng phụ lục Quyết định 3276/QĐ-BYT (sửa đổi bổ sung QĐ 2010): Phụ lục 1 (Mã đối tượng KCB BHYT) và Phụ lục 2 (Mã nhiên liệu) vào NGUỒN THAM CHIẾU.", "Lưu trữ file PDF gốc BYT-3276.QĐ Sửa đổi bổ sung QĐ2010.pdf trực tiếp trên kho GitHub và bổ sung vào THƯ VIỆN FILE MẪU & TÀI LIỆU hỗ trợ tải về đối chiếu."] },
     { version: "1.7.2", date: "2026-09-01", changes: ["Tối ưu gọn gàng khu vực Header (Phần 1): tích hợp tiêu đề, trạng thái, nút thao tác và thanh tìm kiếm xuyên hồ sơ thành thanh điều khiển tinh gọn.", "Tối đa hóa không gian hiển thị cho bảng dữ liệu tra cứu và kiểm định Excel (Phần 2) tăng gấp 3 lần số dòng hiển thị trực tiếp."] },
