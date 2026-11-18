@@ -1396,3 +1396,294 @@ body { color: var(--readable-ink); font-size: 16px; }
   letter-spacing: 0.3px;
 }
 
+/* ==========================================================================
+   QĐ 3556 DOWNLOAD MANAGER & BATCH SELECTION STYLES
+   ========================================================================== */
+
+.qd3556-download-manager {
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  margin: 14px 16px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.qd3556-dm-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 18px;
+  background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.qd3556-dm-title-group h3 {
+  margin: 4px 0 2px;
+  font-size: 15px;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.qd3556-dm-title-group p {
+  margin: 0;
+  font-size: 12.5px;
+  color: #64748b;
+}
+
+.qd3556-dm-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: #0284c7;
+  color: #ffffff;
+  font-size: 9.5px;
+  font-weight: 850;
+  padding: 2px 7px;
+  border-radius: 3px;
+  letter-spacing: 0.5px;
+}
+
+.qd3556-dm-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.qd3556-dm-toggle-all {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 700;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  color: #334155;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.qd3556-dm-toggle-all:hover {
+  background: #f8fafc;
+  border-color: #94a3b8;
+}
+
+.qd3556-dm-download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 14px;
+  border-radius: 4px;
+  font-size: 12.5px;
+  font-weight: 750;
+  background: #059669;
+  color: #ffffff;
+  border: 1px solid #047857;
+  cursor: pointer;
+  box-shadow: 0 1px 2px rgba(5, 150, 105, 0.2);
+  transition: all 0.15s ease;
+}
+
+.qd3556-dm-download-btn:hover:not(:disabled) {
+  background: #047857;
+  border-color: #065f46;
+}
+
+.qd3556-dm-download-btn:disabled {
+  background: #94a3b8;
+  border-color: #64748b;
+  opacity: 0.6;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.qd3556-dm-grid {
+  display: flex;
+  flex-direction: column;
+}
+
+.qd3556-dm-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 18px;
+  border-bottom: 1px solid #f1f5f9;
+  cursor: pointer;
+  transition: all 0.12s ease;
+  background: #ffffff;
+}
+
+.qd3556-dm-item:last-child {
+  border-bottom: none;
+}
+
+.qd3556-dm-item:hover {
+  background: #f8fafc;
+}
+
+.qd3556-dm-item-selected {
+  background: #f0fdf4 !important;
+}
+
+.qd3556-dm-item-selected:hover {
+  background: #dcfce7 !important;
+}
+
+.qd3556-checkbox-label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.qd3556-checkbox {
+  width: 18px;
+  height: 18px;
+  accent-color: #059669;
+  cursor: pointer;
+}
+
+.qd3556-dm-item-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.qd3556-dm-item-top {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 3px;
+}
+
+.qd3556-file-badge {
+  font-size: 9.5px;
+  font-weight: 850;
+  padding: 2px 6px;
+  border-radius: 3px;
+  letter-spacing: 0.4px;
+}
+
+.qd3556-badge-excel {
+  background: #dcfce7;
+  color: #166534;
+  border: 1px solid #bbf7d0;
+}
+
+.qd3556-badge-pptx {
+  background: #ffedd5;
+  color: #9a3412;
+  border: 1px solid #fed7aa;
+}
+
+.qd3556-badge-html {
+  background: #dbeafe;
+  color: #1e40af;
+  border: 1px solid #bfdbfe;
+}
+
+.qd3556-badge-pdf {
+  background: #fee2e2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+}
+
+.qd3556-file-name {
+  font-size: 13.5px;
+  color: #1e293b;
+}
+
+.qd3556-file-size {
+  font-size: 12px;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.qd3556-file-desc {
+  margin: 0;
+  font-size: 12px;
+  color: #64748b;
+  line-height: 1.4;
+}
+
+.qd3556-dm-item-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.qd3556-btn-preview {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 10px;
+  font-size: 11.5px;
+  font-weight: 650;
+  border-radius: 4px;
+  text-decoration: none;
+  background: #ffffff;
+  color: #2563eb;
+  border: 1px solid #93c5fd;
+  transition: all 0.12s ease;
+}
+
+.qd3556-btn-preview:hover {
+  background: #eff6ff;
+  border-color: #3b82f6;
+  color: #1d4ed8;
+}
+
+.qd3556-btn-download {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 12px;
+  font-size: 11.5px;
+  font-weight: 700;
+  border-radius: 4px;
+  text-decoration: none;
+  background: #f1f5f9;
+  color: #0f172a;
+  border: 1px solid #cbd5e1;
+  transition: all 0.12s ease;
+}
+
+.qd3556-btn-download:hover {
+  background: #e2e8f0;
+  border-color: #94a3b8;
+  color: #0284c7;
+}
+
+.qd3556-dm-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 18px;
+  background: #f8fafc;
+  border-top: 1px solid #e2e8f0;
+  font-size: 12px;
+  color: #64748b;
+}
+
+.qd3556-zip-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: #0284c7;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.qd3556-zip-link:hover {
+  color: #0369a1;
+}
+
+

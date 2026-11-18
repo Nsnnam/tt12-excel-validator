@@ -77,7 +77,7 @@ export const DOCUMENT_LIBRARY = [
   { id: "qd-3556-excel-goc", name: "QĐ 3556 — Bảng chuẩn dữ liệu đầu ra sửa 3176 (Excel gốc Bộ Y tế)", type: "excel", url: "https://raw.githubusercontent.com/Nsnnam/tt12-excel-validator/main/docs/261116_Chuan_du_lieu_dau_ra_sua_3176_Final.xlsx" },
   { id: "qd-3556-so-sanh", name: "So sánh chi tiết 93 thay đổi QĐ 3556 vs QĐ 3176 (Excel đối chiếu chuyên sâu)", type: "excel", url: "https://raw.githubusercontent.com/Nsnnam/tt12-excel-validator/main/docs/So_sanh_thay_doi_QD_3556_vs_3176_BYT.xlsx" },
   { id: "qd-3556-slide", name: "Slide Báo cáo phân tích thay đổi QĐ 3556/QĐ-BYT (PowerPoint 10 slide)", type: "word", url: "https://raw.githubusercontent.com/Nsnnam/tt12-excel-validator/main/docs/Bao_cao_Phan_tich_Thay_doi_QD_3556_BYT.pptx" },
-  { id: "qd-3556-infographic", name: "Infographic trực quan so sánh thay đổi QĐ 3556 (Bản tương tác trực quan)", type: "pdf", url: "/documents/Infographic_QD3556_ThayDoi.html" },
+  { id: "qd-3556-infographic", name: "Infographic trực quan so sánh thay đổi QĐ 3556 (Bản tương tác trực quan)", type: "pdf", url: "documents/Infographic_QD3556_ThayDoi.html" },
   { id: "hoi-dap-giam-dinh-bhyt-2026", name: "Cẩm nang 108 câu Hỏi - Đáp nghiệp vụ BHYT (BHXH Việt Nam 10/2026)", type: "pdf", url: "https://raw.githubusercontent.com/Nsnnam/tt12-excel-validator/main/docs/hoi-dap-giam-dinh-bhyt-2026.pdf" },
   { id: "6", name: "Mẫu 01/DM - Bộ phận chuyên môn KCB BHYT", type: "excel", url: "/manus-storage/MAU_01_Template_b516b53b.xlsx" },
   { id: "7", name: "Mẫu 02/DM - Nhân lực thực hiện KCB BHYT", type: "excel", url: "/manus-storage/MAU_02_Template_0406dec0.xlsx" },
@@ -88,6 +88,79 @@ export const DOCUMENT_LIBRARY = [
   { id: "12", name: "Mẫu 01/BH - Tổng hợp đề nghị thanh toán KCB BHYT", type: "excel", url: "/manus-storage/MAU_01_BH_Template_e4db7973.xlsx" },
   { id: "mau-02-bh", name: "Mẫu 02/BH - Báo cáo quyết toán KCB BHYT", type: "excel", url: "/manus-storage/MAU_02_BH_Template_0f545a41.xlsx" },
 ] as const;
+
+export type DownloadableFile = {
+  id: string;
+  name: string;
+  filename: string;
+  path: string;
+  rawGithubUrl: string;
+  size: string;
+  type: "excel" | "pptx" | "html" | "pdf";
+  badge: string;
+  desc: string;
+  canPreview?: boolean;
+};
+
+export const QD3556_DOWNLOADABLE_FILES: DownloadableFile[] = [
+  {
+    id: "so-sanh-excel",
+    name: "Bảng tính Excel so sánh 93 thay đổi QĐ 3556 vs 3176",
+    filename: "So_sanh_thay_doi_QD_3556_vs_3176_BYT.xlsx",
+    path: "documents/So_sanh_thay_doi_QD_3556_vs_3176_BYT.xlsx",
+    rawGithubUrl: "https://raw.githubusercontent.com/Nsnnam/tt12-excel-validator/main/docs/So_sanh_thay_doi_QD_3556_vs_3176_BYT.xlsx",
+    size: "31 KB",
+    type: "excel",
+    badge: "EXCEL",
+    desc: "4 sheet chi tiết: Tổng quan 16 bảng, Chi tiết 93 thay đổi (10 cột đối chiếu), Quy tắc Điều 2 và Danh mục 7 văn bản pháp quy dẫn chiếu mới.",
+  },
+  {
+    id: "slide-pptx",
+    name: "Slide thuyết trình PowerPoint phân tích QĐ 3556",
+    filename: "Bao_cao_Phan_tich_Thay_doi_QD_3556_BYT.pptx",
+    path: "documents/Bao_cao_Phan_tich_Thay_doi_QD_3556_BYT.pptx",
+    rawGithubUrl: "https://raw.githubusercontent.com/Nsnnam/tt12-excel-validator/main/docs/Bao_cao_Phan_tich_Thay_doi_QD_3556_BYT.pptx",
+    size: "46 KB",
+    type: "pptx",
+    badge: "PPTX",
+    desc: "10 slide widescreen chuẩn thuyết trình: Bối cảnh, 93 thay đổi, 6 nhóm biến động, Điều 2 và kế hoạch 5 bước nâng cấp hệ thống HIS/EMR.",
+  },
+  {
+    id: "infographic-html",
+    name: "Bản Infographic tương tác trực quan so sánh thay đổi",
+    filename: "Infographic_QD3556_ThayDoi.html",
+    path: "documents/Infographic_QD3556_ThayDoi.html",
+    rawGithubUrl: "https://raw.githubusercontent.com/Nsnnam/tt12-excel-validator/main/docs/Infographic_QD3556_ThayDoi.html",
+    size: "38 KB",
+    type: "html",
+    badge: "HTML",
+    desc: "Dashboard web tương tác trực quan: Thẻ KPI, ma trận 16 bảng dữ liệu, biểu đồ tỷ lệ thay đổi và bộ lọc tìm kiếm 93 thay đổi tức thì.",
+    canPreview: true,
+  },
+  {
+    id: "qd3556-pdf",
+    name: "QĐ số 3556/QĐ-BYT ký số gốc từ Thứ trưởng Đào Xuân Cơ",
+    filename: "BYT-3556.QD-Sua-doi-bo-sung-QD3176.signed.pdf",
+    path: "documents/BYT-3556.QD-Sua-doi-bo-sung-QD3176.signed.pdf",
+    rawGithubUrl: "https://raw.githubusercontent.com/Nsnnam/tt12-excel-validator/main/docs/BYT-3556.QD-Sua-doi-bo-sung-QD3176.signed.pdf",
+    size: "577 KB",
+    type: "pdf",
+    badge: "PDF GỐC",
+    desc: "Toàn văn Quyết định số 3556/QĐ-BYT ngày 16/11/2026 có chữ ký số điện tử của Bộ Y tế.",
+    canPreview: true,
+  },
+  {
+    id: "excel-goc",
+    name: "File Excel chuẩn dữ liệu đầu ra gốc từ Bộ Y tế",
+    filename: "261116_Chuan_du_lieu_dau_ra_sua_3176_Final.xlsx",
+    path: "documents/261116_Chuan_du_lieu_dau_ra_sua_3176_Final.xlsx",
+    rawGithubUrl: "https://raw.githubusercontent.com/Nsnnam/tt12-excel-validator/main/docs/261116_Chuan_du_lieu_dau_ra_sua_3176_Final.xlsx",
+    size: "132 KB",
+    type: "excel",
+    badge: "EXCEL GỐC",
+    desc: "Bảng chuẩn dữ liệu đầu ra gồm 16 sheet do Vụ BHYT / Cục QLKCB cung cấp.",
+  },
+];
 
 // Dữ liệu Mã đối tượng KCB chuẩn hóa thay thế theo Phụ lục 1 Quyết định 3276/QĐ-BYT (bãi bỏ Phụ lục 5 QĐ 2010/QĐ-BYT)
 const qd3276DoiTuongRows: CommonCode[] = (qd3276[0]?.rows ?? []).map((row) => ({
@@ -128,9 +201,27 @@ export function hasDuplicateRule(field: ReferenceField) {
 
 const MANUS_ASSET_ORIGIN = "https://tt12excel-g5pahdhg.manus.space";
 
+export function documentUrl(path: string) {
+  if (path.startsWith("http://") || path.startsWith("https://")) return path;
+  const clean = path.startsWith("/") ? path.slice(1) : path;
+  
+  if (import.meta.env.VITE_NSN_OFFLINE === "1" || (typeof window !== "undefined" && window.location.protocol === "file:")) {
+    const docPath = clean.startsWith("documents/") ? "docs/" + clean.slice("documents/".length) : clean;
+    return `https://raw.githubusercontent.com/Nsnnam/tt12-excel-validator/main/${docPath}`;
+  }
+  
+  const base = import.meta.env.BASE_URL || "/";
+  const normalizedBase = base.endsWith("/") ? base : `${base}/`;
+  return `${normalizedBase}${clean}`;
+}
+
 export function sourceUrl(path: string) {
   if (path.startsWith("/manus-storage/")) return `${MANUS_ASSET_ORIGIN}${path}`;
-  if (path.startsWith("/") || path.startsWith("http")) return path;
+  if (path.startsWith("http://") || path.startsWith("https://")) return path;
+  if (path.startsWith("/documents/") || path.startsWith("documents/")) {
+    return documentUrl(path);
+  }
+  if (path.startsWith("/")) return path;
   return `https://tracuu-danhmuc-tt12.web.app/${path}`;
 }
 

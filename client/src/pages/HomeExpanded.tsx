@@ -6,12 +6,12 @@ import { useMemo, useRef, useState, type ReactNode } from "react";
 import "../inspection.css";
 import "../expanded.css";
 import { toast } from "sonner";
-import { AlertTriangle, BookOpen, CheckCircle2, ChevronDown, ChevronRight, Download, ExternalLink, FileCheck2, FileSpreadsheet, FileText, Filter, FolderSearch, HelpCircle, Info, Search, ShieldCheck, Trash2, Upload, X } from "lucide-react";
+import { AlertTriangle, BookOpen, CheckCircle2, CheckSquare, ChevronDown, ChevronRight, Download, ExternalLink, Eye, FileCheck2, FileSpreadsheet, FileText, Filter, FolderDown, FolderSearch, HelpCircle, Info, Search, ShieldCheck, Square, Trash2, Upload, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ReleaseLedger } from "@/components/ReleaseLedger";
 import { APP_META, BRAND_ASSETS } from "@/lib/meta";
 import { TEMPLATES, exportReport, fieldsForTemplate, inspectExcelFile, issueCounts, sourceTemplateUrl, type Inspection, type Severity, type TemplateSchema, type ValidationIssue } from "@/lib/tt12";
-import { COMMON_CATALOGS, DOCUMENT_LIBRARY, QD3176_TABLES, QD3556_TABLES, QD5937_TABLES, QD3276_TABLES, HOI_DAP_BHYT_2026, sourceUrl, type HoiDapQuestion } from "@/lib/reference";
+import { COMMON_CATALOGS, DOCUMENT_LIBRARY, QD3176_TABLES, QD3556_TABLES, QD3556_DOWNLOADABLE_FILES, QD5937_TABLES, QD3276_TABLES, HOI_DAP_BHYT_2026, sourceUrl, documentUrl, type HoiDapQuestion } from "@/lib/reference";
 import { importCatalogFile, validateCatalogIssues, type ImportedCatalog } from "@/lib/catalog";
 import { downloadHighlightedWorkbook, downloadNormalizedWorkbook } from "@/lib/normalize";
 import { applyFacilityRules, loadFacilityRules, makeFacilityRule, persistFacilityRules, type FacilityRule, type FacilityRuleKind } from "@/lib/facility-rules";
@@ -56,6 +56,9 @@ export default function HomeExpanded() {
   const [qdId, setQdId] = useState(QD3176_TABLES[0]?.id ?? "bang-1");
   const [qd3556Id, setQd3556Id] = useState(QD3556_TABLES[0]?.id ?? "bang-checkin");
   const [onlyAmended3556, setOnlyAmended3556] = useState(false);
+  const [selected3556Files, setSelected3556Files] = useState<Set<string>>(
+    () => new Set(QD3556_DOWNLOADABLE_FILES.map((f) => f.id))
+  );
   const [qd5937Id, setQd5937Id] = useState(QD5937_TABLES[0]?.id ?? "pl-01");
   const [qd3276Id, setQd3276Id] = useState(QD3276_TABLES[0]?.id ?? "pl-01");
   const [hoiDapSection, setHoiDapSection] = useState<string>("all");
@@ -277,6 +280,48 @@ export default function HomeExpanded() {
     toast.success("Đã xóa hồ sơ khỏi phiên làm việc.");
   };
 
+  const toggle3556File = (id: string) => {
+    setSelected3556Files((prev) => {
+      const next = new Set(prev);
+      if (next.has(id)) next.delete(id);
+      else next.add(id);
+      return next;
+    });
+  };
+
+  const toggleAll3556Files = () => {
+    if (selected3556Files.size === QD3556_DOWNLOADABLE_FILES.length) {
+      setSelected3556Files(new Set());
+    } else {
+      setSelected3556Files(new Set(QD3556_DOWNLOADABLE_FILES.map((f) => f.id)));
+    }
+  };
+
+  const triggerFileDownload = (url: string, filename: string) => {
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = filename;
+    link.target = "_blank";
+    link.rel = "noreferrer";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
+  const downloadSelected3556Files = () => {
+    const chosen = QD3556_DOWNLOADABLE_FILES.filter((f) => selected3556Files.has(f.id));
+    if (chosen.length === 0) {
+      toast.error("Vui lòng tích chọn ít nhất một file trong danh sách bên dưới để tải về.");
+      return;
+    }
+    toast.success(`Đang bắt đầu tải về ${chosen.length} file đã tích chọn...`);
+    chosen.forEach((file, idx) => {
+      setTimeout(() => {
+        triggerFileDownload(documentUrl(file.path), file.filename);
+      }, idx * 450);
+    });
+  };
+
   const title = view === "lookup" ? "Tra cứu cấu trúc danh mục" : view === "validate" ? "Kiểm định và xem trước Excel" : view === "catalog" ? "Danh mục mã dùng chung" : view === "qd3556" ? "16 bảng chuẩn đầu ra QĐ 3556 (Sửa đổi QĐ 3176)" : view === "qd" ? "15 bảng chỉ tiêu QĐ 3176" : view === "qd5937" ? "13 bảng nguồn tham chiếu QĐ 5937" : view === "qd3276" ? "2 bảng phụ lục QĐ 3276" : view === "hoiDap" ? "108 câu hỏi - đáp nghiệp vụ BHYT 2026" : view === "rules" ? "Quản lý quy tắc cơ sở KCB" : "Hướng dẫn vận hành";
   const status = inspection ? (counts.error ? `${counts.error} lỗi chặn` : counts.warning ? `${counts.warning} mục cần đối chiếu` : "Không có lỗi chặn") : "Chưa có file Excel";
 
@@ -491,59 +536,121 @@ export default function HomeExpanded() {
               </ul>
             </div>
 
-            {/* Quick resource action bar */}
-            <div className="qd3556-actions-bar">
-              <span className="qd3556-actions-label">Tài liệu & Công cụ đối chiếu QĐ 3556:</span>
-              <div className="qd3556-actions-links">
+            {/* Hộp công cụ tích chọn tải tài liệu QĐ 3556 */}
+            <div className="qd3556-download-manager">
+              <div className="qd3556-dm-header">
+                <div className="qd3556-dm-title-group">
+                  <div className="qd3556-dm-badge">
+                    <FolderDown size={14} />
+                    <span>DOWNLOAD MANAGER</span>
+                  </div>
+                  <h3>Hộp công cụ tải tài liệu & đối chiếu QĐ 3556</h3>
+                  <p>Tích chọn các tệp bạn cần để tải về máy cùng lúc, hoặc tải riêng từng tệp bằng các nút thao tác bên phải.</p>
+                </div>
+                <div className="qd3556-dm-actions">
+                  <button
+                    type="button"
+                    className="button-outline qd3556-dm-toggle-all"
+                    onClick={toggleAll3556Files}
+                  >
+                    {selected3556Files.size === QD3556_DOWNLOADABLE_FILES.length ? (
+                      <>
+                        <CheckSquare size={15} />
+                        <span>Bỏ tích tất cả</span>
+                      </>
+                    ) : (
+                      <>
+                        <Square size={15} />
+                        <span>Tích chọn tất cả ({QD3556_DOWNLOADABLE_FILES.length})</span>
+                      </>
+                    )}
+                  </button>
+                  <button
+                    type="button"
+                    className="button-primary qd3556-dm-download-btn"
+                    onClick={downloadSelected3556Files}
+                    disabled={selected3556Files.size === 0}
+                  >
+                    <Download size={16} />
+                    <span>Tải về các file đã tích ({selected3556Files.size}/{QD3556_DOWNLOADABLE_FILES.length})</span>
+                  </button>
+                </div>
+              </div>
+
+              <div className="qd3556-dm-grid">
+                {QD3556_DOWNLOADABLE_FILES.map((file) => {
+                  const isChecked = selected3556Files.has(file.id);
+                  const downloadHref = documentUrl(file.path);
+                  return (
+                    <div
+                      key={file.id}
+                      className={`qd3556-dm-item ${isChecked ? "qd3556-dm-item-selected" : ""}`}
+                      onClick={() => toggle3556File(file.id)}
+                    >
+                      <div className="qd3556-dm-item-left" onClick={(e) => e.stopPropagation()}>
+                        <label className="qd3556-checkbox-label" title={isChecked ? "Bỏ tích chọn file này" : "Tích chọn file này"}>
+                          <input
+                            type="checkbox"
+                            checked={isChecked}
+                            onChange={() => toggle3556File(file.id)}
+                            className="qd3556-checkbox"
+                          />
+                        </label>
+                      </div>
+
+                      <div className="qd3556-dm-item-main">
+                        <div className="qd3556-dm-item-top">
+                          <span className={`qd3556-file-badge qd3556-badge-${file.type}`}>
+                            {file.badge}
+                          </span>
+                          <strong className="qd3556-file-name">{file.name}</strong>
+                          <span className="qd3556-file-size">({file.size})</span>
+                        </div>
+                        <p className="qd3556-file-desc">{file.desc}</p>
+                      </div>
+
+                      <div className="qd3556-dm-item-actions" onClick={(e) => e.stopPropagation()}>
+                        {file.canPreview && (
+                          <a
+                            href={downloadHref}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="button-outline qd3556-btn-preview"
+                            title="Mở xem trực tiếp trong tab mới"
+                          >
+                            <Eye size={14} />
+                            <span>Xem trước</span>
+                          </a>
+                        )}
+                        <a
+                          href={downloadHref}
+                          download={file.filename}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="button-outline qd3556-btn-download"
+                          title={`Tải trực tiếp ${file.filename} về máy`}
+                        >
+                          <Download size={14} />
+                          <span>Tải về</span>
+                        </a>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+
+              <div className="qd3556-dm-footer">
+                <span>
+                  💡 <em>Mẹo:</em> Nếu mạng cơ sở KCB chặn tải file tự động, bạn có thể tải toàn bộ kho tài liệu dạng ZIP trực tiếp từ GitHub:
+                </span>
                 <a
-                  className="qd3556-action-btn qd3556-action-excel"
-                  href={sourceUrl("/documents/So_sanh_thay_doi_QD_3556_vs_3176_BYT.xlsx")}
+                  href="https://github.com/Nsnnam/tt12-excel-validator/archive/refs/heads/main.zip"
                   target="_blank"
                   rel="noreferrer"
-                  title="Tải bảng Excel đối chiếu chi tiết 93 thay đổi và quy tắc kỹ thuật"
+                  className="qd3556-zip-link"
                 >
-                  <FileSpreadsheet size={15} />
-                  <span>Excel so sánh 93 thay đổi</span>
-                </a>
-                <a
-                  className="qd3556-action-btn qd3556-action-slide"
-                  href={sourceUrl("/documents/Bao_cao_Phan_tich_Thay_doi_QD_3556_BYT.pptx")}
-                  target="_blank"
-                  rel="noreferrer"
-                  title="Tải bộ slide PowerPoint thuyết trình phân tích thay đổi và giải pháp thực thi"
-                >
-                  <FileText size={15} />
-                  <span>Slide thuyết trình (PPTX)</span>
-                </a>
-                <a
-                  className="qd3556-action-btn qd3556-action-infographic"
-                  href={sourceUrl("/documents/Infographic_QD3556_ThayDoi.html")}
-                  target="_blank"
-                  rel="noreferrer"
-                  title="Mở infographic tương tác trực quan phân tích toàn cảnh QĐ 3556"
-                >
-                  <BookOpen size={15} />
-                  <span>Infographic trực quan</span>
-                </a>
-                <a
-                  className="qd3556-action-btn qd3556-action-pdf"
-                  href={sourceUrl("/documents/BYT-3556.QD-Sua-doi-bo-sung-QD3176.signed.pdf")}
-                  target="_blank"
-                  rel="noreferrer"
-                  title="Mở toàn văn Quyết định số 3556/QĐ-BYT ký số gốc từ Bộ Y tế"
-                >
-                  <Download size={15} />
-                  <span>PDF ký số gốc</span>
-                </a>
-                <a
-                  className="qd3556-action-btn qd3556-action-raw"
-                  href={sourceUrl("/documents/261116_Chuan_du_lieu_dau_ra_sua_3176_Final.xlsx")}
-                  target="_blank"
-                  rel="noreferrer"
-                  title="Tải file Excel bảng chuẩn dữ liệu đầu ra gốc từ Bộ Y tế"
-                >
-                  <Download size={15} />
-                  <span>Excel gốc BYT</span>
+                  <Download size={13} />
+                  <span>Tải toàn bộ repo ZIP từ GitHub</span>
                 </a>
               </div>
             </div>

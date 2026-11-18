@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { COMMON_CATALOGS, DOCUMENT_LIBRARY, QD3276_TABLES, QD3556_TABLES, HOI_DAP_BHYT_2026 } from "./reference";
+import { COMMON_CATALOGS, DOCUMENT_LIBRARY, QD3276_TABLES, QD3556_TABLES, QD3556_DOWNLOADABLE_FILES, HOI_DAP_BHYT_2026, documentUrl, sourceUrl } from "./reference";
 
 describe("DOCUMENT_LIBRARY", () => {
   it("có ID duy nhất để dùng ổn định làm khóa React", () => {
@@ -59,6 +59,26 @@ describe("QD3556_TABLES", () => {
 
     const bang15 = QD3556_TABLES.find((t) => t.id === "bang-15");
     expect(bang15?.changeCount).toBe(0);
+  });
+});
+
+describe("QD3556_DOWNLOADABLE_FILES", () => {
+  it("chứa đủ 5 tệp tài liệu và sản phẩm đối chiếu có đường dẫn hợp lệ", () => {
+    expect(QD3556_DOWNLOADABLE_FILES).toHaveLength(5);
+    const ids = QD3556_DOWNLOADABLE_FILES.map((f) => f.id);
+    expect(ids).toContain("so-sanh-excel");
+    expect(ids).toContain("slide-pptx");
+    expect(ids).toContain("infographic-html");
+    expect(ids).toContain("qd3556-pdf");
+    expect(ids).toContain("excel-goc");
+
+    QD3556_DOWNLOADABLE_FILES.forEach((file) => {
+      expect(file.filename).toBeTruthy();
+      expect(file.path).toBeTruthy();
+      expect(file.rawGithubUrl).toContain("https://raw.githubusercontent.com");
+      expect(documentUrl(file.path)).toBeTruthy();
+      expect(sourceUrl(file.path)).toBeTruthy();
+    });
   });
 });
 
