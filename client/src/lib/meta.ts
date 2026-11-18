@@ -3,14 +3,25 @@
  */
 export const APP_META = {
   name: "TT12 Excel Validator",
-  version: "1.9.0",
-  date: "2026-11-13",
+  version: "1.10.0",
+  date: "2026-11-18",
   author: "Nguyễn Sơn Nam (Nsnnam)",
   authorShort: "NSN",
   role: "Tác giả · Tiện ích HIS / Excel / dữ liệu y tế",
   github: "https://github.com/Nsnnam/tt12-excel-validator",
   timezone: "Asia/Ho_Chi_Minh",
   changelog: [
+    {
+      version: "1.10.0",
+      date: "2026-11-18",
+      changes: [
+        "Tích hợp toàn diện 16 bảng chuẩn dữ liệu đầu ra KCB BHYT theo Quyết định số 3556/QĐ-BYT ngày 16/11/2026 của Bộ Y tế (sửa đổi, bổ sung QĐ 3176/QĐ-BYT) với 93 chỉ tiêu sửa đổi, bổ sung trên 15 bảng chuẩn dữ liệu.",
+        "Xây dựng giao diện tra cứu chuyên sâu QĐ 3556 với banner hướng dẫn cốt lõi Điều 2 (xử lý mức hưởng MUC_HUONG ngoại trú/nội trú và tái sử dụng kết quả cận lâm sàng), dải tab 16 bảng kèm huy hiệu số lượng chỉ tiêu sửa đổi và nút lọc nhanh 93 trường sửa đổi.",
+        "Tạo sản phẩm bàn giao đối chiếu chuyên sâu gồm: Bảng tính Excel so sánh 93 thay đổi (So_sanh_thay_doi_QD_3556_vs_3176_BYT.xlsx), Bộ slide thuyết trình PowerPoint 10 slide (Bao_cao_Phan_tich_Thay_doi_QD_3556_BYT.pptx), và Infographic trực quan tương tác (Infographic_QD3556_ThayDoi.html).",
+        "Lưu trữ file PDF ký số gốc BYT-3556.QD-Sua-doi-bo-sung-QD3176.signed.pdf và bảng Excel gốc của Bộ Y tế trên GitHub và THƯ VIỆN FILE MẪU & TÀI LIỆU hỗ trợ tải về đối chiếu.",
+        "Mở rộng công cụ tìm kiếm toàn cục (Global Search) hỗ trợ tra cứu trực tiếp toàn bộ 16 bảng QĐ 3556 với đánh dấu chỉ tiêu sửa đổi ★ [Sửa đổi QĐ 3556]."
+      ]
+    },
     { version: "1.9.0", date: "2026-11-13", changes: ["Tích hợp bộ Cẩm nang 108 câu hỏi - đáp nghiệp vụ chế độ bảo hiểm y tế (BHXH Việt Nam, Tháng 10/2026, 86 trang) phân loại theo 6 chuyên đề vào NGUỒN THAM CHIẾU.", "Bổ sung giao diện tra cứu chuyên sâu 108 câu hỏi - đáp với bộ lọc chuyên đề, tìm kiếm tức thì theo số câu & từ khóa, và liên kết đối chiếu trực tiếp từng trang của file PDF gốc.", "Mở rộng công cụ tìm kiếm toàn cục (Global Search) hỗ trợ truy vấn xuyên suốt nội dung 108 câu hỏi và đáp.", "Lưu trữ file PDF gốc hoi-dap-giam-dinh-bhyt-2026.pdf (1.48 MB) trên kho GitHub và bổ sung vào THƯ VIỆN FILE MẪU & TÀI LIỆU hỗ trợ tải về và đối chiếu ngoại tuyến."] },
     { version: "1.8.1", date: "2026-09-15", changes: ["Cập nhật Quyết định 2917/QĐ-BYT ngày 15/09/2026 sửa đổi, bổ sung trường hợp áp dụng mã đối tượng KCB 3.1 tại Phụ lục 1 QĐ 3276/QĐ-BYT (bổ sung cơ sở KCB cấp chuyên sâu thành lập mới sau ngày 01/01/2025).", "Lưu trữ file PDF gốc BYT-2917.QD-Sua-doi-bo-sung-QD3276.signed.pdf vào kho GitHub và bổ sung vào THƯ VIỆN FILE MẪU & TÀI LIỆU hỗ trợ tải về đối chiếu trực tiếp."] },
     { version: "1.8.0", date: "2026-09-03", changes: ["Tích hợp 2 bảng phụ lục Quyết định 3276/QĐ-BYT (sửa đổi bổ sung QĐ 2010): Phụ lục 1 (Mã đối tượng KCB BHYT) và Phụ lục 2 (Mã nhiên liệu) vào NGUỒN THAM CHIẾU.", "Lưu trữ file PDF gốc BYT-3276.QĐ Sửa đổi bổ sung QĐ2010.pdf trực tiếp trên kho GitHub và bổ sung vào THƯ VIỆN FILE MẪU & TÀI LIỆU hỗ trợ tải về đối chiếu."] },

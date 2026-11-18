@@ -6,12 +6,16 @@
 
 | Thông tin | Chi tiết |
 |---|---|
-| **Phiên bản** | `1.9.0` |
-| **Ngày cập nhật** | 2026-11-13 |
+| **Phiên bản** | `1.10.0` |
+| **Ngày cập nhật** | 2026-11-18 |
 | **Tác giả** | [Nguyễn Sơn Nam (Nsnnam)](https://github.com/Nsnnam) |
 | **Múi giờ** | GMT+7 (`Asia/Ho_Chi_Minh`) |
 | **Web trực tiếp** | [https://nsnnam.github.io/tt12-excel-validator/](https://nsnnam.github.io/tt12-excel-validator/) |
 | **Bản HTML Single-page** | [`releases/single-page/tt12-excel-validator.html`](./releases/single-page/tt12-excel-validator.html) |
+| **QĐ 3556/QĐ-BYT (Ký số gốc)** | [`docs/BYT-3556.QD-Sua-doi-bo-sung-QD3176.signed.pdf`](./docs/BYT-3556.QD-Sua-doi-bo-sung-QD3176.signed.pdf) (16/11/2026) |
+| **Bảng Excel so sánh 93 thay đổi** | [`docs/So_sanh_thay_doi_QD_3556_vs_3176_BYT.xlsx`](./docs/So_sanh_thay_doi_QD_3556_vs_3176_BYT.xlsx) |
+| **Slide thuyết trình phân tích (PPTX)** | [`docs/Bao_cao_Phan_tich_Thay_doi_QD_3556_BYT.pptx`](./docs/Bao_cao_Phan_tich_Thay_doi_QD_3556_BYT.pptx) |
+| **Infographic trực quan QĐ 3556** | [`docs/Infographic_QD3556_ThayDoi.html`](./docs/Infographic_QD3556_ThayDoi.html) |
 | **Cẩm nang 108 câu Hỏi - Đáp BHYT** | [`docs/hoi-dap-giam-dinh-bhyt-2026.pdf`](./docs/hoi-dap-giam-dinh-bhyt-2026.pdf) (BHXH VN 10/2026, 86 trang) |
 | **Tài liệu tham chiếu QĐ 2917** | [`docs/BYT-2917.QD-Sua-doi-bo-sung-QD3276.signed.pdf`](./docs/BYT-2917.QD-Sua-doi-bo-sung-QD3276.signed.pdf) |
 | **Tài liệu tham chiếu QĐ 3276** | [`docs/BYT-3276.QD-Sua-doi-bo-sung-QD2010.pdf`](./docs/BYT-3276.QD-Sua-doi-bo-sung-QD2010.pdf) |
@@ -40,11 +44,13 @@ Người dùng có thể sử dụng ứng dụng ngay lập tức bằng một 
 
 ## ✨ Tính năng nổi bật
 
+- **Tích hợp toàn diện 16 bảng chuẩn đầu ra QĐ 3556/QĐ-BYT (16/11/2026):** Cập nhật toàn bộ 93 chỉ tiêu sửa đổi, bổ sung trên 15 bảng chuẩn dữ liệu (sửa đổi QĐ 3176/QĐ-BYT), giao diện phân loại rõ ràng, đánh dấu chỉ tiêu sửa đổi và cung cấp bộ lọc nhanh 93 trường có thay đổi.
 - **Tổ chức tra cứu chuẩn hóa 8 mẫu:** Gồm 6 mẫu danh mục (Mẫu 01/DM đến 06/DM) và 2 mẫu thanh toán (Mẫu 01/BH, Mẫu 02/BH).
+- **Bộ công cụ đối chiếu chuyên sâu QĐ 3556:** Cung cấp sẵn tệp Excel so sánh chi tiết (`So_sanh_thay_doi_QD_3556_vs_3176_BYT.xlsx`), bộ slide thuyết trình PowerPoint 10 slide (`Bao_cao_Phan_tich_Thay_doi_QD_3556_BYT.pptx`), Infographic tương tác trực quan (`Infographic_QD3556_ThayDoi.html`) và file PDF ký số gốc của Bộ Y tế.
 - **Cẩm nang 108 câu Hỏi - Đáp nghiệp vụ BHYT 2026:** Tích hợp bộ tài liệu 86 trang do BHXH Việt Nam ban hành (Tháng 10/2026), phân loại theo 6 chuyên đề nghiệp vụ (Cổng tiếp nhận dữ liệu, Hợp đồng KCB, Danh mục liên thông, Hồ sơ đề nghị thanh toán, Giám định chi phí, Thanh toán quyết toán), hỗ trợ tìm kiếm theo số câu/từ khóa và nút mở xem trang đối chiếu trong file PDF gốc.
 - **Nhận diện chữ ký tiêu đề thông minh:** Tự động quét các sheet trong file Excel (`.xlsx`, `.xls`, `.xlsm`), tìm dòng tiêu đề và nhận diện mẫu có độ khớp cao nhất, không phụ thuộc vào tên tệp.
-- **Bộ tìm kiếm xuyên hồ sơ (Global Search):** Tìm kiếm tức thì theo mã trường, tên danh mục, diễn giải chỉ tiêu trên toàn bộ 8 mẫu TT12, 4 danh mục mã dùng chung, 15 bảng QĐ 3176, 13 phụ lục QĐ 5937/QĐ-BYT, 2 bảng phụ lục QĐ 3276/QĐ-BYT và toàn văn 108 câu hỏi - đáp BHYT 2026.
-- **Nguồn tham chiếu đa tầng đã tích hợp:** 15 bảng chuẩn đầu ra QĐ 3176, 13 bảng phụ lục QĐ 5937, 2 bảng phụ lục QĐ 3276/QĐ-BYT (Phụ lục 1: 27 mã đối tượng KCB, Phụ lục 2: 8 mã nhiên liệu), cẩm nang 108 câu hỏi - đáp BHYT 2026 và thư viện tài liệu pháp quy.
+- **Bộ tìm kiếm xuyên hồ sơ (Global Search):** Tìm kiếm tức thì theo mã trường, tên danh mục, diễn giải chỉ tiêu trên toàn bộ 8 mẫu TT12, 4 danh mục mã dùng chung, 16 bảng QĐ 3556, 15 bảng QĐ 3176, 13 phụ lục QĐ 5937/QĐ-BYT, 2 bảng phụ lục QĐ 3276/QĐ-BYT và toàn văn 108 câu hỏi - đáp BHYT 2026.
+- **Nguồn tham chiếu đa tầng đã tích hợp:** 16 bảng chuẩn đầu ra QĐ 3556, 15 bảng chuẩn đầu ra QĐ 3176, 13 bảng phụ lục QĐ 5937, 2 bảng phụ lục QĐ 3276/QĐ-BYT (Phụ lục 1: 27 mã đối tượng KCB, Phụ lục 2: 8 mã nhiên liệu), cẩm nang 108 câu hỏi - đáp BHYT 2026 và thư viện tài liệu pháp quy.
 - **Kiểm định đa tầng & phân loại mức độ:** Phân nhóm phát hiện thành **Lỗi (Error)**, **Cảnh báo (Warning)** và **Thông tin (Info)**.
 - **Đối chiếu danh mục mã dùng chung:** Hỗ trợ nạp file mã khoa / mã khám bệnh để đối chiếu tên và mã trực tiếp trong phiên làm việc.
 - **Quy tắc cơ sở KCB tùy biến:** Thiết lập quy tắc kiểm tra cục bộ theo từng mã CSKCB (bắt buộc cột, giới hạn ký tự, cấm công thức).

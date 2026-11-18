@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>INFOGRAPHIC: SO SÁNH THAY ĐỔI QUYẾT ĐỊNH 3556/QĐ-BYT (SỬA ĐỔI QĐ 3176/QĐ-BYT)</title>
+  <style>
+    :root {
+      --primary: #102a47;
+      --primary-light: #1b4e80;
+      --cobalt: #1457c8;
+      --teal: #00a896;
+      --amber: #f59e0b;
+      --red: #ef4444;
+      --bg: #0f172a;
+      --card-bg: #1e293b;
+      --card-border: #334155;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif; }
+    body { background: var(--bg); color: var(--text); padding: 30px 20px; line-height: 1.5; }
+    .container { max-width: 1280px; margin: 0 auto; }
+    
+    /* Header Banner */
+    .hero {
+      background: linear-gradient(135deg, #0e2a47 0%, #1e3a5f 50%, #1457c8 100%);
+      border: 1px solid #2563eb;
+      border-radius: 12px;
+      padding: 36px 32px;
+      margin-bottom: 24px;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+      position: relative;
+      overflow: hidden;
+    }
+    .badge {
+      display: inline-block;
+      background: var(--amber);
+      color: #0f172a;
+      font-weight: 800;
+      font-size: 11px;
+      padding: 4px 12px;
+      border-radius: 4px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .hero h1 { font-size: 28px; font-weight: 850; line-height: 1.3; margin-bottom: 10px; color: #ffffff; }
+    .hero p { font-size: 14px; color: #cbd5e1; max-width: 900px; }
+    
+    /* Key Stat Grid */
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+    .stat-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .stat-card::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; height: 4px;
+      background: var(--cobalt);
+    }
+    .stat-card.amber::before { background: var(--amber); }
+    .stat-card.teal::before { background: var(--teal); }
+    .stat-card.red::before { background: var(--red); }
+    
+    .stat-number { font-size: 42px; font-weight: 900; color: #ffffff; line-height: 1; margin-bottom: 8px; }
+    .stat-label { font-size: 13px; font-weight: 750; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; }
+    .stat-desc { font-size: 12px; color: #64748b; margin-top: 4px; }
+    
+    /* 4 Core Pillars */
+    .section-title {
+      font-size: 18px;
+      font-weight: 800;
+      color: #38bdf8;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .pillar-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 18px;
+      margin-bottom: 28px;
+    }
+    .pillar-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+    }
+    .pillar-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+    .pillar-icon {
+      width: 38px; height: 38px;
+      border-radius: 8px;
+      background: rgba(20, 87, 200, 0.2);
+      border: 1px solid var(--cobalt);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+    }
+    .pillar-title { font-size: 15px; font-weight: 750; color: #ffffff; }
+    .pillar-list { list-style: none; font-size: 13px; color: #cbd5e1; }
+    .pillar-list li { margin-bottom: 8px; padding-left: 14px; position: relative; }
+    .pillar-list li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--teal);
+      font-weight: bold;
+    }
+    
+    /* Flow Diagram for Article 2 */
+    .flow-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      padding: 24px;
+      margin-bottom: 28px;
+    }
+    .flow-diagram {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+      padding: 16px;
+      background: rgba(15, 23, 42, 0.6);
+      border-radius: 8px;
+      border: 1px dashed #475569;
+    }
+    .flow-step {
+      flex: 1;
+      min-width: 220px;
+      background: #1e293b;
+      border: 1px solid #3b82f6;
+      border-radius: 6px;
+      padding: 14px;
+    }
+    .flow-step-num { font-size: 11px; font-weight: 800; color: var(--amber); text-transform: uppercase; margin-bottom: 4px; }
+    .flow-step-title { font-size: 14px; font-weight: 750; color: #ffffff; margin-bottom: 6px; }
+    .flow-step-desc { font-size: 12px; color: #94a3b8; }
+    .flow-arrow { font-size: 22px; color: #38bdf8; font-weight: bold; }
+    
+    /* Table Distribution */
+    .table-wrap {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 28px;
+    }
+    table { width: 100%; border-collapse: collapse; font-size: 13px; text-align: left; }
+    th { background: #0f172a; color: #38bdf8; padding: 12px 16px; font-weight: 750; border-bottom: 1px solid var(--card-border); }
+    td { padding: 12px 16px; border-bottom: 1px solid rgba(51, 65, 85, 0.6); }
+    tr:nth-child(even) td { background: rgba(15, 23, 42, 0.3); }
+    .tag { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 750; }
+    .tag-red { background: rgba(239, 68, 68, 0.2); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.4); }
+    .tag-amber { background: rgba(245, 158, 11, 0.2); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.4); }
+    .tag-green { background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.4); }
+    .tag-blue { background: rgba(59, 130, 246, 0.2); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.4); }
+    
+    /* Footer */
+    .footer { text-align: center; padding: 20px; font-size: 12px; color: var(--text-muted); border-top: 1px solid var(--card-border); }
+    .footer a { color: #38bdf8; text-decoration: none; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="hero">
+      <span class="badge">BỘ Y TẾ BAN HÀNH · HIỆU LỰC TỪ 16/11/2026</span>
+      <h1>INFOGRAPHIC PHÂN TÍCH THAY ĐỔI QUYẾT ĐỊNH SỐ 3556/QĐ-BYT</h1>
+      <p>Sửa đổi, bổ sung 93 trường dữ liệu tại 15 bảng chuẩn đầu ra KCB BHYT ban hành kèm theo QĐ 3176/QĐ-BYT, QĐ 4750/QĐ-BYT và QĐ 130/QĐ-BYT. Tháo gỡ các vướng mắc về thanh quyết toán ca bệnh ngoại trú chuyển nội trú và chuẩn hóa đơn vị hành chính quốc gia.</p>
+    </div>
+
+    <!-- STATS -->
+    <div class="stat-grid">
+      <div class="stat-card">
+        <div class="stat-number">93</div>
+        <div class="stat-label">Trường dữ liệu thay đổi</div>
+        <div class="stat-desc">Trên 15/16 bảng chuẩn đầu ra XML</div>
+      </div>
+      <div class="stat-card amber">
+        <div class="stat-number">20</div>
+        <div class="stat-label">Thay đổi tại Bảng 1</div>
+        <div class="stat-desc">Bảng Tổng hợp KCB chịu tác động lớn nhất</div>
+      </div>
+      <div class="stat-card teal">
+        <div class="stat-number">Điều 2</div>
+        <div class="stat-label">Ngoại trú chuyển Nội trú</div>
+        <div class="stat-desc">Mức hưởng riêng & Tái dùng kết quả CLS</div>
+      </div>
+      <div class="stat-card red">
+        <div class="stat-number">19/2025</div>
+        <div class="stat-label">Mã ĐVHC 3 cấp mới</div>
+        <div class="stat-desc">Theo QĐ 19/2025/QĐ-TTg của Thủ tướng</div>
+      </div>
+    </div>
+
+    <!-- 4 CORE PILLARS -->
+    <div class="section-title">4 TRỤ CỘT THAY ĐỔI CỐT LÕI CỦA QUYẾT ĐỊNH 3556/QĐ-BYT</div>
+    <div class="pillar-grid">
+      <div class="pillar-card">
+        <div class="pillar-header">
+          <div class="pillar-icon">🏥</div>
+          <div class="pillar-title">1. Ca Ngoại trú chuyển Nội trú</div>
+        </div>
+        <ul class="pillar-list">
+          <li><strong>Xác định MUC_HUONG riêng:</strong> Ghi mức hưởng tương ứng tại Bảng 2 và Bảng 3 cho từng dịch vụ KCB ngoại trú và nội trú.</li>
+          <li><strong>Tái sử dụng kết quả CLS:</strong> Cơ sở KCB được sử dụng lại kết quả CLS ngoại trú trong quá trình điều trị nội trú, tránh chỉ định lặp lại gây lãng phí.</li>
+          <li><strong>Đa mã loại hình KCB:</strong> MA_LOAI_KCB ghi nhiều mã cách nhau bằng dấu ";" (ví dụ: '01;03').</li>
+        </ul>
+      </div>
+
+      <div class="pillar-card">
+        <div class="pillar-header">
+          <div class="pillar-icon">🗺️</div>
+          <div class="pillar-title">2. Mã ĐVHC mới (QĐ 19/2025)</div>
+        </div>
+        <ul class="pillar-list">
+          <li><strong>Bãi bỏ QĐ 124 & TT 07/2016:</strong> Cập nhật đồng loạt mã tỉnh, huyện, xã theo Quyết định 19/2025/QĐ-TTg ngày 30/6/2025.</li>
+          <li><strong>MATINH_CU_TRU:</strong> 3 ký tự (Phụ lục I QĐ 19/2025).</li>
+          <li><strong>MAHUYEN & MAXA_CU_TRU:</strong> Ghi theo Phụ lục II QĐ 19/2025/QĐ-TTg.</li>
+          <li><strong>Địa chỉ (DIA_CHI):</strong> Chuẩn hóa theo CSDL dân cư; bổ sung quy định cho trẻ sơ sinh và người nước ngoài.</li>
+        </ul>
+      </div>
+
+      <div class="pillar-card">
+        <div class="pillar-header">
+          <div class="pillar-icon">📏</div>
+          <div class="pillar-title">3. Nới lỏng Kích thước 'n'</div>
+        </div>
+        <ul class="pillar-list">
+          <li><strong>Mã thẻ & Hạn thẻ:</strong> MA_THE_BHYT, GT_THE_TU, GT_THE_DEN, MA_BHXH được nâng kích thước tối đa lên "n" ký tự.</li>
+          <li><strong>Chống tràn chuỗi:</strong> Cho phép nối nhiều thẻ/hạn thẻ mới phát sinh trong đợt điều trị cách nhau bằng dấu ";".</li>
+          <li><strong>Mã đối tượng KCB:</strong> Tăng lên 50 ký tự; cho phép ghi nhiều mã đối tượng cách nhau bởi dấu ";".</li>
+          <li><strong>Ngày hẹn tái khám:</strong> Tăng lên 200 ký tự (ghi nhiều ngày hẹn).</li>
+        </ul>
+      </div>
+
+      <div class="pillar-card">
+        <div class="pillar-header">
+          <div class="pillar-icon">📋</div>
+          <div class="pillar-title">4. Đồng bộ Biểu mẫu & Null</div>
+        </div>
+        <ul class="pillar-list">
+          <li><strong>Thông tư 01/2025/TT-BYT:</strong> Đồng bộ số Phiếu chuyển cơ sở KCB (Phụ lục VI) và Phiếu hẹn khám lại (Phụ lục V).</li>
+          <li><strong>Quy định để giá trị NULL:</strong> Cho phép để NULL tại MA_BAC_SI (Bảng 13) và MA_TTDV (Bảng 14), tháo gỡ lỗi chặn gửi hồ sơ.</li>
+          <li><strong>Tên VTYT trúng thầu:</strong> Trường TEN_VAT_TU tại Bảng Check-in ghi tên thương mại theo quyết định trúng thầu.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ARTICLE 2 FLOW -->
+    <div class="flow-card">
+      <div class="section-title">QUY TRÌNH XỬ LÝ DỮ LIỆU XML THEO ĐIỀU 2 (NGOẠI TRÚ CHUYỂN NỘI TRÚ)</div>
+      <div class="flow-diagram">
+        <div class="flow-step">
+          <div class="flow-step-num">BƯỚC 1 · PHÒNG KHÁM NGOẠI TRÚ</div>
+          <div class="flow-step-title">Chỉ định & Thực hiện CLS</div>
+          <div class="flow-step-desc">Ghi nhận dịch vụ CLS vào Bảng 3 & 4. MUC_HUONG xác định theo quyền lợi KCB ngoại trú tại thời điểm thực hiện.</div>
+        </div>
+        <div class="flow-arrow">➔</div>
+        <div class="flow-step">
+          <div class="flow-step-num">BƯỚC 2 · NHẬP VIỆN NỘI TRÚ</div>
+          <div class="flow-step-title">Tái dùng Kết quả CLS</div>
+          <div class="flow-step-desc">Bác sĩ nội trú sử dụng lại kết quả CLS ngoại trú để chẩn đoán & điều trị. Không chỉ định lại xét nghiệm trùng lặp.</div>
+        </div>
+        <div class="flow-arrow">➔</div>
+        <div class="flow-step">
+          <div class="flow-step-num">BƯỚC 3 · ĐIỀU TRỊ NỘI TRÚ</div>
+          <div class="flow-step-title">Dịch vụ & Thuốc Nội trú</div>
+          <div class="flow-step-desc">Các thuốc (Bảng 2) và DVKT (Bảng 3) phát sinh giai đoạn nội trú áp dụng MUC_HUONG nội trú tương ứng.</div>
+        </div>
+        <div class="flow-arrow">➔</div>
+        <div class="flow-step">
+          <div class="flow-step-num">BƯỚC 4 · XUẤT HỒ SƠ XML</div>
+          <div class="flow-step-title">Liên thông MA_LK & Đa mã</div>
+          <div class="flow-step-desc">MA_LK giữ nguyên duy nhất; MA_LOAI_KCB ghi '01;03'; Gửi hồ sơ lên Cổng BHXH không lo bị xuất toán.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TABLE BREAKDOWN -->
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th style="width: 80px;">STT</th>
+            <th style="width: 260px;">Bảng chuẩn đầu ra</th>
+            <th style="width: 140px; text-align: center;">Tổng chỉ tiêu</th>
+            <th style="width: 160px; text-align: center;">Số trường thay đổi</th>
+            <th>Trọng tâm thay đổi theo QĐ 3556/QĐ-BYT</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>01</td>
+            <td><strong>Bảng Check-in</strong> (Trạng thái KCB)</td>
+            <td style="text-align: center;">26</td>
+            <td style="text-align: center;"><span class="tag tag-amber">6 thay đổi</span></td>
+            <td>Nâng kích thước n cho thẻ/hạn thẻ; MA_LOAI_KCB (10 ký tự); MA_DOITUONG_KCB (50 ký tự); tên thương mại VTYT.</td>
+          </tr>
+          <tr>
+            <td>02</td>
+            <td><strong>Bảng 1</strong> (Tổng hợp KCB)</td>
+            <td style="text-align: center;">68</td>
+            <td style="text-align: center;"><span class="tag tag-red">20 thay đổi</span></td>
+            <td>Đồng bộ ĐVHC theo QĐ 19/2025; chuẩn hóa DIA_CHI theo CSDL dân cư; nâng kích thước n cho mã thẻ/hạn thẻ; MA_LOAI_KCB đa mã; lý do nội trú.</td>
+          </tr>
+          <tr>
+            <td>03</td>
+            <td><strong>Bảng 2</strong> (Chi tiết thuốc)</td>
+            <td style="text-align: center;">44</td>
+            <td style="text-align: center;"><span class="tag tag-amber">8 thay đổi</span></td>
+            <td>Xác định MUC_HUONG cho từng dịch vụ (Điều 2); chuẩn hóa các điều kiện dùng thuốc và thanh quyết toán.</td>
+          </tr>
+          <tr>
+            <td>04</td>
+            <td><strong>Bảng 3</strong> (DVKT & VTYT)</td>
+            <td style="text-align: center;">52</td>
+            <td style="text-align: center;"><span class="tag tag-amber">10 thay đổi</span></td>
+            <td>Xác định MUC_HUONG tách biệt ngoại trú/nội trú; ghi nhận tái sử dụng kết quả CLS ngoại trú.</td>
+          </tr>
+          <tr>
+            <td>05</td>
+            <td><strong>Bảng 4 & 5 & 6</strong> (CLS, Diễn biến, HIV)</td>
+            <td style="text-align: center;">70</td>
+            <td style="text-align: center;"><span class="tag tag-blue">4 thay đổi</span></td>
+            <td>Chuẩn hóa diễn giải kết quả CLS, diễn biến lâm sàng và thông tin điều trị HIV.AIDS.</td>
+          </tr>
+          <tr>
+            <td>06</td>
+            <td><strong>Bảng 7 đến 12</strong> (Chứng từ, Giấy tờ KCB)</td>
+            <td style="text-align: center;">164</td>
+            <td style="text-align: center;"><span class="tag tag-amber">37 thay đổi</span></td>
+            <td>Đồng bộ mã ĐVHC 3 cấp (QĐ 19/2025); nới lỏng n cho thẻ BHYT trên Giấy ra viện, Tóm tắt HSBA, Giấy chứng sinh, Giấy nghỉ BHXH, GĐYK.</td>
+          </tr>
+          <tr>
+            <td>07</td>
+            <td><strong>Bảng 13 & 14</strong> (Chuyển viện & Hẹn tái khám)</td>
+            <td style="text-align: center;">61</td>
+            <td style="text-align: center;"><span class="tag tag-amber">8 thay đổi</span></td>
+            <td>Áp dụng mẫu biểu Phụ lục VI & V Thông tư 01/2025/TT-BYT; cho phép giá trị null cho MA_BAC_SI và MA_TTDV; NGAY_HEN_KL đa ngày.</td>
+          </tr>
+          <tr>
+            <td>08</td>
+            <td><strong>Bảng 15</strong> (Quản lý điều trị Lao)</td>
+            <td style="text-align: center;">21</td>
+            <td style="text-align: center;"><span class="tag tag-green">0 thay đổi</span></td>
+            <td>Giữ nguyên toàn bộ 21 chỉ tiêu theo QĐ 3176/QĐ-BYT.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+      TT12 EXCEL VALIDATOR · BÁO CÁO PHÂN TÍCH QUYẾT ĐỊNH 3556/QĐ-BYT (BAN HÀNH 16/11/2026)<br>
+      Tác giả: <strong>Nguyễn Sơn Nam (Nsnnam)</strong> · Tra cứu trực tuyến tại: <a href="https://nsnnam.github.io/tt12-excel-validator/" target="_blank">https://nsnnam.github.io/tt12-excel-validator/</a>
+    </div>
+  </div>
+</body>
+</html>

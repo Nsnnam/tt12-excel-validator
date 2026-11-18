@@ -3,6 +3,7 @@
  */
 import raw from "@/data/tt12-reference.json";
 import qd3176 from "@/data/qd3176-chuan-dau-ra.json";
+import qd3556 from "@/data/qd3556-chuan-dau-ra.json";
 import qd5937 from "@/data/qd5937-danh-muc.json";
 import qd3276 from "@/data/qd3276-phu-luc.json";
 import hoiDapRaw from "@/data/hoi-dap-bhyt-2026.json";
@@ -72,6 +73,11 @@ export const DOCUMENT_LIBRARY = [
   { id: "qd-1227-byt", name: "QĐ 1227 — Định mức KT-KT kỹ thuật y tế", type: "excel", url: "https://raw.githubusercontent.com/Nsnnam/tt12-excel-validator/main/docs/QD_1227.xlsx" },
   { id: "qd-3276-byt", name: "QĐ 3276/QĐ-BYT — Mã đối tượng KCB & mã nhiên liệu (Sửa đổi QĐ 2010)", type: "pdf", url: "https://raw.githubusercontent.com/Nsnnam/tt12-excel-validator/main/docs/BYT-3276.QD-Sua-doi-bo-sung-QD2010.pdf" },
   { id: "qd-2917-byt", name: "QĐ 2917/QĐ-BYT — Sửa đổi, bổ sung mã đối tượng KCB 3.1 tại QĐ 3276 (15/09/2026)", type: "pdf", url: "https://raw.githubusercontent.com/Nsnnam/tt12-excel-validator/main/docs/BYT-2917.QD-Sua-doi-bo-sung-QD3276.signed.pdf" },
+  { id: "qd-3556-byt", name: "QĐ 3556/QĐ-BYT — Sửa đổi, bổ sung QĐ 3176 chuẩn đầu ra KCB BHYT (16/11/2026)", type: "pdf", url: "https://raw.githubusercontent.com/Nsnnam/tt12-excel-validator/main/docs/BYT-3556.QD-Sua-doi-bo-sung-QD3176.signed.pdf" },
+  { id: "qd-3556-excel-goc", name: "QĐ 3556 — Bảng chuẩn dữ liệu đầu ra sửa 3176 (Excel gốc Bộ Y tế)", type: "excel", url: "https://raw.githubusercontent.com/Nsnnam/tt12-excel-validator/main/docs/261116_Chuan_du_lieu_dau_ra_sua_3176_Final.xlsx" },
+  { id: "qd-3556-so-sanh", name: "So sánh chi tiết 93 thay đổi QĐ 3556 vs QĐ 3176 (Excel đối chiếu chuyên sâu)", type: "excel", url: "https://raw.githubusercontent.com/Nsnnam/tt12-excel-validator/main/docs/So_sanh_thay_doi_QD_3556_vs_3176_BYT.xlsx" },
+  { id: "qd-3556-slide", name: "Slide Báo cáo phân tích thay đổi QĐ 3556/QĐ-BYT (PowerPoint 10 slide)", type: "word", url: "https://raw.githubusercontent.com/Nsnnam/tt12-excel-validator/main/docs/Bao_cao_Phan_tich_Thay_doi_QD_3556_BYT.pptx" },
+  { id: "qd-3556-infographic", name: "Infographic trực quan so sánh thay đổi QĐ 3556 (Bản tương tác trực quan)", type: "pdf", url: "/documents/Infographic_QD3556_ThayDoi.html" },
   { id: "hoi-dap-giam-dinh-bhyt-2026", name: "Cẩm nang 108 câu Hỏi - Đáp nghiệp vụ BHYT (BHXH Việt Nam 10/2026)", type: "pdf", url: "https://raw.githubusercontent.com/Nsnnam/tt12-excel-validator/main/docs/hoi-dap-giam-dinh-bhyt-2026.pdf" },
   { id: "6", name: "Mẫu 01/DM - Bộ phận chuyên môn KCB BHYT", type: "excel", url: "/manus-storage/MAU_01_Template_b516b53b.xlsx" },
   { id: "7", name: "Mẫu 02/DM - Nhân lực thực hiện KCB BHYT", type: "excel", url: "/manus-storage/MAU_02_Template_0406dec0.xlsx" },
@@ -103,6 +109,7 @@ export const COMMON_CATALOGS: Record<"maLoaiHinh" | "maKhamBenh" | "maDoiTuong" 
 export type ReferenceTable = { id: string; title: string; headers: string[]; rows: string[][]; notes?: string[] };
 
 export const QD3176_TABLES = qd3176 as ReferenceTable[];
+export const QD3556_TABLES = qd3556 as (ReferenceTable & { changeCount?: number })[];
 export const QD5937_TABLES = qd5937 as ReferenceTable[];
 export const QD3276_TABLES = qd3276 as ReferenceTable[];
 

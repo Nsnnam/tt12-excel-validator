@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { COMMON_CATALOGS, QD3176_TABLES, QD5937_TABLES, QD3276_TABLES } from "./reference";
+import { COMMON_CATALOGS, QD3176_TABLES, QD3556_TABLES, QD5937_TABLES, QD3276_TABLES } from "./reference";
 import { searchReferenceData, searchScopeOptions } from "./search";
 
 /**
@@ -49,6 +49,15 @@ describe("searchReferenceData", () => {
 
     const resPL2 = searchReferenceData("XEDIEN", "qd3276:pl-02");
     expect(resPL2.some((item) => item.kind === "qd3276" && item.targetId === "pl-02")).toBe(true);
+  });
+
+  it("tìm được chỉ tiêu và đánh dấu sửa đổi trong QĐ 3556", () => {
+    expect(QD3556_TABLES).toHaveLength(16);
+    const results = searchReferenceData("MA_LOAI_KCB", "qd3556:bang-1");
+    expect(results.length).toBeGreaterThan(0);
+    const item = results.find((r) => r.kind === "qd3556" && r.title.includes("MA_LOAI_KCB"));
+    expect(item).toBeDefined();
+    expect(item?.title).toContain("[Sửa đổi QĐ 3556]");
   });
 
   it("cung cấp đủ lựa chọn toàn bộ, theo mẫu và theo bảng", () => {

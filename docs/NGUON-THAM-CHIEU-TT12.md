@@ -84,5 +84,32 @@ Rà soát toàn diện nguồn công khai `https://tracuu-danhmuc-tt12.web.app/`
   - Mở rộng công cụ tìm kiếm toàn cục (Global Search) hỗ trợ truy vấn trực tiếp nội dung 108 câu hỏi - đáp.
   - Lưu trữ file PDF gốc `hoi-dap-giam-dinh-bhyt-2026.pdf` (1.48 MB) trên kho GitHub và bổ sung vào Thư viện tài liệu tham chiếu để tải về sử dụng ngoại tuyến.
 
+## Cập nhật Quyết định 3556/QĐ-BYT — 2026-11-18
+
+Theo Quyết định số 3556/QĐ-BYT ngày 16/11/2026 của Bộ trưởng Bộ Y tế (do Thứ trưởng Đào Xuân Cơ ký ban hành):
+
+- **Văn bản pháp lý:** Sửa đổi, bổ sung Quyết định số 3176/QĐ-BYT ngày 18/10/2023 ban hành Chuẩn dữ liệu đầu ra phục vụ quản lý, giám định, thanh toán chi phí khám bệnh, chữa bệnh và giải quyết các chế độ liên quan. Hiệu lực thi hành kể từ ngày ký (16/11/2026).
+- **Quy định cốt lõi tại Điều 2 (Nghiệp vụ liên thông ngoại trú - nội trú):**
+  - Đối với ca bệnh khám ngoại trú có chỉ định dịch vụ cận lâm sàng, sau đó người bệnh được chuyển vào điều trị nội trú:
+    1. Cơ sở KCB xác định giá trị mức hưởng (`MUC_HUONG`) tương ứng cho từng dịch vụ KCB ngoại trú, nội trú tại Bảng 2 (Thuốc) và Bảng 3 (Dịch vụ kỹ thuật & Vật tư y tế).
+    2. Cơ sở KCB được sử dụng lại kết quả cận lâm sàng ngoại trú trong quá trình điều trị nội trú, không phải chỉ định lại xét nghiệm trùng lặp.
+- **Quy mô thay đổi dữ liệu:**
+  - Tổng số 16 bảng chuẩn dữ liệu đầu ra: phát hiện chính xác **93 chỉ tiêu được sửa đổi, bổ sung** trên 15 bảng (Bảng 15 Quản lý bệnh Lao giữ nguyên 21 chỉ tiêu).
+  - Phân bố cụ thể: Check-in (6), Bảng 1 (20), Bảng 2 (8), Bảng 3 (10), Bảng 4 (2), Bảng 5 (1), Bảng 6 (1), Bảng 7 (7), Bảng 8 (4), Bảng 9 (8), Bảng 10 (5), Bảng 11 (8), Bảng 12 (5), Bảng 13 (4), Bảng 14 (4), Bảng 15 (0).
+- **6 nhóm thay đổi trọng yếu:**
+  1. **Mã đơn vị hành chính 3 cấp mới:** Cập nhật toàn bộ mã tỉnh, huyện, xã theo Quyết định số 19/2025/QĐ-TTg ngày 30/6/2025 của Thủ tướng Chính phủ (thay thế danh mục cũ của Tổng cục Thống kê).
+  2. **Nới lỏng kích thước chuỗi sang `n` (không giới hạn):** `MA_THE_BHYT`, `GT_THE_TU`, `GT_THE_DEN`, `MA_BHXH` để tương thích thẻ BHYT số, VssID và VNeID.
+  3. **Hỗ trợ đa mã ngăn cách bằng dấu `;`:** `MA_LOAI_KCB` (10 ký tự, theo QĐ 1804/QĐ-BYT), `MA_DOITUONG_KCB` (50 ký tự, theo QĐ 3276/QĐ-BYT & QĐ 2917/QĐ-BYT), `NGAY_HEN_KL` (200 ký tự).
+  4. **Đồng bộ biểu mẫu chứng từ y tế:** Đồng bộ theo Thông tư số 01/2025/TT-BYT (Phiếu chuyển cơ sở KCB - Phụ lục VI, Giấy hẹn khám lại - Phụ lục V).
+  5. **Quy định linh hoạt giá trị `null`:** Cho phép để trống `MA_BAC_SI` (Bảng 13) và `MA_TTDV` (Bảng 14).
+  6. **Định danh vật tư y tế trúng thầu:** Trường `TEN_VAT_TU` quy định rõ ghi đúng theo tên thương mại trong quyết định trúng thầu.
+- **Tích hợp vào hệ thống & sản phẩm đối chiếu:**
+  - File JSON dữ liệu cấu trúc `qd3556-chuan-dau-ra.json` (391 KB, 16 bảng) tích hợp vào hệ thống tra cứu và tìm kiếm toàn cục.
+  - File Excel so sánh chi tiết 93 thay đổi: `So_sanh_thay_doi_QD_3556_vs_3176_BYT.xlsx`.
+  - Bộ Slide thuyết trình PowerPoint 10 slide: `Bao_cao_Phan_tich_Thay_doi_QD_3556_BYT.pptx`.
+  - Bản Infographic tương tác trực quan: `Infographic_QD3556_ThayDoi.html`.
+  - Lưu trữ file PDF ký số gốc `BYT-3556.QD-Sua-doi-bo-sung-QD3176.signed.pdf` và file Excel gốc `261116_Chuan_du_lieu_dau_ra_sua_3176_Final.xlsx` trên GitHub repository.
+
+
 
 

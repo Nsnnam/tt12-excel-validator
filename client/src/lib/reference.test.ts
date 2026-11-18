@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { COMMON_CATALOGS, DOCUMENT_LIBRARY, QD3276_TABLES, HOI_DAP_BHYT_2026 } from "./reference";
+import { COMMON_CATALOGS, DOCUMENT_LIBRARY, QD3276_TABLES, QD3556_TABLES, HOI_DAP_BHYT_2026 } from "./reference";
 
 describe("DOCUMENT_LIBRARY", () => {
   it("có ID duy nhất để dùng ổn định làm khóa React", () => {
@@ -20,11 +20,45 @@ describe("DOCUMENT_LIBRARY", () => {
     expect(doc?.url).toContain("BYT-2917");
   });
 
+  it("chứa tài liệu và sản phẩm đối chiếu QĐ 3556/QĐ-BYT", () => {
+    const pdfDoc = DOCUMENT_LIBRARY.find((d) => d.id === "qd-3556-byt");
+    const xlsDoc = DOCUMENT_LIBRARY.find((d) => d.id === "qd-3556-so-sanh");
+    const pptxDoc = DOCUMENT_LIBRARY.find((d) => d.id === "qd-3556-slide");
+    const infoDoc = DOCUMENT_LIBRARY.find((d) => d.id === "qd-3556-infographic");
+    const rawXls = DOCUMENT_LIBRARY.find((d) => d.id === "qd-3556-excel-goc");
+
+    expect(pdfDoc).toBeDefined();
+    expect(xlsDoc).toBeDefined();
+    expect(pptxDoc).toBeDefined();
+    expect(infoDoc).toBeDefined();
+    expect(rawXls).toBeDefined();
+  });
+
   it("chứa cẩm nang 108 câu hỏi - đáp nghiệp vụ BHYT 2026 với link tải PDF", () => {
     const doc = DOCUMENT_LIBRARY.find((d) => d.id === "hoi-dap-giam-dinh-bhyt-2026");
     expect(doc).toBeDefined();
     expect(doc?.type).toBe("pdf");
     expect(doc?.url).toContain("hoi-dap-giam-dinh-bhyt-2026.pdf");
+  });
+});
+
+describe("QD3556_TABLES", () => {
+  it("chứa đủ 16 bảng chuẩn dữ liệu đầu ra KCB BHYT", () => {
+    expect(QD3556_TABLES).toHaveLength(16);
+    expect(QD3556_TABLES[0].id).toBe("bang-checkin");
+    expect(QD3556_TABLES[1].id).toBe("bang-1");
+    expect(QD3556_TABLES[15].id).toBe("bang-15");
+  });
+
+  it("thống kê chính xác 93 chỉ tiêu sửa đổi, bổ sung trên 15 bảng", () => {
+    const totalChanges = QD3556_TABLES.reduce((sum, t) => sum + (t.changeCount ?? 0), 0);
+    expect(totalChanges).toBe(93);
+
+    const bang1 = QD3556_TABLES.find((t) => t.id === "bang-1");
+    expect(bang1?.changeCount).toBe(20);
+
+    const bang15 = QD3556_TABLES.find((t) => t.id === "bang-15");
+    expect(bang15?.changeCount).toBe(0);
   });
 });
 
