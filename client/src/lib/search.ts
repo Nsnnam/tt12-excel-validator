@@ -2,7 +2,7 @@
  * Phong cách Hồ sơ điều hành: kết quả tìm kiếm là các dòng hồ sơ có nguồn,
  * định danh và đích đến rõ ràng; không dùng fuzzy match để tránh lệch nghiệp vụ.
  */
-import { COMMON_CATALOGS, DOCUMENT_LIBRARY, QD3176_TABLES, QD3556_TABLES, QD5937_TABLES, QD3276_TABLES, HOI_DAP_BHYT_2026, type CommonCode, type ReferenceTable } from "./reference";
+import { COMMON_CATALOGS, DOCUMENT_LIBRARY, QD3176_TABLES, QD3556_TABLES, QD3556_DIFF, QD5937_TABLES, QD3276_TABLES, HOI_DAP_BHYT_2026, type CommonCode, type ReferenceTable } from "./reference";
 import { TEMPLATES, fieldsForTemplate } from "./tt12";
 
 export type SearchScope = "all" | `template:${string}` | `catalog:${string}` | `qd:${string}` | `qd3556:${string}` | `qd5937:${string}` | `qd3276:${string}` | "hoiDap" | `hoiDap:${string}`;
@@ -196,15 +196,40 @@ export function searchReferenceData(query: string, scope: SearchScope = "all", l
     table.rows.forEach((row, index) => {
       if (results.length >= limit) return;
       const values = row.map(compact);
-      if (!matches(values.join(" "), normalizedQuery)) return;
-      const isAmended = changeColIdx !== -1 && Boolean(values[changeColIdx]?.trim());
+      const fieldName = values[1] || "";
+      const normTableId = table.id === "bang-checkin" ? "check-in" : table.id;
+      const diffRec = QD3556_DIFF.records.find((r) => r.tableId === normTableId && r.field === fieldName);
+
+      const searchSource = [
+        ...values,
+        diffRec?.summary ?? "",
+        diffRec?.notes?.join(" ") ?? "",
+        diffRec?.repeal?.join(" ") ?? "",
+        diffRec?.metadataChanges?.map((m) => `${m.label} ${m.before} ${m.after}`).join(" ") ?? ""
+      ].join(" ");
+
+      if (!matches(searchSource, normalizedQuery)) return;
+
+      let badge = "";
+      if (diffRec && diffRec.status !== "unchanged") {
+        if (diffRec.status === "new") badge = " ★ [Trường mới]";
+        else if (diffRec.status === "null") badge = " ★ [Giá trị NULL]";
+        else if (diffRec.field === "T_BNTT" || diffRec.field === "T_BNCCT") badge = " ★ [Công thức mới]";
+        else if (diffRec.status === "review") badge = " ⚠ [Cần đối chiếu]";
+        else if (diffRec.status === "inherited") badge = " ★ [QĐ 1931]";
+        else if (diffRec.status === "historical") badge = " [Lịch sử 3176]";
+        else badge = " ★ [Sửa đổi QĐ 3556]";
+      } else if (changeColIdx !== -1 && Boolean(values[changeColIdx]?.trim())) {
+        badge = " ★ [Sửa đổi QĐ 3556]";
+      }
+
       results.push({
         id: `${currentScope}:${index}`,
         kind: "qd3556",
-        title: `${values[1] || values[0] || `Dòng ${index + 1}`} · ${table.id.replace("bang-", "Bảng ")}${isAmended ? " ★ [Sửa đổi QĐ 3556]" : ""}`,
+        title: `${fieldName || values[0] || `Dòng ${index + 1}`} · ${table.id.replace("bang-", "Bảng ")}${badge}`,
         subtitle: `QĐ 3556 · ${excerpt(compact(table.title), 100)}`,
-        snippet: excerpt(values.filter(Boolean).join(" · ")),
-        focus: values.find((value) => matches(value, normalizedQuery)) || values[1] || normalizedQuery,
+        snippet: excerpt(diffRec?.summary ? `${diffRec.summary} · ${values.filter(Boolean).join(" · ")}` : values.filter(Boolean).join(" · ")),
+        focus: fieldName || values.find((value) => matches(value, normalizedQuery)) || normalizedQuery,
         scope: currentScope,
         targetId: table.id,
       });

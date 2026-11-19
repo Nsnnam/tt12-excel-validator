@@ -84,31 +84,44 @@ Rà soát toàn diện nguồn công khai `https://tracuu-danhmuc-tt12.web.app/`
   - Mở rộng công cụ tìm kiếm toàn cục (Global Search) hỗ trợ truy vấn trực tiếp nội dung 108 câu hỏi - đáp.
   - Lưu trữ file PDF gốc `hoi-dap-giam-dinh-bhyt-2026.pdf` (1.48 MB) trên kho GitHub và bổ sung vào Thư viện tài liệu tham chiếu để tải về sử dụng ngoại tuyến.
 
-## Cập nhật Quyết định 3556/QĐ-BYT — 2026-11-18
+## Cập nhật Quyết định 3556/QĐ-BYT & Đồng bộ Đối chiếu chuyên sâu Upstream — 2026-11-19
 
-Theo Quyết định số 3556/QĐ-BYT ngày 16/11/2026 của Bộ trưởng Bộ Y tế (do Thứ trưởng Đào Xuân Cơ ký ban hành):
+Theo Quyết định số 3556/QĐ-BYT của Bộ trưởng Bộ Y tế (do Thứ trưởng Đào Xuân Cơ ký ban hành, xác thực chữ ký số Ban Cơ yếu Chính phủ / Bộ Y tế ngày 18/11/2026 lúc 16:57:41):
 
-- **Văn bản pháp lý:** Sửa đổi, bổ sung Quyết định số 3176/QĐ-BYT ngày 18/10/2023 ban hành Chuẩn dữ liệu đầu ra phục vụ quản lý, giám định, thanh toán chi phí khám bệnh, chữa bệnh và giải quyết các chế độ liên quan. Hiệu lực thi hành kể từ ngày ký (16/11/2026).
+- **Văn bản pháp lý:** Sửa đổi, bổ sung Quyết định số 3176/QĐ-BYT ngày 18/10/2023 ban hành Chuẩn dữ liệu đầu ra phục vụ quản lý, giám định, thanh toán chi phí khám bệnh, chữa bệnh và giải quyết các chế độ liên quan. Hiệu lực thi hành kể từ ngày ký (18/11/2026).
+- **Bộ 3 mã băm SHA-256 xác thực toàn vẹn tài liệu nguồn:**
+  1. `qd3556-byt-2026.signed.pdf` (`BYT-3556.QD-Sua-doi-bo-sung-QD3176.signed.pdf`): `a8212f076a350855d7e2c0d61bb9acb5416429b568163ebc855e3a5a7657200f`
+  2. `chuan-dau-ra-3556.xlsx` (`261116_Chuan_du_lieu_dau_ra_sua_3176_Final.xlsx`): `d2894506a7ec8f70f59f4b7b4d9873757131ece757be991ac7fa99f70387f0c0`
+  3. `chuan-dau-ra-3176-2024.xls` (Bản chuẩn cũ ngày 28/10/2024): `066de28331227c819d6fb51e1ea8d9d078d38fba98485f4defab372ad360c91b`
 - **Quy định cốt lõi tại Điều 2 (Nghiệp vụ liên thông ngoại trú - nội trú):**
   - Đối với ca bệnh khám ngoại trú có chỉ định dịch vụ cận lâm sàng, sau đó người bệnh được chuyển vào điều trị nội trú:
     1. Cơ sở KCB xác định giá trị mức hưởng (`MUC_HUONG`) tương ứng cho từng dịch vụ KCB ngoại trú, nội trú tại Bảng 2 (Thuốc) và Bảng 3 (Dịch vụ kỹ thuật & Vật tư y tế).
     2. Cơ sở KCB được sử dụng lại kết quả cận lâm sàng ngoại trú trong quá trình điều trị nội trú, không phải chỉ định lại xét nghiệm trùng lặp.
-- **Quy mô thay đổi dữ liệu:**
-  - Tổng số 16 bảng chuẩn dữ liệu đầu ra: phát hiện chính xác **93 chỉ tiêu được sửa đổi, bổ sung** trên 15 bảng (Bảng 15 Quản lý bệnh Lao giữ nguyên 21 chỉ tiêu).
-  - Phân bố cụ thể: Check-in (6), Bảng 1 (20), Bảng 2 (8), Bảng 3 (10), Bảng 4 (2), Bảng 5 (1), Bảng 6 (1), Bảng 7 (7), Bảng 8 (4), Bảng 9 (8), Bảng 10 (5), Bảng 11 (8), Bảng 12 (5), Bảng 13 (4), Bảng 14 (4), Bảng 15 (0).
-- **6 nhóm thay đổi trọng yếu:**
-  1. **Mã đơn vị hành chính 3 cấp mới:** Cập nhật toàn bộ mã tỉnh, huyện, xã theo Quyết định số 19/2025/QĐ-TTg ngày 30/6/2025 của Thủ tướng Chính phủ (thay thế danh mục cũ của Tổng cục Thống kê).
-  2. **Nới lỏng kích thước chuỗi sang `n` (không giới hạn):** `MA_THE_BHYT`, `GT_THE_TU`, `GT_THE_DEN`, `MA_BHXH` để tương thích thẻ BHYT số, VssID và VNeID.
-  3. **Hỗ trợ đa mã ngăn cách bằng dấu `;`:** `MA_LOAI_KCB` (10 ký tự, theo QĐ 1804/QĐ-BYT), `MA_DOITUONG_KCB` (50 ký tự, theo QĐ 3276/QĐ-BYT & QĐ 2917/QĐ-BYT), `NGAY_HEN_KL` (200 ký tự).
-  4. **Đồng bộ biểu mẫu chứng từ y tế:** Đồng bộ theo Thông tư số 01/2025/TT-BYT (Phiếu chuyển cơ sở KCB - Phụ lục VI, Giấy hẹn khám lại - Phụ lục V).
-  5. **Quy định linh hoạt giá trị `null`:** Cho phép để trống `MA_BAC_SI` (Bảng 13) và `MA_TTDV` (Bảng 14).
-  6. **Định danh vật tư y tế trúng thầu:** Trường `TEN_VAT_TU` quy định rõ ghi đúng theo tên thương mại trong quyết định trúng thầu.
-- **Tích hợp vào hệ thống & sản phẩm đối chiếu:**
-  - File JSON dữ liệu cấu trúc `qd3556-chuan-dau-ra.json` (391 KB, 16 bảng) tích hợp vào hệ thống tra cứu và tìm kiếm toàn cục.
-  - File Excel so sánh chi tiết 93 thay đổi: `So_sanh_thay_doi_QD_3556_vs_3176_BYT.xlsx`.
+- **Kết quả khảo sát đối chiếu chuyên sâu (Deep Diff - 484 chỉ tiêu trên 16 bảng):**
+  - **3 trường mới hoàn toàn (`new`):**
+    * `MA_BENH_KHAC` (Bảng 1): Mã bệnh khác / chẩn đoán phân biệt, loại trừ khi ra viện theo ICD-10.
+    * `T_BNCCT_LK` (Bảng 1): Tiền cùng chi trả lũy kế trong năm tài chính.
+    * `NGAY_VAO_NOI_TRU` (Bảng 7): Thời điểm bắt đầu điều trị nội trú / ban ngày theo định dạng `yyyymmddHHMM`.
+  - **8 trường quy định giá trị NULL (`null`):** Giữ trường trong cấu trúc XML nhưng ghi giá trị `null` (gồm `MAHUYEN_CU_TRU` ở B1/B9/B12, `T_THUOC` & `T_VTYT` ở B1, `MA_BAC_SI` ở B13, `MA_TTDV` ở B14, v.v.).
+  - **81 trường sửa đổi/bổ sung (`modified` & `supplemented`):** Cập nhật diễn giải, nới lỏng kiểu dữ liệu sang `n`, hỗ trợ đa mã ngăn cách bằng dấu chấm phẩy `;`, đồng bộ theo QĐ 19/2025/QĐ-TTg và TT 01/2025/TT-BYT.
+  - **Công thức tính tiền mới bãi bỏ quy định cũ:**
+    * `T_BNTT = THANH_TIEN_BV − T_BHTT − T_BNCCT` (tại Bảng 2 và Bảng 3).
+    * `T_BNCCT = THANH_TIEN_BH × MUC_HUONG_BH/100 − T_BHTT` (tại Bảng 2 và Bảng 3).
+  - **2 trường cần lưu ý/đối chiếu (`review`):** `TT_THAU` (Bảng 2 - thuốc tự pha chế ghi `Số QĐ; yyyyMMdd`), và kiểu/kích thước Bảng 6.
+  - **1 trường dẫn lại QĐ 1931 (`inherited`):** `SO_DANG_KY` (Bảng 2 - cấu trúc mã định danh thuốc hiếm `UBND.YYYY.X.S`).
+  - **3 trường lịch sử 3176 (`historical`):** `TINH_TRANG_CT` (đổi từ `PP_DIEU_TRI`), `TEN_DICH_VU`, `TEN_THUOC` Bảng 13.
+  - **386 trường không đổi (`unchanged`).**
+- **Tính năng mới trên giao diện ứng dụng (v1.11.0):**
+  - Thanh chuyển chế độ (Mode Bar): Chuyển đổi mượt mà giữa **"⚡ Đối chiếu thay đổi chuyên sâu (Deep Diff)"** và **"📋 Bảng chuẩn 16 bảng QĐ 3556 (Toàn văn)"**.
+  - Bộ lọc 10 trạng thái thay đổi với huy hiệu số đếm tương tác.
+  - Modal so sánh chi tiết Side-by-side: Cột Cũ (lịch sử QĐ 130/4750/3176) đối chiếu song song với Cột Mới (quy định sửa đổi bổ sung và công thức tính tiền theo QĐ 3556).
+  - Bổ sung tệp đối chiếu cũ `chuan-dau-ra-3176-2024.xls` vào THƯ VIỆN FILE MẪU & TÀI LIỆU (nâng lên 6 file tải về cho QĐ 3556).
+- **Trọn bộ sản phẩm bàn giao đồng bộ:**
+  - File Excel so sánh chi tiết phân loại 4 sheet: `So_sanh_thay_doi_QD_3556_vs_3176_BYT.xlsx`.
   - Bộ Slide thuyết trình PowerPoint 10 slide: `Bao_cao_Phan_tich_Thay_doi_QD_3556_BYT.pptx`.
   - Bản Infographic tương tác trực quan: `Infographic_QD3556_ThayDoi.html`.
-  - Lưu trữ file PDF ký số gốc `BYT-3556.QD-Sua-doi-bo-sung-QD3176.signed.pdf` và file Excel gốc `261116_Chuan_du_lieu_dau_ra_sua_3176_Final.xlsx` trên GitHub repository.
+  - File PDF ký số gốc `BYT-3556.QD-Sua-doi-bo-sung-QD3176.signed.pdf` và 2 file Excel chuẩn đầu ra lưu trữ tại `docs/` và `client/public/documents/`.
+
 
 
 

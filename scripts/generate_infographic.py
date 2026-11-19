@@ -1,6 +1,6 @@
 import json
 
-with open('scratch_qd3556_analysis.json', 'r', encoding='utf-8') as f:
+with open('client/src/data/qd3556-upstream-diff.json', 'r', encoding='utf-8') as f:
     data = json.load(f)
 
 # Create an exquisite interactive Infographic HTML
@@ -382,7 +382,7 @@ html_content = """<!DOCTYPE html>
 
     <!-- FOOTER -->
     <div class="footer">
-      TT12 EXCEL VALIDATOR · BÁO CÁO PHÂN TÍCH QUYẾT ĐỊNH 3556/QĐ-BYT (BAN HÀNH 16/11/2026)<br>
+      TT12 EXCEL VALIDATOR · BÁO CÁO PHÂN TÍCH QUYẾT ĐỊNH 3556/QĐ-BYT (BAN HÀNH 18/11/2026)<br>
       Tác giả: <strong>Nguyễn Sơn Nam (Nsnnam)</strong> · Tra cứu trực tuyến tại: <a href="https://nsnnam.github.io/tt12-excel-validator/" target="_blank">https://nsnnam.github.io/tt12-excel-validator/</a>
     </div>
   </div>

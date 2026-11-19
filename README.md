@@ -6,14 +6,16 @@
 
 | Thông tin | Chi tiết |
 |---|---|
-| **Phiên bản** | `1.10.0` |
-| **Ngày cập nhật** | 2026-11-18 |
+| **Phiên bản** | `1.11.0` |
+| **Ngày cập nhật** | 2026-11-19 |
 | **Tác giả** | [Nguyễn Sơn Nam (Nsnnam)](https://github.com/Nsnnam) |
 | **Múi giờ** | GMT+7 (`Asia/Ho_Chi_Minh`) |
 | **Web trực tiếp** | [https://nsnnam.github.io/tt12-excel-validator/](https://nsnnam.github.io/tt12-excel-validator/) |
 | **Bản HTML Single-page** | [`releases/single-page/tt12-excel-validator.html`](./releases/single-page/tt12-excel-validator.html) |
-| **QĐ 3556/QĐ-BYT (Ký số gốc)** | [`docs/BYT-3556.QD-Sua-doi-bo-sung-QD3176.signed.pdf`](./docs/BYT-3556.QD-Sua-doi-bo-sung-QD3176.signed.pdf) (16/11/2026) |
-| **Bảng Excel so sánh 93 thay đổi** | [`docs/So_sanh_thay_doi_QD_3556_vs_3176_BYT.xlsx`](./docs/So_sanh_thay_doi_QD_3556_vs_3176_BYT.xlsx) |
+| **QĐ 3556/QĐ-BYT (Ký số gốc)** | [`docs/BYT-3556.QD-Sua-doi-bo-sung-QD3176.signed.pdf`](./docs/BYT-3556.QD-Sua-doi-bo-sung-QD3176.signed.pdf) (Ký số: 18/11/2026) |
+| **Bản chuẩn 3556 Excel** | [`docs/261116_Chuan_du_lieu_dau_ra_sua_3176_Final.xlsx`](./docs/261116_Chuan_du_lieu_dau_ra_sua_3176_Final.xlsx) |
+| **Bản chuẩn 3176 cũ (2024)** | [`docs/chuan-dau-ra-3176-2024.xls`](./docs/chuan-dau-ra-3176-2024.xls) (28/10/2024) |
+| **Bảng Excel đối chiếu chuyên sâu** | [`docs/So_sanh_thay_doi_QD_3556_vs_3176_BYT.xlsx`](./docs/So_sanh_thay_doi_QD_3556_vs_3176_BYT.xlsx) |
 | **Slide thuyết trình phân tích (PPTX)** | [`docs/Bao_cao_Phan_tich_Thay_doi_QD_3556_BYT.pptx`](./docs/Bao_cao_Phan_tich_Thay_doi_QD_3556_BYT.pptx) |
 | **Infographic trực quan QĐ 3556** | [`docs/Infographic_QD3556_ThayDoi.html`](./docs/Infographic_QD3556_ThayDoi.html) |
 | **Cẩm nang 108 câu Hỏi - Đáp BHYT** | [`docs/hoi-dap-giam-dinh-bhyt-2026.pdf`](./docs/hoi-dap-giam-dinh-bhyt-2026.pdf) (BHXH VN 10/2026, 86 trang) |
@@ -44,9 +46,12 @@ Người dùng có thể sử dụng ứng dụng ngay lập tức bằng một 
 
 ## ✨ Tính năng nổi bật
 
-- **Tích hợp toàn diện 16 bảng chuẩn đầu ra QĐ 3556/QĐ-BYT (16/11/2026):** Cập nhật toàn bộ 93 chỉ tiêu sửa đổi, bổ sung trên 15 bảng chuẩn dữ liệu (sửa đổi QĐ 3176/QĐ-BYT), giao diện phân loại rõ ràng, đánh dấu chỉ tiêu sửa đổi và cung cấp bộ lọc nhanh 93 trường có thay đổi.
+- **Tích hợp toàn diện 16 bảng chuẩn đầu ra QĐ 3556/QĐ-BYT (Ký số: 18/11/2026):** Cập nhật toàn bộ các chỉ tiêu sửa đổi, bổ sung trên 15 bảng chuẩn dữ liệu (sửa đổi QĐ 3176/QĐ-BYT), giao diện phân loại rõ ràng, đánh dấu chỉ tiêu sửa đổi và cung cấp chế độ chuyển đổi mượt mà giữa xem toàn văn và xem đối chiếu.
+- **⚡ Chế độ Đối chiếu thay đổi chuyên sâu (Deep Diff Viewer):** Khảo sát toàn diện 484 chỉ tiêu trên 16 bảng, phân loại chi tiết theo 10 trạng thái (3 trường mới hoàn toàn `new`, 8 trường giá trị `null`, 81 trường sửa đổi/bổ sung diễn giải và kiểu dữ liệu `modified`/`supplemented`, 2 trường cần lưu ý `review`, 1 trường dẫn lại QĐ 1931 `inherited`, 3 trường lịch sử `historical`, và 386 trường không đổi `unchanged`).
+- **Modal so sánh chi tiết Side-by-side:** Trực quan hóa đối chiếu 2 cột song song: Cột Cũ hiển thị lịch sử qua các QĐ 130/4750/3176; Cột Mới hiển thị trích dẫn sửa đổi bổ sung theo QĐ 3556 và công thức tính chi phí mới (`T_BNTT` và `T_BNCCT`).
+- **Xác thực toàn vẹn tài liệu với bộ 3 mã băm SHA-256:** Cho phép kiểm tra và đối chiếu tính toàn vẹn của tệp PDF ký số Bộ Y tế, tệp Excel chuẩn đầu ra 3556 và tệp Excel chuẩn cũ 3176 (28/10/2024).
 - **Tổ chức tra cứu chuẩn hóa 8 mẫu:** Gồm 6 mẫu danh mục (Mẫu 01/DM đến 06/DM) và 2 mẫu thanh toán (Mẫu 01/BH, Mẫu 02/BH).
-- **Bộ công cụ đối chiếu chuyên sâu QĐ 3556:** Cung cấp sẵn tệp Excel so sánh chi tiết (`So_sanh_thay_doi_QD_3556_vs_3176_BYT.xlsx`), bộ slide thuyết trình PowerPoint 10 slide (`Bao_cao_Phan_tich_Thay_doi_QD_3556_BYT.pptx`), Infographic tương tác trực quan (`Infographic_QD3556_ThayDoi.html`) và file PDF ký số gốc của Bộ Y tế.
+- **Bộ công cụ đối chiếu chuyên sâu QĐ 3556:** Cung cấp sẵn tệp Excel đối chiếu chi tiết (`So_sanh_thay_doi_QD_3556_vs_3176_BYT.xlsx`), bộ slide thuyết trình PowerPoint 10 slide (`Bao_cao_Phan_tich_Thay_doi_QD_3556_BYT.pptx`), Infographic tương tác trực quan (`Infographic_QD3556_ThayDoi.html`) và file PDF ký số gốc của Bộ Y tế.
 - **Cẩm nang 108 câu Hỏi - Đáp nghiệp vụ BHYT 2026:** Tích hợp bộ tài liệu 86 trang do BHXH Việt Nam ban hành (Tháng 10/2026), phân loại theo 6 chuyên đề nghiệp vụ (Cổng tiếp nhận dữ liệu, Hợp đồng KCB, Danh mục liên thông, Hồ sơ đề nghị thanh toán, Giám định chi phí, Thanh toán quyết toán), hỗ trợ tìm kiếm theo số câu/từ khóa và nút mở xem trang đối chiếu trong file PDF gốc.
 - **Nhận diện chữ ký tiêu đề thông minh:** Tự động quét các sheet trong file Excel (`.xlsx`, `.xls`, `.xlsm`), tìm dòng tiêu đề và nhận diện mẫu có độ khớp cao nhất, không phụ thuộc vào tên tệp.
 - **Bộ tìm kiếm xuyên hồ sơ (Global Search):** Tìm kiếm tức thì theo mã trường, tên danh mục, diễn giải chỉ tiêu trên toàn bộ 8 mẫu TT12, 4 danh mục mã dùng chung, 16 bảng QĐ 3556, 15 bảng QĐ 3176, 13 phụ lục QĐ 5937/QĐ-BYT, 2 bảng phụ lục QĐ 3276/QĐ-BYT và toàn văn 108 câu hỏi - đáp BHYT 2026.

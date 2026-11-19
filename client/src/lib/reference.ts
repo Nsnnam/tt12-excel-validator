@@ -4,6 +4,7 @@
 import raw from "@/data/tt12-reference.json";
 import qd3176 from "@/data/qd3176-chuan-dau-ra.json";
 import qd3556 from "@/data/qd3556-chuan-dau-ra.json";
+import qd3556Diff from "@/data/qd3556-upstream-diff.json";
 import qd5937 from "@/data/qd5937-danh-muc.json";
 import qd3276 from "@/data/qd3276-phu-luc.json";
 import hoiDapRaw from "@/data/hoi-dap-bhyt-2026.json";
@@ -73,9 +74,10 @@ export const DOCUMENT_LIBRARY = [
   { id: "qd-1227-byt", name: "QĐ 1227 — Định mức KT-KT kỹ thuật y tế", type: "excel", url: "https://raw.githubusercontent.com/Nsnnam/tt12-excel-validator/main/docs/QD_1227.xlsx" },
   { id: "qd-3276-byt", name: "QĐ 3276/QĐ-BYT — Mã đối tượng KCB & mã nhiên liệu (Sửa đổi QĐ 2010)", type: "pdf", url: "https://raw.githubusercontent.com/Nsnnam/tt12-excel-validator/main/docs/BYT-3276.QD-Sua-doi-bo-sung-QD2010.pdf" },
   { id: "qd-2917-byt", name: "QĐ 2917/QĐ-BYT — Sửa đổi, bổ sung mã đối tượng KCB 3.1 tại QĐ 3276 (15/09/2026)", type: "pdf", url: "https://raw.githubusercontent.com/Nsnnam/tt12-excel-validator/main/docs/BYT-2917.QD-Sua-doi-bo-sung-QD3276.signed.pdf" },
-  { id: "qd-3556-byt", name: "QĐ 3556/QĐ-BYT — Sửa đổi, bổ sung QĐ 3176 chuẩn đầu ra KCB BHYT (16/11/2026)", type: "pdf", url: "https://raw.githubusercontent.com/Nsnnam/tt12-excel-validator/main/docs/BYT-3556.QD-Sua-doi-bo-sung-QD3176.signed.pdf" },
+  { id: "qd-3556-byt", name: "QĐ 3556/QĐ-BYT — Sửa đổi, bổ sung QĐ 3176 chuẩn đầu ra KCB BHYT (Ký 18/11/2026)", type: "pdf", url: "https://raw.githubusercontent.com/Nsnnam/tt12-excel-validator/main/docs/BYT-3556.QD-Sua-doi-bo-sung-QD3176.signed.pdf" },
   { id: "qd-3556-excel-goc", name: "QĐ 3556 — Bảng chuẩn dữ liệu đầu ra sửa 3176 (Excel gốc Bộ Y tế)", type: "excel", url: "https://raw.githubusercontent.com/Nsnnam/tt12-excel-validator/main/docs/261116_Chuan_du_lieu_dau_ra_sua_3176_Final.xlsx" },
-  { id: "qd-3556-so-sanh", name: "So sánh chi tiết 93 thay đổi QĐ 3556 vs QĐ 3176 (Excel đối chiếu chuyên sâu)", type: "excel", url: "https://raw.githubusercontent.com/Nsnnam/tt12-excel-validator/main/docs/So_sanh_thay_doi_QD_3556_vs_3176_BYT.xlsx" },
+  { id: "qd-3556-chuan-cu", name: "QĐ 3556 — Bảng chuẩn đối chiếu cũ 2024 (Excel đối chiếu cũ Bộ Y tế)", type: "excel", url: "/documents/chuan-dau-ra-3176-2024.xls" },
+  { id: "qd-3556-so-sanh", name: "So sánh chi tiết thay đổi QĐ 3556 vs QĐ 3176 (Excel đối chiếu chuyên sâu)", type: "excel", url: "https://raw.githubusercontent.com/Nsnnam/tt12-excel-validator/main/docs/So_sanh_thay_doi_QD_3556_vs_3176_BYT.xlsx" },
   { id: "qd-3556-slide", name: "Slide Báo cáo phân tích thay đổi QĐ 3556/QĐ-BYT (PowerPoint 10 slide)", type: "word", url: "https://raw.githubusercontent.com/Nsnnam/tt12-excel-validator/main/docs/Bao_cao_Phan_tich_Thay_doi_QD_3556_BYT.pptx" },
   { id: "qd-3556-infographic", name: "Infographic trực quan so sánh thay đổi QĐ 3556 (Bản tương tác trực quan)", type: "pdf", url: "documents/Infographic_QD3556_ThayDoi.html" },
   { id: "hoi-dap-giam-dinh-bhyt-2026", name: "Cẩm nang 108 câu Hỏi - Đáp nghiệp vụ BHYT (BHXH Việt Nam 10/2026)", type: "pdf", url: "https://raw.githubusercontent.com/Nsnnam/tt12-excel-validator/main/docs/hoi-dap-giam-dinh-bhyt-2026.pdf" },
@@ -146,7 +148,7 @@ export const QD3556_DOWNLOADABLE_FILES: DownloadableFile[] = [
     size: "577 KB",
     type: "pdf",
     badge: "PDF GỐC",
-    desc: "Toàn văn Quyết định số 3556/QĐ-BYT ngày 16/11/2026 có chữ ký số điện tử của Bộ Y tế.",
+    desc: "Toàn văn Quyết định số 3556/QĐ-BYT ký ngày 18/11/2026 có chữ ký số điện tử của Bộ Y tế (SHA-256: a8212f07...).",
     canPreview: true,
   },
   {
@@ -158,7 +160,18 @@ export const QD3556_DOWNLOADABLE_FILES: DownloadableFile[] = [
     size: "132 KB",
     type: "excel",
     badge: "EXCEL GỐC",
-    desc: "Bảng chuẩn dữ liệu đầu ra gồm 16 sheet do Vụ BHYT / Cục QLKCB cung cấp.",
+    desc: "Bảng chuẩn dữ liệu đầu ra sửa 3176 năm 2026 gồm 16 sheet do Vụ BHYT / Cục QLKCB cung cấp (SHA-256: d2894506...).",
+  },
+  {
+    id: "chuan-cu-excel",
+    name: "Bảng chuẩn đối chiếu cũ năm 2024 từ Bộ Y tế",
+    filename: "chuan-dau-ra-3176-2024.xls",
+    path: "documents/chuan-dau-ra-3176-2024.xls",
+    rawGithubUrl: "https://raw.githubusercontent.com/Nsnnam/tt12-excel-validator/main/docs/chuan-dau-ra-3176-2024.xls",
+    size: "540 KB",
+    type: "excel",
+    badge: "BẢNG ĐỐI CHIẾU 2024",
+    desc: "Bảng chuẩn dữ liệu cũ ngày 28/10/2024 do Bộ Y tế ban hành làm căn cứ đối chiếu thay đổi QĐ 3556 (SHA-256: 066de283...).",
   },
 ];
 
@@ -185,6 +198,80 @@ export const QD3176_TABLES = qd3176 as ReferenceTable[];
 export const QD3556_TABLES = qd3556 as (ReferenceTable & { changeCount?: number })[];
 export const QD5937_TABLES = qd5937 as ReferenceTable[];
 export const QD3276_TABLES = qd3276 as ReferenceTable[];
+
+export type QD3556HistoryEntry = {
+  label: string;
+  text: string;
+  cell?: string;
+};
+
+export type QD3556Snapshot = {
+  name: string;
+  stt: string;
+  type: string;
+  size: string;
+  sheet: string;
+  row: number;
+  history: QD3556HistoryEntry[];
+  amendment?: string;
+  amendmentCell?: string;
+};
+
+export type QD3556MetadataChange = {
+  label: string;
+  before: string;
+  after: string;
+};
+
+export type QD3556Status =
+  | "modified"
+  | "supplemented"
+  | "new"
+  | "null"
+  | "inherited"
+  | "historical"
+  | "review"
+  | "repeal"
+  | "unchanged";
+
+export type QD3556DiffRecord = {
+  id: string;
+  tableId: string;
+  field: string;
+  status: QD3556Status;
+  summary: string;
+  before?: QD3556Snapshot;
+  after?: QD3556Snapshot;
+  metadataChanges: QD3556MetadataChange[];
+  repeal: string[];
+  notes: string[];
+  historyDifferences: QD3556HistoryEntry[];
+  needsReview: boolean;
+};
+
+export type QD3556DiffSource = {
+  file: string;
+  label: string;
+  sha256: string;
+};
+
+export type QD3556DiffTable = {
+  id: string;
+  title: string;
+  name: string;
+};
+
+export type QD3556DiffData = {
+  decision: string;
+  issued: string;
+  effective: string;
+  sources: QD3556DiffSource[];
+  tables: QD3556DiffTable[];
+  records: QD3556DiffRecord[];
+  counts: Record<string, number>;
+};
+
+export const QD3556_DIFF = qd3556Diff as QD3556DiffData;
 
 export function getReferenceFields(templateId: string): ReferenceField[] {
   const key = templateKeys[templateId];

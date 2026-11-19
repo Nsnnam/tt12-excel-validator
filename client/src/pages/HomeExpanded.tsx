@@ -6,12 +6,12 @@ import { useMemo, useRef, useState, type ReactNode } from "react";
 import "../inspection.css";
 import "../expanded.css";
 import { toast } from "sonner";
-import { AlertTriangle, BookOpen, CheckCircle2, CheckSquare, ChevronDown, ChevronRight, Download, ExternalLink, Eye, FileCheck2, FileSpreadsheet, FileText, Filter, FolderDown, FolderSearch, HelpCircle, Info, Search, ShieldCheck, Square, Trash2, Upload, X } from "lucide-react";
+import { AlertTriangle, BookOpen, CheckCircle2, CheckSquare, ChevronDown, ChevronRight, Download, ExternalLink, Eye, FileCheck2, FileSpreadsheet, FileText, Filter, FolderDown, FolderSearch, HelpCircle, Info, Layers, Search, ShieldCheck, Sparkles, Square, Trash2, Upload, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ReleaseLedger } from "@/components/ReleaseLedger";
 import { APP_META, BRAND_ASSETS } from "@/lib/meta";
 import { TEMPLATES, exportReport, fieldsForTemplate, inspectExcelFile, issueCounts, sourceTemplateUrl, type Inspection, type Severity, type TemplateSchema, type ValidationIssue } from "@/lib/tt12";
-import { COMMON_CATALOGS, DOCUMENT_LIBRARY, QD3176_TABLES, QD3556_TABLES, QD3556_DOWNLOADABLE_FILES, QD5937_TABLES, QD3276_TABLES, HOI_DAP_BHYT_2026, sourceUrl, documentUrl, type HoiDapQuestion } from "@/lib/reference";
+import { COMMON_CATALOGS, DOCUMENT_LIBRARY, QD3176_TABLES, QD3556_TABLES, QD3556_DOWNLOADABLE_FILES, QD3556_DIFF, QD5937_TABLES, QD3276_TABLES, HOI_DAP_BHYT_2026, sourceUrl, documentUrl, type HoiDapQuestion, type QD3556DiffRecord, type QD3556Status } from "@/lib/reference";
 import { importCatalogFile, validateCatalogIssues, type ImportedCatalog } from "@/lib/catalog";
 import { downloadHighlightedWorkbook, downloadNormalizedWorkbook } from "@/lib/normalize";
 import { applyFacilityRules, loadFacilityRules, makeFacilityRule, persistFacilityRules, type FacilityRule, type FacilityRuleKind } from "@/lib/facility-rules";
@@ -56,6 +56,10 @@ export default function HomeExpanded() {
   const [qdId, setQdId] = useState(QD3176_TABLES[0]?.id ?? "bang-1");
   const [qd3556Id, setQd3556Id] = useState(QD3556_TABLES[0]?.id ?? "bang-checkin");
   const [onlyAmended3556, setOnlyAmended3556] = useState(false);
+  const [qd3556Mode, setQd3556Mode] = useState<"diff" | "table">("diff");
+  const [diffTableFilter, setDiffTableFilter] = useState<string>("all");
+  const [diffStatusFilter, setDiffStatusFilter] = useState<string>("changed");
+  const [selectedDiffRecord, setSelectedDiffRecord] = useState<QD3556DiffRecord | null>(null);
   const [selected3556Files, setSelected3556Files] = useState<Set<string>>(
     () => new Set(QD3556_DOWNLOADABLE_FILES.map((f) => f.id))
   );
@@ -103,6 +107,61 @@ export default function HomeExpanded() {
       return row.some((cell) => searchable(cell, query));
     });
   }, [qd3556, qd3556ChangeColIdx, onlyAmended3556, query]);
+
+  const diffTableTitles = useMemo(() => {
+    const map: Record<string, string> = { all: "Tất cả các bảng" };
+    for (const t of QD3556_DIFF.tables) {
+      map[t.id] = t.title;
+    }
+    return map;
+  }, []);
+
+  const diffRecords = useMemo(() => {
+    let list = QD3556_DIFF.records;
+    if (diffTableFilter !== "all") {
+      list = list.filter((r) => r.tableId === diffTableFilter);
+    }
+    const q = query.trim().toLowerCase();
+    return list.filter((r) => {
+      let matchesStatus = true;
+      if (diffStatusFilter === "all") matchesStatus = true;
+      else if (diffStatusFilter === "amended") matchesStatus = ["modified", "supplemented"].includes(r.status);
+      else if (diffStatusFilter === "changed") matchesStatus = !["unchanged", "historical"].includes(r.status);
+      else if (diffStatusFilter === "repeal") matchesStatus = Boolean(r.repeal && r.repeal.length > 0);
+      else if (diffStatusFilter === "review") matchesStatus = r.needsReview;
+      else matchesStatus = r.status === diffStatusFilter;
+
+      if (!matchesStatus) return false;
+      if (!q) return true;
+
+      const searchableText = [
+        r.field,
+        r.tableId,
+        diffTableTitles[r.tableId] || "",
+        r.summary,
+        ...(r.notes || []),
+        ...(r.repeal || []),
+        r.before?.name ?? "",
+        r.after?.name ?? "",
+        ...(r.before?.history?.map((h) => h.text) ?? []),
+        r.after?.amendment ?? "",
+      ].join(" ").toLowerCase();
+
+      return searchableText.includes(q);
+    });
+  }, [diffTableFilter, diffStatusFilter, query, diffTableTitles]);
+
+  const formatDiffSummary = (r: QD3556DiffRecord) => {
+    if (/^Tăng kích thước/.test(r.summary) || r.status === "review") {
+      return r.metadataChanges?.map((m) => `${m.label}: ${m.before} → ${m.after}`).join("; ") || r.summary;
+    }
+    if (r.tableId === "bang-2" || r.tableId === "bang-3") {
+      if (r.field === "MUC_HUONG") return "Thay cách xác định mức hưởng; bãi bỏ diễn giải QĐ 130. Cần đối chiếu cách biểu diễn tỷ lệ trong nguồn.";
+      if (r.field === "T_BNTT") return "Công thức mới: T_BNTT = THANH_TIEN_BV − T_BHTT − T_BNCCT; bãi bỏ diễn giải QĐ 3176.";
+      if (r.field === "T_BNCCT") return "Công thức mới: T_BNCCT = THANH_TIEN_BH × MUC_HUONG_BH/100 − T_BHTT; bãi bỏ diễn giải QĐ 3176.";
+    }
+    return r.summary;
+  };
   const qd5937 = QD5937_TABLES.find((item) => item.id === qd5937Id) ?? QD5937_TABLES[0];
   const qd5937Rows = useMemo(() => qd5937?.rows.filter((row) => row.some((cell) => searchable(cell, query))) ?? [], [qd5937, query]);
   const qd3276 = QD3276_TABLES.find((item) => item.id === qd3276Id) ?? QD3276_TABLES[0];
@@ -145,6 +204,12 @@ export default function HomeExpanded() {
       setQdId(result.targetId); setView("qd"); setQuery(result.focus);
     } else if (result.kind === "qd3556" && result.targetId) {
       setQd3556Id(result.targetId); setView("qd3556"); setQuery(result.focus);
+      const normTableId = result.targetId === "bang-checkin" ? "check-in" : result.targetId;
+      const rec = QD3556_DIFF.records.find((r) => r.tableId === normTableId && r.field === result.focus);
+      if (rec) {
+        setSelectedDiffRecord(rec);
+        setQd3556Mode("diff");
+      }
     } else if (result.kind === "qd5937" && result.targetId) {
       setQd5937Id(result.targetId); setView("qd5937"); setQuery(result.focus);
     } else if (result.kind === "qd3276" && result.targetId) {
@@ -498,11 +563,17 @@ export default function HomeExpanded() {
             <div className="source-card-head">
               <div>
                 <p className="eyebrow">
-                  NGUỒN THAM CHIẾU · QUYẾT ĐỊNH 3556/QĐ-BYT (16/11/2026) · SỬA ĐỔI, BỔ SUNG QĐ 3176/QĐ-BYT
+                  NGUỒN THAM CHIẾU · QUYẾT ĐỊNH 3556/QĐ-BYT (KÝ NGÀY 18/11/2026) · SỬA ĐỔI, BỔ SUNG QĐ 3176/QĐ-BYT
                 </p>
-                <h2>{qd3556?.title}</h2>
+                <h2>
+                  {qd3556Mode === "diff"
+                    ? "QĐ 3556 · Đối chiếu thay đổi chuyên sâu"
+                    : qd3556?.title}
+                </h2>
                 <p>
-                  {query || onlyAmended3556
+                  {qd3556Mode === "diff"
+                    ? `Đối chiếu tệp chuẩn 2026 với tệp 2024 · Ký số Bộ Y tế ngày 18/11/2026 · ${diffRecords.length} chỉ tiêu hiển thị.`
+                    : query || onlyAmended3556
                     ? `${qd3556Rows.length}/${qd3556?.rows.length ?? 0} dòng hiển thị.`
                     : `${qd3556?.rows.length ?? 0} chỉ tiêu (${qd3556?.changeCount ?? 0} chỉ tiêu sửa đổi, bổ sung theo QĐ 3556).`}
                 </p>
@@ -512,8 +583,8 @@ export default function HomeExpanded() {
                 <input
                   value={query}
                   onChange={(event) => setQuery(event.target.value)}
-                  placeholder="Tìm trong bảng QĐ 3556 đang chọn…"
-                  aria-label="Tìm trong bảng QĐ 3556 đang chọn"
+                  placeholder="Tìm tên trường, mã, quy định hoặc nội dung…"
+                  aria-label="Tìm kiếm trong QĐ 3556"
                 />
               </label>
             </div>
@@ -529,6 +600,9 @@ export default function HomeExpanded() {
               <ul className="qd3556-banner-list">
                 <li>
                   <strong>Tách giá trị mức hưởng:</strong> Cơ sở KCB xác định giá trị mức hưởng (<code>MUC_HUONG</code>) tương ứng cho từng dịch vụ KCB ngoại trú, nội trú tại Bảng 2 (Thuốc) và Bảng 3 (DVKT & VTYT).
+                </li>
+                <li>
+                  <strong>Công thức tính tiền mới:</strong> <code>T_BNTT = THANH_TIEN_BV − T_BHTT − T_BNCCT</code> và <code>T_BNCCT = THANH_TIEN_BH × MUC_HUONG_BH/100 − T_BHTT</code> tại Bảng 2 và Bảng 3.
                 </li>
                 <li>
                   <strong>Tái sử dụng kết quả CLS:</strong> Cơ sở KCB được sử dụng lại kết quả cận lâm sàng ngoại trú trong quá trình điều trị nội trú, không phải chỉ định lại xét nghiệm trùng lặp.
@@ -641,7 +715,7 @@ export default function HomeExpanded() {
 
               <div className="qd3556-dm-footer">
                 <span>
-                  💡 <em>Mẹo:</em> Nếu mạng cơ sở KCB chặn tải file tự động, bạn có thể tải toàn bộ kho tài liệu dạng ZIP trực tiếp từ GitHub:
+                  💡 <em>Mẹo:</em> Bạn có thể tải bảng đối chiếu cũ 2024 hoặc bảng mới 2026 để kiểm tra đối soát chéo độc lập.
                 </span>
                 <a
                   href="https://github.com/Nsnnam/tt12-excel-validator/archive/refs/heads/main.zip"
@@ -655,99 +729,468 @@ export default function HomeExpanded() {
               </div>
             </div>
 
-            {/* Table Navigation */}
-            <div className="work-nav qd3556-table-nav">
-              {QD3556_TABLES.map((item) => (
+            {/* Thanh chuyển chế độ xem: Đối chiếu chuyên sâu vs Bảng chuẩn toàn văn */}
+            <div className="qd3556-mode-bar">
+              <div className="qd3556-mode-tabs">
                 <button
-                  key={item.id}
-                  className={qd3556Id === item.id ? "active" : ""}
-                  onClick={() => {
-                    setQd3556Id(item.id);
-                    setQuery("");
-                  }}
-                  title={item.title}
+                  type="button"
+                  className={`qd3556-mode-tab ${qd3556Mode === "diff" ? "qd3556-mode-tab-active" : ""}`}
+                  onClick={() => setQd3556Mode("diff")}
                 >
-                  <span>{item.id === "bang-checkin" ? "Check-in" : item.id.replace("bang-", "Bảng ")}</span>
-                  {(item.changeCount ?? 0) > 0 && (
-                    <span className="qd3556-tab-badge">{item.changeCount}</span>
-                  )}
+                  <Sparkles size={15} />
+                  <span>Đối chiếu thay đổi chuyên sâu (Deep Diff)</span>
+                  <span className="qd3556-mode-pill">
+                    {QD3556_DIFF.records.filter((r) => !["unchanged", "historical"].includes(r.status)).length} thay đổi
+                  </span>
                 </button>
-              ))}
-            </div>
-
-            {/* Filter toolbar */}
-            <div className="qd3556-filter-toolbar">
-              <button
-                className={`qd3556-filter-toggle ${onlyAmended3556 ? "qd3556-filter-toggle-active" : ""}`}
-                onClick={() => setOnlyAmended3556(!onlyAmended3556)}
-              >
-                <Filter size={14} />
-                <span>
-                  {onlyAmended3556
-                    ? `Đang lọc: Chỉ hiển thị các chỉ tiêu sửa đổi/bổ sung (${qd3556?.changeCount ?? 0})`
-                    : `Lọc: Chỉ xem các chỉ tiêu sửa đổi/bổ sung (${qd3556?.changeCount ?? 0})`}
-                </span>
-              </button>
-              <div className="qd3556-filter-status">
-                Đang hiển thị <strong>{qd3556Rows.length}</strong> / {qd3556?.rows.length ?? 0} chỉ tiêu
-                {onlyAmended3556 && " (chế độ lọc thay đổi)"}
+                <button
+                  type="button"
+                  className={`qd3556-mode-tab ${qd3556Mode === "table" ? "qd3556-mode-tab-active" : ""}`}
+                  onClick={() => setQd3556Mode("table")}
+                >
+                  <Layers size={15} />
+                  <span>Bảng chuẩn 16 bảng QĐ 3556 (Toàn văn)</span>
+                  <span className="qd3556-mode-pill">16 bảng</span>
+                </button>
               </div>
             </div>
 
-            {/* Main Data Table */}
-            <div className="source-table-wrap">
-              <table className="source-table qd3556-table">
-                <thead>
-                  <tr>
-                    {qd3556?.headers.map((header, idx) => (
-                      <th
-                        key={header}
-                        className={idx === qd3556ChangeColIdx ? "qd3556-th-amended" : ""}
-                      >
-                        {header}
-                      </th>
-                    ))}
-                  </tr>
-                </thead>
-                <tbody>
-                  {qd3556Rows.map((row, index) => {
-                    const isRowAmended = qd3556ChangeColIdx !== -1 && Boolean(row[qd3556ChangeColIdx]?.trim());
+            {/* ======================================================== */}
+            {/* CHẾ ĐỘ 1: ĐỐI CHIẾU THAY ĐỔI CHUYÊN SÂU (DEEP DIFF VIEW) */}
+            {/* ======================================================== */}
+            {qd3556Mode === "diff" && (
+              <div className="qd3556-diff-section">
+                {/* Dải chọn bảng dữ liệu */}
+                <div className="work-nav qd3556-table-nav">
+                  <button
+                    type="button"
+                    className={diffTableFilter === "all" ? "active" : ""}
+                    onClick={() => setDiffTableFilter("all")}
+                  >
+                    <span>Tất cả các bảng</span>
+                    <span className="qd3556-tab-badge">484</span>
+                  </button>
+                  {QD3556_DIFF.tables.map((t) => {
+                    const changedInT = QD3556_DIFF.records.filter(
+                      (r) => r.tableId === t.id && !["unchanged", "historical"].includes(r.status)
+                    ).length;
                     return (
-                      <tr
-                        key={`${qd3556?.id}-${index}`}
-                        className={isRowAmended ? "qd3556-tr-amended" : ""}
+                      <button
+                        key={t.id}
+                        type="button"
+                        className={diffTableFilter === t.id ? "active" : ""}
+                        onClick={() => setDiffTableFilter(t.id)}
+                        title={t.title}
                       >
-                        {row.map((cell, column) => {
-                          const isAmendedCol = column === qd3556ChangeColIdx;
-                          return (
-                            <td
-                              key={`${index}-${column}`}
-                              className={isAmendedCol ? "qd3556-td-amended" : ""}
-                            >
-                              {isAmendedCol && cell.trim() && (
-                                <div className="qd3556-amended-badge">
-                                  ★ SỬA ĐỔI, BỔ SUNG THEO QĐ 3556
-                                </div>
-                              )}
-                              <pre>{cell}</pre>
-                            </td>
-                          );
-                        })}
-                      </tr>
+                        <span>{t.id === "check-in" ? "Check-in" : t.id.replace("bang-", "Bảng ")}</span>
+                        {changedInT > 0 && <span className="qd3556-tab-badge">{changedInT}</span>}
+                      </button>
                     );
                   })}
-                </tbody>
-              </table>
-            </div>
+                </div>
 
-            {query && !qd3556Rows.length && (
-              <div className="table-empty">
-                Không có dòng nào trong bảng đang chọn khớp từ khóa "{query}".
+                {/* Dải lọc theo loại thay đổi */}
+                <div className="qd3556-diff-filters">
+                  {[
+                    { id: "changed", label: "Nội dung thay đổi", count: QD3556_DIFF.records.filter((r) => (diffTableFilter === "all" || r.tableId === diffTableFilter) && !["unchanged", "historical"].includes(r.status)).length },
+                    { id: "new", label: "Trường mới", count: QD3556_DIFF.records.filter((r) => (diffTableFilter === "all" || r.tableId === diffTableFilter) && r.status === "new").length },
+                    { id: "amended", label: "Sửa đổi/Bổ sung", count: QD3556_DIFF.records.filter((r) => (diffTableFilter === "all" || r.tableId === diffTableFilter) && ["modified", "supplemented"].includes(r.status)).length },
+                    { id: "null", label: "Giá trị null", count: QD3556_DIFF.records.filter((r) => (diffTableFilter === "all" || r.tableId === diffTableFilter) && r.status === "null").length },
+                    { id: "review", label: "Cần đối chiếu", count: QD3556_DIFF.records.filter((r) => (diffTableFilter === "all" || r.tableId === diffTableFilter) && r.needsReview).length },
+                    { id: "repeal", label: "Bãi bỏ diễn giải", count: QD3556_DIFF.records.filter((r) => (diffTableFilter === "all" || r.tableId === diffTableFilter) && Boolean(r.repeal && r.repeal.length > 0)).length },
+                    { id: "inherited", label: "Dẫn lại QĐ 1931", count: QD3556_DIFF.records.filter((r) => (diffTableFilter === "all" || r.tableId === diffTableFilter) && r.status === "inherited").length },
+                    { id: "historical", label: "Lịch sử QĐ 3176", count: QD3556_DIFF.records.filter((r) => (diffTableFilter === "all" || r.tableId === diffTableFilter) && r.status === "historical").length },
+                    { id: "unchanged", label: "Chưa thấy sửa đổi", count: QD3556_DIFF.records.filter((r) => (diffTableFilter === "all" || r.tableId === diffTableFilter) && r.status === "unchanged").length },
+                    { id: "all", label: "Tất cả chỉ tiêu", count: QD3556_DIFF.records.filter((r) => diffTableFilter === "all" || r.tableId === diffTableFilter).length },
+                  ].map((btn) => (
+                    <button
+                      key={btn.id}
+                      type="button"
+                      className={`qd3556-filter-chip ${diffStatusFilter === btn.id ? "qd3556-filter-chip-active" : ""}`}
+                      onClick={() => setDiffStatusFilter(btn.id)}
+                    >
+                      <span>{btn.label}</span>
+                      <span className="qd3556-chip-count">{btn.count}</span>
+                    </button>
+                  ))}
+                </div>
+
+                {/* Danh sách thẻ chỉ tiêu đối chiếu */}
+                <div className="qd3556-diff-cards">
+                  {diffRecords.length > 0 ? (
+                    diffRecords.map((r) => {
+                      const statusTag = r.repeal && r.repeal.length > 0 ? "repeal" : r.status;
+                      const tableName = diffTableTitles[r.tableId] || r.tableId;
+                      const summaryText = formatDiffSummary(r);
+
+                      return (
+                        <div
+                          key={r.id}
+                          className={`qd3556-diff-card qd3556-card-${statusTag}`}
+                          onClick={() => setSelectedDiffRecord(r)}
+                        >
+                          <div className="qd3556-card-top">
+                            <div className="qd3556-card-title-group">
+                              <span className="qd3556-card-table-badge">{tableName.split(".")[0]}</span>
+                              <strong className="qd3556-card-field-name">{r.field}</strong>
+                            </div>
+                            <span className={`qd3556-status-pill qd3556-status-${statusTag}`}>
+                              {statusTag === "new"
+                                ? "Trường mới"
+                                : statusTag === "null"
+                                ? "Giá trị NULL"
+                                : statusTag === "modified"
+                                ? "Sửa đổi"
+                                : statusTag === "supplemented"
+                                ? "Bổ sung"
+                                : statusTag === "review"
+                                ? "Cần đối chiếu"
+                                : statusTag === "inherited"
+                                ? "QĐ 1931"
+                                : statusTag === "historical"
+                                ? "Lịch sử 3176"
+                                : statusTag === "repeal"
+                                ? "Bãi bỏ"
+                                : "Chưa đổi"}
+                            </span>
+                          </div>
+
+                          <p className="qd3556-card-summary">{summaryText}</p>
+
+                          {/* Thay đổi kích thước/kiểu nếu có */}
+                          {r.metadataChanges && r.metadataChanges.length > 0 && (
+                            <div className="qd3556-card-meta-changes">
+                              {r.metadataChanges.map((m, mIdx) => (
+                                <span key={mIdx} className="qd3556-meta-chip">
+                                  <b>{m.label}:</b> {m.before} → <mark>{m.after}</mark>
+                                </span>
+                              ))}
+                            </div>
+                          )}
+
+                          {/* Cảnh báo hoặc bãi bỏ */}
+                          {r.repeal && r.repeal.length > 0 && (
+                            <div className="qd3556-card-note qd3556-note-repeal">
+                              <span>⚠ Bãi bỏ: {r.repeal.join("; ")}</span>
+                            </div>
+                          )}
+                          {r.notes && r.notes.length > 0 && (
+                            <div className="qd3556-card-note">
+                              <span>ℹ {r.notes.join("; ")}</span>
+                            </div>
+                          )}
+
+                          <div className="qd3556-card-footer">
+                            <span className="qd3556-card-pos">
+                              Vị trí: {r.after?.sheet ? `${r.after.sheet} · dòng ${r.after.row}` : `${r.before?.sheet} · dòng ${r.before?.row}`}
+                            </span>
+                            <button
+                              type="button"
+                              className="button-outline qd3556-card-view-btn"
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                setSelectedDiffRecord(r);
+                              }}
+                            >
+                              <span>So sánh Cũ vs Mới</span>
+                              <ChevronRight size={13} />
+                            </button>
+                          </div>
+                        </div>
+                      );
+                    })
+                  ) : (
+                    <div className="table-empty">
+                      Không tìm thấy chỉ tiêu nào khớp với bộ lọc và từ khóa đang chọn.
+                    </div>
+                  )}
+                </div>
               </div>
             )}
-            {onlyAmended3556 && !query && !qd3556Rows.length && (
-              <div className="table-empty">
-                Bảng này không có chỉ tiêu nào được sửa đổi theo QĐ 3556 (giữ nguyên quy định cũ).
+
+            {/* ======================================================== */}
+            {/* CHẾ ĐỘ 2: BẢNG CHUẨN 16 BẢNG TOÀN VĂN (FULL TABLE VIEW)  */}
+            {/* ======================================================== */}
+            {qd3556Mode === "table" && (
+              <>
+                {/* Table Navigation */}
+                <div className="work-nav qd3556-table-nav">
+                  {QD3556_TABLES.map((item) => (
+                    <button
+                      key={item.id}
+                      type="button"
+                      className={qd3556Id === item.id ? "active" : ""}
+                      onClick={() => {
+                        setQd3556Id(item.id);
+                        setQuery("");
+                      }}
+                      title={item.title}
+                    >
+                      <span>{item.id === "bang-checkin" ? "Check-in" : item.id.replace("bang-", "Bảng ")}</span>
+                      {(item.changeCount ?? 0) > 0 && (
+                        <span className="qd3556-tab-badge">{item.changeCount}</span>
+                      )}
+                    </button>
+                  ))}
+                </div>
+
+                {/* Filter toolbar */}
+                <div className="qd3556-filter-toolbar">
+                  <button
+                    type="button"
+                    className={`qd3556-filter-toggle ${onlyAmended3556 ? "qd3556-filter-toggle-active" : ""}`}
+                    onClick={() => setOnlyAmended3556(!onlyAmended3556)}
+                  >
+                    <Filter size={14} />
+                    <span>
+                      {onlyAmended3556
+                        ? `Đang lọc: Chỉ hiển thị các chỉ tiêu sửa đổi/bổ sung (${qd3556?.changeCount ?? 0})`
+                        : `Lọc: Chỉ xem các chỉ tiêu sửa đổi/bổ sung (${qd3556?.changeCount ?? 0})`}
+                    </span>
+                  </button>
+                  <div className="qd3556-filter-status">
+                    Đang hiển thị <strong>{qd3556Rows.length}</strong> / {qd3556?.rows.length ?? 0} chỉ tiêu
+                    {onlyAmended3556 && " (chế độ lọc thay đổi)"}
+                  </div>
+                </div>
+
+                {/* Main Data Table */}
+                <div className="source-table-wrap">
+                  <table className="source-table qd3556-table">
+                    <thead>
+                      <tr>
+                        {qd3556?.headers.map((header, idx) => (
+                          <th
+                            key={header}
+                            className={idx === qd3556ChangeColIdx ? "qd3556-th-amended" : ""}
+                          >
+                            {header}
+                          </th>
+                        ))}
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {qd3556Rows.map((row, index) => {
+                        const isRowAmended = qd3556ChangeColIdx !== -1 && Boolean(row[qd3556ChangeColIdx]?.trim());
+                        return (
+                          <tr
+                            key={`${qd3556?.id}-${index}`}
+                            className={isRowAmended ? "qd3556-tr-amended" : ""}
+                          >
+                            {row.map((cell, column) => {
+                              const isAmendedCol = column === qd3556ChangeColIdx;
+                              return (
+                                <td
+                                  key={`${index}-${column}`}
+                                  className={isAmendedCol ? "qd3556-td-amended" : ""}
+                                >
+                                  {isAmendedCol && cell.trim() && (
+                                    <div className="qd3556-amended-badge">
+                                      ★ SỬA ĐỔI, BỔ SUNG THEO QĐ 3556
+                                    </div>
+                                  )}
+                                  <pre>{cell}</pre>
+                                </td>
+                              );
+                            })}
+                          </tr>
+                        );
+                      })}
+                    </tbody>
+                  </table>
+                </div>
+
+                {query && !qd3556Rows.length && (
+                  <div className="table-empty">
+                    Không có dòng nào trong bảng đang chọn khớp từ khóa "{query}".
+                  </div>
+                )}
+                {onlyAmended3556 && !query && !qd3556Rows.length && (
+                  <div className="table-empty">
+                    Bảng này không có chỉ tiêu nào được sửa đổi theo QĐ 3556 (giữ nguyên quy định cũ).
+                  </div>
+                )}
+              </>
+            )}
+
+            {/* ======================================================== */}
+            {/* MODAL DIALOG SO SÁNH ĐỐI CHIẾU CHI TIẾT CŨ VS MỚI        */}
+            {/* ======================================================== */}
+            {selectedDiffRecord && (
+              <div
+                className="qd3556-modal-backdrop"
+                onClick={() => setSelectedDiffRecord(null)}
+              >
+                <div
+                  className="qd3556-modal-dialog"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <header className="qd3556-modal-header">
+                    <div>
+                      <p className="qd3556-modal-sub">
+                        {diffTableTitles[selectedDiffRecord.tableId] || selectedDiffRecord.tableId}
+                      </p>
+                      <h2 className="qd3556-modal-title">{selectedDiffRecord.field}</h2>
+                    </div>
+                    <div className="qd3556-modal-header-right">
+                      <span className={`qd3556-status-pill qd3556-status-${selectedDiffRecord.status}`}>
+                        {selectedDiffRecord.status === "new"
+                          ? "Trường mới"
+                          : selectedDiffRecord.status === "null"
+                          ? "Giá trị NULL"
+                          : selectedDiffRecord.status === "modified"
+                          ? "Sửa đổi"
+                          : selectedDiffRecord.status === "supplemented"
+                          ? "Bổ sung"
+                          : selectedDiffRecord.status === "review"
+                          ? "Cần đối chiếu"
+                          : selectedDiffRecord.status === "inherited"
+                          ? "QĐ 1931"
+                          : selectedDiffRecord.status === "historical"
+                          ? "Lịch sử 3176"
+                          : "Chưa đổi"}
+                      </span>
+                      <button
+                        type="button"
+                        className="qd3556-modal-close"
+                        onClick={() => setSelectedDiffRecord(null)}
+                        aria-label="Đóng đối chiếu"
+                      >
+                        <X size={18} />
+                      </button>
+                    </div>
+                  </header>
+
+                  <div className="qd3556-modal-body">
+                    {/* Tóm tắt thay đổi chính */}
+                    <div className="qd3556-modal-key-change">
+                      <h3>Thay đổi chính</h3>
+                      <p className="qd3556-modal-summary-text">
+                        {formatDiffSummary(selectedDiffRecord)}
+                      </p>
+                      {selectedDiffRecord.metadataChanges && selectedDiffRecord.metadataChanges.length > 0 && (
+                        <div className="qd3556-modal-spec-table">
+                          <table>
+                            <thead>
+                              <tr>
+                                <th>Thông tin</th>
+                                <th>Quy định cũ (2024)</th>
+                                <th>Quy định mới QĐ 3556</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              {selectedDiffRecord.metadataChanges.map((m, idx) => (
+                                <tr key={idx}>
+                                  <td><strong>{m.label}</strong></td>
+                                  <td><code>{m.before}</code></td>
+                                  <td className="qd3556-td-new-val"><code>{m.after}</code></td>
+                                </tr>
+                              ))}
+                            </tbody>
+                          </table>
+                        </div>
+                      )}
+                    </div>
+
+                    {/* So sánh hai cột Cũ vs Mới */}
+                    <div className="qd3556-compare-cols">
+                      {/* Cột trái: Quy định cũ */}
+                      <div className="qd3556-compare-col qd3556-col-before">
+                        <div className="qd3556-col-head">
+                          <h4>Nội dung cũ theo QĐ 3176 (tệp 2024)</h4>
+                          <span className="qd3556-col-meta">
+                            {selectedDiffRecord.before?.sheet
+                              ? `${selectedDiffRecord.before.sheet} · dòng ${selectedDiffRecord.before.row}`
+                              : "Chưa có trong tệp 2024"}
+                          </span>
+                        </div>
+                        <div className="qd3556-col-content">
+                          {selectedDiffRecord.before?.history && selectedDiffRecord.before.history.length > 0 ? (
+                            selectedDiffRecord.before.history.map((h, hIdx) => (
+                              <div key={hIdx} className="qd3556-history-block">
+                                <span className="qd3556-history-label">{h.label} ({h.cell})</span>
+                                <pre className="qd3556-history-text">{h.text}</pre>
+                              </div>
+                            ))
+                          ) : (
+                            <p className="qd3556-empty-state">
+                              Trường này chưa có trong bảng tương ứng của tệp năm 2024 (Đây là trường mới được bổ sung).
+                            </p>
+                          )}
+                        </div>
+                        <div className="qd3556-col-foot">
+                          <a
+                            href={documentUrl("documents/chuan-dau-ra-3176-2024.xls")}
+                            download="chuan-dau-ra-3176-2024.xls"
+                            target="_blank"
+                            rel="noreferrer"
+                            className="qd3556-col-link"
+                          >
+                            <Download size={13} />
+                            <span>Tải tệp cũ (2024)</span>
+                          </a>
+                        </div>
+                      </div>
+
+                      {/* Cột phải: Quy định mới */}
+                      <div className="qd3556-compare-col qd3556-col-after">
+                        <div className="qd3556-col-head">
+                          <h4>Nội dung mới theo QĐ 3556 (tệp 2026)</h4>
+                          <span className="qd3556-col-meta">
+                            {selectedDiffRecord.after?.sheet
+                              ? `${selectedDiffRecord.after.sheet} · ${selectedDiffRecord.after.amendmentCell ? `ô ${selectedDiffRecord.after.amendmentCell}` : `dòng ${selectedDiffRecord.after.row}`}`
+                              : "Không còn trong tệp mới"}
+                          </span>
+                        </div>
+                        <div className="qd3556-col-content">
+                          {selectedDiffRecord.after?.amendment ? (
+                            <div className="qd3556-amendment-box">
+                              <span className="qd3556-amendment-tag">SỬA ĐỔI, BỔ SUNG THEO QĐ 3556/QĐ-BYT</span>
+                              <pre className="qd3556-amendment-text">{selectedDiffRecord.after.amendment}</pre>
+                            </div>
+                          ) : selectedDiffRecord.summary ? (
+                            <p className="qd3556-plain-after">{selectedDiffRecord.summary}</p>
+                          ) : (
+                            <p className="qd3556-empty-state">
+                              Không còn dòng này trong tệp mới. Chỉ dẫn “Bỏ” đã có tại cột QĐ 3176 của tệp cũ.
+                            </p>
+                          )}
+                        </div>
+                        <div className="qd3556-col-foot">
+                          <a
+                            href={documentUrl("documents/261116_Chuan_du_lieu_dau_ra_sua_3176_Final.xlsx")}
+                            download="261116_Chuan_du_lieu_dau_ra_sua_3176_Final.xlsx"
+                            target="_blank"
+                            rel="noreferrer"
+                            className="qd3556-col-link"
+                          >
+                            <Download size={13} />
+                            <span>Tải tệp mới (2026)</span>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Ghi chú & lưu ý bổ sung */}
+                    {((selectedDiffRecord.notes && selectedDiffRecord.notes.length > 0) || (selectedDiffRecord.repeal && selectedDiffRecord.repeal.length > 0)) && (
+                      <div className="qd3556-modal-notes">
+                        <h4>Lưu ý nghiệp vụ & quy tắc bãi bỏ</h4>
+                        <ul>
+                          {selectedDiffRecord.repeal?.map((rText, rIdx) => (
+                            <li key={rIdx} className="qd3556-li-repeal">
+                              <strong>Bãi bỏ:</strong> {rText}
+                            </li>
+                          ))}
+                          {selectedDiffRecord.notes?.map((nText, nIdx) => (
+                            <li key={nIdx}>
+                              <strong>Ghi chú:</strong> {nText}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+                  </div>
+                </div>
               </div>
             )}
           </section>

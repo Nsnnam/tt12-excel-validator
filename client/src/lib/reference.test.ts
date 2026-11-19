@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { COMMON_CATALOGS, DOCUMENT_LIBRARY, QD3276_TABLES, QD3556_TABLES, QD3556_DOWNLOADABLE_FILES, HOI_DAP_BHYT_2026, documentUrl, sourceUrl } from "./reference";
+import { COMMON_CATALOGS, DOCUMENT_LIBRARY, QD3276_TABLES, QD3556_TABLES, QD3556_DOWNLOADABLE_FILES, QD3556_DIFF, HOI_DAP_BHYT_2026, documentUrl, sourceUrl } from "./reference";
 
 describe("DOCUMENT_LIBRARY", () => {
   it("có ID duy nhất để dùng ổn định làm khóa React", () => {
@@ -63,14 +63,15 @@ describe("QD3556_TABLES", () => {
 });
 
 describe("QD3556_DOWNLOADABLE_FILES", () => {
-  it("chứa đủ 5 tệp tài liệu và sản phẩm đối chiếu có đường dẫn hợp lệ", () => {
-    expect(QD3556_DOWNLOADABLE_FILES).toHaveLength(5);
+  it("chứa đủ 6 tệp tài liệu và sản phẩm đối chiếu có đường dẫn hợp lệ", () => {
+    expect(QD3556_DOWNLOADABLE_FILES).toHaveLength(6);
     const ids = QD3556_DOWNLOADABLE_FILES.map((f) => f.id);
     expect(ids).toContain("so-sanh-excel");
     expect(ids).toContain("slide-pptx");
     expect(ids).toContain("infographic-html");
     expect(ids).toContain("qd3556-pdf");
     expect(ids).toContain("excel-goc");
+    expect(ids).toContain("chuan-cu-excel");
 
     QD3556_DOWNLOADABLE_FILES.forEach((file) => {
       expect(file.filename).toBeTruthy();
@@ -79,6 +80,17 @@ describe("QD3556_DOWNLOADABLE_FILES", () => {
       expect(documentUrl(file.path)).toBeTruthy();
       expect(sourceUrl(file.path)).toBeTruthy();
     });
+  });
+});
+
+describe("QD3556_DIFF", () => {
+  it("chứa đầy đủ 484 bản ghi đối chiếu chuyên sâu", () => {
+    expect(QD3556_DIFF.records).toHaveLength(484);
+    expect(QD3556_DIFF.decision).toBe("3556/QĐ-BYT");
+    expect(QD3556_DIFF.issued).toBe("18/11/2026");
+    expect(QD3556_DIFF.sources).toHaveLength(3);
+    expect(QD3556_DIFF.counts.new).toBe(3);
+    expect(QD3556_DIFF.counts.null).toBe(8);
   });
 });
 

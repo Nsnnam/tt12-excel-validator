@@ -4,11 +4,10 @@ from openpyxl.utils import get_column_letter
 import json
 import os
 
-with open('scratch_qd3556_analysis.json', 'r', encoding='utf-8') as f:
-    data = json.load(f)
+with open('client/src/data/qd3556-upstream-diff.json', 'r', encoding='utf-8') as f:
+    diff_data = json.load(f)
 
 wb = openpyxl.Workbook()
-# Remove default sheet
 wb.remove(wb.active)
 
 # Color styles
@@ -16,9 +15,10 @@ NAVY_HEADER = PatternFill(start_color="10385B", end_color="10385B", fill_type="s
 TEAL_HEADER = PatternFill(start_color="1457C8", end_color="1457C8", fill_type="solid")
 SUB_HEADER = PatternFill(start_color="D9E7F3", end_color="D9E7F3", fill_type="solid")
 ZEBRA_FILL = PatternFill(start_color="F8FAFC", end_color="F8FAFC", fill_type="solid")
-HIGHLIGHT_CHANGE = PatternFill(start_color="FFFBEB", end_color="FFFBEB", fill_type="solid") # soft amber
+HIGHLIGHT_CHANGE = PatternFill(start_color="FFFBEB", end_color="FFFBEB", fill_type="solid")
 ACCENT_GREEN = PatternFill(start_color="ECFDF5", end_color="ECFDF5", fill_type="solid")
 ACCENT_RED = PatternFill(start_color="FEF2F2", end_color="FEF2F2", fill_type="solid")
+ACCENT_PURPLE = PatternFill(start_color="F5F3FF", end_color="F5F3FF", fill_type="solid")
 
 FONT_TITLE = Font(name="Segoe UI", size=15, bold=True, color="10385B")
 FONT_SUBTITLE = Font(name="Segoe UI", size=10, italic=True, color="556C82")
@@ -53,424 +53,253 @@ ws1 = wb.create_sheet(title="Tong_Quan")
 ws1.views.sheetView[0].showGridLines = True
 
 ws1.cell(1, 1, "BÁO CÁO SO SÁNH THAY ĐỔI CHUẨN DỮ LIỆU ĐẦU RA KCB BHYT").font = FONT_TITLE
-ws1.cell(2, 1, "QUYẾT ĐỊNH SỐ 3556/QĐ-BYT NGÀY 16/11/2026 SO VỚI QUYẾT ĐỊNH SỐ 3176/QĐ-BYT").font = Font(name="Segoe UI", size=11, bold=True, color="1457C8")
-ws1.cell(3, 1, "Bộ Y tế ban hành ngày 16/11/2026 · Thứ trưởng Đào Xuân Cơ ký · Hiệu lực thi hành kể từ ngày ký").font = FONT_SUBTITLE
+ws1.cell(2, 1, "QUYẾT ĐỊNH SỐ 3556/QĐ-BYT (KÝ NGÀY 18/11/2026) SO VỚI QUYẾT ĐỊNH SỐ 3176/QĐ-BYT").font = Font(name="Segoe UI", size=11, bold=True, color="1457C8")
+ws1.cell(3, 1, "Bộ Y tế ban hành ngày 18/11/2026 · Thứ trưởng Đào Xuân Cơ ký · Hiệu lực thi hành kể từ ngày ký").font = FONT_SUBTITLE
 
 # Box thống kê số liệu
-ws1.cell(5, 1, "I. THỐNG KÊ SỐ LƯỢNG THAY ĐỔI THEO CÁC BẢNG CHUẨN ĐẦU RA").font = FONT_HEADER_DARK
+ws1.cell(5, 1, "I. THỐNG KÊ PHÂN LOẠI THAY ĐỔI THEO CHUẨN ĐỐI CHIẾU UPSTREAM (484 CHỈ TIÊU)").font = FONT_HEADER_DARK
 
-headers_s1 = ["STT", "Mã Bảng", "Tên Bảng Chỉ Tiêu Chuẩn Đầu Ra", "Tổng số chỉ tiêu", "Số trường thay đổi/bổ sung", "Tỷ lệ thay đổi", "Mức độ ảnh hưởng HIS"]
-for c_idx, h in enumerate(headers_s1, start=1):
-    cell = ws1.cell(6, c_idx, h)
-    cell.fill = NAVY_HEADER
-    cell.font = FONT_HEADER_WHITE
-    cell.alignment = ALIGN_CENTER
-    cell.border = BORDER_HEADER
+counts = diff_data['counts']
+kpi_data = [
+    ("Trường mới bổ sung (new)", counts.get("new", 3), "Thêm MA_BENH_KHAC (B1), T_BNCCT_LK (B1), NGAY_VAO_NOI_TRU (B7)"),
+    ("Sửa đổi diễn giải (modified)", counts.get("modified", 60), "Cập nhật nội dung, tăng kích thước n, đa mã ngăn cách dấu chấm phẩy"),
+    ("Bổ sung diễn giải (supplemented)", counts.get("supplemented", 21), "Bổ sung hướng dẫn CCCD/định danh khi chưa có GPHN, lưu ý thầu thuốc"),
+    ("Quy định để giá trị null (null)", counts.get("null", 8), "MAHUYEN_CU_TRU (B1,9,12), T_THUOC & T_VTYT (B1), MA_BAC_SI (B13), MA_TTDV (B14)"),
+    ("Cần đối chiếu (review)", counts.get("review", 2), "TT_THAU (B2) và Kiểu/Kích thước Bảng 6 (khác tệp 2024 nhưng cột sửa đổi để trống)"),
+    ("Dẫn lại QĐ 1931/QĐ-BYT (inherited)", counts.get("inherited", 1), "SO_DANG_KY (B2) dẫn lại hướng dẫn mã hóa thuốc hiếm UBND.YYYY.X.S"),
+    ("Lịch sử QĐ 3176 (historical)", counts.get("historical", 3), "TINH_TRANG_CT, TEN_DICH_VU, TEN_THUOC tại Bảng 13 đã có chỉ dẫn từ QĐ 3176"),
+    ("Chưa thấy sửa đổi mới (unchanged)", counts.get("unchanged", 386), "Giữ nguyên quy định chuẩn đầu ra theo QĐ 3176 tệp năm 2024"),
+]
 
 row_idx = 7
-total_fields_all = 0
-total_changes_all = 0
+ws1.cell(row_idx, 1, "Phân loại thay đổi").font = FONT_HEADER_WHITE
+ws1.cell(row_idx, 1).fill = NAVY_HEADER
+ws1.cell(row_idx, 2, "Số lượng chỉ tiêu").font = FONT_HEADER_WHITE
+ws1.cell(row_idx, 2).fill = NAVY_HEADER
+ws1.cell(row_idx, 3, "Tỷ lệ (%)").font = FONT_HEADER_WHITE
+ws1.cell(row_idx, 3).fill = NAVY_HEADER
+ws1.cell(row_idx, 4, "Diễn giải & Ý nghĩa nghiệp vụ").font = FONT_HEADER_WHITE
+ws1.cell(row_idx, 4).fill = NAVY_HEADER
 
-stt_t = 1
-for sheetname, info in data.items():
-    tf = info['total_fields']
-    cc = info['change_count']
-    total_fields_all += tf
-    total_changes_all += cc
-    
-    clean_name = sheetname.strip()
-    rate = f"{(cc / tf * 100):.1f}%" if tf > 0 else "0%"
-    
-    impact = "Cao" if cc >= 8 else ("Trung bình" if cc >= 4 else ("Thấp" if cc > 0 else "Không đổi"))
-    
-    ws1.cell(row_idx, 1, stt_t).alignment = ALIGN_CENTER
-    ws1.cell(row_idx, 2, sheetname.replace("Bang ", "Bảng ").strip()).alignment = ALIGN_CENTER
-    ws1.cell(row_idx, 3, clean_name).alignment = ALIGN_LEFT
-    ws1.cell(row_idx, 4, tf).alignment = ALIGN_CENTER
-    ws1.cell(row_idx, 5, cc).alignment = ALIGN_CENTER
-    ws1.cell(row_idx, 6, rate).alignment = ALIGN_CENTER
-    cell_impact = ws1.cell(row_idx, 7, impact)
-    cell_impact.alignment = ALIGN_CENTER
-    
-    if impact == "Cao":
-        cell_impact.fill = ACCENT_RED
-        cell_impact.font = Font(name="Segoe UI", size=9.5, bold=True, color="991B1B")
-    elif impact == "Trung bình":
-        cell_impact.fill = HIGHLIGHT_CHANGE
-        cell_impact.font = Font(name="Segoe UI", size=9.5, bold=True, color="854D0E")
-    elif impact == "Không đổi":
-        cell_impact.fill = ZEBRA_FILL
-        cell_impact.font = Font(name="Segoe UI", size=9.5, color="64748B")
-    else:
-        cell_impact.fill = ACCENT_GREEN
-        cell_impact.font = Font(name="Segoe UI", size=9.5, color="166534")
-
-    for col in range(1, 8):
-        c = ws1.cell(row_idx, col)
-        c.border = BORDER_THIN
-        if col != 7:
-            c.font = FONT_REGULAR
-            if row_idx % 2 == 0:
-                c.fill = ZEBRA_FILL
-
+for item, count, desc in kpi_data:
     row_idx += 1
-    stt_t += 1
+    pct = round((count / 484) * 100, 1)
+    ws1.cell(row_idx, 1, item).font = FONT_BOLD
+    ws1.cell(row_idx, 2, count).font = FONT_BOLD
+    ws1.cell(row_idx, 2).alignment = ALIGN_CENTER
+    ws1.cell(row_idx, 3, f"{pct}%").font = FONT_REGULAR
+    ws1.cell(row_idx, 3).alignment = ALIGN_CENTER
+    ws1.cell(row_idx, 4, desc).font = FONT_REGULAR
 
-# Total row
-ws1.cell(row_idx, 1, "")
-ws1.cell(row_idx, 2, "TỔNG CỘNG").alignment = ALIGN_CENTER
-ws1.cell(row_idx, 3, "16 bảng chuẩn đầu ra dữ liệu KCB BHYT").font = FONT_BOLD
-ws1.cell(row_idx, 4, total_fields_all).alignment = ALIGN_CENTER
-ws1.cell(row_idx, 5, total_changes_all).alignment = ALIGN_CENTER
-ws1.cell(row_idx, 6, f"{(total_changes_all / total_fields_all * 100):.1f}%").alignment = ALIGN_CENTER
-ws1.cell(row_idx, 7, "93 TRƯỜNG THAY ĐỔI").alignment = ALIGN_CENTER
+    fill = ACCENT_GREEN if "new" in item else HIGHLIGHT_CHANGE if "modified" in item or "supplemented" in item else ACCENT_PURPLE if "null" in item else ZEBRA_FILL
+    for col in range(1, 5):
+        ws1.cell(row_idx, col).border = BORDER_THIN
 
-for col in range(1, 8):
-    c = ws1.cell(row_idx, col)
-    c.fill = SUB_HEADER
-    c.font = FONT_HEADER_DARK
-    c.border = BORDER_HEADER
-
-# Khối tóm tắt văn bản & căn cứ
-row_idx += 3
-ws1.cell(row_idx, 1, "II. NGUYÊN TẮC VÀ VĂN BẢN QUY PHẠM PHÁP LUẬT DẪN CHIẾU MỚI").font = FONT_HEADER_DARK
+row_idx += 2
+ws1.cell(row_idx, 1, "II. THÔNG TIN TOÀN VẸN CÁC TỆP NGUỒN (SHA-256)").font = FONT_HEADER_DARK
 row_idx += 1
 
-principles = [
-    ("1. Quy định ca bệnh ngoại trú làm CLS chuyển nhập viện nội trú (Điều 2 QĐ 3556)", 
-     "Xác định giá trị mức hưởng (MUC_HUONG) tương ứng tại Bảng 2 và Bảng 3 đối với từng dịch vụ ngoại trú, nội trú. Cơ sở KCB được sử dụng lại kết quả CLS đã thực hiện trong lần khám ngoại trú để điều trị nội trú."),
-    ("2. Cập nhật mã đơn vị hành chính 3 cấp mới theo Quyết định số 19/2025/QĐ-TTg ngày 30/6/2025", 
-     "Thay thế toàn bộ quy định mã tỉnh/huyện/xã cũ (QĐ 124, TT 07/2016) bằng mã tại Phụ lục I và Phụ lục II QĐ 19/2025/QĐ-TTg trên tất cả các bảng dữ liệu (Bảng 1, 7, 8, 9, 10, 11...)."),
-    ("3. Mã loại hình KCB và mã đối tượng KCB", 
-     "Áp dụng mã loại KCB theo QĐ 1804/QĐ-BYT (19/6/2026), mã đối tượng theo QĐ 3276/QĐ-BYT và QĐ 2917/QĐ-BYT. Cho phép ghi nhiều mã ngăn cách bằng dấu chấm phẩy ';' (tối đa 10 ký tự đối với loại KCB, 50 ký tự đối với đối tượng KCB)."),
-    ("4. Nới lỏng kích thước tối đa lên 'n' ký tự", 
-     "Mã thẻ BHYT, hạn thẻ từ - đến (GT_THE_TU, GT_THE_DEN), mã số BHXH được tăng kích thước lên 'n' ký tự để chống tràn chuỗi khi nối nhiều mã thẻ/hạn thẻ mới."),
-    ("5. Đồng bộ biểu mẫu theo Thông tư số 01/2025/TT-BYT và Nghị định số 188/2025/NĐ-CP", 
-     "Cập nhật số Phiếu chuyển cơ sở KCB theo Phụ lục VI TT 01/2025/TT-BYT; Phiếu hẹn khám lại theo Phụ lục V TT 01/2025/TT-BYT. Cho phép để giá trị null một số mã bác sĩ chỉ định/người ký (MA_BAC_SI, MA_TTDV)."),
-    ("6. Hướng dẫn địa chỉ cư trú người bệnh (DIA_CHI)", 
-     "Quy định chuẩn theo CSDL quốc gia về dân cư; hướng dẫn chi tiết trường hợp trẻ sơ sinh chưa có thẻ BHYT, trẻ bị bỏ rơi và người nước ngoài.")
+sources_info = [
+    ("Tệp văn bản pháp lý PDF", "BYT-3556.QD-Sua-doi-bo-sung-QD3176.signed.pdf", "a8212f076a350855d7e2c0d61bb9acb5416429b568163ebc855e3a5a7657200f", "577 KB (Ký điện tử Bộ Y tế lúc 16:57:41 ngày 18/11/2026)"),
+    ("Bảng chuẩn dữ liệu Excel mới", "261116_Chuan_du_lieu_dau_ra_sua_3176_Final.xlsx", "d2894506a7ec8f70f59f4b7b4d9873757131ece757be991ac7fa99f70387f0c0", "132 KB (16 sheet chuẩn dữ liệu sửa đổi 3176)"),
+    ("Bảng đối chiếu cũ năm 2024", "chuan-dau-ra-3176-2024.xls", "066de28331227c819d6fb51e1ea8d9d078d38fba98485f4defab372ad360c91b", "540 KB (Bảng chuẩn đối chiếu ban hành ngày 28/10/2024)"),
 ]
 
-for title_p, desc_p in principles:
-    ws1.merge_cells(start_row=row_idx, start_column=1, end_row=row_idx, end_column=3)
-    ws1.merge_cells(start_row=row_idx, start_column=4, end_row=row_idx, end_column=7)
-    
-    c1 = ws1.cell(row_idx, 1, title_p)
-    c1.font = FONT_BOLD
-    c1.fill = ZEBRA_FILL
-    c1.alignment = Alignment(horizontal="left", vertical="center", wrap_text=True)
-    
-    c2 = ws1.cell(row_idx, 4, desc_p)
-    c2.font = FONT_REGULAR
-    c2.alignment = Alignment(horizontal="left", vertical="center", wrap_text=True)
-    
-    for c in range(1, 8):
-        ws1.cell(row_idx, c).border = BORDER_THIN
+ws1.cell(row_idx, 1, "Tệp nguồn").font = FONT_HEADER_WHITE
+ws1.cell(row_idx, 1).fill = TEAL_HEADER
+ws1.cell(row_idx, 2, "Tên file").font = FONT_HEADER_WHITE
+ws1.cell(row_idx, 2).fill = TEAL_HEADER
+ws1.cell(row_idx, 3, "Mã băm SHA-256").font = FONT_HEADER_WHITE
+ws1.cell(row_idx, 3).fill = TEAL_HEADER
+ws1.cell(row_idx, 4, "Ghi chú xác thực").font = FONT_HEADER_WHITE
+ws1.cell(row_idx, 4).fill = TEAL_HEADER
+
+for label, fname, sha, note in sources_info:
     row_idx += 1
+    ws1.cell(row_idx, 1, label).font = FONT_BOLD
+    ws1.cell(row_idx, 2, fname).font = FONT_REGULAR
+    ws1.cell(row_idx, 3, sha).font = Font(name="Consolas", size=8.5, color="10385B")
+    ws1.cell(row_idx, 4, note).font = FONT_REGULAR
+    for col in range(1, 5):
+        ws1.cell(row_idx, col).border = BORDER_THIN
+
+ws1.column_dimensions['A'].width = 35
+ws1.column_dimensions['B'].width = 45
+ws1.column_dimensions['C'].width = 70
+ws1.column_dimensions['D'].width = 60
 
 # -------------------------------------------------------------
-# SHEET 2: CHI TIẾT 93 THAY ĐỔI
+# SHEET 2: CHI TIẾT 98 CHỈ TIÊU CÓ THAY ĐỔI HOẶC ĐỐI CHIẾU
 # -------------------------------------------------------------
-ws2 = wb.create_sheet(title="Chi_Tiet_93_Thay_Doi")
+ws2 = wb.create_sheet(title="Chi_Tiet_Thay_Doi")
 ws2.views.sheetView[0].showGridLines = True
 
-ws2.cell(1, 1, "BẢNG SO SÁNH CHI TIẾT 93 TRƯỜNG DỮ LIỆU ĐƯỢC SỬA ĐỔI, BỔ SUNG THEO QĐ 3556/QĐ-BYT").font = FONT_TITLE
-ws2.cell(2, 1, "Đối chiếu trực tiếp từng trường dữ liệu giữa Quyết định số 3176/QĐ-BYT (cũ) và Quyết định số 3556/QĐ-BYT (mới)").font = FONT_SUBTITLE
-
 headers_s2 = [
-    "STT", 
-    "Bảng chỉ tiêu", 
-    "STT trường", 
-    "Mã chỉ tiêu", 
-    "Kiểu DL", 
-    "Kích thước", 
-    "Nội dung quy định theo QĐ 3176 (Cũ)", 
-    "NỘI DUNG SỬA ĐỔI, BỔ SUNG THEO QĐ 3556 (MỚI)", 
-    "Phân loại tính chất thay đổi",
-    "Tác động hệ thống HIS / Ghi chú"
+    "STT", "Bảng dữ liệu", "Mã chỉ tiêu", "Phân loại", "Tóm tắt thay đổi chính",
+    "Kích thước / Kiểu (Cũ → Mới)", "Quy định cũ (QĐ 3176/4750/130)",
+    "Nội dung sửa đổi, bổ sung (QĐ 3556)", "Ghi chú & Cần đối chiếu", "Vị trí ô nguồn"
 ]
 
-for c_idx, h in enumerate(headers_s2, start=1):
-    cell = ws2.cell(4, c_idx, h)
-    cell.fill = TEAL_HEADER
-    cell.font = FONT_HEADER_WHITE
-    cell.alignment = ALIGN_CENTER
-    cell.border = BORDER_HEADER
+ws2.cell(1, 1, "DANH SÁCH CHI TIẾT CÁC CHỈ TIÊU THAY ĐỔI & CẦN ĐỐI CHIẾU THEO QĐ 3556/QĐ-BYT").font = FONT_TITLE
+ws2.cell(2, 1, "Nguồn: Tệp chuẩn dữ liệu 2026 đối chiếu với Tệp chuẩn dữ liệu 2024 · Bộ Y tế ban hành ngày 18/11/2026").font = FONT_SUBTITLE
 
-row_idx = 5
-change_stt = 1
+for col_idx, h in enumerate(headers_s2, start=1):
+    c = ws2.cell(4, col_idx, h)
+    c.font = FONT_HEADER_WHITE
+    c.fill = NAVY_HEADER
+    c.alignment = ALIGN_CENTER
+    c.border = BORDER_HEADER
 
-def categorize_change(chi_tieu, change_text):
-    text_lower = change_text.lower()
-    if '19/2025/qđ-ttg' in text_lower or 'mã đơn vị hành chính' in text_lower or 'tỉnh' in text_lower or 'huyện' in text_lower or 'xã' in text_lower:
-        return ("Địa giới hành chính", "Cập nhật mã hành chính 3 cấp mới theo QĐ 19/2025/QĐ-TTg")
-    elif 'tăng kích thước tối đa lên "n"' in text_lower or 'tăng kích thước' in text_lower or 'kích thước tối đa' in text_lower:
-        return ("Kích thước trường", "Mở rộng độ dài trường dữ liệu, chống lỗi tràn chuỗi")
-    elif 'ma_loai_kcb' in chi_tieu.lower() or 'loại hình kbcb' in text_lower or '1804/qđ-byt' in text_lower:
-        return ("Mã loại hình KCB", "Đồng bộ QĐ 1804/QĐ-BYT, cho phép nhiều mã ngăn cách ';'")
-    elif 'ma_doituong_kcb' in chi_tieu.lower() or 'đối tượng đến kbcb' in text_lower:
-        return ("Mã đối tượng KCB", "Đồng bộ QĐ 3276 & QĐ 2917, cho phép nhiều mã ngăn cách ';'")
-    elif 'để giá trị null' in text_lower or 'null' in text_lower:
-        return ("Quy định Null", "Cho phép để trống/null, giảm ràng buộc cứng khi trích xuất")
-    elif '01/2025/tt-byt' in text_lower or 'phiếu chuyển' in text_lower or 'phiếu hẹn' in text_lower:
-        return ("Biểu mẫu TT 01/2025", "Đồng bộ mẫu giấy chuyển tuyến/hẹn tái khám theo TT 01/2025/TT-BYT")
-    elif 'dia_chi' in chi_tieu.lower() or 'cơ sở dữ liệu quốc gia về dân cư' in text_lower:
-        return ("Địa chỉ cư trú", "Chuẩn hóa theo CSDL dân cư, bổ sung quy tắc trẻ sơ sinh/người nước ngoài")
-    elif 'tên thương mại' in text_lower:
-        return ("Tên thương mại VTYT", "Ghi tên thương mại VTYT theo quyết định trúng thầu")
-    elif 'quyết toán' in text_lower or 'mẫu 06/bh' in text_lower or '12/2026/tt-btc' in text_lower:
-        return ("Thanh quyết toán BHYT", "Đồng bộ Thông tư 12/2026/TT-BTC")
-    else:
-        return ("Diễn giải & Nghiệp vụ", "Chuẩn hóa quy tắc nghiệp vụ KCB BHYT")
+# Filter out unchanged records
+changed_records = [r for r in diff_data['records'] if r['status'] != 'unchanged']
 
-for sheetname, info in data.items():
-    clean_sheet = sheetname.strip()
-    for c in info['changes']:
-        category, note = categorize_change(c['chi_tieu'], c['sua_doi_3556'])
-        
-        ws2.cell(row_idx, 1, change_stt).alignment = ALIGN_CENTER
-        ws2.cell(row_idx, 2, clean_sheet).alignment = ALIGN_LEFT
-        ws2.cell(row_idx, 3, c['stt']).alignment = ALIGN_CENTER
-        ws2.cell(row_idx, 4, c['chi_tieu']).alignment = ALIGN_LEFT
-        ws2.cell(row_idx, 5, c['kieu']).alignment = ALIGN_CENTER
-        ws2.cell(row_idx, 6, c['kich_thuoc']).alignment = ALIGN_CENTER
-        
-        old_val = c['dien_giai_3176'] if c['dien_giai_3176'] else "(Chưa quy định chi tiết hoặc giữ theo QĐ 130/4750)"
-        ws2.cell(row_idx, 7, old_val).alignment = ALIGN_LEFT
-        
-        new_cell = ws2.cell(row_idx, 8, c['sua_doi_3556'])
-        new_cell.alignment = ALIGN_LEFT
-        new_cell.fill = HIGHLIGHT_CHANGE
-        new_cell.font = FONT_CHANGE
-        
-        ws2.cell(row_idx, 9, category).alignment = ALIGN_CENTER
-        ws2.cell(row_idx, 10, note).alignment = ALIGN_LEFT
-        
-        for col in range(1, 11):
-            cell_obj = ws2.cell(row_idx, col)
-            cell_obj.border = BORDER_THIN
-            if col not in (8, 9):
-                cell_obj.font = FONT_REGULAR
-                if row_idx % 2 == 0:
-                    cell_obj.fill = ZEBRA_FILL
-            if col == 4:
-                cell_obj.font = FONT_BOLD
-            if col == 9:
-                cell_obj.font = FONT_BADGE
-                cell_obj.fill = SUB_HEADER
-                
-        row_idx += 1
-        change_stt += 1
+table_titles = {t['id']: t['title'] for t in diff_data['tables']}
+
+status_labels = {
+    'modified': 'Sửa đổi',
+    'supplemented': 'Bổ sung',
+    'new': 'Trường mới',
+    'null': 'Giá trị null',
+    'review': 'Cần đối chiếu',
+    'inherited': 'Dẫn lại QĐ 1931',
+    'historical': 'Lịch sử QĐ 3176',
+    'repeal': 'Bãi bỏ',
+}
+
+status_colors = {
+    'new': ACCENT_GREEN,
+    'modified': HIGHLIGHT_CHANGE,
+    'supplemented': HIGHLIGHT_CHANGE,
+    'null': ACCENT_PURPLE,
+    'review': ACCENT_RED,
+    'inherited': ZEBRA_FILL,
+    'historical': ZEBRA_FILL,
+}
+
+for i, r in enumerate(changed_records, start=1):
+    row_num = 4 + i
+    table_name = table_titles.get(r['tableId'], r['tableId'])
+    meta_str = "; ".join([f"{m['label']}: {m['before']} → {m['after']}" for m in r.get('metadataChanges', [])])
+    
+    # Old text from before.history
+    before_obj = r.get('before') or {}
+    after_obj = r.get('after') or {}
+    old_history = before_obj.get('history', [])
+    old_text = "\n---\n".join([f"[{h.get('label', '')}]: {h.get('text', '')}" for h in old_history]) if old_history else "Chưa có trường này trong bảng tương ứng của tệp năm 2024."
+    
+    # New amendment text
+    new_text = after_obj.get('amendment', '') or r.get('summary', '')
+    
+    notes_str = "\n".join(r.get('notes', []) + r.get('repeal', []))
+    cell_pos = f"{after_obj.get('sheet', '')} : {after_obj.get('amendmentCell', '') or before_obj.get('amendmentCell', '')}"
+    
+    ws2.cell(row_num, 1, i).alignment = ALIGN_CENTER
+    ws2.cell(row_num, 2, table_name).font = FONT_BOLD
+    ws2.cell(row_num, 3, r['field']).font = FONT_BADGE
+    ws2.cell(row_num, 4, status_labels.get(r['status'], r['status'])).alignment = ALIGN_CENTER
+    ws2.cell(row_num, 5, r['summary']).font = FONT_REGULAR
+    ws2.cell(row_num, 6, meta_str).font = Font(name="Consolas", size=9, bold=True, color="92400E")
+    ws2.cell(row_num, 7, old_text).font = FONT_REGULAR
+    ws2.cell(row_num, 8, new_text).font = FONT_CHANGE
+    ws2.cell(row_num, 9, notes_str).font = FONT_REGULAR
+    ws2.cell(row_num, 10, cell_pos).font = Font(name="Consolas", size=8.5, color="64748B")
+    
+    fill = status_colors.get(r['status'], ZEBRA_FILL if i % 2 == 0 else PatternFill(fill_type=None))
+    if fill.fill_type:
+        ws2.cell(row_num, 4).fill = fill
+    
+    for c_i in range(1, 11):
+        cell = ws2.cell(row_num, c_i)
+        cell.border = BORDER_THIN
+        if c_i in [5, 7, 8, 9]:
+            cell.alignment = ALIGN_LEFT
+
+ws2.column_dimensions['A'].width = 6
+ws2.column_dimensions['B'].width = 25
+ws2.column_dimensions['C'].width = 20
+ws2.column_dimensions['D'].width = 16
+ws2.column_dimensions['E'].width = 40
+ws2.column_dimensions['F'].width = 25
+ws2.column_dimensions['G'].width = 50
+ws2.column_dimensions['H'].width = 50
+ws2.column_dimensions['I'].width = 30
+ws2.column_dimensions['J'].width = 20
 
 # -------------------------------------------------------------
-# SHEET 3: QUY TẮC ĐIỀU 2 XML
+# SHEET 3: QUY TẮC ĐIỀU 2
 # -------------------------------------------------------------
 ws3 = wb.create_sheet(title="Quy_Tac_Dieu_2_XML")
 ws3.views.sheetView[0].showGridLines = True
 
-ws3.cell(1, 1, "HƯỚNG DẪN XỬ LÝ XML THEO ĐIỀU 2 QUYẾT ĐỊNH SỐ 3556/QĐ-BYT").font = FONT_TITLE
-ws3.cell(2, 1, "Trường hợp người bệnh KCB ngoại trú, chỉ định Cận lâm sàng (CLS), sau đó nhập viện nội trú").font = FONT_SUBTITLE
+ws3.cell(1, 1, "HƯỚNG DẪN KỸ THUẬT TRIỂN KHAI ĐIỀU 2 QUYẾT ĐỊNH 3556/QĐ-BYT").font = FONT_TITLE
+ws3.cell(2, 1, "Nghiệp vụ ca bệnh khám ngoại trú có chỉ định cận lâm sàng rồi chuyển nhập viện nội trú").font = FONT_SUBTITLE
 
-dieu_2_text = (
-    "Theo Điều 2 Quyết định số 3556/QĐ-BYT:\n"
-    "\"Việc tạo lập dữ liệu XML trong trường hợp người bệnh đến khám bệnh, chữa bệnh ngoại trú, "
-    "được bác sỹ chỉ định thực hiện các dịch vụ cận lâm sàng, sau đó được chỉ định vào nhập viện nội trú theo yêu cầu chuyên môn:\n"
-    "- Cơ sở khám bệnh, chữa bệnh xác định giá trị mức hưởng (MUC_HUONG) tương ứng đối với từng dịch vụ thực hiện khi khám bệnh, "
-    "chữa bệnh ngoại trú, khám bệnh, chữa bệnh nội trú tại Bảng 2 và Bảng 3.\n"
-    "- Trường hợp theo quy định của pháp luật và yêu cầu chuyên môn, cơ sở khám bệnh, chữa bệnh sử dụng lại kết quả cận lâm sàng "
-    "đã thực hiện trong lần khám bệnh, chữa bệnh ngoại trú để sử dụng trong quá trình điều trị nội trú cho người bệnh.\""
-)
-
-ws3.merge_cells("A4:H7")
-c_d2 = ws3.cell(4, 1, dieu_2_text)
-c_d2.font = Font(name="Segoe UI", size=10, italic=True, color="0E3E92")
-c_d2.fill = PatternFill(start_color="EFF6FF", end_color="EFF6FF", fill_type="solid")
-c_d2.alignment = Alignment(horizontal="left", vertical="top", wrap_text=True)
-for r in range(4, 8):
-    for c in range(1, 9):
-        ws3.cell(r, c).border = BORDER_THIN
-
-headers_s3 = ["STT", "Nghiệp vụ phát sinh", "Tại Bảng dữ liệu", "Chỉ tiêu liên quan", "Cách thức lập XML theo QĐ 3176 cũ", "QUY TẮC LẬP XML THEO QĐ 3556 MỚI", "Lợi ích & Tránh xuất toán"]
-for c_idx, h in enumerate(headers_s3, start=1):
-    cell = ws3.cell(9, c_idx, h)
-    cell.fill = NAVY_HEADER
-    cell.font = FONT_HEADER_WHITE
-    cell.alignment = ALIGN_CENTER
-    cell.border = BORDER_HEADER
-
-dieu2_steps = [
-    (1, "Xác định mức hưởng dịch vụ CLS ngoại trú", "Bảng 3 (DVKT, VTYT)", "MUC_HUONG, MA_LOAI_KCB", 
-     "Dễ bị nhầm lẫn tính mức hưởng chung của đợt điều trị nội trú hoặc bị từ chối thanh toán do sai lệch tỷ lệ hưởng ngoại trú/nội trú",
-     "Ghi giá trị MUC_HUONG tương ứng với quyền lợi KCB ngoại trú tại thời điểm thực hiện dịch vụ CLS trước khi vào viện",
-     "Đúng tỷ lệ thanh toán BHYT ngoại trú, không bị từ chối hồ sơ khi giám định"),
-    
-    (2, "Xác định mức hưởng dịch vụ điều trị nội trú", "Bảng 2 (Thuốc) & Bảng 3 (DVKT)", "MUC_HUONG, NGAY_VAO_NOI_TRU",
-     "Một số phần mềm gộp chung ngày và mức hưởng dẫn đến khó phân định chi phí trước - sau nhập viện",
-     "Ghi giá trị MUC_HUONG tương ứng với quyền lợi KCB nội trú đối với tất cả các dịch vụ, thuốc phát sinh trong giai đoạn nội trú",
-     "Phân định minh bạch chi phí ngoại trú và nội trú trên cùng một mã liên kết MA_LK"),
-    
-    (3, "Tái sử dụng kết quả CLS ngoại trú trong nội trú", "Bảng 3 & Bảng 4 (Dịch vụ CLS)", "MA_DICH_VU, NGAY_KQ, MA_LK",
-     "Trước đây bác sĩ thường phải cho làm lại xét nghiệm/chẩn đoán hình ảnh khi vào khoa nội trú để có kết quả trong hồ sơ bệnh án nội trú, gây lãng phí Quỹ BHYT và phiền hà cho người bệnh",
-     "Cơ sở KCB được phép sử dụng lại kết quả CLS đã thực hiện ở phòng khám ngoại trú để phục vụ chẩn đoán, điều trị nội trú. Không chỉ định lặp lại nếu không có thay đổi bệnh lý bất thường",
-     "Tiết kiệm chi phí Quỹ BHYT, giảm quá tải khoa CLS, đảm bảo quyền lợi và an toàn cho người bệnh"),
-    
-    (4, "Ghi nhận nhiều loại hình KCB trên cùng hồ sơ", "Bảng 1 (Tổng hợp) & Check-in", "MA_LOAI_KCB, MA_DOITUONG_KCB",
-     "Chỉ cho phép ghi 1 mã loại KCB (01 hoặc 02 hoặc 03), dễ gây vướng mắc khi bệnh nhân chuyển từ khám ngoại trú sang nội trú",
-     "Ghi đầy đủ các mã loại hình KBCB cách nhau bằng dấu chấm phẩy ';' (Ví dụ: '01;03' - Khám bệnh ngoại trú sau đó vào điều trị nội trú). Tăng kích thước MA_LOAI_KCB lên 10 ký tự",
-     "Phản ánh đúng thực tế diễn biến đợt KCB của người bệnh, liên thông dữ liệu thông suốt giữa ngoại trú và nội trú")
+content_dieu2 = [
+    ("1. Bối cảnh & Thách thức nghiệp vụ", "Trước đây khi người bệnh đến khám ngoại trú, bác sĩ chỉ định các xét nghiệm, chẩn đoán hình ảnh (CLS), sau đó có diễn biến nặng hoặc đủ điều kiện nhập viện điều trị nội trú, thường xảy ra vướng mắc trong việc ghi nhận mức hưởng BHYT ngoại trú so với nội trú (đặc biệt khi trái tuyến hoặc có mức hưởng nội/ngoại trú khác nhau). Một số nơi chỉ định lại xét nghiệm gây lãng phí hoặc bị xuất toán do trùng lặp chỉ định."),
+    ("2. Quy định tại Điều 2 QĐ 3556/QĐ-BYT", "Cơ sở khám bệnh, chữa bệnh thực hiện:\n- Xác định giá trị mức hưởng (MUC_HUONG) tương ứng cho từng dịch vụ KCB ngoại trú, nội trú tại Bảng 2 (Thuốc) và Bảng 3 (Dịch vụ kỹ thuật & Vật tư y tế).\n- Được sử dụng lại kết quả cận lâm sàng ngoại trú trong quá trình điều trị nội trú, không phải chỉ định lại xét nghiệm trùng lặp."),
+    ("3. Công thức tính tiền mới tại Bảng 2 & Bảng 3", "- Tiền người bệnh tự trả: T_BNTT = THANH_TIEN_BV − T_BHTT − T_BNCCT (bãi bỏ diễn giải QĐ 3176 cũ).\n- Tiền người bệnh cùng chi trả: T_BNCCT = THANH_TIEN_BH × MUC_HUONG_BH/100 − T_BHTT (bãi bỏ diễn giải QĐ 3176 cũ)."),
+    ("4. Các trường dữ liệu liên đới chính", "- Bảng 1: T_BNCCT_LK (tiền cùng chi trả lũy kế), MA_BENH_KHAC (chẩn đoán phân biệt/loại trừ).\n- Bảng 7: NGAY_VAO_NOI_TRU (thời điểm vào nội trú, yyyymmddHHMM).\n- Bảng 2 & 3: MUC_HUONG, T_BHTT, T_BNCCT, T_BNTT tương ứng với từng giai đoạn KCB ngoại trú / nội trú.")
 ]
 
-row_idx = 10
-for s in dieu2_steps:
-    ws3.cell(row_idx, 1, s[0]).alignment = ALIGN_CENTER
-    ws3.cell(row_idx, 2, s[1]).alignment = ALIGN_LEFT
-    ws3.cell(row_idx, 3, s[2]).alignment = ALIGN_CENTER
-    ws3.cell(row_idx, 4, s[3]).alignment = ALIGN_CENTER
-    ws3.cell(row_idx, 5, s[4]).alignment = ALIGN_LEFT
-    
-    c6 = ws3.cell(row_idx, 6, s[5])
-    c6.alignment = ALIGN_LEFT
-    c6.fill = HIGHLIGHT_CHANGE
-    c6.font = FONT_CHANGE
-    
-    ws3.cell(row_idx, 7, s[6]).alignment = ALIGN_LEFT
-    
-    for c in range(1, 8):
-        cell_obj = ws3.cell(row_idx, c)
-        cell_obj.border = BORDER_THIN
-        if c != 6:
-            cell_obj.font = FONT_REGULAR
-            if row_idx % 2 == 0:
-                cell_obj.fill = ZEBRA_FILL
-        if c == 2:
-            cell_obj.font = FONT_BOLD
-            
-    row_idx += 1
+r_d2 = 4
+for heading, body in content_dieu2:
+    ws3.cell(r_d2, 1, heading).font = FONT_BOLD
+    ws3.cell(r_d2, 1).fill = SUB_HEADER
+    r_d2 += 1
+    cell_body = ws3.cell(r_d2, 1, body)
+    cell_body.font = FONT_REGULAR
+    cell_body.alignment = ALIGN_LEFT
+    r_d2 += 2
+
+ws3.column_dimensions['A'].width = 110
 
 # -------------------------------------------------------------
-# SHEET 4: DANH MỤC VĂN BẢN PHÁP QUY DẪN CHIẾU
+# SHEET 4: VĂN BẢN PHÁP QUY DẪN CHIẾU MỚI
 # -------------------------------------------------------------
 ws4 = wb.create_sheet(title="Van_Ban_Phap_Quy")
 ws4.views.sheetView[0].showGridLines = True
 
-ws4.cell(1, 1, "DANH MỤC CÁC VĂN BẢN QUY PHẠM PHÁP LUẬT MỚI DẪN CHIẾU TRONG QĐ 3556/QĐ-BYT").font = FONT_TITLE
-ws4.cell(2, 1, "Hệ thống văn bản luật, nghị định, thông tư, quyết định làm căn cứ kỹ thuật và nghiệp vụ").font = FONT_SUBTITLE
+ws4.cell(1, 1, "DANH MỤC CÁC VĂN BẢN PHÁP QUY DẪN CHIẾU MỚI TRONG QĐ 3556/QĐ-BYT").font = FONT_TITLE
+ws4.cell(2, 1, "Các cơ sở khám chữa bệnh cần cập nhật trong quy chế kiểm soát và cấu hình HIS").font = FONT_SUBTITLE
 
-headers_s4 = ["STT", "Số hiệu văn bản", "Ngày ban hành", "Cơ quan ban hành", "Trích yếu nội dung", "Phạm vi áp dụng trong QĐ 3556"]
-for c_idx, h in enumerate(headers_s4, start=1):
-    cell = ws4.cell(4, c_idx, h)
-    cell.fill = NAVY_HEADER
-    cell.font = FONT_HEADER_WHITE
-    cell.alignment = ALIGN_CENTER
-    cell.border = BORDER_HEADER
+vb_headers = ["STT", "Số hiệu văn bản", "Cơ quan ban hành", "Ngày ban hành", "Trích yếu nội dung", "Áp dụng vào chuẩn đầu ra"]
+for c_i, h in enumerate(vb_headers, 1):
+    c = ws4.cell(4, c_i, h)
+    c.font = FONT_HEADER_WHITE
+    c.fill = NAVY_HEADER
+    c.alignment = ALIGN_CENTER
+    c.border = BORDER_HEADER
 
-legal_docs = [
-    (1, "Quyết định số 3556/QĐ-BYT", "16/11/2026", "Bộ Y tế", 
-     "Sửa đổi, bổ sung một số trường dữ liệu tại Quyết định số 3176/QĐ-BYT ngày 29/10/2024 quy định chuẩn và định dạng dữ liệu đầu ra phục vụ quản lý, giám định, thanh toán chi phí KCB BHYT",
-     "Sửa đổi, bổ sung 93 trường dữ liệu tại 15 bảng chuẩn đầu ra và quy định Điều 2 về ca bệnh ngoại trú chuyển nội trú"),
-    
-    (2, "Quyết định số 19/2025/QĐ-TTg", "30/06/2025", "Thủ tướng Chính phủ", 
-     "Ban hành Danh mục và mã số các đơn vị hành chính Việt Nam (thay thế Quyết định số 124/2004/QĐ-TTg)",
-     "Áp dụng mã tỉnh (Phụ lục I), mã huyện (Phụ lục II), mã xã (Phụ lục II) cho các trường MATINH_CU_TRU, MAHUYEN_CU_TRU, MAXA_CU_TRU trên toàn bộ các bảng XML"),
-    
-    (3, "Quyết định số 1804/QĐ-BYT", "19/06/2026", "Bộ Y tế", 
-     "Ban hành Bộ mã danh mục dùng chung áp dụng trong khám bệnh, chữa bệnh và thanh toán bảo hiểm y tế (Phiên bản mới)",
-     "Áp dụng mã loại hình KCB (Phụ lục 01) cho trường MA_LOAI_KCB, cho phép ghi nhiều mã ngăn cách bằng ';'"),
-    
-    (4, "Quyết định số 3276/QĐ-BYT & QĐ 2917/QĐ-BYT", "24/10/2025 & 15/09/2026", "Bộ Y tế", 
-     "Sửa đổi bổ sung QĐ 2010/QĐ-BYT: Ban hành Phụ lục 1 Danh mục mã đối tượng KCB (27 mã) và Phụ lục 2 Danh mục mã nhiên liệu; QĐ 2917 bổ sung mã 3.1 cho cơ sở chuyên sâu thành lập mới sau 01/01/2025",
-     "Áp dụng cho trường MA_DOITUONG_KCB, tăng kích thước lên 50 ký tự, cho phép ghi nhiều mã ngăn cách bằng ';'"),
-    
-    (5, "Nghị định số 188/2025/NĐ-CP", "01/07/2025", "Chính phủ", 
-     "Quy định chi tiết và hướng dẫn thi hành một số điều của Luật Bảo hiểm y tế (thay thế Nghị định 146/2018/NĐ-CP)",
-     "Căn cứ pháp lý cốt lõi về quyền lợi KCB BHYT, mức hưởng, ký số và liên thông dữ liệu điện tử"),
-    
-    (6, "Thông tư số 01/2025/TT-BYT", "05/01/2025", "Bộ Y tế", 
-     "Quy định về chuyển cơ sở khám bệnh, chữa bệnh và hẹn khám lại trong khám bệnh, chữa bệnh bảo hiểm y tế",
-     "Áp dụng mẫu Phiếu chuyển cơ sở KCB (Phụ lục VI) và Phiếu hẹn khám lại (Phụ lục V) cho Bảng 13 và Bảng 14"),
-    
-    (7, "Thông tư số 12/2026/TT-BTC", "20/02/2026", "Bộ Tài chính", 
-     "Quy định quản lý, thanh toán, quyết toán chi phí khám bệnh, chữa bệnh bảo hiểm y tế",
-     "Áp dụng mẫu Biên bản quyết toán Mẫu 06/BH và quy trình ký duyệt, thời hạn thanh quyết toán kinh phí BHYT")
+vb_list = [
+    (1, "QĐ 3556/QĐ-BYT", "Bộ Y tế", "18/11/2026", "Sửa đổi, bổ sung QĐ 3176 chuẩn dữ liệu đầu ra KCB BHYT", "Hiệu lực kể từ ngày ký, 15 bảng sửa đổi"),
+    (2, "QĐ 19/2025/QĐ-TTg", "Thủ tướng Chính phủ", "30/06/2025", "Ban hành Danh mục mã số đơn vị hành chính 3 cấp", "Thay thế toàn bộ mã tỉnh, huyện, xã cũ"),
+    (3, "QĐ 1804/QĐ-BYT", "Bộ Y tế", "19/06/2026", "Quy định mã loại hình KCB và danh mục kèm theo", "Áp dụng cho MA_LOAI_KCB (tăng size lên 10, phân tách bằng ;)"),
+    (4, "QĐ 3276/QĐ-BYT & QĐ 2917/QĐ-BYT", "Bộ Y tế", "15/09/2026", "Ban hành mã đối tượng KCB (Phụ lục 1) và mã nhiên liệu (Phụ lục 2)", "Áp dụng cho MA_DOITUONG_KCB (tăng size lên 50, phân tách bằng ;)"),
+    (5, "Thông tư 01/2025/TT-BYT", "Bộ Y tế", "2025", "Quy định biểu mẫu chuyển viện và hẹn tái khám", "Đồng bộ Bảng 13 (Phụ lục VI) và Bảng 14 (Phụ lục V)"),
+    (6, "QĐ 1931/QĐ-BYT", "Bộ Y tế", "29/06/2026", "Hướng dẫn mã hóa số đăng ký thuốc hiếm cấp phép bởi UBND cấp tỉnh", "Áp dụng cấu trúc UBND.YYYY.X.S cho trường SO_DANG_KY"),
+    (7, "Luật Căn cước 2023 & VNeID", "Quốc hội / BCA", "2023 - 2026", "Quy định về thẻ Căn cước và định danh điện tử", "Áp dụng cho MA_TTDV, MA_THE_BHYT, MA_BHXH nới lỏng n ký tự")
 ]
 
-row_idx = 5
-for doc in legal_docs:
-    ws4.cell(row_idx, 1, doc[0]).alignment = ALIGN_CENTER
-    ws4.cell(row_idx, 2, doc[1]).alignment = ALIGN_CENTER
-    ws4.cell(row_idx, 3, doc[2]).alignment = ALIGN_CENTER
-    ws4.cell(row_idx, 4, doc[3]).alignment = ALIGN_CENTER
-    ws4.cell(row_idx, 5, doc[4]).alignment = ALIGN_LEFT
-    ws4.cell(row_idx, 6, doc[5]).alignment = ALIGN_LEFT
-    
-    for c in range(1, 7):
-        cell_obj = ws4.cell(row_idx, c)
-        cell_obj.border = BORDER_THIN
-        cell_obj.font = FONT_REGULAR
-        if row_idx % 2 == 0:
-            cell_obj.fill = ZEBRA_FILL
-        if c == 2:
-            cell_obj.font = FONT_BOLD
-            
-    row_idx += 1
-
-# Auto-adjust column widths for all sheets
-for ws in [ws1, ws2, ws3, ws4]:
-    for col in ws.columns:
-        col_letter = get_column_letter(col[0].column)
-        max_len = 0
-        for cell in col:
-            # Skip merged or very long cells in title
-            if cell.row in (1, 2, 3, 4) and ws == ws3:
-                continue
-            val_str = str(cell.value or '')
-            lines = val_str.split('\n')
-            longest_line = max(len(l) for l in lines) if lines else 0
-            if longest_line > max_len:
-                max_len = longest_line
-        ws.column_dimensions[col_letter].width = min(max(max_len + 3, 11), 60)
-
-# Set specific column widths for best reading
-ws1.column_dimensions['A'].width = 6
-ws1.column_dimensions['B'].width = 16
-ws1.column_dimensions['C'].width = 35
-ws1.column_dimensions['D'].width = 16
-ws1.column_dimensions['E'].width = 24
-ws1.column_dimensions['F'].width = 15
-ws1.column_dimensions['G'].width = 24
-
-ws2.column_dimensions['A'].width = 6
-ws2.column_dimensions['B'].width = 24
-ws2.column_dimensions['C'].width = 11
-ws2.column_dimensions['D'].width = 18
-ws2.column_dimensions['E'].width = 10
-ws2.column_dimensions['F'].width = 12
-ws2.column_dimensions['G'].width = 38
-ws2.column_dimensions['H'].width = 48
-ws2.column_dimensions['I'].width = 22
-ws2.column_dimensions['J'].width = 32
-
-ws3.column_dimensions['A'].width = 6
-ws3.column_dimensions['B'].width = 26
-ws3.column_dimensions['C'].width = 22
-ws3.column_dimensions['D'].width = 24
-ws3.column_dimensions['E'].width = 32
-ws3.column_dimensions['F'].width = 44
-ws3.column_dimensions['G'].width = 32
+for row_i, vb in enumerate(vb_list, 5):
+    for col_i, val in enumerate(vb, 1):
+        cell = ws4.cell(row_i, col_i, val)
+        cell.font = FONT_REGULAR
+        cell.border = BORDER_THIN
+        if col_i in [1, 4]:
+            cell.alignment = ALIGN_CENTER
+        elif col_i == 2:
+            cell.font = FONT_BOLD
 
 ws4.column_dimensions['A'].width = 6
-ws4.column_dimensions['B'].width = 28
-ws4.column_dimensions['C'].width = 14
-ws4.column_dimensions['D'].width = 20
-ws4.column_dimensions['E'].width = 45
-ws4.column_dimensions['F'].width = 40
+ws4.column_dimensions['B'].width = 30
+ws4.column_dimensions['C'].width = 25
+ws4.column_dimensions['D'].width = 15
+ws4.column_dimensions['E'].width = 50
+ws4.column_dimensions['F'].width = 45
 
-out_path_docs = r'docs\So_sanh_thay_doi_QD_3556_vs_3176_BYT.xlsx'
-out_path_public = r'client\public\documents\So_sanh_thay_doi_QD_3556_vs_3176_BYT.xlsx'
-
-wb.save(out_path_docs)
-wb.save(out_path_public)
-
-print(f"Successfully generated comparison Excel workbook at:")
-print(f"  - {out_path_docs}")
-print(f"  - {out_path_public}")
+# Save workbook to both docs and client/public/documents
+out1 = "docs/So_sanh_thay_doi_QD_3556_vs_3176_BYT.xlsx"
+out2 = "client/public/documents/So_sanh_thay_doi_QD_3556_vs_3176_BYT.xlsx"
+wb.save(out1)
+wb.save(out2)
+print(f"Generated {out1} and {out2} with {len(changed_records)} changed records!")

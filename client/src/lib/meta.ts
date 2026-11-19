@@ -3,14 +3,25 @@
  */
 export const APP_META = {
   name: "TT12 Excel Validator",
-  version: "1.10.0",
-  date: "2026-11-18",
+  version: "1.11.0",
+  date: "2026-11-19",
   author: "Nguyễn Sơn Nam (Nsnnam)",
   authorShort: "NSN",
   role: "Tác giả · Tiện ích HIS / Excel / dữ liệu y tế",
   github: "https://github.com/Nsnnam/tt12-excel-validator",
   timezone: "Asia/Ho_Chi_Minh",
   changelog: [
+    {
+      version: "1.11.0",
+      date: "2026-11-19",
+      changes: [
+        "Đồng bộ toàn diện dữ liệu đối chiếu chuyên sâu QĐ 3556/QĐ-BYT từ bản cập nhật web tham chiếu (tracuu-danhmuc-tt12.web.app/#qd3556) với 484 chỉ tiêu đối chiếu phân loại chi tiết (3 trường mới, 8 trường NULL, 81 trường sửa đổi/bổ sung, 2 trường cần lưu ý/đối chiếu, 1 trường dẫn lại QĐ 1931, 3 trường lịch sử 3176, 386 trường không đổi).",
+        "Tích hợp chế độ '⚡ Đối chiếu thay đổi chuyên sâu (Deep Diff)' với bộ lọc 10 trạng thái đa chiều và Modal so sánh chi tiết 2 cột (Cột Cũ: lịch sử qua các QĐ 130 / 4750 / 3176 vs Cột Mới: nội dung sửa đổi bổ sung theo QĐ 3556 và công thức tính chi phí mới).",
+        "Chuẩn hóa ngày ban hành và ký số chính thức của QĐ 3556/QĐ-BYT là 18/11/2026 (xác thực chữ ký số Ban Cơ yếu / Bộ Y tế lúc 16:57:41 ngày 18/11/2026).",
+        "Bổ sung tệp đối chiếu cũ chuan-dau-ra-3176-2024.xls (28/10/2024) vào THƯ VIỆN FILE MẪU & TÀI LIỆU cùng bộ 3 mã băm SHA-256 xác thực toàn vẹn tài liệu nguồn.",
+        "Cập nhật trọn bộ sản phẩm bàn giao (Excel So_sanh_thay_doi_QD_3556_vs_3176_BYT.xlsx, Slide PPTX Bao_cao_Phan_tich_Thay_doi_QD_3556_BYT.pptx, và Infographic tương tác) đồng bộ 100% dữ liệu đối chiếu mới."
+      ]
+    },
     {
       version: "1.10.0",
       date: "2026-11-18",

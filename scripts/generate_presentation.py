@@ -106,7 +106,7 @@ tag1.fill.fore_color.rgb = C_COBALT
 tag1.line.fill.background()
 tf_tag = tag1.text_frame
 p_tag = tf_tag.paragraphs[0]
-p_tag.text = "BỘ Y TẾ · BAN HÀNH NGÀY 16/11/2026"
+p_tag.text = "BỘ Y TẾ · BAN HÀNH NGÀY 18/11/2026"
 p_tag.font.size = Pt(10)
 p_tag.font.bold = True
 p_tag.font.color.rgb = C_WHITE
@@ -154,7 +154,7 @@ p_m2.font.color.rgb = RGBColor(254, 215, 170)
 p_m2.font.name = "Segoe UI"
 
 p_m3 = tf_meta.add_paragraph()
-p_m3.text = "• Hiệu lực thi hành: Kể từ ngày ký (16/11/2026). BHXH Việt Nam và các cơ sở KCB toàn quốc cập nhật theo Hệ thống Giám định BHYT."
+p_m3.text = "• Hiệu lực thi hành: Kể từ ngày ký (18/11/2026). BHXH Việt Nam và các cơ sở KCB toàn quốc cập nhật theo Hệ thống Giám định BHYT."
 p_m3.font.size = Pt(11)
 p_m3.font.color.rgb = RGBColor(203, 213, 225)
 p_m3.font.name = "Segoe UI"
@@ -211,7 +211,7 @@ stats = [
     ("93", "TRƯỜNG SỬA ĐỔI / BỔ SUNG", "Phân bố trên 15 bảng chuẩn đầu ra", C_COBALT),
     ("16", "BẢNG CHUẨN ĐẦU RA", "Gồm Bảng Check-in và 15 bảng XML", C_NAVY_LIGHT),
     ("20", "THAY ĐỔI TẠI BẢNG 1", "Bảng Tổng hợp KCB chịu tác động lớn nhất", C_AMBER),
-    ("100%", "HIỆU LỰC TỨC THÌ", "Kể từ ngày 16/11/2026 trên toàn quốc", C_TEAL)
+    ("100%", "HIỆU LỰC TỨC THÌ", "Kể từ ngày 18/11/2026 trên toàn quốc", C_TEAL)
 ]
 
 w_stat = Inches(2.75)
@@ -312,8 +312,11 @@ col_w = Inches(3.75)
 h_col = Inches(3.8)
 
 add_card(slide4, Inches(0.8), Inches(3.2), col_w, h_col, "Tách biệt Mức hưởng tại Bảng 2 & 3", [
-    "• Vấn đề cũ: Bệnh nhân khám ngoại trú có mức hưởng 0% hoặc khác nội trú, khi gộp hồ sơ thường bị áp sai tỷ lệ.",
     "• Quy định mới: Mỗi dòng dịch vụ trong Bảng 2 (Thuốc) và Bảng 3 (DVKT, VTYT) phải ghi đúng giá trị MUC_HUONG tại thời điểm chỉ định.",
+    "• Công thức mới T_BNTT (Bảng 2, 3):",
+    "  T_BNTT = THANH_TIEN_BV − T_BHTT − T_BNCCT",
+    "• Công thức mới T_BNCCT (Bảng 2, 3):",
+    "  T_BNCCT = THANH_TIEN_BH × MUC_HUONG_BH/100 − T_BHTT",
     "• Tránh tình trạng bị cơ quan BHXH từ chối hồ sơ do mâu thuẫn mức hưởng ngoại trú - nội trú."
 ], badge="Nghiệp vụ 1", accent_color=C_COBALT)
 
